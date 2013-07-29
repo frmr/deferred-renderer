@@ -1,0 +1,38 @@
+Total available video memory: 	256MB
+Total available texels at 4B:	67108864 (8192x8192)
+
+Total available video memory:	512MB
+Total available texels at 4B:	134217728 (11585x11585)
+
+Wizard (256x512)
+	Idle 			8
+	Idle_cast 		8
+	Walk			32
+	Swim_idle		8
+	Swim_idle_cast	8
+	Swim_move		32
+	
+	Total			96
+	
+	Total texels	12582912	(3547x3547)
+	
+	
+	
+Cheap Wizard (256x512)
+	Walk			32
+	Idle_cast		8
+	Death			32
+	Total			72
+	
+	Total Texels	9437184	(3072x3072)
+	
+Remaining available texels:		54525952 (7384x7384)
+	
+	
+	
+	
+Always loaded:
+	Wizard sprites
+	Effect icons
+	Spell sprites
+	Fonts

@@ -1,0 +1,936 @@
+4436 2013-05-12 02:22:31: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4436 2013-05-12 02:22:31: Depth buffer bits: 16
+4436 2013-05-12 02:22:31: Multisampling disabled
+4436 2013-05-12 02:22:31: OpenGL instancing enabled
+4436 2013-05-12 02:22:32: Loading entity definition file C:\Users\Farmer\Desktop\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4436 2013-05-12 02:22:32: Loading 'progs/player.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/player.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/armor.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/armor.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/armor.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/armor.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/armor.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/armor.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/suit.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/suit.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/invisibl.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/invisibl.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/invulner.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/invulner.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/quaddama.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/quaddama.mdl'
+4436 2013-05-12 02:22:32: Loading 'maps/b_batt0.bsp' (searching )
+4436 2013-05-12 02:22:32: Unable to find BSP 'maps/b_batt0.bsp'
+4436 2013-05-12 02:22:32: Loading 'maps/b_bh25.bsp' (searching )
+4436 2013-05-12 02:22:32: Unable to find BSP 'maps/b_bh25.bsp'
+4436 2013-05-12 02:22:32: Loading 'progs/w_s_key.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/w_s_key.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/w_g_key.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/w_g_key.mdl'
+4436 2013-05-12 02:22:32: Loading 'maps/b_rock0.bsp' (searching )
+4436 2013-05-12 02:22:32: Unable to find BSP 'maps/b_rock0.bsp'
+4436 2013-05-12 02:22:32: Loading 'maps/b_shell0.bsp' (searching )
+4436 2013-05-12 02:22:32: Unable to find BSP 'maps/b_shell0.bsp'
+4436 2013-05-12 02:22:32: Loading 'progs/end1.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/end1.mdl'
+4436 2013-05-12 02:22:32: Loading 'maps/b_nail0.bsp' (searching )
+4436 2013-05-12 02:22:32: Unable to find BSP 'maps/b_nail0.bsp'
+4436 2013-05-12 02:22:32: Loading 'progs/flame2.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/flame2.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/flame.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/flame.mdl'
+4436 2013-05-12 02:22:32: Loading 'maps/b_explob.bsp' (searching )
+4436 2013-05-12 02:22:32: Unable to find BSP 'maps/b_explob.bsp'
+4436 2013-05-12 02:22:32: Loading 'maps/b_exbox2.bsp' (searching )
+4436 2013-05-12 02:22:32: Unable to find BSP 'maps/b_exbox2.bsp'
+4436 2013-05-12 02:22:32: Loading 'progs/teleport.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/teleport.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/soldier.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/soldier.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/boss.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/boss.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/demon.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/demon.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/dog.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/dog.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/enforcer.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/enforcer.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/fish.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/fish.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/hknight.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/hknight.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/knight.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/knight.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/ogre.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/ogre.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/oldone.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/oldone.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/shalrath.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/shalrath.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/shambler.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/shambler.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/tarbaby.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/tarbaby.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/wizard.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/wizard.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/zombie.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/zombie.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/g_rock.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/g_rock.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/g_light.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/g_light.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/g_nail.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/g_nail.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/g_rock2.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/g_rock2.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/g_nail2.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/g_nail2.mdl'
+4436 2013-05-12 02:22:32: Loading 'progs/g_shot.mdl' (searching )
+4436 2013-05-12 02:22:32: Unable to find MDL 'progs/g_shot.mdl'
+4436 2013-05-12 02:22:32: Created Face Shader Program
+4436 2013-05-12 02:22:33: Created Face.vertsh
+4436 2013-05-12 02:22:33: Created Face.fragsh
+4436 2013-05-12 02:22:33: Created Colored Edge Shader Program
+4436 2013-05-12 02:22:33: Created ColoredEdge.vertsh
+4436 2013-05-12 02:22:33: Created Edge.fragsh
+4436 2013-05-12 02:22:33: Created Text Shader Program
+4436 2013-05-12 02:22:33: Created Text.vertsh
+4436 2013-05-12 02:22:33: Created Text.fragsh
+4436 2013-05-12 02:22:33: Created Text Background Shader Program
+4436 2013-05-12 02:22:33: Created TextBackground.vertsh
+4436 2013-05-12 02:22:33: Created TextBackground.fragsh
+4436 2013-05-12 02:22:33: Created Edge Shader Program
+4436 2013-05-12 02:22:33: Created Edge.vertsh
+4436 2013-05-12 02:22:33: Created Entity Model Shader Program
+4436 2013-05-12 02:22:33: Created EntityModel.vertsh
+4436 2013-05-12 02:22:33: Created EntityModel.fragsh
+4436 2013-05-12 02:22:33: Created Browser Group Shader Program
+4436 2013-05-12 02:22:33: Created BrowserGroup.vertsh
+4436 2013-05-12 02:22:33: Created BrowserGroup.fragsh
+4436 2013-05-12 02:22:38: Created Handle Shader Program
+4436 2013-05-12 02:22:38: Created Handle.vertsh
+4436 2013-05-12 02:22:38: Created Handle.fragsh
+4436 2013-05-12 02:24:24: Saved map file to C:\Users\Farmer\Desktop\test.map in 0.031000 seconds
+4276 2013-05-21 02:05:35: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4276 2013-05-21 02:05:35: Depth buffer bits: 16
+4276 2013-05-21 02:05:35: Multisampling disabled
+4276 2013-05-21 02:05:35: OpenGL instancing enabled
+4276 2013-05-21 02:05:36: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4276 2013-05-21 02:05:36: Loading 'progs/player.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/player.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/armor.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/armor.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/armor.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/armor.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/armor.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/armor.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/suit.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/suit.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/invisibl.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/invisibl.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/invulner.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/invulner.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/quaddama.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/quaddama.mdl'
+4276 2013-05-21 02:05:36: Loading 'maps/b_batt0.bsp' (searching )
+4276 2013-05-21 02:05:36: Unable to find BSP 'maps/b_batt0.bsp'
+4276 2013-05-21 02:05:36: Loading 'maps/b_bh25.bsp' (searching )
+4276 2013-05-21 02:05:36: Unable to find BSP 'maps/b_bh25.bsp'
+4276 2013-05-21 02:05:36: Loading 'progs/w_s_key.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/w_s_key.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/w_g_key.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/w_g_key.mdl'
+4276 2013-05-21 02:05:36: Loading 'maps/b_rock0.bsp' (searching )
+4276 2013-05-21 02:05:36: Unable to find BSP 'maps/b_rock0.bsp'
+4276 2013-05-21 02:05:36: Loading 'maps/b_shell0.bsp' (searching )
+4276 2013-05-21 02:05:36: Unable to find BSP 'maps/b_shell0.bsp'
+4276 2013-05-21 02:05:36: Loading 'progs/end1.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/end1.mdl'
+4276 2013-05-21 02:05:36: Loading 'maps/b_nail0.bsp' (searching )
+4276 2013-05-21 02:05:36: Unable to find BSP 'maps/b_nail0.bsp'
+4276 2013-05-21 02:05:36: Loading 'progs/flame2.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/flame2.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/flame.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/flame.mdl'
+4276 2013-05-21 02:05:36: Loading 'maps/b_explob.bsp' (searching )
+4276 2013-05-21 02:05:36: Unable to find BSP 'maps/b_explob.bsp'
+4276 2013-05-21 02:05:36: Loading 'maps/b_exbox2.bsp' (searching )
+4276 2013-05-21 02:05:36: Unable to find BSP 'maps/b_exbox2.bsp'
+4276 2013-05-21 02:05:36: Loading 'progs/teleport.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/teleport.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/soldier.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/soldier.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/boss.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/boss.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/demon.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/demon.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/dog.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/dog.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/enforcer.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/enforcer.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/fish.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/fish.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/hknight.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/hknight.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/knight.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/knight.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/ogre.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/ogre.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/oldone.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/oldone.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/shalrath.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/shalrath.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/shambler.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/shambler.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/tarbaby.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/tarbaby.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/wizard.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/wizard.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/zombie.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/zombie.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/g_rock.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/g_rock.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/g_light.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/g_light.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/g_nail.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/g_nail.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/g_rock2.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/g_rock2.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/g_nail2.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/g_nail2.mdl'
+4276 2013-05-21 02:05:36: Loading 'progs/g_shot.mdl' (searching )
+4276 2013-05-21 02:05:36: Unable to find MDL 'progs/g_shot.mdl'
+4276 2013-05-21 02:05:36: Created Face Shader Program
+4276 2013-05-21 02:05:36: Created Face.vertsh
+4276 2013-05-21 02:05:36: Created Face.fragsh
+4276 2013-05-21 02:05:36: Created Colored Edge Shader Program
+4276 2013-05-21 02:05:36: Created ColoredEdge.vertsh
+4276 2013-05-21 02:05:36: Created Edge.fragsh
+4276 2013-05-21 02:05:36: Created Text Shader Program
+4276 2013-05-21 02:05:36: Created Text.vertsh
+4276 2013-05-21 02:05:36: Created Text.fragsh
+4276 2013-05-21 02:05:36: Created Text Background Shader Program
+4276 2013-05-21 02:05:36: Created TextBackground.vertsh
+4276 2013-05-21 02:05:36: Created TextBackground.fragsh
+4276 2013-05-21 02:05:36: Created Edge Shader Program
+4276 2013-05-21 02:05:36: Created Edge.vertsh
+4276 2013-05-21 02:05:36: Created Entity Model Shader Program
+4276 2013-05-21 02:05:36: Created EntityModel.vertsh
+4276 2013-05-21 02:05:36: Created EntityModel.fragsh
+4276 2013-05-21 02:05:36: Created Browser Group Shader Program
+4276 2013-05-21 02:05:36: Created BrowserGroup.vertsh
+4276 2013-05-21 02:05:36: Created BrowserGroup.fragsh
+4464 2013-06-14 16:01:53: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4464 2013-06-14 16:01:53: Depth buffer bits: 16
+4464 2013-06-14 16:01:53: Multisampling disabled
+4464 2013-06-14 16:01:53: OpenGL instancing enabled
+4464 2013-06-14 16:01:54: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4464 2013-06-14 16:01:54: Loading 'progs/player.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/player.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/armor.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/armor.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/armor.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/armor.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/armor.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/armor.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/suit.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/suit.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/invisibl.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/invisibl.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/invulner.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/invulner.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/quaddama.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/quaddama.mdl'
+4464 2013-06-14 16:01:54: Loading 'maps/b_batt0.bsp' (searching )
+4464 2013-06-14 16:01:54: Unable to find BSP 'maps/b_batt0.bsp'
+4464 2013-06-14 16:01:54: Loading 'maps/b_bh25.bsp' (searching )
+4464 2013-06-14 16:01:54: Unable to find BSP 'maps/b_bh25.bsp'
+4464 2013-06-14 16:01:54: Loading 'progs/w_s_key.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/w_s_key.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/w_g_key.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/w_g_key.mdl'
+4464 2013-06-14 16:01:54: Loading 'maps/b_rock0.bsp' (searching )
+4464 2013-06-14 16:01:54: Unable to find BSP 'maps/b_rock0.bsp'
+4464 2013-06-14 16:01:54: Loading 'maps/b_shell0.bsp' (searching )
+4464 2013-06-14 16:01:54: Unable to find BSP 'maps/b_shell0.bsp'
+4464 2013-06-14 16:01:54: Loading 'progs/end1.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/end1.mdl'
+4464 2013-06-14 16:01:54: Loading 'maps/b_nail0.bsp' (searching )
+4464 2013-06-14 16:01:54: Unable to find BSP 'maps/b_nail0.bsp'
+4464 2013-06-14 16:01:54: Loading 'progs/flame2.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/flame2.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/flame.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/flame.mdl'
+4464 2013-06-14 16:01:54: Loading 'maps/b_explob.bsp' (searching )
+4464 2013-06-14 16:01:54: Unable to find BSP 'maps/b_explob.bsp'
+4464 2013-06-14 16:01:54: Loading 'maps/b_exbox2.bsp' (searching )
+4464 2013-06-14 16:01:54: Unable to find BSP 'maps/b_exbox2.bsp'
+4464 2013-06-14 16:01:54: Loading 'progs/teleport.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/teleport.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/soldier.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/soldier.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/boss.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/boss.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/demon.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/demon.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/dog.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/dog.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/enforcer.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/enforcer.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/fish.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/fish.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/hknight.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/hknight.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/knight.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/knight.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/ogre.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/ogre.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/oldone.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/oldone.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/shalrath.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/shalrath.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/shambler.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/shambler.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/tarbaby.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/tarbaby.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/wizard.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/wizard.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/zombie.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/zombie.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/g_rock.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/g_rock.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/g_light.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/g_light.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/g_nail.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/g_nail.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/g_rock2.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/g_rock2.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/g_nail2.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/g_nail2.mdl'
+4464 2013-06-14 16:01:54: Loading 'progs/g_shot.mdl' (searching )
+4464 2013-06-14 16:01:54: Unable to find MDL 'progs/g_shot.mdl'
+4464 2013-06-14 16:01:55: Created Face Shader Program
+4464 2013-06-14 16:01:55: Created Face.vertsh
+4464 2013-06-14 16:01:55: Created Face.fragsh
+4464 2013-06-14 16:01:55: Created Colored Edge Shader Program
+4464 2013-06-14 16:01:55: Created ColoredEdge.vertsh
+4464 2013-06-14 16:01:55: Created Edge.fragsh
+4464 2013-06-14 16:01:55: Created Text Shader Program
+4464 2013-06-14 16:01:55: Created Text.vertsh
+4464 2013-06-14 16:01:55: Created Text.fragsh
+4464 2013-06-14 16:01:55: Created Text Background Shader Program
+4464 2013-06-14 16:01:55: Created TextBackground.vertsh
+4464 2013-06-14 16:01:55: Created TextBackground.fragsh
+4464 2013-06-14 16:01:55: Created Edge Shader Program
+4464 2013-06-14 16:01:55: Created Edge.vertsh
+4464 2013-06-14 16:01:55: Created Entity Model Shader Program
+4464 2013-06-14 16:01:55: Created EntityModel.vertsh
+4464 2013-06-14 16:01:55: Created EntityModel.fragsh
+4464 2013-06-14 16:01:55: Created Browser Group Shader Program
+4464 2013-06-14 16:01:55: Created BrowserGroup.vertsh
+4464 2013-06-14 16:01:55: Created BrowserGroup.fragsh
+4000 2013-06-18 12:53:27: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4000 2013-06-18 12:53:27: Depth buffer bits: 16
+4000 2013-06-18 12:53:27: Multisampling disabled
+4000 2013-06-18 12:53:27: OpenGL instancing enabled
+4000 2013-06-18 12:53:27: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4000 2013-06-18 12:53:27: Loading 'progs/player.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/player.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/armor.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/armor.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/armor.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/armor.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/armor.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/armor.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/suit.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/suit.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/invisibl.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/invisibl.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/invulner.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/invulner.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/quaddama.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/quaddama.mdl'
+4000 2013-06-18 12:53:27: Loading 'maps/b_batt0.bsp' (searching )
+4000 2013-06-18 12:53:27: Unable to find BSP 'maps/b_batt0.bsp'
+4000 2013-06-18 12:53:27: Loading 'maps/b_bh25.bsp' (searching )
+4000 2013-06-18 12:53:27: Unable to find BSP 'maps/b_bh25.bsp'
+4000 2013-06-18 12:53:27: Loading 'progs/w_s_key.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/w_s_key.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/w_g_key.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/w_g_key.mdl'
+4000 2013-06-18 12:53:27: Loading 'maps/b_rock0.bsp' (searching )
+4000 2013-06-18 12:53:27: Unable to find BSP 'maps/b_rock0.bsp'
+4000 2013-06-18 12:53:27: Loading 'maps/b_shell0.bsp' (searching )
+4000 2013-06-18 12:53:27: Unable to find BSP 'maps/b_shell0.bsp'
+4000 2013-06-18 12:53:27: Loading 'progs/end1.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/end1.mdl'
+4000 2013-06-18 12:53:27: Loading 'maps/b_nail0.bsp' (searching )
+4000 2013-06-18 12:53:27: Unable to find BSP 'maps/b_nail0.bsp'
+4000 2013-06-18 12:53:27: Loading 'progs/flame2.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/flame2.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/flame.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/flame.mdl'
+4000 2013-06-18 12:53:27: Loading 'maps/b_explob.bsp' (searching )
+4000 2013-06-18 12:53:27: Unable to find BSP 'maps/b_explob.bsp'
+4000 2013-06-18 12:53:27: Loading 'maps/b_exbox2.bsp' (searching )
+4000 2013-06-18 12:53:27: Unable to find BSP 'maps/b_exbox2.bsp'
+4000 2013-06-18 12:53:27: Loading 'progs/teleport.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/teleport.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/soldier.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/soldier.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/boss.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/boss.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/demon.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/demon.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/dog.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/dog.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/enforcer.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/enforcer.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/fish.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/fish.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/hknight.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/hknight.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/knight.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/knight.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/ogre.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/ogre.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/oldone.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/oldone.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/shalrath.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/shalrath.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/shambler.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/shambler.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/tarbaby.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/tarbaby.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/wizard.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/wizard.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/zombie.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/zombie.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/g_rock.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/g_rock.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/g_light.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/g_light.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/g_nail.mdl' (searching )
+4000 2013-06-18 12:53:27: Unable to find MDL 'progs/g_nail.mdl'
+4000 2013-06-18 12:53:27: Loading 'progs/g_rock2.mdl' (searching )
+4000 2013-06-18 12:53:28: Unable to find MDL 'progs/g_rock2.mdl'
+4000 2013-06-18 12:53:28: Loading 'progs/g_nail2.mdl' (searching )
+4000 2013-06-18 12:53:28: Unable to find MDL 'progs/g_nail2.mdl'
+4000 2013-06-18 12:53:28: Loading 'progs/g_shot.mdl' (searching )
+4000 2013-06-18 12:53:28: Unable to find MDL 'progs/g_shot.mdl'
+4000 2013-06-18 12:53:28: Created Face Shader Program
+4000 2013-06-18 12:53:28: Created Face.vertsh
+4000 2013-06-18 12:53:28: Created Face.fragsh
+4000 2013-06-18 12:53:28: Created Colored Edge Shader Program
+4000 2013-06-18 12:53:28: Created ColoredEdge.vertsh
+4000 2013-06-18 12:53:28: Created Edge.fragsh
+4000 2013-06-18 12:53:28: Created Text Shader Program
+4000 2013-06-18 12:53:28: Created Text.vertsh
+4000 2013-06-18 12:53:28: Created Text.fragsh
+4000 2013-06-18 12:53:28: Created Text Background Shader Program
+4000 2013-06-18 12:53:28: Created TextBackground.vertsh
+4000 2013-06-18 12:53:28: Created TextBackground.fragsh
+4000 2013-06-18 12:53:28: Created Edge Shader Program
+4000 2013-06-18 12:53:28: Created Edge.vertsh
+4000 2013-06-18 12:53:28: Created Entity Model Shader Program
+4000 2013-06-18 12:53:28: Created EntityModel.vertsh
+4000 2013-06-18 12:53:28: Created EntityModel.fragsh
+4000 2013-06-18 12:53:28: Created Browser Group Shader Program
+4000 2013-06-18 12:53:28: Created BrowserGroup.vertsh
+4000 2013-06-18 12:53:28: Created BrowserGroup.fragsh
+4000 2013-06-18 12:53:31: Created Handle Shader Program
+4000 2013-06-18 12:53:31: Created Handle.vertsh
+4000 2013-06-18 12:53:31: Created Handle.fragsh
+3968 2013-06-18 13:10:22: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+3968 2013-06-18 13:10:22: Depth buffer bits: 16
+3968 2013-06-18 13:10:22: Multisampling disabled
+3968 2013-06-18 13:10:22: OpenGL instancing enabled
+3968 2013-06-18 13:10:23: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+3968 2013-06-18 13:10:23: Loading 'progs/player.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/player.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/armor.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/armor.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/armor.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/armor.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/armor.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/armor.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/suit.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/suit.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/invisibl.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/invisibl.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/invulner.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/invulner.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/quaddama.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/quaddama.mdl'
+3968 2013-06-18 13:10:23: Loading 'maps/b_batt0.bsp' (searching )
+3968 2013-06-18 13:10:23: Unable to find BSP 'maps/b_batt0.bsp'
+3968 2013-06-18 13:10:23: Loading 'maps/b_bh25.bsp' (searching )
+3968 2013-06-18 13:10:23: Unable to find BSP 'maps/b_bh25.bsp'
+3968 2013-06-18 13:10:23: Loading 'progs/w_s_key.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/w_s_key.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/w_g_key.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/w_g_key.mdl'
+3968 2013-06-18 13:10:23: Loading 'maps/b_rock0.bsp' (searching )
+3968 2013-06-18 13:10:23: Unable to find BSP 'maps/b_rock0.bsp'
+3968 2013-06-18 13:10:23: Loading 'maps/b_shell0.bsp' (searching )
+3968 2013-06-18 13:10:23: Unable to find BSP 'maps/b_shell0.bsp'
+3968 2013-06-18 13:10:23: Loading 'progs/end1.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/end1.mdl'
+3968 2013-06-18 13:10:23: Loading 'maps/b_nail0.bsp' (searching )
+3968 2013-06-18 13:10:23: Unable to find BSP 'maps/b_nail0.bsp'
+3968 2013-06-18 13:10:23: Loading 'progs/flame2.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/flame2.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/flame.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/flame.mdl'
+3968 2013-06-18 13:10:23: Loading 'maps/b_explob.bsp' (searching )
+3968 2013-06-18 13:10:23: Unable to find BSP 'maps/b_explob.bsp'
+3968 2013-06-18 13:10:23: Loading 'maps/b_exbox2.bsp' (searching )
+3968 2013-06-18 13:10:23: Unable to find BSP 'maps/b_exbox2.bsp'
+3968 2013-06-18 13:10:23: Loading 'progs/teleport.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/teleport.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/soldier.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/soldier.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/boss.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/boss.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/demon.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/demon.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/dog.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/dog.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/enforcer.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/enforcer.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/fish.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/fish.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/hknight.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/hknight.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/knight.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/knight.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/ogre.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/ogre.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/oldone.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/oldone.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/shalrath.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/shalrath.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/shambler.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/shambler.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/tarbaby.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/tarbaby.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/wizard.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/wizard.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/zombie.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/zombie.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/g_rock.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/g_rock.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/g_light.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/g_light.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/g_nail.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/g_nail.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/g_rock2.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/g_rock2.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/g_nail2.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/g_nail2.mdl'
+3968 2013-06-18 13:10:23: Loading 'progs/g_shot.mdl' (searching )
+3968 2013-06-18 13:10:23: Unable to find MDL 'progs/g_shot.mdl'
+3968 2013-06-18 13:10:23: Created Face Shader Program
+3968 2013-06-18 13:10:23: Created Face.vertsh
+3968 2013-06-18 13:10:23: Created Face.fragsh
+3968 2013-06-18 13:10:23: Created Colored Edge Shader Program
+3968 2013-06-18 13:10:23: Created ColoredEdge.vertsh
+3968 2013-06-18 13:10:23: Created Edge.fragsh
+3968 2013-06-18 13:10:23: Created Text Shader Program
+3968 2013-06-18 13:10:23: Created Text.vertsh
+3968 2013-06-18 13:10:23: Created Text.fragsh
+3968 2013-06-18 13:10:23: Created Text Background Shader Program
+3968 2013-06-18 13:10:23: Created TextBackground.vertsh
+3968 2013-06-18 13:10:23: Created TextBackground.fragsh
+3968 2013-06-18 13:10:23: Created Edge Shader Program
+3968 2013-06-18 13:10:23: Created Edge.vertsh
+3968 2013-06-18 13:10:23: Created Entity Model Shader Program
+3968 2013-06-18 13:10:23: Created EntityModel.vertsh
+3968 2013-06-18 13:10:23: Created EntityModel.fragsh
+3968 2013-06-18 13:10:23: Created Browser Group Shader Program
+3968 2013-06-18 13:10:23: Created BrowserGroup.vertsh
+3968 2013-06-18 13:10:23: Created BrowserGroup.fragsh
+3968 2013-06-18 13:11:11: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:11: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3968 2013-06-18 13:11:27: Created Handle Shader Program
+3968 2013-06-18 13:11:27: Created Handle.vertsh
+3968 2013-06-18 13:11:27: Created Handle.fragsh
+1448 2013-06-19 13:00:04: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+1448 2013-06-19 13:00:04: Depth buffer bits: 16
+1448 2013-06-19 13:00:04: Multisampling disabled
+1448 2013-06-19 13:00:04: OpenGL instancing enabled
+1448 2013-06-19 13:00:05: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+1448 2013-06-19 13:00:05: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+1448 2013-06-19 13:00:05: Created Face Shader Program
+1448 2013-06-19 13:00:05: Created Face.vertsh
+1448 2013-06-19 13:00:05: Created Face.fragsh
+1448 2013-06-19 13:00:06: Created Colored Edge Shader Program
+1448 2013-06-19 13:00:06: Created ColoredEdge.vertsh
+1448 2013-06-19 13:00:06: Created Edge.fragsh
+1448 2013-06-19 13:00:06: Created Text Shader Program
+1448 2013-06-19 13:00:06: Created Text.vertsh
+1448 2013-06-19 13:00:06: Created Text.fragsh
+1448 2013-06-19 13:00:06: Created Text Background Shader Program
+1448 2013-06-19 13:00:06: Created TextBackground.vertsh
+1448 2013-06-19 13:00:06: Created TextBackground.fragsh
+1448 2013-06-19 13:00:06: Created Edge Shader Program
+1448 2013-06-19 13:00:06: Created Edge.vertsh
+1448 2013-06-19 13:00:06: Created Entity Model Shader Program
+1448 2013-06-19 13:00:06: Created EntityModel.vertsh
+1448 2013-06-19 13:00:06: Created EntityModel.fragsh
+1448 2013-06-19 13:00:06: Created Browser Group Shader Program
+1448 2013-06-19 13:00:06: Created BrowserGroup.vertsh
+1448 2013-06-19 13:00:06: Created BrowserGroup.fragsh
+1448 2013-06-19 13:00:32: Created Handle Shader Program
+1448 2013-06-19 13:00:32: Created Handle.vertsh
+1448 2013-06-19 13:00:32: Created Handle.fragsh
+1448 2013-06-19 13:08:37: Created Texture Browser Shader Program
+1448 2013-06-19 13:08:37: Created TextureBrowser.vertsh
+1448 2013-06-19 13:08:37: Created TextureBrowser.fragsh
+1448 2013-06-19 13:12:59: Loaded C:\Users\Farmer\Desktop\quake.wad in 0.002000 seconds
+1448 2013-06-19 13:12:59: Created Texture Browser Border Shader Program
+1448 2013-06-19 13:12:59: Created TextureBrowserBorder.vertsh
+1448 2013-06-19 13:12:59: Created TextureBrowserBorder.fragsh
+1448 2013-06-19 13:16:16: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.012000 seconds
+1448 2013-06-19 13:16:17: Autosave directory created at C:\Users\Farmer\Desktop\autosave
+1448 2013-06-19 13:16:17: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 1.map in 0.001000 seconds
+1448 2013-06-19 13:20:53: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.002000 seconds
+1448 2013-06-19 13:20:59: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.001000 seconds
+4948 2013-06-19 18:02:51: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4948 2013-06-19 18:02:51: Depth buffer bits: 16
+4948 2013-06-19 18:02:51: Multisampling disabled
+4948 2013-06-19 18:02:51: OpenGL instancing enabled
+4948 2013-06-19 18:02:51: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4948 2013-06-19 18:02:51: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4948 2013-06-19 18:02:52: Created Face Shader Program
+4948 2013-06-19 18:02:52: Created Face.vertsh
+4948 2013-06-19 18:02:52: Created Face.fragsh
+4948 2013-06-19 18:02:52: Created Colored Edge Shader Program
+4948 2013-06-19 18:02:52: Created ColoredEdge.vertsh
+4948 2013-06-19 18:02:52: Created Edge.fragsh
+4948 2013-06-19 18:02:52: Created Text Shader Program
+4948 2013-06-19 18:02:52: Created Text.vertsh
+4948 2013-06-19 18:02:52: Created Text.fragsh
+4948 2013-06-19 18:02:52: Created Text Background Shader Program
+4948 2013-06-19 18:02:52: Created TextBackground.vertsh
+4948 2013-06-19 18:02:52: Created TextBackground.fragsh
+4948 2013-06-19 18:02:52: Created Edge Shader Program
+4948 2013-06-19 18:02:52: Created Edge.vertsh
+4948 2013-06-19 18:02:52: Created Entity Model Shader Program
+4948 2013-06-19 18:02:52: Created EntityModel.vertsh
+4948 2013-06-19 18:02:52: Created EntityModel.fragsh
+4948 2013-06-19 18:02:52: Created Browser Group Shader Program
+4948 2013-06-19 18:02:52: Created BrowserGroup.vertsh
+4948 2013-06-19 18:02:52: Created BrowserGroup.fragsh
+4948 2013-06-19 18:03:14: Created Handle Shader Program
+4948 2013-06-19 18:03:14: Created Handle.vertsh
+4948 2013-06-19 18:03:14: Created Handle.fragsh
+4948 2013-06-19 18:04:03: Pasted 0 entities and 1 brush
+4948 2013-06-19 18:06:57: Pasted 0 entities and 1 brush
+4948 2013-06-19 18:19:12: Created Instanced Point Handle Shader Program
+4948 2013-06-19 18:19:12: Created InstancedPointHandle.vertsh
+4948 2013-06-19 18:21:53: Pasted 0 entities and 1 brush
+4948 2013-06-19 18:23:20: Pasted 0 entities and 1 brush
+4948 2013-06-19 18:28:55: Pasted 0 entities and 1 brush
+4948 2013-06-19 18:38:55: Created Colored Handle Shader Program
+4948 2013-06-19 18:38:56: Created ColoredHandle.vertsh
+4948 2013-06-19 18:39:18: Pasted 0 entities and 1 brush
+4948 2013-06-19 18:40:14: Saved map file to C:\Users\Farmer\Desktop\derwent.map in 0.024000 seconds
+4948 2013-06-19 18:40:15: Autosave directory created at C:\Users\Farmer\Desktop\autosave
+4948 2013-06-19 18:40:15: Autosaved to C:\Users\Farmer\Desktop\autosave\derwent 1.map in 0.003000 seconds
+4832 2013-06-19 20:56:22: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4832 2013-06-19 20:56:22: Depth buffer bits: 16
+4832 2013-06-19 20:56:22: Multisampling disabled
+4832 2013-06-19 20:56:22: OpenGL instancing enabled
+4832 2013-06-19 20:56:22: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4832 2013-06-19 20:56:22: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:22: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4832 2013-06-19 20:56:23: Created Face Shader Program
+4832 2013-06-19 20:56:23: Created Face.vertsh
+4832 2013-06-19 20:56:23: Created Face.fragsh
+4832 2013-06-19 20:56:23: Created Colored Edge Shader Program
+4832 2013-06-19 20:56:23: Created ColoredEdge.vertsh
+4832 2013-06-19 20:56:23: Created Edge.fragsh
+4832 2013-06-19 20:56:23: Created Text Shader Program
+4832 2013-06-19 20:56:23: Created Text.vertsh
+4832 2013-06-19 20:56:23: Created Text.fragsh
+4832 2013-06-19 20:56:23: Created Text Background Shader Program
+4832 2013-06-19 20:56:23: Created TextBackground.vertsh
+4832 2013-06-19 20:56:23: Created TextBackground.fragsh
+4832 2013-06-19 20:56:23: Created Edge Shader Program
+4832 2013-06-19 20:56:23: Created Edge.vertsh
+4832 2013-06-19 20:56:23: Created Entity Model Shader Program
+4832 2013-06-19 20:56:23: Created EntityModel.vertsh
+4832 2013-06-19 20:56:23: Created EntityModel.fragsh
+4832 2013-06-19 20:56:23: Created Browser Group Shader Program
+4832 2013-06-19 20:56:23: Created BrowserGroup.vertsh
+4832 2013-06-19 20:56:23: Created BrowserGroup.fragsh
+4832 2013-06-19 20:56:30: Unloading existing map file and textures...
+4832 2013-06-19 20:56:30: Loading file C:\Users\Farmer\Desktop\derwent.map
+4832 2013-06-19 20:56:31: Assuming floating point plane coordinates
+4832 2013-06-19 20:56:31: Loaded map file in 0.018000 seconds
+4832 2013-06-19 20:56:31: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4832 2013-06-19 20:56:43: Created Handle Shader Program
+4832 2013-06-19 20:56:43: Created Handle.vertsh
+4832 2013-06-19 20:56:43: Created Handle.fragsh
+4832 2013-06-19 20:58:06: Created Instanced Point Handle Shader Program
+4832 2013-06-19 20:58:06: Created InstancedPointHandle.vertsh
+4832 2013-06-19 21:01:40: Saved map file to C:\Users\Farmer\Desktop\derwent.map in 0.017000 seconds
+4832 2013-06-19 21:04:07: Created Texture Browser Shader Program
+4832 2013-06-19 21:04:07: Created TextureBrowser.vertsh
+4832 2013-06-19 21:04:07: Created TextureBrowser.fragsh
+4832 2013-06-19 21:04:33: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.152000 seconds
+4832 2013-06-19 21:04:34: Created Texture Browser Border Shader Program
+4832 2013-06-19 21:04:34: Created TextureBrowserBorder.vertsh
+4832 2013-06-19 21:04:34: Created TextureBrowserBorder.fragsh
+4832 2013-06-19 21:04:54: Saved map file to C:\Users\Farmer\Desktop\derwent.map in 0.004000 seconds
+2552 2013-06-19 21:07:39: Renderer info: ATI Radeon HD 5800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+2552 2013-06-19 21:07:39: Depth buffer bits: 16
+2552 2013-06-19 21:07:39: Multisampling disabled
+2552 2013-06-19 21:07:39: OpenGL instancing enabled
+2552 2013-06-19 21:07:40: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+2552 2013-06-19 21:07:40: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2552 2013-06-19 21:07:40: Created Face Shader Program
+2552 2013-06-19 21:07:40: Created Face.vertsh
+2552 2013-06-19 21:07:40: Created Face.fragsh
+2552 2013-06-19 21:07:41: Created Colored Edge Shader Program
+2552 2013-06-19 21:07:41: Created ColoredEdge.vertsh
+2552 2013-06-19 21:07:41: Created Edge.fragsh
+2552 2013-06-19 21:07:41: Created Text Shader Program
+2552 2013-06-19 21:07:41: Created Text.vertsh
+2552 2013-06-19 21:07:41: Created Text.fragsh
+2552 2013-06-19 21:07:41: Created Text Background Shader Program
+2552 2013-06-19 21:07:41: Created TextBackground.vertsh
+2552 2013-06-19 21:07:41: Created TextBackground.fragsh
+2552 2013-06-19 21:07:41: Created Edge Shader Program
+2552 2013-06-19 21:07:41: Created Edge.vertsh
+2552 2013-06-19 21:07:41: Created Entity Model Shader Program
+2552 2013-06-19 21:07:41: Created EntityModel.vertsh
+2552 2013-06-19 21:07:41: Created EntityModel.fragsh
+2552 2013-06-19 21:07:41: Created Browser Group Shader Program
+2552 2013-06-19 21:07:41: Created BrowserGroup.vertsh
+2552 2013-06-19 21:07:41: Created BrowserGroup.fragsh
+2552 2013-06-19 21:07:47: Unloading existing map file and textures...
+2552 2013-06-19 21:07:47: Loading file C:\Users\Farmer\Desktop\derwent.map
+2552 2013-06-19 21:07:47: Assuming floating point plane coordinates
+2552 2013-06-19 21:07:47: Loaded map file in 0.006000 seconds
+2552 2013-06-19 21:07:47: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.002000 seconds
+2552 2013-06-19 21:07:47: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+2552 2013-06-19 21:08:03: Created Handle Shader Program
+2552 2013-06-19 21:08:03: Created Handle.vertsh
+2552 2013-06-19 21:08:03: Created Handle.fragsh
+2552 2013-06-19 21:13:11: Created Instanced Point Handle Shader Program
+2552 2013-06-19 21:13:11: Created InstancedPointHandle.vertsh
+2552 2013-06-19 21:15:02: Pasted 0 entities and 1 brush
+2552 2013-06-19 21:15:16: Created Colored Handle Shader Program
+2552 2013-06-19 21:15:16: Created ColoredHandle.vertsh
+2552 2013-06-19 21:16:19: Pasted 0 entities and 2 brushes
+2552 2013-06-19 21:16:43: Pasted 0 entities and 4 brushes
+2552 2013-06-19 21:17:16: Pasted 0 entities and 8 brushes
+2552 2013-06-19 21:17:39: Autosaved to C:\Users\Farmer\Desktop\autosave\derwent 2.map in 0.007000 seconds
+2552 2013-06-19 21:17:40: Pasted 0 entities and 4 brushes
+2552 2013-06-19 21:22:31: Created Point Handle Shader Program
+2552 2013-06-19 21:22:31: Created PointHandle.vertsh
+2552 2013-06-19 21:23:49: Pasted 0 entities and 1 brush
+2552 2013-06-19 21:25:06: Pasted 0 entities and 1 brush
+2552 2013-06-19 21:27:39: Autosaved to C:\Users\Farmer\Desktop\autosave\derwent 3.map in 0.005000 seconds
+2552 2013-06-19 21:28:00: Pasted 0 entities and 1 brush
+2552 2013-06-19 21:29:02: Pasted 0 entities and 2 brushes
+2552 2013-06-19 21:29:39: Pasted 0 entities and 4 brushes
+2552 2013-06-19 21:29:53: Pasted 0 entities and 8 brushes
+2552 2013-06-19 21:30:17: Pasted 0 entities and 4 brushes
+2552 2013-06-19 21:34:24: Pasted 0 entities and 1 brush
+2552 2013-06-19 21:36:57: Saved map file to C:\Users\Farmer\Desktop\derwent.map in 0.008000 seconds

@@ -1,0 +1,13 @@
+Commands
+	Wait
+	Spawn		(Player, Projectile)
+	Add effect	(
+	
+Methods
+	Mover
+		States
+			Continue
+			Stop
+		Direction
+			Forward
+			Backward

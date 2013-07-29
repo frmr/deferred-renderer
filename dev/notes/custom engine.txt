@@ -1,0 +1,7 @@
+SFML
+	Input
+	Audio
+	Window
+	
+Bullet
+	Physics

@@ -1,0 +1,73 @@
+frame name			top-left pixel			bottom-right pixels
+
+
+
+
+
+
+animationName textureName
+{
+	{
+		mesh top-left X,
+		mesh top-left Y,
+		mesh bottom-right X,
+		mesh bottom-right Y,
+		texture top-left X,
+		texture top-left Y,
+		texture bottom-right X,
+		texture bottom-right Y
+	}
+}
+	
+field						size (B)
+------------------------------------
+numOfAnimations					1
+animationNameSize				1
+animationName					?
+textureNameSize					1
+textureName						?
+numOfFrames						1
+	mesh TL X					4
+	mesh TL Y					4
+	mesh BR X					4
+	mesh BR Y					4
+	texture TL X				4
+	texture TL Y				4
+	texture BR X				4
+	texture BR Y				4
+	duration					4
+
+	
+example:
+
+
+walk wizard_frames.png
+{
+	{
+		-32, 56,
+		32, 0,
+		0, 0,
+		0.25, 0.25
+	}
+	
+	{
+		-32, 56,
+		32, 0,
+		0.25, 0,
+		0.5, 0.25
+	}
+	
+	{
+		-32, 56,
+		32, 0,
+		0, 0.25,
+		0.5, 1
+	}
+	
+	{
+		-32, 56,
+		32, 0,
+		0.25, 0.25,
+		1, 1
+	}
+}

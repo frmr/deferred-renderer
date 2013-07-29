@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Wizmatch" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Wizmatch" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Wizmatch" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="../include" />
+		</Compiler>
+		<Linker>
+			<Add library="Irrlicht" />
+			<Add directory="../lib" />
+		</Linker>
+		<Unit filename="AnimatedBillboard.cpp" />
+		<Unit filename="AnimatedBillboard.h" />
+		<Unit filename="Effect.cpp" />
+		<Unit filename="Effect.h" />
+		<Unit filename="InputState.cpp" />
+		<Unit filename="InputState.h" />
+		<Unit filename="Player.h" />
+		<Unit filename="Potion.h" />
+		<Unit filename="Server.h" />
+		<Unit filename="Simulation.cpp" />
+		<Unit filename="Simulation.h" />
+		<Unit filename="SpellSet.h" />
+		<Unit filename="frmr_Vec2f.cpp" />
+		<Unit filename="frmr_Vec2f.h" />
+		<Unit filename="frmr_Vec3f.cpp" />
+		<Unit filename="frmr_Vec3f.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

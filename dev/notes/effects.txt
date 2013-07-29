@@ -1,0 +1,53 @@
+Damage
+	DAMAGE_FIRE
+	DAMAGE_HOLY
+	DAMAGE_ICE
+	DAMAGE_NORMAL
+	DAMAGE_SHOCK
+
+	MULTIPLY_FIRE_ATTACK
+	MULTIPLY_HOLY_ATTACK
+	MULTIPLY_ICE_ATTACK
+	MULTIPLY_NORMAL_ATTACK
+	MULTIPLY_SHOCK_ATTACK
+	
+	RESIST_FIRE
+	RESIST_HOLY
+	RESIST_ICE
+	RESIST_NORMAL
+	RESIST_SHOCK
+	
+	WEAKNESS_FIRE
+	WEAKNESS_HOLY
+	WEAKNESS_ICE
+	WEAKNESS_NORMAL
+	WEAKNESS_SHOCK
+	
+Status Ailments
+	BLIND					blackens the screen
+	PARALYZE
+	SILENCE
+	
+	CURE_BLIND
+	CURE_PARALYZE
+	CURE_SILENCE
+
+	IMMUNE_BLIND
+	IMMUNE_PARALYZE
+	IMMUNE_SILENCE
+
+Player Stats
+	MODIFY_CAST_SPEED		value adds linearly
+	MODIFY_JUMP_STRENGTH
+	MODIFY_MOVE_SPEED
+	REGENERATE_MAGIC		must stack to be fair
+	
+Other
+	BAIT 					draw enemies' attention and fire
+	DEATH					for level boundaries/traps etc.
+	ETHEREAL				disable collisions with projectiles
+	INVISIBLE
+	LEVITATE
+	RECALL					teleport to nearest checkpoint
+	RESURRECT
+	UNDEAD					holy damage reduces health, everything else does 1 damage
