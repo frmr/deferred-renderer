@@ -22,20 +22,20 @@ animationName textureName
 field						size (B)
 ------------------------------------
 numOfAnimations					1
-animationNameSize				1
-animationName					?
-textureNameSize					1
-textureName						?
-numOfFrames						1
-	mesh TL X					4
-	mesh TL Y					4
-	mesh BR X					4
-	mesh BR Y					4
-	texture TL X				4
-	texture TL Y				4
-	texture BR X				4
-	texture BR Y				4
-	duration					4
+	animationNameSize			1
+	animationName				?
+	textureNameSize				1
+	textureName					?
+	numOfFrames					1
+		mesh TL X				4
+		mesh TL Y				4
+		mesh BR X				4
+		mesh BR Y				4
+		texture TL X			4
+		texture TL Y			4
+		texture BR X			4
+		texture BR Y			4
+		duration				4
 
 	
 example:

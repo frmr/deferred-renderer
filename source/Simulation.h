@@ -21,7 +21,7 @@ private:
 	//object lists
 	vector<Player> 		        players;
 
-	vector< map< string, vector< pair<irr::scene::IMesh*, double> > > > animations;
+	vector<map<string, vector<pair<irr::scene::IMesh*, double>>>>   animations;
 
 public:
 	void Update();

@@ -1,4 +1,5 @@
 #include "irrlicht.h"
+#include "Simulation.h"
 
 int main()
 {
@@ -13,17 +14,7 @@ int main()
 
 	irr::video::IVideoDriver* driver = device->getVideoDriver();
 
-
-
-
-
-
-    enum class AppStage
-    {
-        MAIN_MENU,
-        IN_GAME,
-        OPTIONS
-    };
+    Simulation gameSim( device );
 
     AppStage stage = AppStage::IN_GAME;
 
@@ -31,18 +22,7 @@ int main()
     {
         driver->beginScene(true, true, 0);
 
-        if ( stage == AppStage::MAIN_MENU )
-        {
 
-        }
-        else if ( stage == AppStage::IN_GAME )
-        {
-
-        }
-        else if ( stage == AppStage::OPTIONS )
-        {
-
-        }
 
         driver->endScene();
     }
