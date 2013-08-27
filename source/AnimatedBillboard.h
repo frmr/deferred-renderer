@@ -3,37 +3,54 @@
 
 #include <string>
 #include <vector>
-#include <utility>
 #include <map>
 
-#include "irrlicht.h"
+#include <SFML/OpenGL.hpp>
+
 #include "frmr_Vec3f.h"
 
 using std::string;
 using std::map;
-using std::pair;
 using std::vector;
 
 class AnimatedBillboard
 {
+public:
+    enum class BillboardType
+    {
+        ROTATION,
+        POSITION
+    };
+
+    class Frame
+    {
+    private:
+        vector<GLuint*> meshes; //eight directions
+        double duration;
+
+    public:
+        GLuint* GetMesh( const float angle ) const;
+
+    public:
+        Frame();
+        //~Frame();
+    };
+
 private:
-	float 			rotation;
+    BillboardType   type;
 	double 			frameTimer;
 	unsigned int 	frameIndex;
 
-	irr::scene::IMeshSceneNode*					                nodeRef;
-	map<string, vector<pair<irr::scene::IMesh*, double>>>*   animationsRef;
+	map<string, vector<Frame>>* animations;
 
 private:
 	void LookAt( const frmr::Vec3f pos );
 	void SetAnimation( const string animationName );
 
 public:
-	void SetAlpha( const unsigned int newAlpha );
-	void SetColor( const unsigned int newRed, const unsigned int newGreen, const unsigned int newBlue );
 
 public:
-	AnimatedBillboard( irr::scene::IMeshSceneNode* const nodeRef, map< string, vector< pair<irr::scene::IMesh*, double> > >* const animationsRef );
+	AnimatedBillboard( const BillboardType type, map<string, vector<Frame>>* const animations );
 };
 
 #endif

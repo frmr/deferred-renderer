@@ -1,6 +1,8 @@
 #ifndef INPUT_STATE_H
 #define INPUT_STATE_H
 
+#include <SFML/Graphics.hpp>
+
 #include "frmr_vec2f.h"
 
 class InputState
@@ -25,7 +27,7 @@ private:
 public:
 	void	    ResetOneFrameKeys(); //rename
 	void	    ResetAll();
-	void	    Update();
+	void	    Update( sf::RenderWindow &window );
 
 	bool 	    GetForwardHeld() const;
 	bool 	    GetBackwardHeld() const;

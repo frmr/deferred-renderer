@@ -11,46 +11,48 @@
 
 using std::vector;
 
-class Player : public AnimatedBillboard
+class Player
 {
 private:
-	float 				maxHealth;
-	float 				health;
-	float 				maxMagic;
-	float 				magic;
+    static int16_t          playerNumIncrementer;
+    int16_t                 playerNum;
 
-	float 				maxControlSpeed;
-	float 				controlSpeed;
-	float 				controlAcceleration;
-	frmr::Vec3f			controlVelocity;
-	float 				maxFallSpeed;
-	frmr::Vec3f			fallVelocity;
-	frmr::Vec3f 		momentumVelocity;
+    AnimatedBillboard       skinBillboard;
+    AnimatedBillboard       clothesBillboard;
 
-	double				cooldownTimer;
-	float				cooldownMultiplier;
-	float				maxCooldownMultiplier;
-	float				minCooldownMultiplier;
+	float 				    maxHealth;
+	float 				    health;
+	float 				    maxMagic;
+	float 				    magic;
 
-	vector<Potion>		potions;
-	vector<SpellSet>	spells;
-	vector<Effect>		effects;
+	float 				    maxControlSpeed;
+	float 				    controlSpeed;
+	float 				    controlAcceleration;
+	frmr::Vec3f			    controlVelocity;
+	float 				    maxFallSpeed;
+	frmr::Vec3f			    fallVelocity;
+	frmr::Vec3f 		    momentumVelocity;
+    frmr::Vec3f             finalVelocity;
 
-	bool				humanControlled;
-	unsigned int		humanNetworkID;
-	irr::video::SColor	color;
-	unsigned int		alpha;
-	uint8_t				team;
+	double				    cooldownTimer;
+
+	vector<Potion>		    potions;
+	vector<SpellSet>	    spells;
+	vector<Effect>		    effects;
+
+	bool				    humanControlled;
+	unsigned int		    humanNetworkID;
+	frmr::Vec3f	            color;
+	uint8_t				    team;
 
 private:
-	bool				HasEffect( const Effect::EffectType effect ) const;
+	bool				    HasEffect( const Effect::EffectType effect ) const;
 
 public:
-	void				AddEffect( const Effect newEffect );
-	bool				IsDead() const;
-	void				SetAlpha( const unsigned int newAlpha );
-	void 				SetColor( const unsigned int newRed, const unsigned int newGreen, const unsigned int newBlue );
-	void				SetTeam( const uint8_t newTeam );
+	void				    AddEffect( const Effect newEffect );
+	bool				    IsDead() const;
+	void 				    SetColor( const unsigned int newRed, const unsigned int newGreen, const unsigned int newBlue );
+	void				    SetTeam( const uint8_t newTeam );
 
 };
 

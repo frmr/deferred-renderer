@@ -1,8 +1,8 @@
 #include "Effect.h"
 
-bool Effect::GetStack() const
+bool Effect::GetCanStack() const
 {
-	return stack;
+	return canStack;
 }
 
 float Effect::GetStrength() const
@@ -33,10 +33,10 @@ bool Effect::UpdateTimer( const double elapsed )
 	}
 }
 
-Effect::Effect( const Effect::EffectType type, const double duration, const float strength, const bool stack )
+Effect::Effect( const Effect::EffectType type, const double duration, const float strength, const bool canStack )
 	: type( type ),
 	  timer( duration ),
 	  strength( strength ),
-	  stack( stack )
+	  canStack( canStack )
 {
 }

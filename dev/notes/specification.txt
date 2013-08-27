@@ -130,10 +130,11 @@ Classes
 		Color overlay
 		Enter sound
 		Swim sound
+		Momentum vector
 		
 	Switch
-		WizScript
 		Collision mesh (don't draw)
+		Required items
 	
 	Mover : Actor (unlimited path nodes, stop whenever, rotation)
 		Capture volume
@@ -167,6 +168,8 @@ Classes
 	JumpPad
 	
 	Teleporter
+	
+	Projectile Emitter
 	
 	Input
 		Forward held

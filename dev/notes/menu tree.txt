@@ -1,0 +1,39 @@
+Create game
+	Map name
+	Max clients
+	Max players
+	Server name
+	
+Join game
+	Enter IP
+	
+Options
+	Control options
+		Bind keys
+		Invert Y-axis
+		Mouse sensitivity
+	Game options
+		Display player names
+	Graphics options
+		Fullscreen
+		Screen resolution
+		Texture detail
+			Low
+			Normal
+		Texture filtering
+			None
+			Bilinear
+			Trilinear
+	Player options
+		Name
+		Color
+	Sound options
+		Master volume
+		Sound effects volume
+		Music volume
+		
+Disconnect
+	Are you sure?
+		
+Exit
+	Are you sure?

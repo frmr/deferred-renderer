@@ -4,32 +4,32 @@
 class Effect
 {
 public:
-	enum EffectType
+	enum class EffectType
 	{
 		//most players regenerate magic
 		EFFECT_REGENERATE_MAGIC,
-		
+
 		//reduces player health, measured in damage per second
 		EFFECT_DAMAGE_FIRE,
 		EFFECT_DAMAGE_HOLY,
 		EFFECT_DAMAGE_ICE,
 		EFFECT_DAMAGE_NORMAL,
 		EFFECT_DAMAGE_SHOCK,
-		
+
 		//multiplies strength of EFFECT_DAMAGE_X when spawning projectiles
 		EFFECT_MULTIPLY_FIRE_ATTACK,
 		EFFECT_MULTIPLY_HOLY_ATTACK,
 		EFFECT_MULTIPLY_ICE_ATTACK,
 		EFFECT_MULTIPLY_NORMAL_ATTACK,
 		EFFECT_MULTIPLY_SHOCK_ATTACK,
-		
+
 		//multiplies strength of EFFECT_DAMAGE_X when applying effects
 		EFFECT_MULTIPLY_FIRE_DEFENSE,
 		EFFECT_MULTIPLY_HOLY_DEFENSE,
 		EFFECT_MULTIPLY_ICE_DEFENSE,
 		EFFECT_MULTIPLY_NORMAL_DEFENSE,
 		EFFECT_MULTIPLY_SHOCK_DEFENSE,
-		
+
 		//status ailments, strength has no effect on these
 		EFFECT_BLIND,
 		EFFECT_PARALYZE,
@@ -40,12 +40,12 @@ public:
 		EFFECT_IMMUNE_BLIND,
 		EFFECT_IMMUNE_PARALYZE,
 		EFFECT_IMMUNE_SILENCE,
-		
+
 		//player stat modifications
 		EFFECT_MODIFY_COOLDOWN,
 		EFFECT_MODIFY_JUMP_STRENGTH,
 		EFFECT_MODIFY_MOVE_SPEED,
-		
+
 		//misc effects, strength has no effect on these
 		EFFECT_BAIT,		//draw enemies' attention and fire
 		EFFECT_DEATH,		//for level boundaries, traps, etc.
@@ -57,24 +57,24 @@ public:
 		EFFECT_RESURRECT,
 		EFFECT_UNDEAD		//holy damage reduces health, everything else does 1 damage per second
 	};
-	
+
 private:
 	EffectType	type;
 	bool		permanent;	//if true, the effect will not be removed until an appropriate cure is applied
 	double 		timer;
 	float		strength;
-	bool		stack;
-	
+	bool		canStack;
+
 public:
-	bool		GetStack() const;
+	bool		GetCanStack() const;
 	float		GetStrength() const;
 	EffectType	GetType() const;
-	
+
 	void 		MultiplyStrength( const float factor );
 	bool 		UpdateTimer( const double elapsed );
-	
+
 public:
-	Effect( const EffectType type, const double duration, const float strength, const bool stack );
-};	
-	
+	Effect( const EffectType type, const double duration, const float strength, const bool canStack );
+};
+
 #endif

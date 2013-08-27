@@ -4,30 +4,37 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <utility>
 
-#include "irrlicht.h"
 #include "Player.h"
 
 using std::string;
 using std::map;
 using std::vector;
-using std::pair;
 
 class Simulation
 {
 private:
-    irr::scene::ISceneManager*  sceneManager;
+    //irr::scene::IAnimatedMesh*  mapMesh;
+    //irr::scene::IMeshSceneNode* mapNode;
 	//object lists
 	vector<Player> 		        players;
 
-	vector<map<string, vector<pair<irr::scene::IMesh*, double>>>>   animations;
+    //AssetData temporaryAssets
+
+	map<string, map<string, vector<AnimatedBillboard::Frame>>>  animations;
+
+private:
+    void LoadBillboardAnimation( const string filename );
+    bool LoadMap( const string filename );
+    void UnloadCurrentMap();
 
 public:
-	void Update();
+    bool ChangeMap( const string filename );
+    void RenderLit() const;
+	void Update( const uint32_t elapsedTime, const float deltaTime );
 
 public:
-	Simulation( irr::IrrlichtDevice* const device );
+	Simulation();
 	~Simulation();
 };
 

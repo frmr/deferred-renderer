@@ -19,55 +19,84 @@ animationName textureName
 	}
 }
 	
-field						size (B)
-------------------------------------
-numOfAnimations					1
-	animationNameSize			1
-	animationName				?
-	textureNameSize				1
-	textureName					?
-	numOfFrames					1
-		mesh TL X				4
-		mesh TL Y				4
-		mesh BR X				4
-		mesh BR Y				4
-		texture TL X			4
-		texture TL Y			4
-		texture BR X			4
-		texture BR Y			4
-		duration				4
+field							size (B)	cumul. size(B)
+-----------------------------------------------------------
+numOfAnimations						1			1
+	animationNameSize				1			2
+	animationName					?			
+	textureNameSize					1			3
+	textureName						?			
+	numOfFrames						1			4
+		North mesh TL X				4			8
+		North mesh TL Y				4			12
+		North mesh BR X				4			16
+		North mesh BR Y				4			20
+		North texture TL X			4			24
+		North texture TL Y			4			28
+		North texture BR X			4			32
+		North texture BR Y			4			36
+		
+		North east mesh TL X		4			40
+		North east mesh TL Y		4			44
+		North east mesh BR X		4			48
+		North east mesh BR Y		4			52
+		North east texture TL X		4			56
+		North east texture TL Y		4			60
+		North east texture BR X		4			64
+		North east texture BR Y		4			68
+		
+		East mesh TL X				4			72
+		East mesh TL Y				4			76
+		East mesh BR X				4			80
+		East mesh BR Y				4			84
+		East texture TL X			4			88
+		East texture TL Y			4			92
+		East texture BR X			4			96
+		East texture BR Y			4			100
+		
+		South east mesh TL X		4			104
+		South east mesh TL Y		4			108
+		South east mesh BR X		4			112
+		South east mesh BR Y		4			116
+		South east texture TL X		4			120
+		South east texture TL Y		4			124
+		South east texture BR X		4			128
+		South east texture BR Y		4			132
+		
+		South mesh TL X				4			136
+		South mesh TL Y				4			140
+		South mesh BR X				4			144
+		South mesh BR Y				4			148
+		South texture TL X			4			152
+		South texture TL Y			4			156
+		South texture BR X			4			160
+		South texture BR Y			4			164
+		
+		South west mesh TL X		4			168
+		South west mesh TL Y		4			172
+		South west mesh BR X		4			176
+		South west mesh BR Y		4			180
+		South west texture TL X		4			184
+		South west texture TL Y		4			188
+		South west texture BR X		4			192
+		South west texture BR Y		4			196
+		
+		West mesh TL X				4			200
+		West mesh TL Y				4			204
+		West mesh BR X				4			208
+		West mesh BR Y				4			212
+		West texture TL X			4			216
+		West texture TL Y			4			220
+		West texture BR X			4			224
+		West texture BR Y			4			228
 
-	
-example:
-
-
-walk wizard_frames.png
-{
-	{
-		-32, 56,
-		32, 0,
-		0, 0,
-		0.25, 0.25
-	}
-	
-	{
-		-32, 56,
-		32, 0,
-		0.25, 0,
-		0.5, 0.25
-	}
-	
-	{
-		-32, 56,
-		32, 0,
-		0, 0.25,
-		0.5, 1
-	}
-	
-	{
-		-32, 56,
-		32, 0,
-		0.25, 0.25,
-		1, 1
-	}
-}
+		North west mesh TL X		4			232
+		North west mesh TL Y		4			236
+		North west mesh BR X		4			240
+		North west mesh BR Y		4			244
+		North west texture TL X		4			248
+		North west texture TL Y		4			252
+		North west texture BR X		4			256
+		North west texture BR Y		4			260
+		
+		duration					4			264

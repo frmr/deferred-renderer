@@ -8,7 +8,7 @@ void InputState::ResetOneFrameKeys()
 	resistHeld = false;
 	talkHeld = false;
 	exitHeld = false;
-	mouseChange = frmr::Vec2f();
+	mouseChange.Reset();
 }
 
 void InputState::ResetAll()
@@ -25,17 +25,31 @@ void InputState::ResetAll()
 
 }
 
-void InputState::Update()
+void InputState::Update( sf::RenderWindow &window )
 {
-	//contents of this function depends on the library used
+	sf::Event event;
+
+	while ( window.pollEvent( event ) )
+    {
+        if ( event.type == sf::Event::KeyReleased )
+        {
+
+        }
+        else if ( event.type == sf::Event::KeyPressed )
+        {
+
+        }
+        else if ( event.type == sf::Event::Closed )
+        {
+            exitHeld = true;
+        }
+    }
 
 	//check button releases
 	//set any released keys to false
 
 	//check button presses
 	//set any pressed keys to true
-
-	//return *this
 }
 
 bool        InputState::GetForwardHeld() const 		    { return forwardHeld; }
