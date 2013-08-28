@@ -13,10 +13,17 @@ float frmr::Vec3f::Length()
 frmr::Vec3f frmr::Vec3f::Unit()
 {
 	Length();
-	x /= length;
-	y /= length;
-	z /= length;
-	length = 1.0f;
+	if ( length > 0.0001f )
+    {
+        x /= length;
+        y /= length;
+        z /= length;
+        length = 1.0f;
+    }
+    else
+    {
+        Reset();
+    }
 	return *this;
 }
 
@@ -24,6 +31,7 @@ void frmr::Vec3f::Reset()
 {
     x = 0.0f;
     y = 0.0f;
+    z = 0.0f;
     length = 0.0f;
 }
 

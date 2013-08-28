@@ -26,7 +26,7 @@ public:
     {
     private:
         vector<GLuint*> meshes; //eight directions
-        double duration;
+        int32_t         duration;
 
     public:
         GLuint* GetMesh( const float angle ) const;
@@ -38,7 +38,7 @@ public:
 
 private:
     BillboardType   type;
-	double 			frameTimer;
+	int32_t 		frameTimer;
 	unsigned int 	frameIndex;
 
 	map<string, vector<Frame>>* animations;

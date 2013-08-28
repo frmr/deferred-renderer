@@ -6,9 +6,10 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 
-#include "frmr_Vec3f.h"
+#include "Config.h"
 #include "Simulation.h"
 #include "frmr_Shader.h"
+#include "frmr_Vec3f.h"
 
 class RenderManager
 {
@@ -35,15 +36,15 @@ private:
 	GLuint          m_depthID;
 
 private:
-    void StartRenderToFBO() const;
+    void StartRenderToFBO( const EngineConfig &engineCfg ) const;
     void StopRenderToFBO() const;
 
 public:
-    void Render( const Simulation &gameSim ) const;
-    void SetupOpenGL() const;
+    void Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const;
+    void SetupOpenGL( const EngineConfig &engineCfg ) const;
 
 public:
-    RenderManager();
+    RenderManager( const EngineConfig &engineCfg );
     ~RenderManager();
 };
 

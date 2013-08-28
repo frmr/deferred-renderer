@@ -5,15 +5,15 @@
 using std::cout;
 using std::endl;
 
-void RenderManager::StartRenderToFBO() const
+void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 {
     glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, m_fbo);
 	glPushAttrib(GL_VIEWPORT_BIT);
-	glViewport( 0, 0, 1440, 900 );
+	glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//glActiveTextureARB(GL_TEXTURE0);
+	glActiveTextureARB(GL_TEXTURE0);
 	glEnable(GL_TEXTURE_2D);
 
 	// Specify what to render and start acquiring
@@ -28,11 +28,11 @@ void RenderManager::StopRenderToFBO() const
 	glPopAttrib();
 }
 
-void RenderManager::Render( const Simulation &gameSim ) const
+void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const
 {
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    gluPerspective( 900.0f / 1440.0f * 120.0f, 1440.0f / 900.0f, 1.0f, 1000.0f );
+    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 1000.0f );
 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
@@ -42,7 +42,7 @@ void RenderManager::Render( const Simulation &gameSim ) const
 
     glEnable( GL_DEPTH_TEST );
 
-    StartRenderToFBO();
+    StartRenderToFBO( engineCfg );
 
     //bind the surface texture and pass it to the shader
     glBindTexture( GL_TEXTURE_2D, m_testTexture );
@@ -56,7 +56,7 @@ void RenderManager::Render( const Simulation &gameSim ) const
 
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    glOrtho(0.0, 1440.0, 900.0, 0.0, 0.0, 1.0);
+    glOrtho(0.0, (float) engineCfg.GetActiveWidth(), (float) engineCfg.GetActiveHeight(), 0.0, 0.0, 1.0);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
@@ -65,7 +65,7 @@ void RenderManager::Render( const Simulation &gameSim ) const
     glDisable(GL_DEPTH_TEST);
 
     glBindTexture(GL_TEXTURE_2D, m_diffuseTexture);
-    glBindTexture(GL_TEXTURE_2D, m_normalsTexture);
+    //glBindTexture(GL_TEXTURE_2D, m_normalsTexture);
     //glBindTexture(GL_TEXTURE_2D, m_depthTexture);
 
     glPushMatrix();
@@ -74,23 +74,23 @@ void RenderManager::Render( const Simulation &gameSim ) const
         glTexCoord2f(0.0f, 1.0f);
         glVertex2f(0.0f, 0.0f);
         glTexCoord2f(1.0f, 1.0f);
-        glVertex2f(1440.0f, 0.0f );
+        glVertex2f((float) engineCfg.GetActiveWidth(), 0.0f );
         glTexCoord2f(1.0f, 0.0f);
-        glVertex2f(1440.0f, 900.0f);
+        glVertex2f((float) engineCfg.GetActiveWidth(), (float) engineCfg.GetActiveHeight());
         glTexCoord2f(0.0f, 0.0f);
-        glVertex2f(0.0f, 900.0f);
+        glVertex2f(0.0f, (float) engineCfg.GetActiveHeight());
     glEnd();
     glPopMatrix();
 }
 
-void RenderManager::SetupOpenGL() const
+void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
 {
     glewInit();
 
-    glViewport( 0, 0, 1440, 900 );
+    glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    gluPerspective( 900.0f / 1440.0f * 120.0f, 1440.0f / 900.0f, 1.0f, 1000.0f );
+    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 1000.0f );
 
     glClearColor( 0.2f, 0.2f, 0.2f, 1.0f );
 
@@ -98,10 +98,10 @@ void RenderManager::SetupOpenGL() const
     glLoadIdentity();
 }
 
-RenderManager::RenderManager()
+RenderManager::RenderManager( const EngineConfig &engineCfg )
 {
-    SetupOpenGL();
-    deferredShadingShader.Load( "data/shaders/deferredShading.vert", "data/shaders/deferredShading.frag" );
+    SetupOpenGL( engineCfg );
+    deferredShadingShader.Load( "../data/shaders/deferredShading.vert", "../data/shaders/deferredShading.frag" );
     //deferredRenderingShader.loadFromFile( "data/shaders/deferredRendering.vert", "data/shaders/deferredRendering.frag" );
 
     // Generate the OGL resources for what we need
@@ -115,21 +115,21 @@ RenderManager::RenderManager()
 
 	// Bind the normal render target
 	glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, m_normalsRT);
-	glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_RGB8, 1440, 900);
+	glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 	glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_RENDERBUFFER_EXT, m_normalsRT);
 
     glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, m_diffuseRT);
-	glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_RGB8, 1440, 900);
+	glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight());
 	glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT1_EXT, GL_RENDERBUFFER_EXT, m_diffuseRT);
 
 	glBindRenderbufferEXT(GL_RENDERBUFFER_EXT, m_depthRT);
-	glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT24, 1440, 900);
+	glRenderbufferStorageEXT(GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT24, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 	glFramebufferRenderbufferEXT(GL_FRAMEBUFFER_EXT, GL_DEPTH_ATTACHMENT_EXT, GL_RENDERBUFFER_EXT, m_depthRT);
 
 	// Generate and bind the OGL texture for normals
 	glGenTextures(1, &m_normalsTexture);
 	glBindTexture(GL_TEXTURE_2D, m_normalsTexture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, 1440, 900, 0, GL_RGB, GL_FLOAT, NULL);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_RGB, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -140,7 +140,7 @@ RenderManager::RenderManager()
     // Generate and bind the OGL texture for diffuse
 	glGenTextures(1, &m_diffuseTexture);
 	glBindTexture(GL_TEXTURE_2D, m_diffuseTexture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, 1440, 900, 0, GL_RGB, GL_FLOAT, NULL);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_RGB, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -151,7 +151,7 @@ RenderManager::RenderManager()
     // Generate and bind the OGL texture for depth
 	glGenTextures(1, &m_depthTexture);
 	glBindTexture(GL_TEXTURE_2D, m_depthTexture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, 1440, 900, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -170,7 +170,7 @@ RenderManager::RenderManager()
 
     //load the surface texture from file
     sf::Image img_data;
-    img_data.loadFromFile("data/textures/test.png");
+    img_data.loadFromFile("../data/textures/test.png");
 
 	glGenTextures(1, &m_testTexture);
 	glBindTexture(GL_TEXTURE_2D, m_testTexture);

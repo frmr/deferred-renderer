@@ -13,9 +13,16 @@ float frmr::Vec2f::Length()
 frmr::Vec2f frmr::Vec2f::Unit()
 {
 	Length();
-	x /= length;
-	y /= length;
-	length = 1.0f;
+	if ( length > 0.0001f )
+    {
+        x /= length;
+        y /= length;
+        length = 1.0f;
+    }
+    else
+    {
+        Reset();
+    }
 	return *this;
 }
 

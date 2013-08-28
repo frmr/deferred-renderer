@@ -32,26 +32,49 @@
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="-DDSFML_STATIC" />
+			<Add option="-DGLEW_STATIC" />
 			<Add directory="../include" />
 		</Compiler>
 		<Linker>
-			<Add library="Irrlicht" />
+			<Add option="-static-libgcc" />
+			<Add option="-static-libstdc++" />
+			<Add library="gdi32" />
+			<Add library="glu32" />
+			<Add library="opengl32" />
+			<Add library="sfml-graphics" />
+			<Add library="sfml-window" />
+			<Add library="sfml-system" />
 			<Add directory="../lib" />
+			<Add directory="../lib/SFML" />
 		</Linker>
+		<Unit filename="Actor.cpp" />
+		<Unit filename="Actor.h" />
 		<Unit filename="AnimatedBillboard.cpp" />
 		<Unit filename="AnimatedBillboard.h" />
 		<Unit filename="Client.h" />
+		<Unit filename="Config.cpp" />
+		<Unit filename="Config.h" />
 		<Unit filename="Effect.cpp" />
 		<Unit filename="Effect.h" />
+		<Unit filename="GLEW/glew.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="InputState.cpp" />
 		<Unit filename="InputState.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="Potion.h" />
+		<Unit filename="RenderManager.cpp" />
+		<Unit filename="RenderManager.h" />
 		<Unit filename="Server.h" />
 		<Unit filename="Simulation.cpp" />
 		<Unit filename="Simulation.h" />
 		<Unit filename="SpellSet.h" />
+		<Unit filename="StaticGeometry.cpp" />
+		<Unit filename="StaticGeometry.h" />
+		<Unit filename="frmr_Shader.cpp" />
+		<Unit filename="frmr_Shader.h" />
 		<Unit filename="frmr_TimeManager.cpp" />
 		<Unit filename="frmr_TimeManager.h" />
 		<Unit filename="frmr_Vec2f.cpp" />

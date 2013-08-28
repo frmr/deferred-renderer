@@ -1,6 +1,8 @@
 #ifndef EFFECT_H
 #define EFFECT_H
 
+#include <stdint.h>
+
 class Effect
 {
 public:
@@ -60,8 +62,7 @@ public:
 
 private:
 	EffectType	type;
-	bool		permanent;	//if true, the effect will not be removed until an appropriate cure is applied
-	double 		timer;
+	int32_t 	timer; //negative value indicated permanent effect
 	float		strength;
 	bool		canStack;
 
@@ -71,10 +72,10 @@ public:
 	EffectType	GetType() const;
 
 	void 		MultiplyStrength( const float factor );
-	bool 		UpdateTimer( const double elapsed );
+	bool 		UpdateTimer( const int32_t elapsed );
 
 public:
-	Effect( const EffectType type, const double duration, const float strength, const bool canStack );
+	Effect( const EffectType type, const int32_t duration, const float strength, const bool canStack );
 };
 
 #endif

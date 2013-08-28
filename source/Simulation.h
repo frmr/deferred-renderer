@@ -5,7 +5,10 @@
 #include <vector>
 #include <map>
 
+#include "Camera.h"
+#include "InputState.h"
 #include "Player.h"
+#include "StaticGeometry.h"
 
 using std::string;
 using std::map;
@@ -14,10 +17,11 @@ using std::vector;
 class Simulation
 {
 private:
-    //irr::scene::IAnimatedMesh*  mapMesh;
-    //irr::scene::IMeshSceneNode* mapNode;
 	//object lists
-	vector<Player> 		        players;
+	Camera          activeCamera;
+	StaticGeometry  staticGeometry;
+	vector<Player>  players;
+
 
     //AssetData temporaryAssets
 
@@ -31,7 +35,7 @@ private:
 public:
     bool ChangeMap( const string filename );
     void RenderLit() const;
-	void Update( const uint32_t elapsedTime, const float deltaTime );
+	void Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:
 	Simulation();

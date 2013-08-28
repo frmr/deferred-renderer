@@ -16,8 +16,8 @@ class Client
 private:
     InputState                      inputs;
     bool                            spectator;
-    uint16_t                        playerNum;
-    vector<pair<string, double>>    screenMessages;
+    int16_t                         playerActorNum;
+    vector<pair<string, int32_t>>   screenMessages;
 };
 
 #endif // CLIENT_H

@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "Actor.h"
 #include "AnimatedBillboard.h"
 #include "Effect.h"
 #include "Potion.h"
@@ -11,30 +12,29 @@
 
 using std::vector;
 
-class Player
+class Player : public Actor
 {
 private:
-    static int16_t          playerNumIncrementer;
+    static int16_t          playerNumIncrementor;
     int16_t                 playerNum;
 
     AnimatedBillboard       skinBillboard;
     AnimatedBillboard       clothesBillboard;
 
-	float 				    maxHealth;
+	float 				    healthMax;
 	float 				    health;
-	float 				    maxMagic;
+	float 				    magicMax;
 	float 				    magic;
 
-	float 				    maxControlSpeed;
+	float 				    controlSpeedMax;
 	float 				    controlSpeed;
 	float 				    controlAcceleration;
 	frmr::Vec3f			    controlVelocity;
-	float 				    maxFallSpeed;
+	float 				    fallSpeedMax;
 	frmr::Vec3f			    fallVelocity;
 	frmr::Vec3f 		    momentumVelocity;
-    frmr::Vec3f             finalVelocity;
 
-	double				    cooldownTimer;
+	int32_t				    cooldownTimer;
 
 	vector<Potion>		    potions;
 	vector<SpellSet>	    spells;
@@ -43,7 +43,7 @@ private:
 	bool				    humanControlled;
 	unsigned int		    humanNetworkID;
 	frmr::Vec3f	            color;
-	uint8_t				    team;
+	int8_t				    team;
 
 private:
 	bool				    HasEffect( const Effect::EffectType effect ) const;
@@ -53,6 +53,10 @@ public:
 	bool				    IsDead() const;
 	void 				    SetColor( const unsigned int newRed, const unsigned int newGreen, const unsigned int newBlue );
 	void				    SetTeam( const uint8_t newTeam );
+	void                    Update();
+
+public:
+    Player( const frmr::Vec3f &position, const frmr::Vec3f &rotation );
 
 };
 

@@ -19,7 +19,15 @@ bool Simulation::ChangeMap( const string filename )
 
 void Simulation::RenderLit() const
 {
-    //sceneManager->drawAll();
+    glPushMatrix();
+
+    glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
+    glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
+    glTranslatef( -activeCamera.GetPosition().GetX(), -activeCamera.GetPosition().GetY(), -activeCamera.GetPosition().GetZ() );
+
+    staticGeometry.Render();
+
+    glPopMatrix();
 }
 
 bool Simulation::LoadMap( const string filename )
@@ -32,11 +40,13 @@ void Simulation::UnloadCurrentMap()
 
 }
 
-void Simulation::Update( const uint32_t elapsedTime, const float deltaTime )
+void Simulation::Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity )
 {
+    activeCamera.Update( inputs, mouseSensitivity, deltaTime );
 }
 
 Simulation::Simulation()
+    : activeCamera( "ActiveCamera", frmr::Vec3f(), frmr::Vec2f() )
 {
 }
 
