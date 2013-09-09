@@ -8,6 +8,28 @@ using std::endl;
 void Camera::Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime )
 {
     rotation += inputs.GetMouseChange() * mouseSensitivity;
+    cout << rotation.GetX() << " " << rotation.GetY() << endl;
+
+    //limit rotation on x-axis
+    if ( rotation.GetX() < -89.9f )
+    {
+        rotation = frmr::Vec2f( -89.9f, rotation.GetY() );
+    }
+    else if ( rotation.GetX() > 89.9 )
+    {
+        rotation = frmr::Vec2f( 89.9f, rotation.GetY() );
+    }
+
+    //let rotation on y-axis loop around, always staying within 0-360 degrees
+    if ( rotation.GetY() < 0.0f )
+    {
+        rotation = frmr::Vec2f( rotation.GetX(), 360.0f - rotation.GetY() );
+    }
+    else if ( rotation.GetY() >= 360.0f )
+    {
+        rotation = frmr::Vec2f( rotation.GetX(), rotation.GetY() - 360.0f );
+    }
+
     frmr::Vec3f velocityChange;
 
     if ( inputs.GetDirectionHeld() )

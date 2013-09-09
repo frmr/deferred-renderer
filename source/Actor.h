@@ -25,6 +25,7 @@ protected:
     void SetRotationY( const float &newY );
 
 public:
+    int16_t     GetActorNum() const;
     string      GetName() const;
     frmr::Vec3f GetPosition() const;
     frmr::Vec2f GetRotation() const;

@@ -17,6 +17,11 @@ void Actor::SetRotationY( const float &newY )
     rotation = frmr::Vec2f( rotation.GetX(), newY );
 }
 
+int16_t Actor::GetActorNum() const
+{
+    return actorNum;
+}
+
 string Actor::GetName() const
 {
     return name;

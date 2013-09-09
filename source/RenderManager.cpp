@@ -106,6 +106,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glUseProgramObjectARB( deferredShadingShader.GetProgramHandler() );
 
+    glDepthMask( GL_TRUE ); //enable writing to the depth buffer
     glEnable( GL_DEPTH_TEST );
 
     StartRenderToFBO( engineCfg );
@@ -133,6 +134,9 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     glUseProgramObjectARB( 0 );
 
+    glDepthMask( GL_FALSE ); //disable writing to the depth buffer
+    glDisable(GL_DEPTH_TEST);
+
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
     glOrtho(0.0, (double) engineCfg.GetActiveWidth(), (double) engineCfg.GetActiveHeight(), 0.0, 0.0, 1.0);
@@ -141,7 +145,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glLoadIdentity();
 
     glEnable(GL_TEXTURE_2D);
-    glDisable(GL_DEPTH_TEST);
 
     glBindTexture( GL_TEXTURE_2D, 0 );
 
@@ -167,6 +170,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f);
 
+    //enable blending so that each new quad adds to whatever's in the render buffer
+    glEnable( GL_BLEND );
+    glBlendFunc( GL_ONE, GL_ONE );
+
     const vector<Light> staticLights = gameSim.GetStaticLights();
 
     for ( auto lightIt : staticLights )
@@ -188,6 +195,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glEnd();
     }
 
+    glDisable(GL_BLEND);
+
     // Reset OpenGL state
 	glActiveTextureARB(GL_TEXTURE0_ARB);
 	glDisable(GL_TEXTURE_2D);
@@ -202,6 +211,17 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	glUseProgramObjectARB(0);
+
+    //change to perspective projection
+	//enable depth test
+	//enable depth mask
+	//draw projectiles
+
+    //change to orthogonal projection
+	//disable depth test
+	//disable depth mask
+	//draw HUD
+	//draw UI
 }
 
 void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
@@ -213,7 +233,7 @@ void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
     glLoadIdentity();
     gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 500.0f );
 
-    glClearColor( 0.2f, 0.2f, 0.2f, 1.0f );
+    glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
 
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
