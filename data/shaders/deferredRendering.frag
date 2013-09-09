@@ -1,8 +1,8 @@
 #version 150
 
-uniform sampler2D tNormals; 
-uniform sampler2D tDiffuse;
-uniform sampler2D tDepth;
+uniform sampler2D normalsTexture; 
+uniform sampler2D diffuseTexture;
+uniform sampler2D depthTexture;
 
 uniform ivec4 viewportParams;
 uniform mat4 perspectiveMatrix;
@@ -11,13 +11,13 @@ uniform vec3 lightPosition;
 uniform vec3 lightColor;
 uniform float lightAttenuation;
 
-vec3 unproject( in float winx, in float winy, in float winz)
+vec3 unproject( in float winX, in float winY, in float winZ )
 {	
 	//Transformation of normalized coordinates between -1 and 1
 	vec4 inVec;
-	inVec.x = ( winx - viewportParams.x ) / viewportParams.z * 2.0 - 1.0;
-	inVec.y = ( winy - viewportParams.y ) / viewportParams.w * 2.0 - 1.0;
-	inVec.z = 2.0 * winz - 1.0;
+	inVec.x = ( winX - viewportParams.x ) / viewportParams.z * 2.0 - 1.0;
+	inVec.y = ( winY - viewportParams.y ) / viewportParams.w * 2.0 - 1.0;
+	inVec.z = 2.0 * winZ - 1.0;
 	inVec.w = 1.0;
 	
 	//Objects coordinates
@@ -29,23 +29,27 @@ vec3 unproject( in float winx, in float winy, in float winz)
 
 void main( void )
 {
-	float depth = texture2D( tDepth, gl_TexCoord[0].xy );
+	float fragDepth = texture2D( depthTexture, gl_TexCoord[0].st );
 	
-	if ( depth == 1.0f )
+	if ( fragDepth == 1.0f )
 	{
 		discard;
 	}
-	
-	vec4 normal = texture2D( tNormals, gl_TexCoord[0].xy ) * 2.0 - 1.0; //unpack normals into the range -1 to 1
-	vec4 texColor = texture2D( tDiffuse, gl_TexCoord[0].xy );
-	
-	vec3 fragPosition = unproject( gl_FragCoord.x, gl_FragCoord.y, depth );
+	else
+	{
+		vec4 fragNormal = texture2D( normalsTexture, gl_TexCoord[0].st ) * 2.0 - 1.0; //unpack normals into the range -1 to 1
+		vec4 fragDiffuse = texture2D( diffuseTexture, gl_TexCoord[0].st );
+		
+		vec3 fragPosition = unproject( gl_FragCoord.x, gl_FragCoord.y, fragDepth );
 
-	if ( dot( normalize( lightPosition - fragPosition ), normal.xyz ) >= 0.0 )
-	{
-		discard;
+		if ( dot( normalize( lightPosition - fragPosition ), fragNormal.xyz ) >= 0.0 )
+		{
+			discard;
+		}
+		else
+		{
+			gl_FragColor = vec4( fragDiffuse.rgb * lightColor / ( distance( fragPosition.xyz, lightPosition ) * lightAttenuation ), 0.0f );
+		}
 	}
-	
-	gl_FragColor = vec4( texColor.xyz * lightColor / ( distance( fragPosition.xyz, lightPosition ) * lightAttenuation ), 0.0f );
 }
 

@@ -325,12 +325,12 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
     //get the memory location of the surface texture in the shader
-	m_testTextureID = glGetUniformLocationARB(deferredShadingShader.GetProgramHandler(), "tDiffuse");
+	m_testTextureID = glGetUniformLocationARB(deferredShadingShader.GetProgramHandler(), "surfaceTexture");
 
 	// Get the handles from the shader
-	m_normalsID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "tNormals" );
-	m_diffuseID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "tDiffuse" );
-	m_depthID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "tDepth" );
+	m_normalsID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "normalsTexture" );
+	m_diffuseID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "diffuseTexture" );
+	m_depthID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "depthTexture" );
 
 	m_viewportParamsID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "viewportParams" );
 	m_perspectiveMatrixID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "perspectiveMatrix" );

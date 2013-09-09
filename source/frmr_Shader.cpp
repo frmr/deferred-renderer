@@ -3,6 +3,9 @@
 
 #include "frmr_Shader.h"
 
+using std::cout;
+using std::endl;
+
 string frmr::Shader::LoadShaderSourceFromFile( const string &filename )
 {
     string content;
@@ -45,7 +48,7 @@ void frmr::Shader::Load( const string &vertexShaderFilename, const string &fragm
 
     if( compiled  == 0 )
     {
-        //throw error
+        cout << "frmr::Shader::Load() - Could not compile shader: " << vertexShaderFilename << endl;
     }
 
     //load fragment shader
@@ -59,7 +62,7 @@ void frmr::Shader::Load( const string &vertexShaderFilename, const string &fragm
 
     if( compiled  == 0 )
     {
-        //throw error
+        cout << "frmr::Shader::Load() - Could not compile shader: " << fragmentShaderFilename << endl;
     }
 
 
