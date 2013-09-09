@@ -15,9 +15,6 @@ using std::vector;
 class Player : public Actor
 {
 private:
-    static int16_t          playerNumIncrementor;
-    int16_t                 playerNum;
-
     AnimatedBillboard       skinBillboard;
     AnimatedBillboard       clothesBillboard;
 

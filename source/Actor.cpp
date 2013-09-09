@@ -1,5 +1,7 @@
 #include "Actor.h"
 
+int16_t Actor::actorNumIncrementor = 0;
+
 void Actor::ApplyVelocity( const float deltaTime )
 {
     position += velocity * deltaTime;
@@ -31,7 +33,8 @@ frmr::Vec2f Actor::GetRotation() const
 }
 
 Actor::Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity )
-    : name( name ),
+    : actorNum( actorNumIncrementor++ ),
+      name( name ),
       position( position ),
       rotation( rotation ),
       velocity( velocity )

@@ -12,6 +12,8 @@ using std::string;
 class Actor
 {
 protected:
+    static int16_t  actorNumIncrementor;
+    int16_t         actorNum;
     string          name;
     frmr::Vec3f     position;
     frmr::Vec2f     rotation;

@@ -1,3 +1,5 @@
+#version 150
+
 varying vec3 normals;
 uniform sampler2D	tDiffuse;
 

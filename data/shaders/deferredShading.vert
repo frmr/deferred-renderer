@@ -1,3 +1,5 @@
+#version 150
+
 varying vec3 normals;
 
 void main( void )
