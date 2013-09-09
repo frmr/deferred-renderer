@@ -8,7 +8,6 @@ using std::endl;
 void Camera::Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime )
 {
     rotation += inputs.GetMouseChange() * mouseSensitivity;
-    cout << rotation.GetX() << " " << rotation.GetY() << endl;
 
     //limit rotation on x-axis
     if ( rotation.GetX() < -89.9f )

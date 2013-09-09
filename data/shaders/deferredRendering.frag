@@ -36,12 +36,15 @@ void main( void )
 		discard;
 	}
 	
-	vec4 normal = texture2D( tNormals, gl_TexCoord[0].xy );
+	vec4 normal = texture2D( tNormals, gl_TexCoord[0].xy ) * 2.0 - 1.0; //unpack normals into the range -1 to 1
 	vec4 texColor = texture2D( tDiffuse, gl_TexCoord[0].xy );
 	
 	vec3 fragPosition = unproject( gl_FragCoord.x, gl_FragCoord.y, depth );
-	
-	vec3 light = vec3( 0.0, 0.0, 0.0 );
+
+	if ( dot( normalize( lightPosition - fragPosition ), normal.xyz ) >= 0.0 )
+	{
+		discard;
+	}
 	
 	gl_FragColor = vec4( texColor.xyz * lightColor / ( distance( fragPosition.xyz, lightPosition ) * lightAttenuation ), 0.0f );
 }

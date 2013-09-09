@@ -178,7 +178,11 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     for ( auto lightIt : staticLights )
     {
-        //auto lightIt = staticLights.begin();
+        //set scale to light radius
+        //draw unit icosphere to stencil buffer
+        //enable differedRenderingShader
+        //pass light info to shader
+        //draw quad
         glUniform3fARB( m_lightPositionID, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
         glUniform3fARB( m_lightColorID, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
         glUniform1fARB( m_lightAttenuationID, lightIt.GetAttenuation() );

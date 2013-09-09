@@ -5,10 +5,9 @@ uniform sampler2D	tDiffuse;
 
 void main( void )
 {
-	gl_FragData[0] = vec4(normals.xyz,0);
+	gl_FragData[0] = vec4( ( normals.xyz + 1.0 ) / 2.0, 0.0 ); //pack normals into the range 0 to 1
 	if (texture2D(tDiffuse,gl_TexCoord[0].st).a < 0.1)
 	{
-		//gl_FragData[1] = vec4(1.0f, 0.0f, 0.0f, 0.0f);
 		discard;
 	}
 	else

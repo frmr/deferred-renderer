@@ -60,8 +60,6 @@ Simulation::Simulation()
 {
     staticLights.push_back( Light( frmr::Vec3f( 80.0f, 0.0f, 0.0f ), frmr::Vec3f( 6.0f, 3.0f, 3.0f ) ) );
     staticLights.push_back( Light( frmr::Vec3f( -80.0f, 0.0f, 0.0f ), frmr::Vec3f( 6.0f, 3.0f, 3.0f ) ) );
-    staticLights.push_back( Light( frmr::Vec3f( 0.0f, 80.0f, 0.0f ), frmr::Vec3f( 6.0f, 3.0f, 3.0f ) ) );
-    staticLights.push_back( Light( frmr::Vec3f( 0.0f, -80.0f, 0.0f ), frmr::Vec3f( 6.0f, 3.0f, 3.0f ) ) );
 }
 
 Simulation::~Simulation()
