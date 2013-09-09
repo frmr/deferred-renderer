@@ -16,7 +16,7 @@ class RenderManager
 private:
     frmr::Vec3f     ambientLightColor;
     frmr::Shader    deferredShadingShader;
-    //sf::Shader      deferredRenderingShader;
+    frmr::Shader    deferredRenderingShader;
     //displaylist of icosphere with radius of 1 (for lights)
 
     GLuint          m_testTexture;
@@ -35,7 +35,16 @@ private:
 	GLuint          m_diffuseID;
 	GLuint          m_depthID;
 
+	GLuint          m_viewportParamsID;
+	GLuint          m_perspectiveMatrixID;
+
+	GLuint          m_lightPositionID;
+	GLuint          m_lightColorID;
+	GLuint          m_lightAttenuationID;
+
 private:
+    bool InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const;
+    void MultiplyMatricesGL( const float matrixInA[16], const float matrixInB[16], float matrixOut[16] ) const;
     void StartRenderToFBO( const EngineConfig &engineCfg ) const;
     void StopRenderToFBO() const;
 

@@ -83,7 +83,7 @@ bool        InputState::GetForwardHeld() const 		    { return forwardHeld; }
 bool        InputState::GetBackwardHeld() const 		{ return backwardHeld; }
 bool        InputState::GetLeftHeld() const 			{ return leftHeld; }
 bool        InputState::GetRightHeld() const 			{ return rightHeld; }
-bool        InputState::GetDirectionHeld() const        { if ( forwardHeld || backwardHeld || leftHeld || rightHeld){ return true; } }
+bool        InputState::GetDirectionHeld() const        { if ( forwardHeld || backwardHeld || leftHeld || rightHeld){ return true; } else { return false; } }
 bool        InputState::GetJumpHeld() const 			{ return jumpHeld; }
 bool        InputState::GetSprintHeld() const 			{ return sprintHeld; }
 bool        InputState::GetUseHeld() const 			    { return useHeld; }

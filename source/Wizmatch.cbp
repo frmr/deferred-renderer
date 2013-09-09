@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -52,6 +53,8 @@
 		<Unit filename="Actor.h" />
 		<Unit filename="AnimatedBillboard.cpp" />
 		<Unit filename="AnimatedBillboard.h" />
+		<Unit filename="Camera.cpp" />
+		<Unit filename="Camera.h" />
 		<Unit filename="Client.h" />
 		<Unit filename="Config.cpp" />
 		<Unit filename="Config.h" />
@@ -62,6 +65,8 @@
 		</Unit>
 		<Unit filename="InputState.cpp" />
 		<Unit filename="InputState.h" />
+		<Unit filename="Light.cpp" />
+		<Unit filename="Light.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="Potion.h" />

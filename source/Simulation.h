@@ -7,6 +7,7 @@
 
 #include "Camera.h"
 #include "InputState.h"
+#include "Light.h"
 #include "Player.h"
 #include "StaticGeometry.h"
 
@@ -20,6 +21,7 @@ private:
 	//object lists
 	Camera          activeCamera;
 	StaticGeometry  staticGeometry;
+	vector<Light>   staticLights;
 	vector<Player>  players;
 
 
@@ -33,9 +35,11 @@ private:
     void UnloadCurrentMap();
 
 public:
-    bool ChangeMap( const string filename );
-    void RenderLit() const;
-	void Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
+    bool            ChangeMap( const string filename );
+    Camera          GetCamera() const;
+    vector<Light>   GetStaticLights() const;
+    void            RenderLit() const;
+	void            Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:
 	Simulation();

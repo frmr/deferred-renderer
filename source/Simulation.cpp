@@ -17,6 +17,16 @@ bool Simulation::ChangeMap( const string filename )
     return true;
 }
 
+Camera Simulation::GetCamera() const
+{
+    return activeCamera;
+}
+
+vector<Light> Simulation::GetStaticLights() const
+{
+    return staticLights;
+}
+
 void Simulation::RenderLit() const
 {
     glPushMatrix();
@@ -27,7 +37,7 @@ void Simulation::RenderLit() const
 
     staticGeometry.Render();
 
-    glPopMatrix();
+    //glPopMatrix();
 }
 
 bool Simulation::LoadMap( const string filename )
@@ -48,6 +58,7 @@ void Simulation::Update( const int32_t elapsedTime, const float deltaTime, const
 Simulation::Simulation()
     : activeCamera( "ActiveCamera", frmr::Vec3f(), frmr::Vec2f() )
 {
+    staticLights.push_back( Light( frmr::Vec3f( 80.0f, 0.0f, 0.0f ), frmr::Vec3f( 6.0f, 3.0f, 3.0f ) ) );
 }
 
 Simulation::~Simulation()

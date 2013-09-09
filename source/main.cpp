@@ -8,14 +8,8 @@
 
 void ModifyWindow( sf::RenderWindow* const window, const EngineConfig engineCfg )
 {
-    if ( engineCfg.GetFullscreen() )
-    {
-        window->create( sf::VideoMode( engineCfg.GetFullscreenWidth(), engineCfg.GetFullscreenHeight() ), "Wizmatch", sf::Style::Fullscreen, sf::ContextSettings( 24, 8 ) );
-    }
-    else
-    {
-        window->create( sf::VideoMode( engineCfg.GetWindowWidth(), engineCfg.GetWindowHeight() ), "Wizmatch", sf::Style::Default, sf::ContextSettings( 24, 8 ) );
-    }
+    sf::Uint32 style = ( engineCfg.GetFullscreen() ) ? sf::Style::Fullscreen : sf::Style::Default;
+    window->create( sf::VideoMode( engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() ), "Wizmatch", style, sf::ContextSettings( 24, 8 ) );
 }
 
 int main()
@@ -32,7 +26,7 @@ int main()
 
     frmr::TimeManager   timer;
     InputState          inputs;
-    RenderManager       renderer ( engineCfg );
+    RenderManager       renderer( engineCfg );
     Simulation          gameSim;
 
     gameSim.ChangeMap( "arse" );
