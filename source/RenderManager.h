@@ -42,11 +42,13 @@ private:
 	GLuint          m_lightColorID;
 	GLuint          m_lightAttenuationID;
 
+	GLuint          sphere;
+
 private:
-    bool InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const;
-    void MultiplyMatricesGL( const float matrixInA[16], const float matrixInB[16], float matrixOut[16] ) const;
-    void StartRenderToFBO( const EngineConfig &engineCfg ) const;
-    void StopRenderToFBO() const;
+    bool    InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const;
+    void    MultiplyMatricesGL( const float matrixInA[16], const float matrixInB[16], float matrixOut[16] ) const;
+    void    StartRenderToFBO( const EngineConfig &engineCfg ) const;
+    void    StopRenderToFBO() const;
 
 public:
     void Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const;

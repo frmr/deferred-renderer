@@ -1,5 +1,7 @@
 #include "RenderManager.h"
 
+#include "IcosphereGenerator.h"
+
 #include <iostream>
 
 using std::cout;
@@ -77,8 +79,8 @@ void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 
 	glActiveTextureARB(GL_TEXTURE0);
 	glEnable(GL_TEXTURE_2D);
-    //glEnable( GL_CULL_FACE );
-    //glCullFace( GL_FRONT );
+    glEnable( GL_CULL_FACE );
+    glCullFace( GL_BACK );
 
 	// Specify what to render and start acquiring
 	GLenum buffers[] = { GL_COLOR_ATTACHMENT0_EXT, GL_COLOR_ATTACHMENT1_EXT };
@@ -338,6 +340,11 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 	m_lightPositionID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightPosition" );
 	m_lightColorID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightColor" );
 	m_lightAttenuationID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightAttenuation" );
+
+
+
+
+	sphere = IcosphereGenerator::GenerateIcosphereDisplayList( 2 );
 }
 
 RenderManager::~RenderManager()
