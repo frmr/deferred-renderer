@@ -65,6 +65,11 @@ frmr::Vec3f frmr::Vec3f::operator* ( const float &rhs ) const
 	return Vec3f( x * rhs, y * rhs, z * rhs );
 }
 
+frmr::Vec3f frmr::Vec3f::operator/ ( const float &rhs ) const
+{
+	return Vec3f( x / rhs, y / rhs, z / rhs );
+}
+
 frmr::Vec3f& frmr::Vec3f::operator+= ( const Vec3f &rhs )
 {
 	x += rhs.x;

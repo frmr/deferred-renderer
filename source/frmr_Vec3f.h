@@ -21,6 +21,7 @@ namespace frmr
 		Vec3f 	operator+ ( const Vec3f &rhs ) const;
 		Vec3f 	operator- ( const Vec3f &rhs ) const;
 		Vec3f 	operator* ( const float &rhs ) const;
+		Vec3f   operator/ ( const float &rhs ) const;
 		Vec3f& 	operator+= ( const Vec3f &rhs );
 		Vec3f& 	operator-= ( const Vec3f &rhs );
 		Vec3f& 	operator*= ( const float &rhs );

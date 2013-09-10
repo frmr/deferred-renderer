@@ -996,7 +996,7 @@
 	"matrix4.h"
 	"IVideoDriver.h"
 
-1373589840 x:\produce\wizmatch\source\frmr_vec3f.h
+1378827948 x:\produce\wizmatch\source\frmr_vec3f.h
 
 1377625245 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
@@ -1004,13 +1004,13 @@
 1377625257 x:\produce\wizmatch\source\effect.h
 	<stdint.h>
 
-1377700028 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
+1378828016 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
 	"frmr_Vec2f.h"
 	"math.h"
 
-1373589747 x:\produce\wizmatch\source\frmr_vec2f.h
+1378827995 x:\produce\wizmatch\source\frmr_vec2f.h
 
-1377713895 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
+1378827978 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
 	"frmr_Vec3f.h"
 	<cmath>
 
@@ -2076,7 +2076,7 @@
 1376050337 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1378808610 x:\produce\wizmatch\source\rendermanager.h
+1378828815 x:\produce\wizmatch\source\rendermanager.h
 	"GL/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2419,7 +2419,7 @@
 	<string>
 	"GL/glew.h"
 
-1378817990 source:x:\produce\wizmatch\source\rendermanager.cpp
+1378828467 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2507,10 +2507,12 @@
 1378674858 x:\produce\wizmatch\source\light.h
 	"frmr_Vec3f.h"
 
-1378817495 source:x:\produce\wizmatch\source\icospheregenerator.cpp
+1378828769 source:x:\produce\wizmatch\source\icospheregenerator.cpp
 	"IcosphereGenerator.h"
 
-1378817486 x:\produce\wizmatch\source\icospheregenerator.h
+1378822613 x:\produce\wizmatch\source\icospheregenerator.h
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
+	<vector>
+	"frmr_Vec3f.h"
 

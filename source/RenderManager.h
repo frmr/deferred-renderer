@@ -42,7 +42,7 @@ private:
 	GLuint          m_lightColorID;
 	GLuint          m_lightAttenuationID;
 
-	GLuint          sphere;
+	GLuint          icosphere;
 
 private:
     bool    InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const;

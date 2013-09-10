@@ -118,6 +118,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glUniform1i( m_testTextureID, 0);
 
     gameSim.RenderLit();
+    glCallList( icosphere );
 
     int viewportParams[4];
     float modelViewParams[16];
@@ -344,7 +345,7 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 
 
 
-	sphere = IcosphereGenerator::GenerateIcosphereDisplayList( 2 );
+	icosphere = IcosphereGenerator::GenerateIcosphereDisplayList( 1 );
 }
 
 RenderManager::~RenderManager()

@@ -58,6 +58,11 @@ frmr::Vec2f frmr::Vec2f::operator* ( const float &rhs ) const
 	return Vec2f( x * rhs, y * rhs );
 }
 
+frmr::Vec2f frmr::Vec2f::operator/ ( const float &rhs ) const
+{
+	return Vec2f( x / rhs, y / rhs );
+}
+
 frmr::Vec2f& frmr::Vec2f::operator+= ( const Vec2f &rhs )
 {
 	x += rhs.x;
