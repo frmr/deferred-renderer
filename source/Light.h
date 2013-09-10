@@ -6,7 +6,8 @@
 class Light
 {
 private:
-    static constexpr float  attenuation = 0.1f;
+    static constexpr float  linearAttenuation = 0.3f;
+    static constexpr float  quadraticAttenuation = 0.01f;
     static constexpr float  intensityLowerBound = 0.003f;
     frmr::Vec3f             position;
     frmr::Vec3f             color;
@@ -18,7 +19,8 @@ private:
 public:
     frmr::Vec3f GetPosition() const;
     frmr::Vec3f GetColor() const;
-    float GetAttenuation() const;
+    float GetLinearAttenuation() const;
+    float GetQuadraticAttenuation() const;
 
 public:
     Light( const frmr::Vec3f &position, const frmr::Vec3f &color );

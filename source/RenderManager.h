@@ -40,7 +40,8 @@ private:
 
 	GLuint          m_lightPositionID;
 	GLuint          m_lightColorID;
-	GLuint          m_lightAttenuationID;
+	GLuint          m_lightLinearAttenuationID;
+	GLuint          m_lightQuadraticAttenuationID;
 
 	GLuint          icosphere;
 

@@ -151,6 +151,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     glBindTexture( GL_TEXTURE_2D, 0 );
 
+    //enable blending so that each new quad adds to whatever's in the render buffer
+    glEnable( GL_BLEND );
+    glBlendFunc( GL_ONE, GL_ONE );
+
     glUseProgramObjectARB( deferredRenderingShader.GetProgramHandler() );
 
 	glActiveTextureARB( GL_TEXTURE0_ARB );
@@ -173,10 +177,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f);
 
-    //enable blending so that each new quad adds to whatever's in the render buffer
-    glEnable( GL_BLEND );
-    glBlendFunc( GL_ONE, GL_ONE );
-
     const vector<Light> staticLights = gameSim.GetStaticLights();
 
     for ( auto lightIt : staticLights )
@@ -188,7 +188,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         //draw quad
         glUniform3fARB( m_lightPositionID, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
         glUniform3fARB( m_lightColorID, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
-        glUniform1fARB( m_lightAttenuationID, lightIt.GetAttenuation() );
+        glUniform1fARB( m_lightLinearAttenuationID, lightIt.GetLinearAttenuation() );
+        glUniform1fARB( m_lightQuadraticAttenuationID, lightIt.GetQuadraticAttenuation() );
 
         glBegin(GL_QUADS);
             glTexCoord2f(0.0f, 1.0f);
@@ -340,8 +341,8 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 
 	m_lightPositionID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightPosition" );
 	m_lightColorID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightColor" );
-	m_lightAttenuationID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightAttenuation" );
-
+	m_lightLinearAttenuationID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightLinearAttenuation" );
+    m_lightQuadraticAttenuationID = glGetUniformLocationARB( deferredRenderingShader.GetProgramHandler(), "lightQuadraticAttenuation" );
 
 
 

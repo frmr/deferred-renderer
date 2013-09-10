@@ -63,6 +63,8 @@
 		<Unit filename="GLEW/glew.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="IcosphereGenerator.cpp" />
+		<Unit filename="IcosphereGenerator.h" />
 		<Unit filename="InputState.cpp" />
 		<Unit filename="InputState.h" />
 		<Unit filename="Light.cpp" />

@@ -9,7 +9,8 @@ uniform mat4 perspectiveMatrix;
 
 uniform vec3 lightPosition;
 uniform vec3 lightColor;
-uniform float lightAttenuation;
+uniform float lightLinearAttenuation;
+uniform float lightQuadraticAttenuation;
 
 vec3 unproject( in float winX, in float winY, in float winZ )
 {	
@@ -42,13 +43,16 @@ void main( void )
 		
 		vec3 fragPosition = unproject( gl_FragCoord.x, gl_FragCoord.y, fragDepth );
 
-		if ( dot( normalize( lightPosition - fragPosition ), fragNormal.xyz ) >= 0.0 )
+		float lightDot = dot( normalize( fragPosition - lightPosition ), fragNormal.xyz );
+		
+		if ( lightDot <= 0.0 )
 		{
 			discard;
 		}
 		else
 		{
-			gl_FragColor = vec4( fragDiffuse.rgb * lightColor / ( distance( fragPosition.xyz, lightPosition ) * lightAttenuation ), 0.0f );
+			float dist = distance( fragPosition.xyz, lightPosition );
+			gl_FragColor = vec4( fragDiffuse.rgb * lightDot * lightColor / ( dist * lightLinearAttenuation + dist * dist * lightQuadraticAttenuation ), 0.0f );
 		}
 	}
 }
