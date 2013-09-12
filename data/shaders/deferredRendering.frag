@@ -53,6 +53,7 @@ void main( void )
 		{
 			float dist = distance( fragPosition.xyz, lightPosition );
 			gl_FragColor = vec4( fragDiffuse.rgb * lightDot * lightColor / ( dist * lightLinearAttenuation + dist * dist * lightQuadraticAttenuation ), 0.0f );
+			//gl_FragColor = vec4( 1.0, 0.0, 0.0, 0.0 );
 		}
 	}
 }

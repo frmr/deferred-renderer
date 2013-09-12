@@ -69,13 +69,31 @@ void RenderManager::MultiplyMatricesGL( const float matrixInA[16], const float m
     matrixOut[15] = matrixInA[3] * matrixInB[12] + matrixInA[7] * matrixInB[13] + matrixInA[11] * matrixInB[14] + matrixInA[15] * matrixInB[15];
 }
 
+void RenderManager::SetToOrthogonalProjection( const EngineConfig &engineCfg ) const
+{
+    glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+    glOrtho(0.0, (double) engineCfg.GetActiveWidth(), (double) engineCfg.GetActiveHeight(), 0.0, -1.0, 1.0);
+    glMatrixMode( GL_MODELVIEW );
+    glLoadIdentity();
+}
+
+void RenderManager::SetToPerspectiveProjection( const EngineConfig &engineCfg ) const
+{
+    glMatrixMode( GL_PROJECTION );
+    glLoadIdentity();
+    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 0.1f, 500.0f );
+    glMatrixMode( GL_MODELVIEW );
+    glLoadIdentity();
+}
+
 void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 {
     glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, m_fbo);
 	glPushAttrib(GL_VIEWPORT_BIT);
-	glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
+	//glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear the FBO
 
 	glActiveTextureARB(GL_TEXTURE0);
 	glEnable(GL_TEXTURE_2D);
@@ -98,14 +116,9 @@ void RenderManager::StopRenderToFBO() const
 
 void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const
 {
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
-    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 500.0f );
+    SetToPerspectiveProjection( engineCfg );
 
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity();
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); //clear the screen buffer
     glUseProgramObjectARB( deferredShadingShader.GetProgramHandler() );
 
     glDepthMask( GL_TRUE ); //enable writing to the depth buffer
@@ -117,105 +130,149 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glBindTexture( GL_TEXTURE_2D, m_testTexture );
     glUniform1i( m_testTextureID, 0);
 
-    gameSim.RenderLit();
-    glCallList( icosphere );
+    glPushMatrix();
 
-    int viewportParams[4];
-    float modelViewParams[16];
-    float projectionParams[16];
-    float perspectiveMatrix[16];
+        gameSim.RenderLit();
 
-    glGetIntegerv( GL_VIEWPORT, viewportParams );
-    glGetFloatv( GL_MODELVIEW_MATRIX, modelViewParams );
-    glGetFloatv( GL_PROJECTION_MATRIX, projectionParams );
-    MultiplyMatricesGL( projectionParams, modelViewParams, perspectiveMatrix );
-    InvertMatrixGL( perspectiveMatrix, perspectiveMatrix );
+        int viewportParams[4];
+        float modelViewParams[16];
+        float projectionParams[16];
+        float perspectiveMatrix[16];
+
+        glGetIntegerv( GL_VIEWPORT, viewportParams );
+        glGetFloatv( GL_MODELVIEW_MATRIX, modelViewParams );
+        glGetFloatv( GL_PROJECTION_MATRIX, projectionParams );
+        MultiplyMatricesGL( projectionParams, modelViewParams, perspectiveMatrix );
+        InvertMatrixGL( perspectiveMatrix, perspectiveMatrix );
+
+    glPopMatrix();
 
     StopRenderToFBO();
-
-    glPopMatrix(); //pops the matrix pushed in gameSim.RenderLit()
 
     glUseProgramObjectARB( 0 );
 
     glDepthMask( GL_FALSE ); //disable writing to the depth buffer
-    glDisable(GL_DEPTH_TEST);
+    glDisable( GL_DEPTH_TEST );
 
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
-    glOrtho(0.0, (double) engineCfg.GetActiveWidth(), (double) engineCfg.GetActiveHeight(), 0.0, 0.0, 1.0);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    glEnable(GL_TEXTURE_2D);
-
-    glBindTexture( GL_TEXTURE_2D, 0 );
-
-    //enable blending so that each new quad adds to whatever's in the render buffer
-    glEnable( GL_BLEND );
-    glBlendFunc( GL_ONE, GL_ONE );
 
     glUseProgramObjectARB( deferredRenderingShader.GetProgramHandler() );
 
 	glActiveTextureARB( GL_TEXTURE0_ARB );
-	glEnable( GL_TEXTURE_2D );
 	glBindTexture( GL_TEXTURE_2D, m_normalsTexture );
-	glUniform1iARB ( m_normalsID, 0 );
+	glUniform1iARB( m_normalsID, 0 );
 
 	glActiveTextureARB( GL_TEXTURE1_ARB );
-	glEnable( GL_TEXTURE_2D );
 	glBindTexture( GL_TEXTURE_2D, m_diffuseTexture );
-	glUniform1iARB ( m_diffuseID, 1 );
+	glUniform1iARB( m_diffuseID, 1 );
 
 	glActiveTextureARB( GL_TEXTURE2_ARB );
-	glEnable( GL_TEXTURE_2D );
 	glBindTexture( GL_TEXTURE_2D, m_depthTexture );
-	glUniform1iARB ( m_depthID, 2 );
+	glUniform1iARB( m_depthID, 2 );
 
     glUniform4ivARB( m_viewportParamsID, 4, viewportParams );
     glUniformMatrix4fvARB( m_perspectiveMatrixID, 16, false, perspectiveMatrix );
 
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f);
 
+    //glEnable( GL_STENCIL_TEST );
+    glClearStencil( 0 );
+
     const vector<Light> staticLights = gameSim.GetStaticLights();
 
     for ( auto lightIt : staticLights )
     {
-        //set scale to light radius
-        //draw unit icosphere to stencil buffer
-        //enable differedRenderingShader
-        //pass light info to shader
-        //draw quad
+        SetToPerspectiveProjection( engineCfg );
+
+        glColorMask( GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE ); //disable writing to the color buffer
+        glStencilMask( 0xFF ); //enable writing to the stencil buffer
+
+        glClear( GL_STENCIL_BUFFER_BIT );
+
+        glStencilFunc( GL_NEVER, 1, 0xFF ); // never pass stencil test
+        glStencilOp( GL_REPLACE, GL_KEEP, GL_KEEP );  // replace stencil buffer values to ref=1
+
+        glPushMatrix();
+            glRotatef( -gameSim.GetCamera().GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
+            glRotatef( -gameSim.GetCamera().GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
+            glTranslatef( -gameSim.GetCamera().GetPosition().GetX(), -gameSim.GetCamera().GetPosition().GetY(), -gameSim.GetCamera().GetPosition().GetZ() );
+            glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
+            glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
+            glCallList( icosphere );
+//            glBegin( GL_QUADS );
+//                glVertex3f( -10.0f, -10.0f, 10.0f );
+//                glVertex3f( -10.0f, 10.0f, 10.0f );
+//                glVertex3f( 10.0f, 10.0f, 10.0f );
+//                glVertex3f( 10.0f, -10.0f, 10.0f );
+//
+//                glVertex3f( 10.0f, -10.0f, 10.0f );
+//                glVertex3f( 10.0f, 10.0f, 10.0f );
+//                glVertex3f( 10.0f, 10.0f, -10.0f );
+//                glVertex3f( 10.0f, -10.0f, -10.0f );
+//
+//                glVertex3f( -10.0f, -10.0f, -10.0f );
+//                glVertex3f( -10.0f, 10.0f, -10.0f );
+//                glVertex3f( -10.0f, 10.0f, 10.0f );
+//                glVertex3f( -10.0f, -10.0f, 10.0f );
+//
+//                glVertex3f( 10.0f, -10.0f, -10.0f );
+//                glVertex3f( 10.0f, 10.0f, -10.0f );
+//                glVertex3f( -10.0f, 10.0f, -10.0f );
+//                glVertex3f( -10.0f, -10.0f, -10.0f );
+//
+//                glVertex3f( -10.0f, 10.0f, -10.0f );
+//                glVertex3f( 10.0f, 10.0f, -10.0f );
+//                glVertex3f( 10.0f, 10.0f, 10.0f );
+//                glVertex3f( -10.0f, 10.0f, 10.0f );
+//
+//                glVertex3f( 10.0f, -10.0f, 10.0f );
+//                glVertex3f( 10.0f, -10.0f, -10.0f );
+//                glVertex3f( -10.0f, -10.0f, -10.0f );
+//                glVertex3f( -10.0f, -10.0f, 10.0f );
+//            glEnd();
+        glPopMatrix();
+
+        glStencilFunc( GL_EQUAL, 1, 0xFF );
+
+        glColorMask( GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE ); //enable writing to the color buffer
+        glStencilMask( 0x00 ); //disable writing to the stencil buffer
+
+        SetToOrthogonalProjection( engineCfg );
+
+        //pass the light's attributes to the shader
         glUniform3fARB( m_lightPositionID, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
         glUniform3fARB( m_lightColorID, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
         glUniform1fARB( m_lightLinearAttenuationID, lightIt.GetLinearAttenuation() );
         glUniform1fARB( m_lightQuadraticAttenuationID, lightIt.GetQuadraticAttenuation() );
 
+        //enable blending so that each new quad adds to whatever's in the render buffer
+        glEnable( GL_BLEND );
+        glBlendFunc( GL_ONE, GL_ONE );
+
         glBegin(GL_QUADS);
             glTexCoord2f(0.0f, 1.0f);
             glVertex2f(0.0f, 0.0f);
-            glTexCoord2f(1.0f, 1.0f);
-            glVertex2f( (float) engineCfg.GetActiveWidth(), 0.0f );
-            glTexCoord2f(1.0f, 0.0f);
-            glVertex2f( (float) engineCfg.GetActiveWidth(), (float) engineCfg.GetActiveHeight());
             glTexCoord2f(0.0f, 0.0f);
             glVertex2f(0.0f, (float) engineCfg.GetActiveHeight());
+            glTexCoord2f(1.0f, 0.0f);
+            glVertex2f( (float) engineCfg.GetActiveWidth(), (float) engineCfg.GetActiveHeight() );
+            glTexCoord2f(1.0f, 1.0f);
+            glVertex2f( (float) engineCfg.GetActiveWidth(), 0.0f );
         glEnd();
+
+        glDisable(GL_BLEND);
     }
 
-    glDisable(GL_BLEND);
+    glDisable(GL_STENCIL_TEST );
+    //glEnable( GL_CULL_FACE );
 
     // Reset OpenGL state
 	glActiveTextureARB(GL_TEXTURE0_ARB);
-	glDisable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	glActiveTextureARB(GL_TEXTURE1_ARB);
-	glDisable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	glActiveTextureARB(GL_TEXTURE2_ARB);
-	glDisable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	glUseProgramObjectARB(0);
@@ -235,16 +292,9 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
 {
     glewInit();
-
     glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
-    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 500.0f );
-
+    SetToPerspectiveProjection( engineCfg );
     glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
-
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity();
 }
 
 RenderManager::RenderManager( const EngineConfig &engineCfg )

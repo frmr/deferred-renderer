@@ -29,12 +29,9 @@ vector<Light> Simulation::GetStaticLights() const
 
 void Simulation::RenderLit() const
 {
-    glPushMatrix(); //popped by the RenderManager after the inverse perspective matrix has been calculated
-
     glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
     glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
     glTranslatef( -activeCamera.GetPosition().GetX(), -activeCamera.GetPosition().GetY(), -activeCamera.GetPosition().GetZ() );
-
     staticGeometry.Render();
 }
 
@@ -56,8 +53,8 @@ void Simulation::Update( const int32_t elapsedTime, const float deltaTime, const
 Simulation::Simulation()
     : activeCamera( "ActiveCamera", frmr::Vec3f(), frmr::Vec2f() )
 {
-    staticLights.push_back( Light( frmr::Vec3f( 80.0f, 0.0f, 0.0f ), frmr::Vec3f( 6.0f, 3.5f, 3.5f ) ) );
-    staticLights.push_back( Light( frmr::Vec3f( -80.0f, 0.0f, 0.0f ), frmr::Vec3f( 6.0f, 3.0f, 3.0f ) ) );
+    //staticLights.push_back( Light( frmr::Vec3f( 80.0f, 0.0f, 0.0f ), frmr::Vec3f( 12.0f, 12.0f, 12.0f ) ) );
+    staticLights.push_back( Light( frmr::Vec3f( -80.0f, 0.0f, 0.0f ), frmr::Vec3f( 9.0f, 9.0f, 9.0f ) ) );
 }
 
 Simulation::~Simulation()

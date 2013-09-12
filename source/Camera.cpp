@@ -30,27 +30,33 @@ void Camera::Update( const InputState &inputs, const float mouseSensitivity, con
     }
 
     frmr::Vec3f velocityChange;
+    bool buttonPressed = false;
 
     if ( inputs.GetDirectionHeld() )
     {
-        if ( inputs.GetForwardHeld() )
+        if ( inputs.GetForwardHeld() && !inputs.GetBackwardHeld() )
         {
-            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() + 180.0f ) * 0.01745 ), tan( rotation.GetX() * 0.01745 ), cos( ( rotation.GetY() + 180.0f ) * 0.01745 ) ).Unit();
+            buttonPressed = true;
+            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() + 180.0f ) * 0.01745f ), tan( rotation.GetX() * 0.01745f ), cos( ( rotation.GetY() + 180.0f ) * 0.01745f ) ).Unit();
         }
-        if ( inputs.GetLeftHeld() )
+        if ( inputs.GetLeftHeld() && !inputs.GetRightHeld() )
         {
-            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() - 90.0f ) * 0.01745 ), 0.0f, cos( ( rotation.GetY() - 90.0f ) * 0.01745 ) ).Unit();
+            buttonPressed = true;
+            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() - 90.0f ) * 0.01745f ), 0.0f, cos( ( rotation.GetY() - 90.0f ) * 0.01745f ) ).Unit();
         }
-        if ( inputs.GetBackwardHeld() )
+        if ( inputs.GetBackwardHeld() && !inputs.GetForwardHeld() )
         {
-            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() + 0.0f ) * 0.01745 ), tan( -rotation.GetX() * 0.01745 ), cos( ( rotation.GetY() + 0.0f ) * 0.01745 ) ).Unit();
+            buttonPressed = true;
+            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() + 0.0f ) * 0.01745f ), tan( -rotation.GetX() * 0.01745 ), cos( ( rotation.GetY() + 0.0f ) * 0.01745f ) ).Unit();
         }
-        if ( inputs.GetRightHeld() )
+        if ( inputs.GetRightHeld() && !inputs.GetLeftHeld() )
         {
-            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() + 90.0f ) * 0.01745 ), 0.0f, cos( ( rotation.GetY() + 90.0f ) * 0.01745 ) ).Unit();
+            buttonPressed = true;
+            velocityChange += frmr::Vec3f( sin( ( rotation.GetY() + 90.0f ) * 0.01745f ), 0.0f, cos( ( rotation.GetY() + 90.0f ) * 0.01745f ) ).Unit();
         }
     }
-    else
+    //else
+    if ( !buttonPressed )
     {
         velocityChange = velocity * -1.0f;
     }
@@ -58,7 +64,7 @@ void Camera::Update( const InputState &inputs, const float mouseSensitivity, con
     velocityChange.Unit();
     velocityChange *= acceleration;
 
-    if ( velocity.Length() <= velocityChange.Length() && !inputs.GetDirectionHeld() )
+    if ( velocity.Length() <= velocityChange.Length() && !buttonPressed )
     {
         velocity.Reset();
     }

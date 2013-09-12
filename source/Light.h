@@ -17,10 +17,11 @@ private:
     float CalculateRadius() const;
 
 public:
-    frmr::Vec3f GetPosition() const;
     frmr::Vec3f GetColor() const;
-    float GetLinearAttenuation() const;
-    float GetQuadraticAttenuation() const;
+    float       GetLinearAttenuation() const;
+    frmr::Vec3f GetPosition() const;
+    float       GetRadius() const;
+    float       GetQuadraticAttenuation() const;
 
 public:
     Light( const frmr::Vec3f &position, const frmr::Vec3f &color );

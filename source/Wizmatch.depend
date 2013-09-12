@@ -1030,7 +1030,7 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1378856323 source:x:\produce\wizmatch\source\simulation.cpp
+1378995488 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Simulation.h"
 
@@ -2076,7 +2076,7 @@
 1376050337 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1378831033 x:\produce\wizmatch\source\rendermanager.h
+1378946202 x:\produce\wizmatch\source\rendermanager.h
 	"GL/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2419,7 +2419,7 @@
 	<string>
 	"GL/glew.h"
 
-1378833429 source:x:\produce\wizmatch\source\rendermanager.cpp
+1378998199 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2477,7 +2477,7 @@
 	<iostream>
 	"frmr_Shader.h"
 
-1378755415 source:x:\produce\wizmatch\source\config.cpp
+1378993999 source:x:\produce\wizmatch\source\config.cpp
 	"config.h"
 
 1377641776 x:\produce\wizmatch\source\config.h
@@ -2497,14 +2497,14 @@
 	"Actor.h"
 	"InputState.h"
 
-1378755287 source:x:\produce\wizmatch\source\camera.cpp
+1378998308 source:x:\produce\wizmatch\source\camera.cpp
 	"Camera.h"
 	<iostream>
 
-1378833354 source:x:\produce\wizmatch\source\light.cpp
+1378987860 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1378838396 x:\produce\wizmatch\source\light.h
+1378942977 x:\produce\wizmatch\source\light.h
 	"frmr_Vec3f.h"
 
 1378828769 source:x:\produce\wizmatch\source\icospheregenerator.cpp
