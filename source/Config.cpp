@@ -19,7 +19,7 @@ EngineConfig::EngineConfig( const string &configFilename )
     windowHeight = 900;
     fullscreenWidth = 1920;
     fullscreenHeight = 1080;
-    fullscreen = true;
+    fullscreen = false;
     fov = 120;
     masterVolume = 1.0f;
     effectsVolume = 1.0f;

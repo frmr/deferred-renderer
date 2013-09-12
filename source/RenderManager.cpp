@@ -89,16 +89,14 @@ void RenderManager::SetToPerspectiveProjection( const EngineConfig &engineCfg ) 
 
 void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 {
-    glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, m_fbo);
-	glPushAttrib(GL_VIEWPORT_BIT);
+    glBindFramebufferEXT( GL_FRAMEBUFFER_EXT, m_fbo );
+	glPushAttrib( GL_VIEWPORT_BIT );
 	//glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear the FBO
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); //clear the FBO
 
-	glActiveTextureARB(GL_TEXTURE0);
-	glEnable(GL_TEXTURE_2D);
-    glEnable( GL_CULL_FACE );
-    glCullFace( GL_BACK );
+	glActiveTextureARB( GL_TEXTURE0 );
+	glEnable( GL_TEXTURE_2D );
 
 	// Specify what to render and start acquiring
 	GLenum buffers[] = { GL_COLOR_ATTACHMENT0_EXT, GL_COLOR_ATTACHMENT1_EXT };
@@ -107,8 +105,6 @@ void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 
 void RenderManager::StopRenderToFBO() const
 {
-    glDisable( GL_CULL_FACE );
-
     // Stop acquiring and unbind the FBO
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 	glPopAttrib();
@@ -125,6 +121,9 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glEnable( GL_DEPTH_TEST );
 
     StartRenderToFBO( engineCfg );
+
+    glEnable( GL_CULL_FACE );
+    glCullFace( GL_BACK );
 
     //bind the surface texture and pass it to the shader
     glBindTexture( GL_TEXTURE_2D, m_testTexture );
@@ -149,10 +148,12 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     StopRenderToFBO();
 
+    glDisable( GL_CULL_FACE );
+
     glUseProgramObjectARB( 0 );
 
-    glDepthMask( GL_FALSE ); //disable writing to the depth buffer
-    glDisable( GL_DEPTH_TEST );
+    //glDepthMask( GL_FALSE ); //disable writing to the depth buffer
+    //glDisable( GL_DEPTH_TEST );
 
 
     glUseProgramObjectARB( deferredRenderingShader.GetProgramHandler() );
@@ -174,7 +175,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f);
 
-    //glEnable( GL_STENCIL_TEST );
+    glEnable( GL_STENCIL_TEST );
     glClearStencil( 0 );
 
     const vector<Light> staticLights = gameSim.GetStaticLights();
@@ -182,6 +183,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     for ( auto lightIt : staticLights )
     {
         SetToPerspectiveProjection( engineCfg );
+
+        glUseProgramObjectARB( 0 );
 
         glColorMask( GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE ); //disable writing to the color buffer
         glStencilMask( 0xFF ); //enable writing to the stencil buffer
@@ -198,37 +201,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
             glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
             glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
             glCallList( icosphere );
-//            glBegin( GL_QUADS );
-//                glVertex3f( -10.0f, -10.0f, 10.0f );
-//                glVertex3f( -10.0f, 10.0f, 10.0f );
-//                glVertex3f( 10.0f, 10.0f, 10.0f );
-//                glVertex3f( 10.0f, -10.0f, 10.0f );
-//
-//                glVertex3f( 10.0f, -10.0f, 10.0f );
-//                glVertex3f( 10.0f, 10.0f, 10.0f );
-//                glVertex3f( 10.0f, 10.0f, -10.0f );
-//                glVertex3f( 10.0f, -10.0f, -10.0f );
-//
-//                glVertex3f( -10.0f, -10.0f, -10.0f );
-//                glVertex3f( -10.0f, 10.0f, -10.0f );
-//                glVertex3f( -10.0f, 10.0f, 10.0f );
-//                glVertex3f( -10.0f, -10.0f, 10.0f );
-//
-//                glVertex3f( 10.0f, -10.0f, -10.0f );
-//                glVertex3f( 10.0f, 10.0f, -10.0f );
-//                glVertex3f( -10.0f, 10.0f, -10.0f );
-//                glVertex3f( -10.0f, -10.0f, -10.0f );
-//
-//                glVertex3f( -10.0f, 10.0f, -10.0f );
-//                glVertex3f( 10.0f, 10.0f, -10.0f );
-//                glVertex3f( 10.0f, 10.0f, 10.0f );
-//                glVertex3f( -10.0f, 10.0f, 10.0f );
-//
-//                glVertex3f( 10.0f, -10.0f, 10.0f );
-//                glVertex3f( 10.0f, -10.0f, -10.0f );
-//                glVertex3f( -10.0f, -10.0f, -10.0f );
-//                glVertex3f( -10.0f, -10.0f, 10.0f );
-//            glEnd();
         glPopMatrix();
 
         glStencilFunc( GL_EQUAL, 1, 0xFF );
@@ -237,6 +209,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glStencilMask( 0x00 ); //disable writing to the stencil buffer
 
         SetToOrthogonalProjection( engineCfg );
+
+        glUseProgramObjectARB( deferredRenderingShader.GetProgramHandler() );
 
         //pass the light's attributes to the shader
         glUniform3fARB( m_lightPositionID, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
@@ -263,7 +237,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     }
 
     glDisable(GL_STENCIL_TEST );
-    //glEnable( GL_CULL_FACE );
 
     // Reset OpenGL state
 	glActiveTextureARB(GL_TEXTURE0_ARB);

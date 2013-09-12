@@ -6,7 +6,7 @@ float Light::CalculateRadius() const
     largestColorComponent = ( largestColorComponent > color.GetZ() ) ? largestColorComponent : color.GetZ();
 
     //return largestColorComponent / intensityLowerBound * linearAttenuation;
-    return 80.0f;
+    return 50.0f;
 }
 
 frmr::Vec3f Light::GetColor() const
