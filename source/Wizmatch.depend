@@ -2,7 +2,7 @@
 1377624784 source:x:\produce\wizmatch\source\animatedbillboard.cpp
 	"AnimatedBillboard.h"
 
-1378809663 x:\produce\wizmatch\source\animatedbillboard.h
+1379108523 x:\produce\wizmatch\source\animatedbillboard.h
 	<string>
 	<vector>
 	<map>
@@ -1001,7 +1001,7 @@
 1377625245 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
 
-1377625257 x:\produce\wizmatch\source\effect.h
+1379111319 x:\produce\wizmatch\source\effect.h
 	<stdint.h>
 
 1378828016 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
@@ -2419,7 +2419,7 @@
 	<string>
 	"GL/glew.h"
 
-1379004854 source:x:\produce\wizmatch\source\rendermanager.cpp
+1379010894 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2504,14 +2504,16 @@
 1378999536 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1378942977 x:\produce\wizmatch\source\light.h
+1379108581 x:\produce\wizmatch\source\light.h
+	<stdint.h>
+	<SFML/OpenGL.hpp>
+	<vector>
 	"frmr_Vec3f.h"
 
 1378828769 source:x:\produce\wizmatch\source\icospheregenerator.cpp
 	"IcosphereGenerator.h"
 
-1378822613 x:\produce\wizmatch\source\icospheregenerator.h
-	<SFML/Graphics.hpp>
+1379107604 x:\produce\wizmatch\source\icospheregenerator.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	"frmr_Vec3f.h"

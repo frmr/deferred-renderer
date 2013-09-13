@@ -34,12 +34,18 @@ public:
 
 		//status ailments, strength has no effect on these
 		EFFECT_BLIND,
+		EFFECT_CONFUSE,
+		EFFECT_COUNTDOWN, //player dies when timer ends, must be cured
 		EFFECT_PARALYZE,
 		EFFECT_SILENCE,
 		EFFECT_CURE_BLIND,
+		EFFECT_CURE_CONFUSE,
+		EFFECT_CURE_COUNTDOWN,
 		EFFECT_CURE_PARALYZE,
 		EFFECT_CURE_SILENCE,
 		EFFECT_IMMUNE_BLIND,
+		EFFECT_IMMUNE_CONFUSE,
+		EFFECT_IMMUNE_COUNTDOWN,
 		EFFECT_IMMUNE_PARALYZE,
 		EFFECT_IMMUNE_SILENCE,
 
@@ -57,7 +63,9 @@ public:
 		EFFECT_LEVITATE,
 		EFFECT_RECALL,		//teleport to nearest checkpoint
 		EFFECT_RESURRECT,
-		EFFECT_UNDEAD		//holy damage reduces health, everything else does 1 damage per second
+		EFFECT_SUNLIGHT,    //damages vampires
+		EFFECT_UNDEAD,		//holy damage reduces health, everything else does 1 damage per second
+		EFFECT_VAMPIRE      //damaged by sunlight, needs a benefit of some kind
 	};
 
 private:

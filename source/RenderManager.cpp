@@ -91,7 +91,6 @@ void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 {
     glBindFramebufferEXT( GL_FRAMEBUFFER_EXT, m_fbo );
 	glPushAttrib( GL_VIEWPORT_BIT );
-	//glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); //clear the FBO
 
@@ -105,7 +104,6 @@ void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 
 void RenderManager::StopRenderToFBO() const
 {
-    // Stop acquiring and unbind the FBO
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 	glPopAttrib();
 }
@@ -150,11 +148,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     glDisable( GL_CULL_FACE );
 
-    glUseProgramObjectARB( 0 );
-
-    //glDepthMask( GL_FALSE ); //disable writing to the depth buffer
-    //glDisable( GL_DEPTH_TEST );
-
+    glDepthMask( GL_FALSE ); //disable writing to the depth buffer
+    glDisable( GL_DEPTH_TEST );
 
     glUseProgramObjectARB( deferredRenderingShader.GetProgramHandler() );
 
