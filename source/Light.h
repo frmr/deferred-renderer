@@ -1,8 +1,8 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
-#include <stdint.h>
 #include <SFML/OpenGL.hpp>
+#include <stdint.h>
 #include <vector>
 
 #include "frmr_Vec3f.h"
@@ -17,6 +17,17 @@ private:
     private:
         int16_t zone;
         GLuint  displayList;
+    public:
+        void Render() const
+        {
+            glCallList( displayList );
+        }
+    public:
+        ShadowVolume( const int16_t zone, const GLuint &displayList )
+            : zone( zone ),
+              displayList( displayList )
+        {
+        }
     };
 private:
     static constexpr float  linearAttenuation = 0.3f;
@@ -38,6 +49,8 @@ public:
     frmr::Vec3f GetPosition() const;
     float       GetRadius() const;
     float       GetQuadraticAttenuation() const;
+
+    void        RenderShadowVolumes() const;
 
 public:
     Light( const frmr::Vec3f &position, const frmr::Vec3f &color );

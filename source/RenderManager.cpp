@@ -146,7 +146,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     StopRenderToFBO();
 
-    glDisable( GL_CULL_FACE );
+    //glDisable( GL_CULL_FACE );
 
     glDepthMask( GL_FALSE ); //disable writing to the depth buffer
     glDisable( GL_DEPTH_TEST );
@@ -190,12 +190,28 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glStencilOp( GL_REPLACE, GL_KEEP, GL_KEEP );  // replace stencil buffer values to ref=1
 
         glPushMatrix();
+            //transform to camera position/rotation
             glRotatef( -gameSim.GetCamera().GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
             glRotatef( -gameSim.GetCamera().GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
             glTranslatef( -gameSim.GetCamera().GetPosition().GetX(), -gameSim.GetCamera().GetPosition().GetY(), -gameSim.GetCamera().GetPosition().GetZ() );
-            glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
-            glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
-            glCallList( icosphere );
+
+            glPushMatrix();
+                //render light at correct location and scale
+                glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
+                glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
+                glDisable( GL_CULL_FACE );
+                glCallList( icosphere );
+            glPopMatrix();
+
+            //enable depth test (and use depth from the FBO)
+            glEnable( GL_CULL_FACE );
+            glCullFace( GL_FRONT );
+            //increment of depth fail
+            lightIt.RenderShadowVolumes();
+            glCullFace( GL_BACK );
+            //decrement of depth fail
+            lightIt.RenderShadowVolumes();
+
         glPopMatrix();
 
         glStencilFunc( GL_EQUAL, 1, 0xFF );
@@ -212,6 +228,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glUniform3fARB( m_lightColorID, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
         glUniform1fARB( m_lightLinearAttenuationID, lightIt.GetLinearAttenuation() );
         glUniform1fARB( m_lightQuadraticAttenuationID, lightIt.GetQuadraticAttenuation() );
+
+        glDisable( GL_CULL_FACE );
 
         //enable blending so that each new quad adds to whatever's in the render buffer
         glEnable( GL_BLEND );

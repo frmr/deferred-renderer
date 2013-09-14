@@ -2419,7 +2419,7 @@
 	<string>
 	"GL/glew.h"
 
-1379010894 source:x:\produce\wizmatch\source\rendermanager.cpp
+1379120712 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2468,8 +2468,9 @@
 1378818128 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	"StaticGeometry.h"
 
-1377623396 x:\produce\wizmatch\source\staticgeometry.h
+1379117865 x:\produce\wizmatch\source\staticgeometry.h
 	"GL/gl.h"
+	<stdint.h>
 	<vector>
 
 1378770529 source:x:\produce\wizmatch\source\frmr_shader.cpp
@@ -2501,12 +2502,12 @@
 	"Camera.h"
 	<iostream>
 
-1378999536 source:x:\produce\wizmatch\source\light.cpp
+1379120221 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1379108581 x:\produce\wizmatch\source\light.h
-	<stdint.h>
+1379120169 x:\produce\wizmatch\source\light.h
 	<SFML/OpenGL.hpp>
+	<stdint.h>
 	<vector>
 	"frmr_Vec3f.h"
 

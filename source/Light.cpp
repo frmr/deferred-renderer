@@ -34,10 +34,30 @@ float Light::GetQuadraticAttenuation() const
     return quadraticAttenuation;
 }
 
+void Light::RenderShadowVolumes() const
+{
+    for ( auto shadowIt : staticShadowVolumes )
+    {
+        shadowIt.Render();
+    }
+}
+
 Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color )
     : position( position ),
       color( color ),
       radius( CalculateRadius() )
 {
+    GLuint shadowList = glGenLists( 1 );
+    glNewList( shadowList, GL_COMPILE );
+        glBegin( GL_QUADS );
+            glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f );
+            glVertex3f( 90.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f );
+            glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 110.f, -50.0f, -50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f );
+            glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 110.0f, -50.0f, -50.0f );
+            glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, 50.0f );
+            glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f ); glVertex3f( 110.0f, -50.0f, -50.0f );
+        glEnd();
+    glEndList();
 
+    staticShadowVolumes.push_back( Light::ShadowVolume( 0, shadowList ) );
 }
