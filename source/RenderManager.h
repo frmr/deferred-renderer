@@ -17,7 +17,7 @@ private:
     frmr::Vec3f     ambientLightColor;
     frmr::Shader    deferredShadingShader;
     frmr::Shader    deferredRenderingShader;
-    //displaylist of icosphere with radius of 1 (for lights)
+    frmr::Shader    depthTransferShader;
 
     GLuint          m_testTexture;
     GLuint          m_testTextureID;
@@ -44,8 +44,10 @@ private:
 	GLuint          m_lightQuadraticAttenuationID;
 
 	GLuint          icosphere;
+	GLuint          fullscreenQuad;
 
 private:
+    GLuint  CreateFullscreenQuad( const EngineConfig &engineCfg ) const;
     bool    InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const;
     void    MultiplyMatricesGL( const float matrixInA[16], const float matrixInB[16], float matrixOut[16] ) const;
     void    SetToOrthogonalProjection( const EngineConfig &engineCfg ) const;

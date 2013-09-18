@@ -2076,7 +2076,7 @@
 1376050337 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1378946202 x:\produce\wizmatch\source\rendermanager.h
+1379505525 x:\produce\wizmatch\source\rendermanager.h
 	"GL/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2419,7 +2419,7 @@
 	<string>
 	"GL/glew.h"
 
-1379468758 source:x:\produce\wizmatch\source\rendermanager.cpp
+1379506627 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>

@@ -7,6 +7,26 @@
 using std::cout;
 using std::endl;
 
+GLuint RenderManager::CreateFullscreenQuad( const EngineConfig &engineCfg ) const
+{
+    GLuint quadDisplayList = glGenLists( 1 );
+
+    glNewList( quadDisplayList, GL_COMPILE );
+        glBegin(GL_QUADS);
+            glTexCoord2f(0.0f, 1.0f);
+            glVertex2f(0.0f, 0.0f);
+            glTexCoord2f(0.0f, 0.0f);
+            glVertex2f(0.0f, (float) engineCfg.GetActiveHeight());
+            glTexCoord2f(1.0f, 0.0f);
+            glVertex2f( (float) engineCfg.GetActiveWidth(), (float) engineCfg.GetActiveHeight() );
+            glTexCoord2f(1.0f, 1.0f);
+            glVertex2f( (float) engineCfg.GetActiveWidth(), 0.0f );
+        glEnd();
+    glEndList();
+
+    return quadDisplayList;
+}
+
 //this code is from MESA implementation of GLU's gluInvertMatrix(), although it is slightly modified
 bool RenderManager::InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const
 {
@@ -124,6 +144,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glCullFace( GL_BACK );
 
     //bind the surface texture and pass it to the shader
+    glActiveTexture( GL_TEXTURE0 );
     glBindTexture( GL_TEXTURE_2D, m_testTexture );
     glUniform1i( m_testTextureID, 0);
 
@@ -146,25 +167,18 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     StopRenderToFBO();
 
-    glBindFramebuffer( GL_READ_FRAMEBUFFER, m_fbo ); //read the depth buffer from the FBO...
-    glBindFramebuffer( GL_DRAW_FRAMEBUFFER, 0 ); //and copy it to the default framebuffer
-    glBlitFramebuffer( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), GL_DEPTH_BUFFER_BIT, GL_NEAREST );
-    glBindFramebuffer( GL_READ_FRAMEBUFFER, 0 );
-
-    GLenum previousError = glGetError();
-
-    if ( previousError == GL_INVALID_FRAMEBUFFER_OPERATION )
-    {
-        cout << "GL_INVALID_FRAMEBUFFER_OPERATION" << endl;
-    }
-    else if ( previousError == GL_INVALID_OPERATION )
-    {
-        cout << "GL_INVALID_OPERATION" << endl;
-    }
+    //render depth buffer onto a fullscreen quad
+    SetToOrthogonalProjection( engineCfg );
+    glUseProgram( depthTransferShader.GetProgramHandler() );
+    glActiveTexture( GL_TEXTURE0 );
+	glBindTexture( GL_TEXTURE_2D, m_depthTexture );
+	glUniform1i( m_depthID, 0 );
+    glCallList( fullscreenQuad );
 
     glDepthMask( GL_FALSE ); //disable writing to the depth buffer
     glDisable( GL_DEPTH_TEST );
 
+    //send all the textures and matrices to the deferred rendering shader so we don't have to do it for every light
     glUseProgram( deferredRenderingShader.GetProgramHandler() );
 
 	glActiveTexture( GL_TEXTURE0 );
@@ -181,6 +195,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     glUniform4iv( m_viewportParamsID, 4, viewportParams );
     glUniformMatrix4fv( m_perspectiveMatrixID, 16, false, perspectiveMatrix );
+
+    glUseProgram( 0 );
 
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f);
 
@@ -200,10 +216,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
         glClear( GL_STENCIL_BUFFER_BIT );
 
-        //glStencilFunc( GL_NEVER, 1, 0xFF ); // never pass stencil test
-        glStencilFunc( GL_ALWAYS, 1, 0xFF );
-        //glStencilOp( GL_REPLACE, GL_KEEP, GL_KEEP );  // replace stencil buffer values to ref=1
-        glStencilOp( GL_KEEP, GL_KEEP, GL_REPLACE );
+        glStencilFunc( GL_NEVER, 1, 0xFF ); // never pass stencil test
+        glStencilOp( GL_REPLACE, GL_KEEP, GL_KEEP );  // replace stencil buffer values to ref=1
 
         glPushMatrix();
             //transform to camera position/rotation
@@ -217,18 +231,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
                 glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
                 glDisable( GL_CULL_FACE );
                 glDisable( GL_DEPTH_TEST );
-                //glEnable( GL_DEPTH_TEST );//just for testing
-                //glEnable( GL_CULL_FACE );
-                //glCullFace( GL_FRONT );
-                //glColorMask( GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE );
                 glCallList( icosphere );
             glPopMatrix();
 
             //lightIt.RenderShadowVolumes();
-
-            GLfloat depthFloat;
-            glReadPixels( 720, 450, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &depthFloat );
-            //cout << depthFloat << endl;
 
             //shadows
             glEnable( GL_DEPTH_TEST ); //using the depth buffer from the FBO
@@ -270,16 +276,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glEnable( GL_BLEND );
         glBlendFunc( GL_ONE, GL_ONE );
 
-        glBegin(GL_QUADS);
-            glTexCoord2f(0.0f, 1.0f);
-            glVertex2f(0.0f, 0.0f);
-            glTexCoord2f(0.0f, 0.0f);
-            glVertex2f(0.0f, (float) engineCfg.GetActiveHeight());
-            glTexCoord2f(1.0f, 0.0f);
-            glVertex2f( (float) engineCfg.GetActiveWidth(), (float) engineCfg.GetActiveHeight() );
-            glTexCoord2f(1.0f, 1.0f);
-            glVertex2f( (float) engineCfg.GetActiveWidth(), 0.0f );
-        glEnd();
+        glCallList( fullscreenQuad );
 
         glDisable(GL_BLEND);
     }
@@ -303,8 +300,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 	//enable depth mask
 	//draw projectiles
 
-    glBindFramebuffer( GL_READ_FRAMEBUFFER, 0 ); //stop reading from the FBO's depth buffer
-
     //change to orthogonal projection
 	//disable depth test
 	//disable depth mask
@@ -325,6 +320,7 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
     SetupOpenGL( engineCfg );
     deferredShadingShader.Load( "../data/shaders/deferredShading.vert", "../data/shaders/deferredShading.frag" );
     deferredRenderingShader.Load( "../data/shaders/deferredRendering.vert", "../data/shaders/deferredRendering.frag" );
+    depthTransferShader.Load( "../data/shaders/depthTransfer.vert", "../data/shaders/depthTransfer.frag" );
 
     // Generate the OGL resources for what we need
 	glGenFramebuffers(1, &m_fbo);
@@ -346,7 +342,6 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 
 	glBindRenderbuffer(GL_RENDERBUFFER, m_depthRT);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight());
-	//glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight());
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_depthRT);
 
 	// Generate and bind the OGL texture for normals
@@ -375,7 +370,6 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 	glGenTextures(1, &m_depthTexture);
 	glBindTexture(GL_TEXTURE_2D, m_depthTexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
-	//glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -421,7 +415,7 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
     m_lightQuadraticAttenuationID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightQuadraticAttenuation" );
 
 
-
+    fullscreenQuad = CreateFullscreenQuad( engineCfg );
 	icosphere = IcosphereGenerator::GenerateIcosphereDisplayList( 1 );
 }
 

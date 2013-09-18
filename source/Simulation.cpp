@@ -54,7 +54,7 @@ Simulation::Simulation()
     : activeCamera( "ActiveCamera", frmr::Vec3f(), frmr::Vec2f() )
 {
     staticLights.push_back( Light( frmr::Vec3f( 80.0f, 0.0f, 0.0f ), frmr::Vec3f( 12.0f, 12.0f, 12.0f ) ) );
-    staticLights.push_back( Light( frmr::Vec3f( -80.0f, 0.0f, 0.0f ), frmr::Vec3f( 9.0f, 9.0f, 9.0f ) ) );
+    //staticLights.push_back( Light( frmr::Vec3f( -80.0f, 0.0f, 0.0f ), frmr::Vec3f( 9.0f, 9.0f, 9.0f ) ) );
 }
 
 Simulation::~Simulation()
