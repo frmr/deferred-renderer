@@ -168,6 +168,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     StopRenderToFBO();
 
     //render depth buffer onto a fullscreen quad
+    glClear( GL_DEPTH_BUFFER_BIT );
     SetToOrthogonalProjection( engineCfg );
     glUseProgram( depthTransferShader.GetProgramHandler() );
     glActiveTexture( GL_TEXTURE0 );
@@ -233,8 +234,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
                 glDisable( GL_DEPTH_TEST );
                 glCallList( icosphere );
             glPopMatrix();
-
-            //lightIt.RenderShadowVolumes();
 
             //shadows
             glEnable( GL_DEPTH_TEST ); //using the depth buffer from the FBO
