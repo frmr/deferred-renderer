@@ -19,20 +19,19 @@ namespace frmr
             frmr::Vec3f     minCoord;
             frmr::Vec3f     maxCoord;
             Type*           data;
-            vector<Octant>  children;
+            vector<Octant*>  children;
 
         private:
             bool    ContainsPoint( const frmr::Vec3f &point ) const;
 
         public:
-            bool    AddChild( const Octant &newOctant );
+            bool    AddChild( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data = nullptr );
             Octant* GetChild( const unsigned int index );
             Type*   GetData( const frmr::Vec3f &point ) const;
 
         public:
-            Octant( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord );
-            Octant( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, const Type* const data );
-            Octant( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, const vector<Octant> &children );
+            Octant( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data );
+            Octant( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, const vector<Octant*> &children );
             ~Octant();
         };
 
@@ -40,7 +39,7 @@ namespace frmr
         Octant  rootNode;
 
     public:
-        bool    AddChild( const vector<unsigned int> &parentCoord, const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, const Type* const data );
+        bool    AddChild( const vector<int> &parentCoord, const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data = nullptr );
         Type*   GetData( const frmr::Vec3f &point ) const;
 
     public:

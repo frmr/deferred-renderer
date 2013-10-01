@@ -35,7 +35,6 @@ public:
 class Zone
 {
 private:
-    //Octree
     GLuint          displayList;
     vector<Portal>  portals;
     //vector<Light>
@@ -56,7 +55,8 @@ public:
 class StaticGeometry
 {
 private:
-    vector<Zone> zones;
+    frmr::Octree<int>   zoneTree;
+    vector<Zone>        zones;
 
 public:
     void Render() const;
