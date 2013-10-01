@@ -10,6 +10,7 @@ void Actor::ApplyVelocity( const float deltaTime )
 void Actor::RotateY( const float &change )
 {
     rotation = frmr::Vec2f( rotation.GetX(), rotation.GetY() + change );
+    //TODO normalise angle
 }
 
 void Actor::SetRotationY( const float &newY )

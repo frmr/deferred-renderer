@@ -2419,7 +2419,7 @@
 	<string>
 	"GL/glew.h"
 
-1379508243 source:x:\produce\wizmatch\source\rendermanager.cpp
+1379535274 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2465,13 +2465,14 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1378818128 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1379774789 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	"StaticGeometry.h"
 
-1379117865 x:\produce\wizmatch\source\staticgeometry.h
-	"GL/gl.h"
-	<stdint.h>
+1380594553 x:\produce\wizmatch\source\staticgeometry.h
+	<SFML/OpenGL.hpp>
 	<vector>
+	"Light.h"
+	"frmr_Octree.h"
 
 1378770529 source:x:\produce\wizmatch\source\frmr_shader.cpp
 	<fstream>
@@ -2485,7 +2486,7 @@
 	<map>
 	<string>
 
-1378747615 source:x:\produce\wizmatch\source\actor.cpp
+1379624471 source:x:\produce\wizmatch\source\actor.cpp
 	"Actor.h"
 
 1378747597 x:\produce\wizmatch\source\actor.h
@@ -2502,10 +2503,10 @@
 	"Camera.h"
 	<iostream>
 
-1379201687 source:x:\produce\wizmatch\source\light.cpp
+1379535425 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1379120169 x:\produce\wizmatch\source\light.h
+1379592395 x:\produce\wizmatch\source\light.h
 	<SFML/OpenGL.hpp>
 	<stdint.h>
 	<vector>
@@ -2517,5 +2518,37 @@
 1379107604 x:\produce\wizmatch\source\icospheregenerator.h
 	<SFML/OpenGL.hpp>
 	<vector>
+	"frmr_Vec3f.h"
+
+1379628103 source:x:\produce\wizmatch\source\frmr_math.cpp
+	"frmr_math.h"
+	<iostream>
+	"math.h"
+
+1379628080 x:\produce\wizmatch\source\frmr_math.h
+	"frmr_Vec2f.h"
+	"frmr_Vec3f.h"
+
+1379628142 source:x:\produce\wizmatch\source\frmr_triangle.cpp
+	"frmr_Triangle.h"
+	"frmr_math.h"
+
+1379625388 x:\produce\wizmatch\source\frmr_triangle.h
+	<SFML/OpenGL.hpp>
+	"frmr_Vec2f.h"
+	"frmr_Vec3f.h"
+
+1380501720 x:\produce\wizmatch\source\octree.h
+	<vector>
+	"frmr_Triangle.h"
+	"frmr_Vec3f.h"
+
+1380594499 source:x:\produce\wizmatch\source\frmr_octree.cpp
+	"frmr_Octree.h"
+	<iostream>
+
+1380594071 x:\produce\wizmatch\source\frmr_octree.h
+	<vector>
+	"frmr_Triangle.h"
 	"frmr_Vec3f.h"
 

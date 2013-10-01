@@ -428,4 +428,6 @@ RenderManager::~RenderManager()
 	glDeleteRenderbuffers(1, &m_normalsRT);
 	glDeleteRenderbuffers(1, &m_diffuseRT);
 	glDeleteRenderbuffers(1, &m_depthRT);
+	glDeleteLists( icosphere, 1 );
+	glDeleteLists( fullscreenQuad, 1 );
 }

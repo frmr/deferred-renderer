@@ -15,7 +15,6 @@ private:
     class ShadowVolume
     {
     private:
-        int16_t zone;
         GLuint  displayList;
     public:
         void Render() const
@@ -23,12 +22,16 @@ private:
             glCallList( displayList );
         }
     public:
-        ShadowVolume( const int16_t zone, const GLuint &displayList )
-            : zone( zone ),
-              displayList( displayList )
+        ShadowVolume( const GLuint &displayList )
+            : displayList( displayList )
         {
         }
+        ~ShadowVolume()
+        {
+            glDeleteLists( displayList, 1 );
+        }
     };
+
 private:
     static constexpr float  linearAttenuation = 0.3f;
     static constexpr float  quadraticAttenuation = 0.01f;
@@ -38,7 +41,6 @@ private:
     float                   radius;
 
     vector<ShadowVolume>    staticShadowVolumes;
-    //vector<vector<
 
 private:
     float CalculateRadius() const;
@@ -49,7 +51,6 @@ public:
     frmr::Vec3f GetPosition() const;
     float       GetRadius() const;
     float       GetQuadraticAttenuation() const;
-
     void        RenderShadowVolumes() const;
 
 public:

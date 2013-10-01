@@ -59,5 +59,5 @@ Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color )
         glEnd();
     glEndList();
 
-    staticShadowVolumes.push_back( Light::ShadowVolume( 0, shadowList ) );
+    staticShadowVolumes.push_back( Light::ShadowVolume( shadowList ) );
 }
