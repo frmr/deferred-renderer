@@ -24,79 +24,79 @@ field							size (B)	cumul. size(B)
 numOfAnimations						1			1
 	animationNameSize				1			2
 	animationName					?			
-	textureNameSize					1			3
+	textureNameSize					2			4
 	textureName						?			
-	numOfFrames						1			4
-		North mesh TL X				4			8
-		North mesh TL Y				4			12
-		North mesh BR X				4			16
-		North mesh BR Y				4			20
-		North texture TL X			4			24
-		North texture TL Y			4			28
-		North texture BR X			4			32
-		North texture BR Y			4			36
+	numOfFrames						1			5
+		North mesh TL X				4			9
+		North mesh TL Y				4			13
+		North mesh BR X				4			17
+		North mesh BR Y				4			21
+		North texture TL X			4			25
+		North texture TL Y			4			29
+		North texture BR X			4			33
+		North texture BR Y			4			37
 		
-		North east mesh TL X		4			40
-		North east mesh TL Y		4			44
-		North east mesh BR X		4			48
-		North east mesh BR Y		4			52
-		North east texture TL X		4			56
-		North east texture TL Y		4			60
-		North east texture BR X		4			64
-		North east texture BR Y		4			68
+		North east mesh TL X		4			41
+		North east mesh TL Y		4			45
+		North east mesh BR X		4			49
+		North east mesh BR Y		4			53
+		North east texture TL X		4			57
+		North east texture TL Y		4			61
+		North east texture BR X		4			65
+		North east texture BR Y		4			69
 		
-		East mesh TL X				4			72
-		East mesh TL Y				4			76
-		East mesh BR X				4			80
-		East mesh BR Y				4			84
-		East texture TL X			4			88
-		East texture TL Y			4			92
-		East texture BR X			4			96
-		East texture BR Y			4			100
+		East mesh TL X				4			73
+		East mesh TL Y				4			77
+		East mesh BR X				4			81
+		East mesh BR Y				4			85
+		East texture TL X			4			89
+		East texture TL Y			4			93
+		East texture BR X			4			97
+		East texture BR Y			4			101
 		
-		South east mesh TL X		4			104
-		South east mesh TL Y		4			108
-		South east mesh BR X		4			112
-		South east mesh BR Y		4			116
-		South east texture TL X		4			120
-		South east texture TL Y		4			124
-		South east texture BR X		4			128
-		South east texture BR Y		4			132
+		South east mesh TL X		4			105
+		South east mesh TL Y		4			109
+		South east mesh BR X		4			113
+		South east mesh BR Y		4			117
+		South east texture TL X		4			121
+		South east texture TL Y		4			125
+		South east texture BR X		4			129
+		South east texture BR Y		4			133
 		
-		South mesh TL X				4			136
-		South mesh TL Y				4			140
-		South mesh BR X				4			144
-		South mesh BR Y				4			148
-		South texture TL X			4			152
-		South texture TL Y			4			156
-		South texture BR X			4			160
-		South texture BR Y			4			164
+		South mesh TL X				4			137
+		South mesh TL Y				4			141
+		South mesh BR X				4			145
+		South mesh BR Y				4			149
+		South texture TL X			4			153
+		South texture TL Y			4			157
+		South texture BR X			4			161
+		South texture BR Y			4			165
 		
-		South west mesh TL X		4			168
-		South west mesh TL Y		4			172
-		South west mesh BR X		4			176
-		South west mesh BR Y		4			180
-		South west texture TL X		4			184
-		South west texture TL Y		4			188
-		South west texture BR X		4			192
-		South west texture BR Y		4			196
+		South west mesh TL X		4			169
+		South west mesh TL Y		4			173
+		South west mesh BR X		4			177
+		South west mesh BR Y		4			181
+		South west texture TL X		4			185
+		South west texture TL Y		4			189
+		South west texture BR X		4			193
+		South west texture BR Y		4			197
 		
-		West mesh TL X				4			200
-		West mesh TL Y				4			204
-		West mesh BR X				4			208
-		West mesh BR Y				4			212
-		West texture TL X			4			216
-		West texture TL Y			4			220
-		West texture BR X			4			224
-		West texture BR Y			4			228
+		West mesh TL X				4			201
+		West mesh TL Y				4			205
+		West mesh BR X				4			209
+		West mesh BR Y				4			213
+		West texture TL X			4			217
+		West texture TL Y			4			221
+		West texture BR X			4			225
+		West texture BR Y			4			229
 
-		North west mesh TL X		4			232
-		North west mesh TL Y		4			236
-		North west mesh BR X		4			240
-		North west mesh BR Y		4			244
-		North west texture TL X		4			248
-		North west texture TL Y		4			252
-		North west texture BR X		4			256
-		North west texture BR Y		4			260
+		North west mesh TL X		4			233
+		North west mesh TL Y		4			237
+		North west mesh BR X		4			241
+		North west mesh BR Y		4			245
+		North west texture TL X		4			249
+		North west texture TL Y		4			253
+		North west texture BR X		4			257
+		North west texture BR Y		4			261
 		
-		duration					4			264
+		duration					4			265

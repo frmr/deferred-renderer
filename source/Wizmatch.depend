@@ -1030,7 +1030,7 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1379507879 source:x:\produce\wizmatch\source\simulation.cpp
+1380818995 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Simulation.h"
 
@@ -2419,7 +2419,7 @@
 	<string>
 	"GL/glew.h"
 
-1379535274 source:x:\produce\wizmatch\source\rendermanager.cpp
+1380818984 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2465,11 +2465,11 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1380630885 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1380872977 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	"StaticGeometry.h"
 	<iostream>
 
-1380624188 x:\produce\wizmatch\source\staticgeometry.h
+1380806438 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	"Light.h"
@@ -2504,10 +2504,10 @@
 	"Camera.h"
 	<iostream>
 
-1379535425 source:x:\produce\wizmatch\source\light.cpp
+1380818972 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1379592395 x:\produce\wizmatch\source\light.h
+1380818943 x:\produce\wizmatch\source\light.h
 	<SFML/OpenGL.hpp>
 	<stdint.h>
 	<vector>
@@ -2544,12 +2544,11 @@
 	"frmr_Triangle.h"
 	"frmr_Vec3f.h"
 
-1380633019 source:x:\produce\wizmatch\source\frmr_octree.cpp
+1380872747 source:x:\produce\wizmatch\source\frmr_octree.cpp
 	"frmr_Octree.h"
 	<iostream>
 
-1380632913 x:\produce\wizmatch\source\frmr_octree.h
+1380872754 x:\produce\wizmatch\source\frmr_octree.h
 	<vector>
-	"frmr_Triangle.h"
 	"frmr_Vec3f.h"
 

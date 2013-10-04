@@ -34,18 +34,16 @@ float Light::GetQuadraticAttenuation() const
     return quadraticAttenuation;
 }
 
-void Light::RenderShadowVolumes() const
+void Light::RenderShadowVolume() const
 {
-    for ( auto shadowIt : staticShadowVolumes )
-    {
-        shadowIt.Render();
-    }
+    staticShadowVolume.Render();
 }
 
-Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color )
+Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const GLuint staticShadowVolumeDisplayList )
     : position( position ),
       color( color ),
-      radius( CalculateRadius() )
+      radius( CalculateRadius() ),
+      staticShadowVolume( staticShadowVolumeDisplayList )
 {
     GLuint shadowList = glGenLists( 1 );
     glNewList( shadowList, GL_COMPILE );
@@ -59,5 +57,5 @@ Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color )
         glEnd();
     glEndList();
 
-    staticShadowVolumes.push_back( Light::ShadowVolume( shadowList ) );
+    staticShadowVolume = Light::ShadowVolume( shadowList );
 }

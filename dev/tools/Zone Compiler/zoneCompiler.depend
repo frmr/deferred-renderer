@@ -1,0 +1,4 @@
+# depslib dependency file v1.0
+1380823384 source:x:\produce\wizmatch\dev\tools\zone compiler\main.cpp
+	<iostream>
+

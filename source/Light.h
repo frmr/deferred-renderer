@@ -16,6 +16,7 @@ private:
     {
     private:
         GLuint  displayList;
+
     public:
         void Render() const
         {
@@ -40,7 +41,7 @@ private:
     frmr::Vec3f             color;
     float                   radius;
 
-    vector<ShadowVolume>    staticShadowVolumes;
+    ShadowVolume            staticShadowVolume;
 
 private:
     float CalculateRadius() const;
@@ -51,10 +52,10 @@ public:
     frmr::Vec3f GetPosition() const;
     float       GetRadius() const;
     float       GetQuadraticAttenuation() const;
-    void        RenderShadowVolumes() const;
+    void        RenderShadowVolume() const;
 
 public:
-    Light( const frmr::Vec3f &position, const frmr::Vec3f &color );
+    Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const GLuint staticShadowVolumeDisplayList );
 };
 
 #endif // LIGHT_H

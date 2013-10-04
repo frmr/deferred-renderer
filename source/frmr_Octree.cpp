@@ -20,32 +20,47 @@ bool frmr::Octree<Type>::Octant::ContainsPoint( const frmr::Vec3f &point ) const
 }
 
 template<class Type>
-bool frmr::Octree<Type>::Octant::AddChild( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data )
+bool frmr::Octree<Type>::Octant::AddChild( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const newData )
 {
-    if ( children.size() == 8 )
+    if ( data == nullptr )
     {
-        cout << "frmr::Octree::Octant::AddChild() - Could not add child, octant already has eight children." << endl;
-        return false;
+        if ( children.size() == 8 )
+        {
+            cout << "frmr::Octree::Octant::AddChild() - Could not add child, octant already has eight children." << endl;
+            return false;
+        }
+        else
+        {
+            children.push_back( new Octant( minCoord, maxCoord, newData ) );
+            return true;
+        }
     }
     else
     {
-        children.push_back( new Octant( minCoord, maxCoord, data ) );
-        return true;
+        cout << "frmr::Octree::Octant::AddChild() - Could not add child to data-carrying octant." << endl;
     }
 }
 
 template<class Type>
-typename frmr::Octree<Type>::Octant* frmr::Octree<Type>::Octant::GetChild( const unsigned int index )
+typename frmr::Octree<Type>::Octant* frmr::Octree<Type>::Octant::GetChild( const int index )
 {
-    if ( index < 0 || index >= children.size() )
+    if ( data == nullptr )
     {
-        cout << "frmr::Octree::Octant::GetChild() - Could not find child octant with index " << index << "." << endl;
-        return nullptr;
+        if ( index < 0 || index >= children.size() )
+        {
+            cout << "frmr::Octree::Octant::GetChild() - Could not find child octant with index " << index << "." << endl;
+            return nullptr;
+        }
+        else
+        {
+            return children[index];
+        }
     }
     else
     {
-        return children[index];
+        cout << "frmr::Octree::Octant::GetChild() - Could not get child from data-carrying octant." << endl;
     }
+
 }
 
 template<class Type>
@@ -107,7 +122,7 @@ frmr::Octree<Type>::Octant::~Octant()
 }
 
 template<class Type>
-bool frmr::Octree<Type>::AddChild( const vector<int> &parentCoord, const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data )
+bool frmr::Octree<Type>::AddChild( const vector<int> &parentCoord, const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const newData )
 {
     Octant* targetOctant = &rootNode;
 
@@ -120,7 +135,7 @@ bool frmr::Octree<Type>::AddChild( const vector<int> &parentCoord, const frmr::V
         }
     }
 
-    targetOctant->AddChild( minCoord, maxCoord, data );
+    targetOctant->AddChild( minCoord, maxCoord, newData );
     return true;
 }
 
@@ -137,11 +152,12 @@ Type* frmr::Octree<Type>::GetData( const frmr::Vec3f &point ) const
 }
 
 template<class Type>
-frmr::Octree<Type>::Octree( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord )
-    : rootNode( minCoord, maxCoord, nullptr )
+frmr::Octree<Type>::Octree( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data )
+    : rootNode( minCoord, maxCoord, data )
 {
 }
 
 //valid instantiations
 template class frmr::Octree<int>;
 template class frmr::Octree<unsigned int>;
+template class frmr::Octree<int16_t>;

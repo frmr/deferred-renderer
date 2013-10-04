@@ -5,7 +5,7 @@
 using std::cout;
 using std::endl;
 
-vector<int16_t> Zone::Render() const
+vector<int16_t> StaticGeometry::Zone::Render() const
 {
     vector<int16_t> visibleZones;
     visibleZones.push_back( 0 );
@@ -29,16 +29,28 @@ void StaticGeometry::Render() const
 StaticGeometry::StaticGeometry()
     : zoneTree( frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 100.0f, 100.0f, 100.0f ) )
 {
+    int16_t* coolData;
+    coolData = new int16_t(31);
+    cout << *coolData << endl;
+
+    zoneTree = frmr::Octree<int16_t>( frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 100.0f, 100.0f, 100.0f ) );
+
     vector<int> coord;
     zoneTree.AddChild( coord, frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 0.0f, 0.0f, 0.0f ) );
 
     coord.push_back( 0 );
-    int* coolData;
-    coolData = new int(31);
-    cout << *coolData << endl;
+
     zoneTree.AddChild( coord, frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( -50.0f, -50.0f, -50.0f ), coolData );
 
-    cout << *zoneTree.GetData( frmr::Vec3f( -75.0f, -75.0f, -75.0f ) ) << endl;
+    int16_t* foundData = zoneTree.GetData( frmr::Vec3f( -75.0f, -75.0f, -75.0f ) );
+    if ( foundData == nullptr )
+    {
+        cout << "Returned null pointer." << endl;
+    }
+    else
+    {
+        cout << *foundData << endl;
+    }
 //    zone = glGenLists( 1 );
 //    glNewList( zone, GL_COMPILE );
 //        glBegin( GL_QUADS );

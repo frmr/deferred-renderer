@@ -3,7 +3,6 @@
 
 #include <vector>
 
-#include "frmr_Triangle.h"
 #include "frmr_Vec3f.h"
 
 using std::vector;
@@ -19,14 +18,14 @@ namespace frmr
             frmr::Vec3f     minCoord;
             frmr::Vec3f     maxCoord;
             Type*           data;
-            vector<Octant*>  children;
+            vector<Octant*> children;
 
         private:
             bool    ContainsPoint( const frmr::Vec3f &point ) const;
 
         public:
-            bool    AddChild( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data = nullptr );
-            Octant* GetChild( const unsigned int index );
+            bool    AddChild( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const newData = nullptr );
+            Octant* GetChild( const int index );
             Type*   GetData( const frmr::Vec3f &point ) const;
 
         public:
@@ -39,11 +38,11 @@ namespace frmr
         Octant  rootNode;
 
     public:
-        bool    AddChild( const vector<int> &parentCoord, const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data = nullptr );
+        bool    AddChild( const vector<int> &parentCoord, const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const newData = nullptr );
         Type*   GetData( const frmr::Vec3f &point ) const;
 
     public:
-        Octree( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord );
+        Octree( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const data = nullptr );
     };
 }
 

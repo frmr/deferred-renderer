@@ -242,12 +242,12 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
             //increment on depth fail
             glStencilFunc( GL_EQUAL, 1, 0xFF );
             glStencilOp( GL_KEEP, GL_INCR, GL_KEEP );
-            lightIt.RenderShadowVolumes();
+            lightIt.RenderShadowVolume();
             glCullFace( GL_BACK );
             //decrement on depth fail
             glStencilFunc( GL_EQUAL, 2, 0xFF );
             glStencilOp( GL_KEEP, GL_DECR, GL_KEEP );
-            lightIt.RenderShadowVolumes();
+            lightIt.RenderShadowVolume();
 
         glPopMatrix();
 

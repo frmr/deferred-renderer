@@ -1,0 +1,78 @@
+number of zones						2
+
+	zoneNum							2
+	
+	num of triangles				4
+	
+		texture name length			2
+		texture name				?
+		
+		vert0 X						4
+		vert0 Y 					4
+		vert0 Z						4
+		vert0 texture X				4
+		vert0 texture Y				4
+		vert0 texture Z				4
+		
+		vert1 X						4
+		vert1 Y 					4
+		vert1 Z						4
+		vert1 texture X				4
+		vert1 texture Y				4
+		vert1 texture Z				4
+		
+		vert2 X						4
+		vert2 Y 					4
+		vert2 Z						4
+		vert2 texture X				4
+		vert2 texture Y				4
+		vert2 texture Z				4
+		
+		normal X					4
+		normal Y					4
+		normal Z					4
+
+	num of portals					2
+		
+		targetZoneNum				2
+		
+		number of triangles			2
+		
+			vert0 X					4
+			vert0 Y					4
+			vert0 Z					4
+			
+			vert1 X					4
+			vert1 Y					4
+			vert1 Z					4
+			
+			vert2 X					4
+			vert2 Y					4
+			vert2 Z					4
+		
+	num of lights					2
+		
+		position X					4
+		position Y					4
+		position Z					4
+		
+		color R						4
+		color G						4
+		color B						4
+		
+		radius						4
+		
+		//shadow volume
+		num of triangles			4
+			
+			vert0 X					4
+			vert0 Y					4
+			vert0 Z					4
+			
+			vert1 X					4
+			vert1 Y					4
+			vert1 Z					4
+				
+			vert2 X					4
+			vert2 Y					4
+			vert2 Z					4
