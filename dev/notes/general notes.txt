@@ -14,4 +14,4 @@ Perform anti-aliasing by scaling up render targets?
 
 Homing projectiles
 
-MGS-style keycard doors
+MGS-style keycard doors (based on either effect or item)

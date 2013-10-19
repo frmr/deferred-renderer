@@ -11,9 +11,11 @@ using std::string;
 
 class Actor
 {
+private:
+    static int32_t  actorNumIncrementor;
+
 protected:
-    static int16_t  actorNumIncrementor;
-    int16_t         actorNum;
+    int32_t         actorNum;
     string          name;
     frmr::Vec3f     position;
     frmr::Vec2f     rotation;
@@ -25,7 +27,7 @@ protected:
     void SetRotationY( const float &newY );
 
 public:
-    int16_t     GetActorNum() const;
+    int32_t     GetActorNum() const;
     string      GetName() const;
     frmr::Vec3f GetPosition() const;
     frmr::Vec2f GetRotation() const;

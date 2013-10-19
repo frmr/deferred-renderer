@@ -1,32 +1,29 @@
-number of zones						2
+numOfZones							2
 
 	zoneNum							2
 	
-	num of triangles				4
+	numOfTriangles					4
 	
-		texture name length			2
-		texture name				?
+		texNameLength				2
+		texName						?
 		
 		vert0 X						4
 		vert0 Y 					4
 		vert0 Z						4
 		vert0 texture X				4
 		vert0 texture Y				4
-		vert0 texture Z				4
 		
 		vert1 X						4
 		vert1 Y 					4
 		vert1 Z						4
 		vert1 texture X				4
 		vert1 texture Y				4
-		vert1 texture Z				4
 		
 		vert2 X						4
 		vert2 Y 					4
 		vert2 Z						4
 		vert2 texture X				4
 		vert2 texture Y				4
-		vert2 texture Z				4
 		
 		normal X					4
 		normal Y					4

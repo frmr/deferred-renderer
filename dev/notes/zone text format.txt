@@ -1,0 +1,41 @@
+zone
+	zoneNum int							2
+	
+	texTriangle
+		texName			string						?
+		
+		vert0 			float float float						4	4	4
+		vert0Tex 		float float					4	4
+		
+		vert1 			float float float						4	4	4
+		vert1Tex 		float float					4	4
+		
+		vert2 			float float float						4	4	4
+		vert2Tex 		float float					4	4
+		
+		normal 			float float float						4	4	4
+	/texTriangle
+	
+	portal
+		targetZoneNum	int				2
+		
+		triangle
+			vert0 		float float float					4	4	4
+			vert1 		float float float					4	4	4
+			vert2 		float float float					4	4	4
+		/triangle
+	/portal
+		
+	light	
+		position 		float float float					4	4	4	
+		color 			float float float					4	4	4
+		radius 			float								4
+		
+		//shadow volume
+		triangle	
+			vert0 		float float float					4	4	4
+			vert1 		float float float			4	4	4
+			vert2 		float float float					4	4	4
+		/triangle
+	/light
+/zone
