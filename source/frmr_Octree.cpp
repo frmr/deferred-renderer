@@ -38,6 +38,7 @@ bool frmr::Octree<Type>::Octant::AddChild( const frmr::Vec3f &minCoord, const fr
     else
     {
         cout << "frmr::Octree::Octant::AddChild() - Could not add child to data-carrying octant." << endl;
+        return false;
     }
 }
 
@@ -59,8 +60,8 @@ typename frmr::Octree<Type>::Octant* frmr::Octree<Type>::Octant::GetChild( const
     else
     {
         cout << "frmr::Octree::Octant::GetChild() - Could not get child from data-carrying octant." << endl;
+        return nullptr;
     }
-
 }
 
 template<class Type>

@@ -1,5 +1,7 @@
 #include "windows.h"
+#include "GL/glew.h"
 
+#include "AssetManager.h"
 #include "Config.h"
 #include "InputState.h"
 #include "RenderManager.h"
@@ -14,7 +16,7 @@ void ModifyWindow( sf::RenderWindow* const window, const EngineConfig engineCfg 
 
 int main()
 {
-    EngineConfig    engineCfg( "engine.cfg" );
+    EngineConfig    engineCfg( "../engine.cfg" );
 
     sf::RenderWindow window;
     ModifyWindow( &window, engineCfg );
@@ -26,6 +28,7 @@ int main()
 
     frmr::TimeManager   timer;
     InputState          inputs;
+    AssetManager        assets( "../data.txt", engineCfg.GetFilterTextures() );
     RenderManager       renderer( engineCfg );
     Simulation          gameSim;
 

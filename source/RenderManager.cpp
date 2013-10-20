@@ -204,7 +204,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glEnable( GL_STENCIL_TEST );
     glClearStencil( 0 );
 
-    const vector<Light> staticLights = gameSim.GetStaticLights();
+    const vector<Light> staticLights;// = gameSim.GetStaticLights();
 
     for ( auto lightIt : staticLights )
     {

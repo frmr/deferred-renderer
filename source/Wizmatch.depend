@@ -1022,19 +1022,21 @@
 	"Config.h"
 	"frmr_vec2f.h"
 
-1379467178 source:x:\produce\wizmatch\source\main.cpp
+1382293048 source:x:\produce\wizmatch\source\main.cpp
 	"windows.h"
+	"GL/glew.h"
+	"AssetManager.h"
 	"Config.h"
 	"InputState.h"
 	"RenderManager.h"
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1380818995 source:x:\produce\wizmatch\source\simulation.cpp
+1382282495 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Simulation.h"
 
-1378722862 x:\produce\wizmatch\source\simulation.h
+1382282495 x:\produce\wizmatch\source\simulation.h
 	<string>
 	<vector>
 	<map>
@@ -2419,7 +2421,7 @@
 	<string>
 	"GL/glew.h"
 
-1380818984 source:x:\produce\wizmatch\source\rendermanager.cpp
+1382282505 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2465,13 +2467,18 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1380872992 source:x:\produce\wizmatch\source\staticgeometry.cpp
-	"StaticGeometry.h"
+1382298115 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
+	<fstream>
+	"StaticGeometry.h"
+	"frmr_encode.h"
+	"frmr_Vec2f.h"
+	"frmr_Vec3f.h"
 
-1380806438 x:\produce\wizmatch\source\staticgeometry.h
+1382222212 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
+	<string>
 	"Light.h"
 	"frmr_Octree.h"
 
@@ -2480,14 +2487,16 @@
 	<iostream>
 	"frmr_Shader.h"
 
-1378999691 source:x:\produce\wizmatch\source\config.cpp
+1382296356 source:x:\produce\wizmatch\source\config.cpp
 	"config.h"
+	"frmr_TextFile.h"
+	<stdlib.h>
 
-1377641776 x:\produce\wizmatch\source\config.h
+1382291454 x:\produce\wizmatch\source\config.h
 	<map>
 	<string>
 
-1379624471 source:x:\produce\wizmatch\source\actor.cpp
+1381504868 source:x:\produce\wizmatch\source\actor.cpp
 	"Actor.h"
 
 1381504868 x:\produce\wizmatch\source\actor.h
@@ -2544,11 +2553,40 @@
 	"frmr_Triangle.h"
 	"frmr_Vec3f.h"
 
-1380872747 source:x:\produce\wizmatch\source\frmr_octree.cpp
+1382288125 source:x:\produce\wizmatch\source\frmr_octree.cpp
 	"frmr_Octree.h"
 	<iostream>
 
 1380872754 x:\produce\wizmatch\source\frmr_octree.h
 	<vector>
 	"frmr_Vec3f.h"
+
+1382201301 source:x:\produce\wizmatch\source\frmr_encode.cpp
+	"frmr_encode.h"
+	<iostream>
+
+1382200233 x:\produce\wizmatch\source\frmr_encode.h
+	<stdlib.h>
+	<string>
+
+1382298010 source:x:\produce\wizmatch\source\assetmanager.cpp
+	<iostream>
+	"AssetManager.h"
+	"frmr_TextFile.h"
+
+1382294687 x:\produce\wizmatch\source\assetmanager.h
+	<map>
+	<string>
+	<vector>
+	<SFML/Graphics.hpp>
+	<SFML/OpenGL.hpp>
+
+1382286975 x:\produce\wizmatch\source\frmr_textfile.h
+	<vector>
+	<string>
+
+1382291772 source:x:\produce\wizmatch\source\frmr_textfile.cpp
+	<fstream>
+	<iostream>
+	"frmr_TextFile.h"
 

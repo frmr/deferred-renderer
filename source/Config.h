@@ -15,6 +15,7 @@ private:
     int     fullscreenHeight;
     bool    fullscreen;
     int     fov;
+    bool    filterTextures;
     float   masterVolume;
     float   effectsVolume;
     float   musicVolume;
@@ -29,6 +30,7 @@ public:
     int     GetActiveHeight() const;
     bool    GetFullscreen() const;
     int     GetFOV() const;
+    bool    GetFilterTextures() const;
     float   GetMasterVolume() const;
     float   GetEffectsVolume() const;
     float   GetMusicVolume() const;

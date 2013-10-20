@@ -1,0 +1,12 @@
+Permanent
+	Fonts
+	Wizard sprites
+	Effect icons
+	UI elements
+	Hand sprites
+	
+Temporary
+	Surfaces
+	Projectiles
+	Enemies
+	

@@ -3,11 +3,13 @@
 
 #include <SFML/OpenGL.hpp>
 #include <vector>
+#include <string>
 
 #include "Light.h"
 #include "frmr_Octree.h"
 
 using std::vector;
+using std::string;
 
 class StaticGeometry
 {
@@ -43,15 +45,23 @@ private:
 
     public:
         int16_t GetZoneNum() const;
-        vector<int16_t> Render() const; //returns a list of visible zones
+        vector<int16_t> Render() const; //renders and returns a list of visible zones
 
     public:
-        Zone( const GLuint displayList, const vector<Portal> &portals )
+        Zone( const GLuint displayList, const vector<Portal> &portals, const vector<Light> &lights )
             : displayList( displayList ),
-              portals( portals )
+              portals( portals ),
+              lights( lights )
         {
         }
+        ~Zone()
+        {
+            glDeleteLists( displayList, 1 );
+        }
     };
+
+private:
+    vector<Zone> LoadZoneFile( const string &zoneDataFilename ) const;
 
 private:
     frmr::Octree<int16_t>   zoneTree;
@@ -62,6 +72,7 @@ public:
 
 public:
     //StaticGeometry( const string &octreeFilename, const string &zoneDataFilename,  );
+    StaticGeometry( const string &zoneDataFilename );
     StaticGeometry();
     ~StaticGeometry();
 };

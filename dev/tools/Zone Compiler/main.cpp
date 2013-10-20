@@ -330,7 +330,7 @@ int main( int argc, char *argv[] )
 
         std::ofstream outFile( outFilename + ".wzz" );
 
-        outFile << EncodeINT32( zones.size() );
+        outFile << EncodeINT16( zones.size() );
 
         for ( auto zoneIt : zones )
         {
@@ -382,6 +382,7 @@ int main( int argc, char *argv[] )
                 }
             }
         }
+        outFile.close();
     }
     return 0;
 }
