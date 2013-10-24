@@ -7,6 +7,8 @@
 
 #include "Light.h"
 #include "frmr_Octree.h"
+#include "AssetManager.h"
+#include "frmr_Triangle.h"
 
 using std::vector;
 using std::string;
@@ -21,47 +23,54 @@ private:
         int16_t targetZoneNum;
 
     public:
-        GLuint  GetDisplayList() const;
+        void    Render() const;
         int16_t GetTargetZoneNum() const;
 
     public:
-        Portal( const GLuint displayList, const int16_t targetZoneNum )
-            : displayList( displayList ), targetZoneNum( targetZoneNum )
-        {
-        }
-        ~Portal()
-        {
-            glDeleteLists( displayList, 1 );
-        }
+        Portal( const GLuint displayList, const int16_t targetZoneNum );
+        ~Portal();
     };
 
     class Zone
     {
+    public:
+        class TexTriangleGroup
+        {
+        private:
+            GLuint  displayList;
+            GLuint  textureNum;
+
+        public:
+            void Render() const;
+
+        public:
+            TexTriangleGroup( const GLuint displayList, GLuint textureNum );
+            ~TexTriangleGroup();
+        };
+
     private:
-        int16_t         zoneNum;
-        GLuint          displayList;
-        vector<Portal>  portals;
-        vector<Light>   lights;
+        int16_t                     zoneNum;
+        vector<TexTriangleGroup>    texTriangleGroups;
+        vector<Portal>              portals;
+        vector<Light>               lights;
+        vector<frmr::Triangle>      collTriangles; //collision surfaces //TODO: MAKE THIS A QUADTREE
 
     public:
         int16_t GetZoneNum() const;
         vector<int16_t> Render() const; //renders and returns a list of visible zones
 
     public:
-        Zone( const GLuint displayList, const vector<Portal> &portals, const vector<Light> &lights )
-            : displayList( displayList ),
+        Zone( const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights )
+            : texTriangleGroups( texTriangleGroups ),
+              collTriangles( collTriangles ),
               portals( portals ),
               lights( lights )
         {
         }
-        ~Zone()
-        {
-            glDeleteLists( displayList, 1 );
-        }
     };
 
 private:
-    vector<Zone> LoadZoneFile( const string &zoneDataFilename ) const;
+    vector<Zone> LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets ) const;
 
 private:
     frmr::Octree<int16_t>   zoneTree;
@@ -72,7 +81,7 @@ public:
 
 public:
     //StaticGeometry( const string &octreeFilename, const string &zoneDataFilename,  );
-    StaticGeometry( const string &zoneDataFilename );
+    StaticGeometry( const string &zoneDataFilename, const AssetManager &assets );
     StaticGeometry();
     ~StaticGeometry();
 };

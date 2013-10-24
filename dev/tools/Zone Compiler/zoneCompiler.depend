@@ -1,11 +1,14 @@
 # depslib dependency file v1.0
-1381881650 source:x:\produce\wizmatch\dev\tools\zone compiler\main.cpp
+1382571692 source:x:\produce\wizmatch\dev\tools\zone compiler\main.cpp
 	<iostream>
 	<fstream>
 	<string>
 	<vector>
+	<stdlib.h>
 	"frmr_Vec3f.h"
 	"frmr_Vec2f.h"
+	"frmr_textfile.h"
+	"frmr_encode.h"
 
 1355506276 source:x:\produce\wizmatch\dev\tools\zone compiler\frmr_stringfuncs.cpp
 	"frmr_stringfuncs.h"

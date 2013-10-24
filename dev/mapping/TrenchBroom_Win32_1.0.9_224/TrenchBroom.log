@@ -1051,3 +1051,68 @@
 7472 2013-09-10 23:15:25: Moved file X:\Produce\Quake Map\autosave\derwent 29.map to X:\Produce\Quake Map\autosave\derwent 28.map
 7472 2013-09-10 23:15:25: Moved file X:\Produce\Quake Map\autosave\derwent 30.map to X:\Produce\Quake Map\autosave\derwent 29.map
 7472 2013-09-10 23:15:25: Autosaved to X:\Produce\Quake Map\autosave\derwent 30.map in 0.014000 seconds
+15308 2013-10-23 00:07:28: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+15308 2013-10-23 00:07:28: Depth buffer bits: 16
+15308 2013-10-23 00:07:28: Multisampling disabled
+15308 2013-10-23 00:07:28: OpenGL instancing enabled
+15308 2013-10-23 00:07:29: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+15308 2013-10-23 00:07:29: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+15308 2013-10-23 00:07:29: Created Face Shader Program
+15308 2013-10-23 00:07:29: Created Face.vertsh
+15308 2013-10-23 00:07:29: Created Face.fragsh
+15308 2013-10-23 00:07:29: Created Colored Edge Shader Program
+15308 2013-10-23 00:07:29: Created ColoredEdge.vertsh
+15308 2013-10-23 00:07:29: Created Edge.fragsh
+15308 2013-10-23 00:07:29: Created Text Shader Program
+15308 2013-10-23 00:07:29: Created Text.vertsh
+15308 2013-10-23 00:07:29: Created Text.fragsh
+15308 2013-10-23 00:07:29: Created Text Background Shader Program
+15308 2013-10-23 00:07:29: Created TextBackground.vertsh
+15308 2013-10-23 00:07:29: Created TextBackground.fragsh
+15308 2013-10-23 00:07:29: Created Edge Shader Program
+15308 2013-10-23 00:07:29: Created Edge.vertsh
+15308 2013-10-23 00:07:29: Created Entity Model Shader Program
+15308 2013-10-23 00:07:29: Created EntityModel.vertsh
+15308 2013-10-23 00:07:30: Created EntityModel.fragsh
+15308 2013-10-23 00:07:30: Created Browser Group Shader Program
+15308 2013-10-23 00:07:30: Created BrowserGroup.vertsh
+15308 2013-10-23 00:07:30: Created BrowserGroup.fragsh

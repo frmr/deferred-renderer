@@ -53,6 +53,8 @@
 		<Unit filename="Actor.h" />
 		<Unit filename="AnimatedBillboard.cpp" />
 		<Unit filename="AnimatedBillboard.h" />
+		<Unit filename="AssetManager.cpp" />
+		<Unit filename="AssetManager.h" />
 		<Unit filename="Camera.cpp" />
 		<Unit filename="Camera.h" />
 		<Unit filename="Client.h" />
@@ -84,6 +86,8 @@
 		<Unit filename="frmr_Octree.h" />
 		<Unit filename="frmr_Shader.cpp" />
 		<Unit filename="frmr_Shader.h" />
+		<Unit filename="frmr_TextFile.cpp" />
+		<Unit filename="frmr_TextFile.h" />
 		<Unit filename="frmr_TimeManager.cpp" />
 		<Unit filename="frmr_TimeManager.h" />
 		<Unit filename="frmr_Triangle.cpp" />

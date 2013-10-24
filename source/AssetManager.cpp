@@ -91,7 +91,15 @@ string AssetManager::StripFilename( const string &filename ) const
     size_t lastSlash = filename.find_last_of( "/" );
     if ( lastSlash == std::string::npos )
     {
+        cout << "AssetManager::StripFilename() - Filename " << filename << " does not contain a slash." << endl;
         lastSlash = 0;
+    }
+    else
+    {
+        if ( lastSlash < filename.length() )
+        {
+            lastSlash++;
+        }
     }
     return filename.substr( lastSlash, std::string::npos );
 }

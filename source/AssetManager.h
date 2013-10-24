@@ -20,6 +20,7 @@ public:
         PERMANENT,
         TEMPORARY
     };
+
 private:
     map<string, GLuint> permanentTextures;
     map<string, GLuint> temporaryTextures;

@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 
+#include "AssetManager.h"
 #include "Camera.h"
 #include "InputState.h"
 #include "Light.h"
@@ -37,7 +38,7 @@ public:
 	void            Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:
-	Simulation();
+	Simulation( const AssetManager &assets );
 	~Simulation();
 };
 

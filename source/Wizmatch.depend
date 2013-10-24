@@ -1022,7 +1022,7 @@
 	"Config.h"
 	"frmr_vec2f.h"
 
-1382293048 source:x:\produce\wizmatch\source\main.cpp
+1382298733 source:x:\produce\wizmatch\source\main.cpp
 	"windows.h"
 	"GL/glew.h"
 	"AssetManager.h"
@@ -1032,14 +1032,15 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1382282495 source:x:\produce\wizmatch\source\simulation.cpp
+1382299038 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Simulation.h"
 
-1382282495 x:\produce\wizmatch\source\simulation.h
+1382298920 x:\produce\wizmatch\source\simulation.h
 	<string>
 	<vector>
 	<map>
+	"AssetManager.h"
 	"Camera.h"
 	"InputState.h"
 	"Light.h"
@@ -2467,7 +2468,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1382298115 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1382305564 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2475,22 +2476,25 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1382222212 x:\produce\wizmatch\source\staticgeometry.h
+1382461012 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
 	"Light.h"
 	"frmr_Octree.h"
+	"AssetManager.h"
+	"frmr_Triangle.h"
 
 1378770529 source:x:\produce\wizmatch\source\frmr_shader.cpp
 	<fstream>
 	<iostream>
 	"frmr_Shader.h"
 
-1382296356 source:x:\produce\wizmatch\source\config.cpp
+1382471638 source:x:\produce\wizmatch\source\config.cpp
 	"config.h"
 	"frmr_TextFile.h"
 	<stdlib.h>
+	<iostream>
 
 1382291454 x:\produce\wizmatch\source\config.h
 	<map>
@@ -2539,13 +2543,11 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1379628142 source:x:\produce\wizmatch\source\frmr_triangle.cpp
+1382460764 source:x:\produce\wizmatch\source\frmr_triangle.cpp
 	"frmr_Triangle.h"
 	"frmr_math.h"
 
-1379625388 x:\produce\wizmatch\source\frmr_triangle.h
-	<SFML/OpenGL.hpp>
-	"frmr_Vec2f.h"
+1382460582 x:\produce\wizmatch\source\frmr_triangle.h
 	"frmr_Vec3f.h"
 
 1380501720 x:\produce\wizmatch\source\octree.h
@@ -2569,12 +2571,12 @@
 	<stdlib.h>
 	<string>
 
-1382298010 source:x:\produce\wizmatch\source\assetmanager.cpp
+1382299920 source:x:\produce\wizmatch\source\assetmanager.cpp
 	<iostream>
 	"AssetManager.h"
 	"frmr_TextFile.h"
 
-1382294687 x:\produce\wizmatch\source\assetmanager.h
+1382471502 x:\produce\wizmatch\source\assetmanager.h
 	<map>
 	<string>
 	<vector>

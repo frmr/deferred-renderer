@@ -23,6 +23,14 @@ struct Triangle
     Vec3f   vert2;
 };
 
+struct CollTriangle
+{
+    Vec3f   vert0;
+    Vec3f   vert1;
+    Vec3f   vert2;
+    Vec3f   normal;
+};
+
 struct TexTriangle
 {
     string  texName;
@@ -53,6 +61,7 @@ struct Zone
 {
     int16_t            zoneNum;
     vector<TexTriangle> texTriangles;
+    vector<CollTriangle> collTriangles;
     vector<Portal>      portals;
     vector<Light>       lights;
 
@@ -64,6 +73,7 @@ int main( int argc, char *argv[] )
     {
         bool loadingZone = false;
         bool loadingTexTriangle = false;
+        bool loadingCollTriangle = false;
         bool loadingPortal = false;
         bool loadingLight = false;
         bool loadingTriangle = false;
@@ -72,6 +82,7 @@ int main( int argc, char *argv[] )
 
         Zone currentZone;
         TexTriangle currentTexTriangle;
+        CollTriangle currentCollTriangle;
         Portal currentPortal;
         Light currentLight;
         Triangle currentTriangle;
@@ -133,6 +144,34 @@ int main( int argc, char *argv[] )
                     else
                     {
                         cout << "Unrecognised command while loading TexTriangle: " << lineIt[0] << endl;
+                    }
+                }
+                else if ( loadingCollTriangle )
+                {
+                    if ( lineIt[0] == "vert0" )
+                    {
+                        currentCollTriangle.vert0 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                    }
+                    else if ( lineIt[0] == "vert1" )
+                    {
+                        currentCollTriangle.vert1 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                    }
+                    else if ( lineIt[0] == "vert2" )
+                    {
+                        currentCollTriangle.vert2 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                    }
+                    else if ( lineIt[0] == "normal" )
+                    {
+                        currentCollTriangle.normal = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                    }
+                    else if ( lineIt[0] == "/collTriangle" )
+                    {
+                        currentZone.collTriangles.push_back( currentCollTriangle );
+                        loadingCollTriangle = false;
+                    }
+                    else
+                    {
+                        cout << "Unrecognised command while loading CollTriangle: " << lineIt[0] << endl;
                     }
                 }
                 else if ( loadingPortal )
@@ -251,6 +290,11 @@ int main( int argc, char *argv[] )
                         currentTexTriangle = TexTriangle();
                         loadingTexTriangle = true;
                     }
+                    else if ( lineIt[0] == "collTriangle" )
+                    {
+                        currentCollTriangle = CollTriangle();
+                        loadingCollTriangle = true;
+                    }
                     else if ( lineIt[0] == "portal" )
                     {
                         currentPortal = Portal();
@@ -348,6 +392,16 @@ int main( int argc, char *argv[] )
                 outFile << EncodeFloat( texTriangleIt.vert2.GetX() ) << EncodeFloat( texTriangleIt.vert2.GetY() ) << EncodeFloat( texTriangleIt.vert2.GetZ() );
                 outFile << EncodeFloat( texTriangleIt.vert2Tex.GetX() ) << EncodeFloat( texTriangleIt.vert2Tex.GetY() );
                 outFile << EncodeFloat( texTriangleIt.normal.GetX() ) << EncodeFloat( texTriangleIt.normal.GetY() ) << EncodeFloat( texTriangleIt.normal.GetZ() );
+            }
+
+            outFile << EncodeINT32( zoneIt.collTriangles.size() );
+
+            for ( auto collTriangleIt : zoneIt.collTriangles )
+            {
+                outFile << EncodeFloat( collTriangleIt.vert0.GetX() ) << EncodeFloat( collTriangleIt.vert0.GetY() ) << EncodeFloat( collTriangleIt.vert0.GetZ() );
+                outFile << EncodeFloat( collTriangleIt.vert1.GetX() ) << EncodeFloat( collTriangleIt.vert1.GetY() ) << EncodeFloat( collTriangleIt.vert1.GetZ() );
+                outFile << EncodeFloat( collTriangleIt.vert2.GetX() ) << EncodeFloat( collTriangleIt.vert2.GetY() ) << EncodeFloat( collTriangleIt.vert2.GetZ() );
+                outFile << EncodeFloat( collTriangleIt.normal.GetX() ) << EncodeFloat( collTriangleIt.normal.GetY() ) << EncodeFloat( collTriangleIt.normal.GetZ() );
             }
 
             outFile << EncodeINT16( zoneIt.portals.size() );

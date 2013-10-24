@@ -30,7 +30,7 @@ int main()
     InputState          inputs;
     AssetManager        assets( "../data.txt", engineCfg.GetFilterTextures() );
     RenderManager       renderer( engineCfg );
-    Simulation          gameSim;
+    Simulation          gameSim( assets );
 
     gameSim.ChangeMap( "arse" );
 

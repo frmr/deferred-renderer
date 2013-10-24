@@ -9,6 +9,48 @@
 using std::cout;
 using std::endl;
 
+void StaticGeometry::Portal::Render() const
+{
+    glBindTexture( GL_TEXTURE_2D, 0 );
+    glCallList( displayList );
+}
+
+int16_t StaticGeometry::Portal::GetTargetZoneNum() const
+{
+    return targetZoneNum;
+}
+
+StaticGeometry::Portal::Portal( const GLuint displayList, const int16_t targetZoneNum )
+    : displayList( displayList ), targetZoneNum( targetZoneNum )
+{
+}
+
+StaticGeometry::Portal::~Portal()
+{
+    glDeleteLists( displayList, 1 );
+}
+
+void StaticGeometry::Zone::TexTriangleGroup::Render() const
+{
+    glBindTexture( GL_TEXTURE_2D, textureNum );
+    glCallList( displayList );
+}
+
+StaticGeometry::Zone::TexTriangleGroup::TexTriangleGroup( const GLuint displayList, GLuint textureNum )
+    : displayList( displayList ), textureNum( textureNum )
+{
+}
+
+StaticGeometry::Zone::TexTriangleGroup::TexTriangleGroup::~TexTriangleGroup()
+{
+    glDeleteLists( displayList, 1 );
+}
+
+int16_t StaticGeometry::Zone::GetZoneNum() const
+{
+    return zoneNum;
+}
+
 vector<int16_t> StaticGeometry::Zone::Render() const
 {
     vector<int16_t> visibleZones;
@@ -16,7 +58,15 @@ vector<int16_t> StaticGeometry::Zone::Render() const
     return visibleZones;
 }
 
-vector<StaticGeometry::Zone> StaticGeometry::LoadZoneFile( const string &zoneDataFilename ) const
+StaticGeometry::Zone::Zone( const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights )
+    : texTriangleGroups( texTriangleGroups ),
+      collTriangles( collTriangles ),
+      portals( portals ),
+      lights( lights )
+{
+}
+
+vector<StaticGeometry::Zone> StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets ) const
 {
     vector<StaticGeometry::Zone> loadedZones;
     string zoneString;
@@ -52,7 +102,9 @@ vector<StaticGeometry::Zone> StaticGeometry::LoadZoneFile( const string &zoneDat
                 string texName = zoneString.substr( i, texNameLength );
                 i += texNameLength;
 
-                glBindTexture( GL_TEXTURE_2D,  );
+                //POLYGONS NEED TO BE ORDERED BY TEXTURE TO AVOID GLBINDTEXTURE
+
+                glBindTexture( GL_TEXTURE_2D, assets.GetTexture( texName, AssetManager::SearchMode::PERMANENT ) ); //TODO change this to temporary
                 glBegin( GL_TRIANGLES );
                     glNormal3f( frmr::DecodeFloat( zoneString.substr( i+60, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+64, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+68, 4 ) ) );
                     glTexCoord2f( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ) );
@@ -67,10 +119,49 @@ vector<StaticGeometry::Zone> StaticGeometry::LoadZoneFile( const string &zoneDat
             }
             glEndList();
 
+            vector<frmr::Triangle> collTriangles;
+
+            int32_t numOfCollTriangles = frmr::DecodeINT32( zoneString.substr( i, 4 ) );
+            i += 4;
+
+            for ( int collTriangleIndex = 0; collTriangleIndex < numOfCollTriangles; collTriangleIndex++ )
+            {
+                collTriangles.push_back( frmr::Triangle( frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) ),
+                                                         frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) ),
+                                                         frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ) ),
+                                                         frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i+36, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+40, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+44, 4 ) ) ) ) );
+
+                i += 48
+            }
+
+            vector<frmr::Triangle> portals;
+
             int16_t numOfPortals = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
             i += 2;
 
             for ( int portalIndex = 0; portalIndex < numOfPortals; portalIndex++ )
+            {
+                int16_t targetZoneNum = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+                i += 2;
+                int16_t numOfTriangles = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+                i += 2;
+
+                GLuint portalDisplayList = glGenLists(1);
+                glNewList( zoneDisplayList, GL_COMPILE );
+
+                for ( int triangleIndex = 0; triangleIndex < numOfTriangles; triangleIndex++ )
+                {
+                    frmr::Vec3f vert0( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) );
+                    frmr::Vec3f vert1( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) );
+                    frmr::Vec3f vert2( frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ) );
+                    i += 36;
+                }
+            }
+
+            int16_t numOfLights = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+            i += 2;
+
+            for ( int lightIndex = 0; lightIndex < numOfLights; lightIndex++ )
             {
 
             }
@@ -97,10 +188,10 @@ void StaticGeometry::Render() const
     }
 }
 
-StaticGeometry::StaticGeometry( const string &zoneDataFilename )
+StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )
     : zoneTree( frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 100.0f, 100.0f, 100.0f ) )
 {
-    zones = LoadZoneFile( zoneDataFilename );
+    zones = LoadZoneFile( zoneDataFilename, assets );
 }
 
 StaticGeometry::StaticGeometry()
