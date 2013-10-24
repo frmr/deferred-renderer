@@ -55,7 +55,7 @@ public:
     void        RenderShadowVolume() const;
 
 public:
-    Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const GLuint staticShadowVolumeDisplayList );
+    Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const float radius, const GLuint staticShadowVolumeDisplayList );
 };
 
 #endif // LIGHT_H

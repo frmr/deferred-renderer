@@ -2476,7 +2476,7 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1382461012 x:\produce\wizmatch\source\staticgeometry.h
+1382622709 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
@@ -2490,11 +2490,10 @@
 	<iostream>
 	"frmr_Shader.h"
 
-1382471638 source:x:\produce\wizmatch\source\config.cpp
+1382471683 source:x:\produce\wizmatch\source\config.cpp
 	"config.h"
 	"frmr_TextFile.h"
 	<stdlib.h>
-	<iostream>
 
 1382291454 x:\produce\wizmatch\source\config.h
 	<map>
@@ -2517,10 +2516,10 @@
 	"Camera.h"
 	<iostream>
 
-1380818972 source:x:\produce\wizmatch\source\light.cpp
+1382621758 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1380818943 x:\produce\wizmatch\source\light.h
+1382621573 x:\produce\wizmatch\source\light.h
 	<SFML/OpenGL.hpp>
 	<stdint.h>
 	<vector>
@@ -2543,11 +2542,11 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1382460764 source:x:\produce\wizmatch\source\frmr_triangle.cpp
+1382573354 source:x:\produce\wizmatch\source\frmr_triangle.cpp
 	"frmr_Triangle.h"
 	"frmr_math.h"
 
-1382460582 x:\produce\wizmatch\source\frmr_triangle.h
+1382573290 x:\produce\wizmatch\source\frmr_triangle.h
 	"frmr_Vec3f.h"
 
 1380501720 x:\produce\wizmatch\source\octree.h
