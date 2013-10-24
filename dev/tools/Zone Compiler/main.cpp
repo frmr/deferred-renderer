@@ -33,7 +33,6 @@ struct CollTriangle
 
 struct TexTriangle
 {
-    string  texName;
     Vec3f   vert0;
     Vec2f   vert0Tex;
     Vec3f   vert1;
@@ -43,27 +42,33 @@ struct TexTriangle
     Vec3f   normal;
 };
 
+struct TexTriangleGroup
+{
+    string              texName;
+    vector<TexTriangle> texTriangles;
+};
+
 struct Portal
 {
-    int16_t            targetZoneNum;
+    int16_t             targetZoneNum;
     vector<Triangle>    triangles;
 };
 
 struct Light
 {
-    Vec3f position;
-    Vec3f color;
-    float radius;
+    Vec3f               position;
+    Vec3f               color;
+    float               radius;
     vector<Triangle>    triangles;
 };
 
 struct Zone
 {
-    int16_t            zoneNum;
-    vector<TexTriangle> texTriangles;
-    vector<CollTriangle> collTriangles;
-    vector<Portal>      portals;
-    vector<Light>       lights;
+    int16_t                     zoneNum;
+    vector<TexTriangleGroup>    texTriangleGroups;
+    vector<CollTriangle>        collTriangles;
+    vector<Portal>              portals;
+    vector<Light>               lights;
 
 };
 
@@ -72,6 +77,7 @@ int main( int argc, char *argv[] )
     for ( int i = 1; i < argc; i++ )
     {
         bool loadingZone = false;
+        bool loadingTexTriangleGroup = false;
         bool loadingTexTriangle = false;
         bool loadingCollTriangle = false;
         bool loadingPortal = false;
@@ -81,6 +87,7 @@ int main( int argc, char *argv[] )
         vector<Zone>    zones;
 
         Zone currentZone;
+        TexTriangleGroup currentTexTriangleGroup;
         TexTriangle currentTexTriangle;
         CollTriangle currentCollTriangle;
         Portal currentPortal;
@@ -102,48 +109,68 @@ int main( int argc, char *argv[] )
             }
             else
             {
-                if ( loadingTexTriangle )
+                if ( loadingTexTriangleGroup )
                 {
-                    if ( lineIt[0] == "texName" )
+                    if ( loadingTexTriangle )
                     {
-                        currentTexTriangle.texName = lineIt[1];
-                    }
-                    else if ( lineIt[0] == "vert0" )
-                    {
-                        currentTexTriangle.vert0 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                    }
-                    else if ( lineIt[0] == "vert0Tex" )
-                    {
-                        currentTexTriangle.vert0Tex = Vec2f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ) );
-                    }
-                    else if ( lineIt[0] == "vert1" )
-                    {
-                        currentTexTriangle.vert1 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                    }
-                    else if ( lineIt[0] == "vert1Tex" )
-                    {
-                        currentTexTriangle.vert1Tex = Vec2f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ) );
-                    }
-                    else if ( lineIt[0] == "vert2" )
-                    {
-                        currentTexTriangle.vert2 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                    }
-                    else if ( lineIt[0] == "vert2Tex" )
-                    {
-                        currentTexTriangle.vert2Tex = Vec2f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ) );
-                    }
-                    else if ( lineIt[0] == "normal" )
-                    {
-                        currentTexTriangle.normal = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                    }
-                    else if ( lineIt[0] == "/texTriangle" )
-                    {
-                        currentZone.texTriangles.push_back( currentTexTriangle );
-                        loadingTexTriangle = false;
+                        if ( lineIt[0] == "vert0" )
+                        {
+                            currentTexTriangle.vert0 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "vert0Tex" )
+                        {
+                            currentTexTriangle.vert0Tex = Vec2f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "vert1" )
+                        {
+                            currentTexTriangle.vert1 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "vert1Tex" )
+                        {
+                            currentTexTriangle.vert1Tex = Vec2f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "vert2" )
+                        {
+                            currentTexTriangle.vert2 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "vert2Tex" )
+                        {
+                            currentTexTriangle.vert2Tex = Vec2f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "normal" )
+                        {
+                            currentTexTriangle.normal = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "/texTriangle" )
+                        {
+                            currentTexTriangleGroup.texTriangles.push_back( currentTexTriangle );
+                            loadingTexTriangle = false;
+                        }
+                        else
+                        {
+                            cout << "Unrecognised command while loading TexTriangle: " << lineIt[0] << endl;
+                        }
                     }
                     else
                     {
-                        cout << "Unrecognised command while loading TexTriangle: " << lineIt[0] << endl;
+                        if ( lineIt[0] == "texName" )
+                        {
+                            currentTexTriangleGroup.texName = lineIt[1];
+                        }
+                        else if ( lineIt[0] == "texTriangle" )
+                        {
+                            currentTexTriangle = TexTriangle();
+                            loadingTexTriangle = true;
+                        }
+                        else if ( lineIt[0] == "/texTriangleGroup" )
+                        {
+                            currentZone.texTriangleGroups.push_back( currentTexTriangleGroup );
+                            loadingTexTriangleGroup = false;
+                        }
+                        else
+                        {
+                            cout << "Unrecognised command while loading TexTriangleGroup: " << lineIt[0] << endl;
+                        }
                     }
                 }
                 else if ( loadingCollTriangle )
@@ -285,10 +312,10 @@ int main( int argc, char *argv[] )
                     {
                         currentZone.zoneNum = atoi( lineIt[1].c_str() );
                     }
-                    else if ( lineIt[0] == "texTriangle" )
+                    else if ( lineIt[0] == "texTriangleGroup" )
                     {
-                        currentTexTriangle = TexTriangle();
-                        loadingTexTriangle = true;
+                        currentTexTriangleGroup = TexTriangleGroup();
+                        loadingTexTriangleGroup = true;
                     }
                     else if ( lineIt[0] == "collTriangle" )
                     {
@@ -319,45 +346,45 @@ int main( int argc, char *argv[] )
         }
 
         //print all the data for debugging purposes
-        for ( auto zoneIt : zones )
-        {
-            cout << zoneIt.zoneNum << endl;
-            for ( auto texTriangleIt : zoneIt.texTriangles )
-            {
-                cout << texTriangleIt.texName << endl;
-                cout << texTriangleIt.vert0.GetX() << " " << texTriangleIt.vert0.GetY() << " " << texTriangleIt.vert0.GetZ() << endl;
-                cout << texTriangleIt.vert0Tex.GetX() << " " << texTriangleIt.vert0Tex.GetY() << endl;
-                cout << texTriangleIt.vert1.GetX() << " " << texTriangleIt.vert1.GetY() << " " << texTriangleIt.vert1.GetZ() << endl;
-                cout << texTriangleIt.vert1Tex.GetX() << " " << texTriangleIt.vert1Tex.GetY() << endl;
-                cout << texTriangleIt.vert2.GetX() << " " << texTriangleIt.vert2.GetY() << " " << texTriangleIt.vert2.GetZ() << endl;
-                cout << texTriangleIt.vert2Tex.GetX() << " " << texTriangleIt.vert2Tex.GetY() << endl;
-                cout << texTriangleIt.normal.GetX() << " " << texTriangleIt.normal.GetY() << " " << texTriangleIt.normal.GetZ() << endl;
-            }
-
-            for ( auto portalIt : zoneIt.portals )
-            {
-                cout << portalIt.targetZoneNum << endl;
-                for ( auto triangleIt : portalIt.triangles )
-                {
-                    cout << triangleIt.vert0.GetX() << " " << triangleIt.vert0.GetY() << " " << triangleIt.vert0.GetZ() << endl;
-                    cout << triangleIt.vert1.GetX() << " " << triangleIt.vert1.GetY() << " " << triangleIt.vert1.GetZ() << endl;
-                    cout << triangleIt.vert2.GetX() << " " << triangleIt.vert2.GetY() << " " << triangleIt.vert2.GetZ() << endl;
-                }
-            }
-
-            for ( auto lightIt : zoneIt.lights )
-            {
-                cout << lightIt.position.GetX() << " " << lightIt.position.GetY() << " " << lightIt.position.GetZ() << endl;
-                cout << lightIt.color.GetX() << " " << lightIt.color.GetY() << " " << lightIt.color.GetZ() << endl;
-                cout << lightIt.radius << endl;
-                for ( auto triangleIt : lightIt.triangles )
-                {
-                    cout << triangleIt.vert0.GetX() << " " << triangleIt.vert0.GetY() << " " << triangleIt.vert0.GetZ() << endl;
-                    cout << triangleIt.vert1.GetX() << " " << triangleIt.vert1.GetY() << " " << triangleIt.vert1.GetZ() << endl;
-                    cout << triangleIt.vert2.GetX() << " " << triangleIt.vert2.GetY() << " " << triangleIt.vert2.GetZ() << endl;
-                }
-            }
-        }
+//        for ( auto zoneIt : zones )
+//        {
+//            cout << zoneIt.zoneNum << endl;
+//            for ( auto texTriangleIt : zoneIt.texTriangles )
+//            {
+//                cout << texTriangleIt.texName << endl;
+//                cout << texTriangleIt.vert0.GetX() << " " << texTriangleIt.vert0.GetY() << " " << texTriangleIt.vert0.GetZ() << endl;
+//                cout << texTriangleIt.vert0Tex.GetX() << " " << texTriangleIt.vert0Tex.GetY() << endl;
+//                cout << texTriangleIt.vert1.GetX() << " " << texTriangleIt.vert1.GetY() << " " << texTriangleIt.vert1.GetZ() << endl;
+//                cout << texTriangleIt.vert1Tex.GetX() << " " << texTriangleIt.vert1Tex.GetY() << endl;
+//                cout << texTriangleIt.vert2.GetX() << " " << texTriangleIt.vert2.GetY() << " " << texTriangleIt.vert2.GetZ() << endl;
+//                cout << texTriangleIt.vert2Tex.GetX() << " " << texTriangleIt.vert2Tex.GetY() << endl;
+//                cout << texTriangleIt.normal.GetX() << " " << texTriangleIt.normal.GetY() << " " << texTriangleIt.normal.GetZ() << endl;
+//            }
+//
+//            for ( auto portalIt : zoneIt.portals )
+//            {
+//                cout << portalIt.targetZoneNum << endl;
+//                for ( auto triangleIt : portalIt.triangles )
+//                {
+//                    cout << triangleIt.vert0.GetX() << " " << triangleIt.vert0.GetY() << " " << triangleIt.vert0.GetZ() << endl;
+//                    cout << triangleIt.vert1.GetX() << " " << triangleIt.vert1.GetY() << " " << triangleIt.vert1.GetZ() << endl;
+//                    cout << triangleIt.vert2.GetX() << " " << triangleIt.vert2.GetY() << " " << triangleIt.vert2.GetZ() << endl;
+//                }
+//            }
+//
+//            for ( auto lightIt : zoneIt.lights )
+//            {
+//                cout << lightIt.position.GetX() << " " << lightIt.position.GetY() << " " << lightIt.position.GetZ() << endl;
+//                cout << lightIt.color.GetX() << " " << lightIt.color.GetY() << " " << lightIt.color.GetZ() << endl;
+//                cout << lightIt.radius << endl;
+//                for ( auto triangleIt : lightIt.triangles )
+//                {
+//                    cout << triangleIt.vert0.GetX() << " " << triangleIt.vert0.GetY() << " " << triangleIt.vert0.GetZ() << endl;
+//                    cout << triangleIt.vert1.GetX() << " " << triangleIt.vert1.GetY() << " " << triangleIt.vert1.GetZ() << endl;
+//                    cout << triangleIt.vert2.GetX() << " " << triangleIt.vert2.GetY() << " " << triangleIt.vert2.GetZ() << endl;
+//                }
+//            }
+//        }
 
         //write the byte file
         string inFilename = argv[1];
@@ -379,19 +406,24 @@ int main( int argc, char *argv[] )
         for ( auto zoneIt : zones )
         {
             outFile << EncodeINT16( zoneIt.zoneNum );
-            outFile << EncodeINT32( zoneIt.texTriangles.size() );
+            outFile << EncodeINT16( zoneIt.texTriangleGroups.size() );
 
-            for ( auto texTriangleIt : zoneIt.texTriangles )
+            for ( auto texTriangleGroupIt : zoneIt.texTriangleGroups )
             {
-                outFile << EncodeINT16( texTriangleIt.texName.size() );
-                outFile << texTriangleIt.texName;
-                outFile << EncodeFloat( texTriangleIt.vert0.GetX() ) << EncodeFloat( texTriangleIt.vert0.GetY() ) << EncodeFloat( texTriangleIt.vert0.GetZ() );
-                outFile << EncodeFloat( texTriangleIt.vert0Tex.GetX() ) << EncodeFloat( texTriangleIt.vert0Tex.GetY() );
-                outFile << EncodeFloat( texTriangleIt.vert1.GetX() ) << EncodeFloat( texTriangleIt.vert1.GetY() ) << EncodeFloat( texTriangleIt.vert1.GetZ() );
-                outFile << EncodeFloat( texTriangleIt.vert1Tex.GetX() ) << EncodeFloat( texTriangleIt.vert1Tex.GetY() );
-                outFile << EncodeFloat( texTriangleIt.vert2.GetX() ) << EncodeFloat( texTriangleIt.vert2.GetY() ) << EncodeFloat( texTriangleIt.vert2.GetZ() );
-                outFile << EncodeFloat( texTriangleIt.vert2Tex.GetX() ) << EncodeFloat( texTriangleIt.vert2Tex.GetY() );
-                outFile << EncodeFloat( texTriangleIt.normal.GetX() ) << EncodeFloat( texTriangleIt.normal.GetY() ) << EncodeFloat( texTriangleIt.normal.GetZ() );
+                outFile << EncodeINT16( texTriangleGroupIt.texName.size() );
+                outFile << texTriangleGroupIt.texName;
+                outFile << EncodeINT32( texTriangleGroupIt.texTriangles.size() );
+
+                for ( auto texTriangleIt : texTriangleGroupIt.texTriangles )
+                {
+                    outFile << EncodeFloat( texTriangleIt.vert0.GetX() ) << EncodeFloat( texTriangleIt.vert0.GetY() ) << EncodeFloat( texTriangleIt.vert0.GetZ() );
+                    outFile << EncodeFloat( texTriangleIt.vert0Tex.GetX() ) << EncodeFloat( texTriangleIt.vert0Tex.GetY() );
+                    outFile << EncodeFloat( texTriangleIt.vert1.GetX() ) << EncodeFloat( texTriangleIt.vert1.GetY() ) << EncodeFloat( texTriangleIt.vert1.GetZ() );
+                    outFile << EncodeFloat( texTriangleIt.vert1Tex.GetX() ) << EncodeFloat( texTriangleIt.vert1Tex.GetY() );
+                    outFile << EncodeFloat( texTriangleIt.vert2.GetX() ) << EncodeFloat( texTriangleIt.vert2.GetY() ) << EncodeFloat( texTriangleIt.vert2.GetZ() );
+                    outFile << EncodeFloat( texTriangleIt.vert2Tex.GetX() ) << EncodeFloat( texTriangleIt.vert2Tex.GetY() );
+                    outFile << EncodeFloat( texTriangleIt.normal.GetX() ) << EncodeFloat( texTriangleIt.normal.GetY() ) << EncodeFloat( texTriangleIt.normal.GetZ() );
+                }
             }
 
             outFile << EncodeINT32( zoneIt.collTriangles.size() );
