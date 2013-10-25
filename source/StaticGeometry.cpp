@@ -54,19 +54,26 @@ int16_t StaticGeometry::Zone::GetZoneNum() const
 vector<int16_t> StaticGeometry::Zone::Render() const
 {
     vector<int16_t> visibleZones;
+
+    for ( auto texTriangleGroupIt : texTriangleGroups )
+    {
+        texTriangleGroupIt.Render();
+    }
+
     visibleZones.push_back( 0 );
     return visibleZones;
 }
 
-StaticGeometry::Zone::Zone( const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights )
-    : texTriangleGroups( texTriangleGroups ),
+StaticGeometry::Zone::Zone( const int16_t zoneNum, const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights )
+    : zoneNum( zoneNum ),
+      texTriangleGroups( texTriangleGroups ),
       collTriangles( collTriangles ),
       portals( portals ),
       lights( lights )
 {
 }
 
-void StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets )
+bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets )
 {
     string zoneString;
 
@@ -81,12 +88,19 @@ void StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
 
         int i = 0;
 
+        if ( zoneString.substr( i, 3 ) != "WZZ" )
+        {
+            cout << "StaticGeometry::LoadZoneFile() - " << zoneDataFilename << "is not a zone file." << endl;
+            return false;
+        }
+
+        i += 3;
         int16_t numOfZones = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
-        i = 2;
+        i += 2;
 
         for ( int zoneIndex = 0; zoneIndex < numOfZones; zoneIndex++ )
         {
-            int16_t zoneNum = frmr::DecodeINT32( zoneString.substr( i, 2 ) );
+            int16_t zoneNum = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
             i += 2;
             int16_t numOfTexTriangleGroups = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
             i += 2;
@@ -194,13 +208,15 @@ void StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
 
                 lights.push_back( Light( position, color, radius, lightDisplayList ) );
             }
-            zones.push_back( StaticGeometry::Zone( texTriangleGroups, collTriangles, portals, lights ) );
+            zones.push_back( StaticGeometry::Zone( zoneNum, texTriangleGroups, collTriangles, portals, lights ) );
         }
     }
     else
     {
         cout << "StaticGeometry::LoadZoneFile() - Failed to open zone file: " << zoneDataFilename << endl;
+        return false;
     }
+    return true;
 }
 
 void StaticGeometry::Render() const
@@ -213,7 +229,7 @@ void StaticGeometry::Render() const
         //
     for ( auto zoneIt : zones )
     {
-        //glCallList( zoneIt. );
+        zoneIt.Render();
     }
 }
 
@@ -248,70 +264,6 @@ StaticGeometry::StaticGeometry()
     {
         cout << *foundData << endl;
     }
-//    zone = glGenLists( 1 );
-//    glNewList( zone, GL_COMPILE );
-//        glBegin( GL_QUADS );
-//            glNormal3f( 0.0f, 0.0f, 1.0f );
-//            glTexCoord2f( 0.0f, 0.0f );
-//            glVertex3f( -100.0f, -100.0f, 100.0f );
-//            glTexCoord2f( 0.0f, 1.0f );
-//            glVertex3f( -100.0f, 100.0f, 100.0f );
-//            glTexCoord2f( 1.0f, 1.0f );
-//            glVertex3f( 100.0f, 100.0f, 100.0f );
-//            glTexCoord2f( 1.0f, 0.0f );
-//            glVertex3f( 100.0f, -100.0f, 100.0f );
-//
-//            glNormal3f( 1.0f, 0.0f, 0.0f );
-//            glTexCoord2f( 0.0f, 0.0f );
-//            glVertex3f( 100.0f, -100.0f, 100.0f );
-//            glTexCoord2f( 0.0f, 1.0f );
-//            glVertex3f( 100.0f, 100.0f, 100.0f );
-//            glTexCoord2f( 1.0f, 1.0f );
-//            glVertex3f( 100.0f, 100.0f, -100.0f );
-//            glTexCoord2f( 1.0f, 0.0f );
-//            glVertex3f( 100.0f, -100.0f, -100.0f );
-//
-//            glNormal3f( -1.0f, 0.0f, 0.0f );
-//            glTexCoord2f( 0.0f, 0.0f );
-//            glVertex3f( -100.0f, -100.0f, -100.0f );
-//            glTexCoord2f( 0.0f, 1.0f );
-//            glVertex3f( -100.0f, 100.0f, -100.0f );
-//            glTexCoord2f( 1.0f, 1.0f );
-//            glVertex3f( -100.0f, 100.0f, 100.0f );
-//            glTexCoord2f( 1.0f, 0.0f );
-//            glVertex3f( -100.0f, -100.0f, 100.0f );
-//
-//            glNormal3f( 0.0f, 0.0f, -1.0f );
-//            glTexCoord2f( 0.0f, 0.0f );
-//            glVertex3f( 100.0f, -100.0f, -100.0f );
-//            glTexCoord2f( 0.0f, 1.0f );
-//            glVertex3f( 100.0f, 100.0f, -100.0f );
-//            glTexCoord2f( 1.0f, 1.0f );
-//            glVertex3f( -100.0f, 100.0f, -100.0f );
-//            glTexCoord2f( 1.0f, 0.0f );
-//            glVertex3f( -100.0f, -100.0f, -100.0f );
-//
-//            glNormal3f( 0.0f, 1.0f, 0.0f );
-//            glTexCoord2f( 0.0f, 0.0f );
-//            glVertex3f( -100.0f, 100.0f, -100.0f );
-//            glTexCoord2f( 0.0f, 1.0f );
-//            glVertex3f( 100.0f, 100.0f, -100.0f );
-//            glTexCoord2f( 1.0f, 1.0f );
-//            glVertex3f( 100.0f, 100.0f, 100.0f );
-//            glTexCoord2f( 1.0f, 0.0f );
-//            glVertex3f( -100.0f, 100.0f, 100.0f );
-//
-//            glNormal3f( 0.0f, -1.0f, 0.0f );
-//            glTexCoord2f( 0.0f, 0.0f );
-//            glVertex3f( 100.0f, -100.0f, 100.0f );
-//            glTexCoord2f( 0.0f, 1.0f );
-//            glVertex3f( 100.0f, -100.0f, -100.0f );
-//            glTexCoord2f( 1.0f, 1.0f );
-//            glVertex3f( -100.0f, -100.0f, -100.0f );
-//            glTexCoord2f( 1.0f, 0.0f );
-//            glVertex3f( -100.0f, -100.0f, 100.0f );
-//        glEnd();
-//    glEndList();
 }
 
 StaticGeometry::~StaticGeometry()

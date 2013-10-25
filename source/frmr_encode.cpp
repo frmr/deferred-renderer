@@ -20,6 +20,10 @@ string frmr::EncodeINT16( const int16_t num )
 
 int16_t frmr::DecodeINT16( const string encodedNum )
 {
+    if ( encodedNum.length() != 2 )
+    {
+        cout << "frmr::DecodeINT16() - Encoded number does not have the right number of characters." << endl;
+    }
     unsigned char unsignedCode[2];
 
     unsignedCode[0] = *reinterpret_cast<const unsigned char*>( &encodedNum[0] );
@@ -47,6 +51,10 @@ string frmr::EncodeUINT16( const uint16_t num )
 
 uint16_t frmr::DecodeUINT16( const string encodedNum )
 {
+    if ( encodedNum.length() != 2 )
+    {
+        cout << "frmr::DecodeUINT16() - Encoded number does not have the right number of characters." << endl;
+    }
     unsigned char unsignedCode[2];
 
     unsignedCode[0] = *reinterpret_cast<const unsigned char*>( &encodedNum[0] );
@@ -78,6 +86,10 @@ string frmr::EncodeINT32( const int32_t num )
 
 int32_t frmr::DecodeINT32( const string encodedNum )
 {
+    if ( encodedNum.length() != 4 )
+    {
+        cout << "frmr::DecodeINT32() - Encoded number does not have the right number of characters." << endl;
+    }
     unsigned char unsignedCode[4];
 
     unsignedCode[0] = *reinterpret_cast<const unsigned char*>( &encodedNum[0] );
@@ -120,6 +132,10 @@ string frmr::EncodeFloat( const float num )
 
 float frmr::DecodeFloat( const string encodedNum )
 {
+    if ( encodedNum.length() != 4 )
+    {
+        cout << "frmr::DecodeFloat() - Encoded number does not have the right number of characters." << endl;
+    }
     unsigned char unsignedCode[4];
 
     unsignedCode[0] = *reinterpret_cast<const unsigned char*>( &encodedNum[0] );

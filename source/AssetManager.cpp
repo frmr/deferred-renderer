@@ -42,7 +42,7 @@ GLuint AssetManager::GetTexture( const string &textureName, const SearchMode mod
         }
     }
 
-    cout << "AssetManager::GetTexture() - Could not find texture " << textureName << endl;
+    cout << "AssetManager::GetTexture() - Could not find texture " << textureName << "." << endl;
     return 0;
 }
 

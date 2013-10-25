@@ -22,6 +22,7 @@ public:
     };
 
 private:
+    //TODO: Don't have two lists, but merge them and sort/delete by name
     map<string, GLuint> permanentTextures;
     map<string, GLuint> temporaryTextures;
 

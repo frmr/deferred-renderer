@@ -60,11 +60,11 @@ private:
         vector<int16_t> Render() const; //renders and returns a list of visible zones
 
     public:
-        Zone( const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights );
+        Zone( const int16_t zoneNum, const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights );
     };
 
 private:
-    void LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets );
+    bool LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets );
 
 private:
     frmr::Octree<int16_t>   zoneTree;

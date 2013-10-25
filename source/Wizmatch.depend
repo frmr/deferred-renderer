@@ -2468,7 +2468,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1382305564 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1382662044 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2476,7 +2476,7 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1382622709 x:\produce\wizmatch\source\staticgeometry.h
+1382659526 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
@@ -2562,7 +2562,7 @@
 	<vector>
 	"frmr_Vec3f.h"
 
-1382201301 source:x:\produce\wizmatch\source\frmr_encode.cpp
+1382623278 source:x:\produce\wizmatch\source\frmr_encode.cpp
 	"frmr_encode.h"
 	<iostream>
 
@@ -2570,12 +2570,12 @@
 	<stdlib.h>
 	<string>
 
-1382299920 source:x:\produce\wizmatch\source\assetmanager.cpp
+1382662438 source:x:\produce\wizmatch\source\assetmanager.cpp
 	<iostream>
 	"AssetManager.h"
 	"frmr_TextFile.h"
 
-1382471502 x:\produce\wizmatch\source\assetmanager.h
+1382623548 x:\produce\wizmatch\source\assetmanager.h
 	<map>
 	<string>
 	<vector>

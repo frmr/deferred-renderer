@@ -401,6 +401,7 @@ int main( int argc, char *argv[] )
 
         std::ofstream outFile( outFilename + ".wzz" );
 
+        outFile << "WZZ";
         outFile << EncodeINT16( zones.size() );
 
         for ( auto zoneIt : zones )

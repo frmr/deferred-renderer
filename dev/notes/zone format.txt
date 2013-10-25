@@ -1,3 +1,6 @@
+WZZ									3
+totalBytes							4
+
 numOfZones							2
 
 	zoneNum							2
