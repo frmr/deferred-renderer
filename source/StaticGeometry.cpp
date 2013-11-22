@@ -30,6 +30,11 @@ StaticGeometry::Portal::~Portal()
     glDeleteLists( displayList, 1 );
 }
 
+GLuint StaticGeometry::Zone::TexTriangleGroup::GetDisplayList() const
+{
+    return displayList;
+}
+
 void StaticGeometry::Zone::TexTriangleGroup::Render() const
 {
     glBindTexture( GL_TEXTURE_2D, textureNum );
@@ -58,6 +63,12 @@ vector<int16_t> StaticGeometry::Zone::Render() const
     for ( auto texTriangleGroupIt : texTriangleGroups )
     {
         texTriangleGroupIt.Render();
+    }
+
+    for ( auto texTriangleGroupIt : texTriangleGroups )
+    {
+        texTriangleGroupIt.Render();
+        //cout << "StaticGeometry::Zone::Render() - Rendered TexTriangleGroup" << endl;
     }
 
     visibleZones.push_back( 0 );
@@ -208,7 +219,9 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
 
                 lights.push_back( Light( position, color, radius, lightDisplayList ) );
             }
+            cout << texTriangleGroups[0].GetDisplayList() << endl;
             zones.push_back( StaticGeometry::Zone( zoneNum, texTriangleGroups, collTriangles, portals, lights ) );
+            cout << "StaticGeometry::LoadZoneFile() - Successfully loaded zone file: " << zoneDataFilename << endl;
         }
     }
     else
@@ -227,10 +240,8 @@ void StaticGeometry::Render() const
         //draw the geometry
         //draw the portals
         //
-    for ( auto zoneIt : zones )
-    {
-        zoneIt.Render();
-    }
+    int16_t currentZone = 0;
+    zones[0].Render();
 }
 
 StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )

@@ -1,1 +1,3 @@
 Powerful spells with negative side-effects, could make use of vampirism
+Spell to negate sun damage for a time, should make vampirism less annoying
+Assign multiple items/spells to one button

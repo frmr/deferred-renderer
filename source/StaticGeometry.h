@@ -41,6 +41,7 @@ private:
             GLuint  textureNum;
 
         public:
+            GLuint GetDisplayList() const;
             void Render() const;
 
         public:

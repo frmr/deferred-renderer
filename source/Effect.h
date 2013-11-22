@@ -8,14 +8,12 @@ class Effect
 public:
 	enum class EffectType
 	{
-		//most players regenerate magic
-		EFFECT_REGENERATE_MAGIC,
-
 		//reduces player health, measured in damage per second
 		EFFECT_DAMAGE_FIRE,
 		EFFECT_DAMAGE_HOLY,
 		EFFECT_DAMAGE_ICE,
 		EFFECT_DAMAGE_NORMAL,
+		EFFECT_DAMAGE_POISON,
 		EFFECT_DAMAGE_SHOCK,
 
 		//multiplies strength of EFFECT_DAMAGE_X when spawning projectiles
@@ -23,6 +21,7 @@ public:
 		EFFECT_MULTIPLY_HOLY_ATTACK,
 		EFFECT_MULTIPLY_ICE_ATTACK,
 		EFFECT_MULTIPLY_NORMAL_ATTACK,
+		EFFECT_MULTIPLY_POISON_ATTACK,
 		EFFECT_MULTIPLY_SHOCK_ATTACK,
 
 		//multiplies strength of EFFECT_DAMAGE_X when applying effects
@@ -30,6 +29,7 @@ public:
 		EFFECT_MULTIPLY_HOLY_DEFENSE,
 		EFFECT_MULTIPLY_ICE_DEFENSE,
 		EFFECT_MULTIPLY_NORMAL_DEFENSE,
+		EFFECT_MULTIPLY_POISON_DEFENSE,
 		EFFECT_MULTIPLY_SHOCK_DEFENSE,
 
 		//status ailments, strength has no effect on these
@@ -51,18 +51,23 @@ public:
 
 		//player stat modifications
 		EFFECT_MODIFY_COOLDOWN,
+		EFFECT_MODIFY_FRICTION,
 		EFFECT_MODIFY_JUMP_STRENGTH,
 		EFFECT_MODIFY_MOVE_SPEED,
+		EFFECT_REGENERATE_MAGIC,	//most players regenerate magic
 
-		//misc effects, strength has no effect on these
+		//misc effects
 		EFFECT_BAIT,		//draw enemies' attention and fire
 		EFFECT_DEATH,		//for level boundaries, traps, etc.
+		EFFECT_DETECT,      //see invisible players
 		EFFECT_ETHEREAL,	//disable collisions with projectiles
 		EFFECT_ILLUMINATE,	//emits light from player
 		EFFECT_INVISIBLE,
 		EFFECT_LEVITATE,
 		EFFECT_RECALL,		//teleport to nearest checkpoint
 		EFFECT_RESURRECT,
+		EFFECT_REVEAL,      //negates invisibility
+		EFFECT_SHADE,
 		EFFECT_SUNLIGHT,    //damages vampires
 		EFFECT_UNDEAD,		//holy damage reduces health, everything else does 1 damage per second
 		EFFECT_VAMPIRE      //damaged by sunlight, needs a benefit of some kind
@@ -70,7 +75,7 @@ public:
 
 private:
 	EffectType	type;
-	int32_t 	timer; //negative value indicated permanent effect
+	int32_t 	timer; // Negative indicates permanent effect, zero indicates active for one click
 	float		strength;
 	bool		canStack;
 

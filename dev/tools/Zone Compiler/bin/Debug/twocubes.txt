@@ -1,0 +1,409 @@
+zone
+	zoneNum				0
+
+	texTriangleGroup
+		texName			test.png
+		texTriangle
+			vert0		40.0 -10.0 0.0
+			vert0Tex	0.9998 0.0004
+			vert1		40.0 10.0 20.0
+			vert1Tex	0.0002 1.0
+			vert2		40.0 10.0 0.0
+			vert2Tex	0.0002 0.0004
+			normal		-1.0 -0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 -10.0 20.0
+			vert0Tex	1.9994 1.0
+			vert1		40.0 -10.0 20.0
+			vert1Tex	0.9998 1.0
+			vert2		40.0 -10.0 0.0
+			vert2Tex	0.9998 0.0004
+			normal		0.0 1.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 -10.0 0.0
+			vert0Tex	1.9994 0.0004
+			vert1		20.0 -10.0 20.0
+			vert1Tex	1.9994 1.0
+			vert2		40.0 -10.0 0.0
+			vert2Tex	0.9998 0.0004
+			normal		0.0 1.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		40.0 -10.0 0.0
+			vert0Tex	0.9998 0.0004
+			vert1		40.0 -10.0 20.0
+			vert1Tex	0.9998 1.0
+			vert2		40.0 10.0 20.0
+			vert2Tex	0.0002 1.0
+			normal		-1.0 -0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		40.0 10.0 20.0
+			vert0Tex	0.0002 1.0
+			vert1		20.0 10.0 20.0
+			vert1Tex	-0.9994 1.0
+			vert2		20.0 10.0 0.0
+			vert2Tex	-0.9994 0.0004
+			normal		0.0 -1.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -10.0 20.0
+			vert0Tex	-0.9994 1.0
+			vert1		10.0 -5.0 15.0
+			vert1Tex	-1.2493 0.7501
+			vert2		10.0 -5.0 5.0
+			vert2Tex	-1.2493 0.2503
+			normal		-1.0 0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -10.0 0.0
+			vert0Tex	-0.9994 0.0004
+			vert1		10.0 -10.0 20.0
+			vert1Tex	-0.9994 1.0
+			vert2		10.0 -5.0 5.0
+			vert2Tex	-1.2493 0.2503
+			normal		-1.0 0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -5.0 5.0
+			vert0Tex	0.0005 -2.0005
+			vert1		20.0 -5.0 15.0
+			vert1Tex	-0.9997 -1.0003
+			vert2		20.0 -5.0 5.0
+			vert2Tex	-0.9997 -2.0005
+			normal		0.0 1.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 5.0 15.0
+			vert0Tex	-0.9997 -0.0002
+			vert1		20.0 -5.0 15.0
+			vert1Tex	-0.9997 -1.0003
+			vert2		10.0 -5.0 15.0
+			vert2Tex	0.0005 -1.0003
+			normal		0.0 0.0 -1.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -5.0 5.0
+			vert0Tex	0.0005 -2.0005
+			vert1		10.0 -5.0 15.0
+			vert1Tex	0.0005 -1.0003
+			vert2		20.0 -5.0 15.0
+			vert2Tex	-0.9997 -1.0003
+			normal		0.0 1.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -5.0 15.0
+			vert0Tex	0.0005 -1.0003
+			vert1		10.0 5.0 15.0
+			vert1Tex	0.0005 -0.0002
+			vert2		20.0 5.0 15.0
+			vert2Tex	-0.9997 -0.0002
+			normal		-0.0 0.0 -1.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 5.0 5.0
+			vert0Tex	-1.2493 0.2503
+			vert1		20.0 -5.0 5.0
+			vert1Tex	-1.7491 0.2503
+			vert2		20.0 -10.0 0.0
+			vert2Tex	-1.999 0.0004
+			normal		1.0 0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 -5.0 15.0
+			vert0Tex	-1.7491 0.7501
+			vert1		20.0 -10.0 0.0
+			vert1Tex	-1.999 0.0004
+			vert2		20.0 -5.0 5.0
+			vert2Tex	-1.7491 0.2503
+			normal		1.0 -0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 10.0 20.0
+			vert0Tex	-0.9994 1.0
+			vert1		20.0 5.0 15.0
+			vert1Tex	-1.2493 0.7501
+			vert2		20.0 5.0 5.0
+			vert2Tex	-1.2493 0.2503
+			normal		1.0 0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 -5.0 15.0
+			vert0Tex	-1.7491 0.7501
+			vert1		20.0 5.0 15.0
+			vert1Tex	-1.2493 0.7501
+			vert2		20.0 10.0 20.0
+			vert2Tex	-0.9994 1.0
+			normal		1.0 -0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		-10.0 -10.0 20.0
+			vert0Tex	0.0002 1.0
+			vert1		10.0 -10.0 20.0
+			vert1Tex	-0.9994 1.0
+			vert2		10.0 -10.0 0.0
+			vert2Tex	-0.9994 0.0004
+			normal		0.0 1.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		-10.0 10.0 20.0
+			vert0Tex	0.9998 1.0
+			vert1		-10.0 -10.0 0.0
+			vert1Tex	0.0002 0.0004
+			vert2		-10.0 10.0 0.0
+			vert2Tex	0.9998 0.0004
+			normal		1.0 -0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		40.0 10.0 0.0
+			vert0Tex	0.0002 0.0004
+			vert1		40.0 10.0 20.0
+			vert1Tex	0.0002 1.0
+			vert2		20.0 10.0 0.0
+			vert2Tex	-0.9994 0.0004
+			normal		0.0 -1.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -10.0 0.0
+			vert0Tex	-0.9994 0.0004
+			vert1		-10.0 -10.0 0.0
+			vert1Tex	0.0002 0.0004
+			vert2		-10.0 -10.0 20.0
+			vert2Tex	0.0002 1.0
+			normal		0.0 1.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		-10.0 10.0 20.0
+			vert0Tex	0.9998 1.0
+			vert1		-10.0 -10.0 20.0
+			vert1Tex	0.0002 1.0
+			vert2		-10.0 -10.0 0.0
+			vert2Tex	0.0002 0.0004
+			normal		1.0 -0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		40.0 -10.0 20.0
+			vert0Tex	0.0002 1.9996
+			vert1		20.0 -10.0 20.0
+			vert1Tex	-0.9994 1.9996
+			vert2		20.0 10.0 20.0
+			vert2Tex	-0.9994 1.0
+			normal		0.0 0.0 -1.0
+		/texTriangle
+		texTriangle
+			vert0		40.0 10.0 20.0
+			vert0Tex	0.0002 1.0
+			vert1		40.0 -10.0 20.0
+			vert1Tex	0.0002 1.9996
+			vert2		20.0 10.0 20.0
+			vert2Tex	-0.9994 1.0
+			normal		0.0 0.0 -1.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -10.0 20.0
+			vert0Tex	-0.9994 1.0
+			vert1		-10.0 -10.0 20.0
+			vert1Tex	0.0002 1.0
+			vert2		-10.0 10.0 20.0
+			vert2Tex	0.0002 1.9996
+			normal		0.0 -0.0 -1.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 10.0 20.0
+			vert0Tex	-0.9994 1.9996
+			vert1		10.0 -10.0 20.0
+			vert1Tex	-0.9994 1.0
+			vert2		-10.0 10.0 20.0
+			vert2Tex	0.0002 1.9996
+			normal		0.0 0.0 -1.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 10.0 0.0
+			vert0Tex	-0.9994 -0.9992
+			vert1		-10.0 10.0 0.0
+			vert1Tex	0.0002 -0.9992
+			vert2		-10.0 -10.0 0.0
+			vert2Tex	0.0002 0.0004
+			normal		-0.0 0.0 1.0
+		/texTriangle
+		texTriangle
+			vert0		-10.0 -10.0 0.0
+			vert0Tex	-0.9994 0.0004
+			vert1		10.0 -10.0 0.0
+			vert1Tex	-0.9994 -0.9992
+			vert2		10.0 10.0 0.0
+			vert2Tex	0.0002 0.0004
+			normal		0.0 0.0 1.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 10.0 0.0
+			vert0Tex	-0.9994 0.0004
+			vert1		20.0 -10.0 0.0
+			vert1Tex	-0.9994 -0.9992
+			vert2		40.0 10.0 0.0
+			vert2Tex	0.0002 0.0004
+			normal		0.0 -0.0 1.0
+		/texTriangle
+		texTriangle
+			vert0		40.0 10.0 0.0
+			vert0Tex	0.0002 0.0004
+			vert1		20.0 -10.0 0.0
+			vert1Tex	-0.9994 -0.9992
+			vert2		40.0 -10.0 0.0
+			vert2Tex	0.0002 -0.9992
+			normal		0.0 -0.0 1.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 10.0 20.0
+			vert0Tex	0.9998 0.0004
+			vert1		-10.0 10.0 0.0
+			vert1Tex	1.9994 0.0004
+			vert2		10.0 10.0 0.0
+			vert2Tex	1.9994 1.0
+			normal		-0.0 -1.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 10.0 20.0
+			vert0Tex	1.9994 1.0
+			vert1		-10.0 10.0 20.0
+			vert1Tex	0.9998 1.0
+			vert2		-10.0 10.0 0.0
+			vert2Tex	0.9998 0.0004
+			normal		-0.0 -1.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 5.0 5.0
+			vert0Tex	-0.9997 1.0
+			vert1		20.0 5.0 15.0
+			vert1Tex	-0.9997 -0.0002
+			vert2		10.0 5.0 5.0
+			vert2Tex	0.0005 1.0
+			normal		0.0 -1.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 5.0 15.0
+			vert0Tex	-0.9997 -0.0002
+			vert1		10.0 5.0 15.0
+			vert1Tex	0.0005 -0.0002
+			vert2		10.0 5.0 5.0
+			vert2Tex	0.0005 1.0
+			normal		0.0 -1.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 -5.0 5.0
+			vert0Tex	0.0005 -2.0005
+			vert1		20.0 -5.0 5.0
+			vert1Tex	-0.9997 -2.0005
+			vert2		20.0 5.0 5.0
+			vert2Tex	-0.9997 -3.0006
+			normal		0.0 0.0 1.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 5.0 5.0
+			vert0Tex	0.0005 -3.0006
+			vert1		10.0 -5.0 5.0
+			vert1Tex	0.0005 -2.0005
+			vert2		20.0 5.0 5.0
+			vert2Tex	-0.9997 -3.0006
+			normal		0.0 -0.0 1.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 5.0 15.0
+			vert0Tex	-1.7491 0.7501
+			vert1		10.0 -5.0 15.0
+			vert1Tex	-1.2493 0.7501
+			vert2		10.0 -10.0 20.0
+			vert2Tex	-0.9994 1.0
+			normal		-1.0 0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 5.0 15.0
+			vert0Tex	-1.7491 0.7501
+			vert1		10.0 -10.0 20.0
+			vert1Tex	-0.9994 1.0
+			vert2		10.0 10.0 20.0
+			vert2Tex	-1.999 1.0
+			normal		-1.0 0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 5.0 15.0
+			vert0Tex	-1.7491 0.7501
+			vert1		10.0 10.0 0.0
+			vert1Tex	-1.999 0.0004
+			vert2		10.0 5.0 5.0
+			vert2Tex	-1.7491 0.2503
+			normal		-1.0 0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 5.0 15.0
+			vert0Tex	-1.999 1.0
+			vert1		10.0 10.0 20.0
+			vert1Tex	-1.999 0.0004
+			vert2		10.0 10.0 0.0
+			vert2Tex	-1.7491 0.7501
+			normal		-1.0 0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 10.0 0.0
+			vert0Tex	-1.999 0.0004
+			vert1		10.0 -10.0 0.0
+			vert1Tex	-0.9994 0.0004
+			vert2		10.0 -5.0 5.0
+			vert2Tex	-1.2493 0.2503
+			normal		-1.0 0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		10.0 10.0 0.0
+			vert0Tex	-1.999 0.0004
+			vert1		10.0 -5.0 5.0
+			vert1Tex	-1.2493 0.2503
+			vert2		10.0 5.0 5.0
+			vert2Tex	-1.7491 0.2503
+			normal		-1.0 -0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 -5.0 15.0
+			vert0Tex	-1.7491 0.7501
+			vert1		20.0 -10.0 20.0
+			vert1Tex	-1.999 1.0
+			vert2		20.0 -10.0 0.0
+			vert2Tex	-1.999 0.0004
+			normal		1.0 0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 5.0 5.0
+			vert0Tex	-1.2493 0.2503
+			vert1		20.0 -10.0 0.0
+			vert1Tex	-1.999 0.0004
+			vert2		20.0 10.0 0.0
+			vert2Tex	-0.9994 0.0004
+			normal		1.0 0.0 -0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 10.0 0.0
+			vert0Tex	-0.9994 0.0004
+			vert1		20.0 10.0 20.0
+			vert1Tex	-0.9994 1.0
+			vert2		20.0 5.0 5.0
+			vert2Tex	-1.2493 0.2503
+			normal		1.0 -0.0 0.0
+		/texTriangle
+		texTriangle
+			vert0		20.0 10.0 20.0
+			vert0Tex	-0.9994 1.0
+			vert1		20.0 -10.0 20.0
+			vert1Tex	-1.999 1.0
+			vert2		20.0 -5.0 15.0
+			vert2Tex	-1.7491 0.7501
+			normal		1.0 0.0 -0.0
+		/texTriangle
+	/texTriangleGroup
+
+	light
+		position		0	0	0
+		color			100	100	100
+		radius			100
+	/light
+/zone

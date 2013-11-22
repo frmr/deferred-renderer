@@ -1,0 +1,19 @@
+Fists
+	1	Left fist		DAMAGE_NORMAL
+	2	Right fist		DAMAGE_NORMAL
+	3	Block			MULTIPLY_NORMAL_DEFENSE
+
+Fire
+	1	Fireball		DAMAGE_FIRE
+	2	Bounce fireball	DAMAGE_FIRE
+	3	Big fireball	DAMAGE_FIRE
+	
+Ice
+	1	
+	2
+	3	Slide			MODIFY_FRICTION
+	
+Shock
+	1
+	2
+	3	Shock mine		DAMAGE_SHOCK

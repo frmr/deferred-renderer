@@ -1,0 +1,19 @@
+W				Forward
+A				Left
+S				Backward
+D				Right
+
+Tab				Menu
+Space			Jump
+Shift			Sprint
+E				Activate
+
+Q				Binding 1
+R				Binding 2
+F				Binding 3
+C				Binding 4
+Ctrl			Binding 5
+
+Left Mouse		Primary fire
+Right Mouse		Secondary fire
+Middle Mouse	Tertiary fire

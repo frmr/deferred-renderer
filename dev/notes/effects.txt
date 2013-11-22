@@ -3,41 +3,45 @@ Damage
 	DAMAGE_HOLY
 	DAMAGE_ICE
 	DAMAGE_NORMAL
+	DAMAGE_POISON
 	DAMAGE_SHOCK
 
 	MULTIPLY_FIRE_ATTACK
 	MULTIPLY_HOLY_ATTACK
 	MULTIPLY_ICE_ATTACK
 	MULTIPLY_NORMAL_ATTACK
+	MULTIPLY_POISON_ATTACK
 	MULTIPLY_SHOCK_ATTACK
 	
-	RESIST_FIRE
-	RESIST_HOLY
-	RESIST_ICE
-	RESIST_NORMAL
-	RESIST_SHOCK
-	
-	WEAKNESS_FIRE
-	WEAKNESS_HOLY
-	WEAKNESS_ICE
-	WEAKNESS_NORMAL
-	WEAKNESS_SHOCK
+	MULTIPLY_FIRE_DEFENSE
+	MULTIPLY_HOLY_DEFENSE
+	MULTIPLY_ICE_DEFENSE
+	MULTIPLY_NORMAL_DEFENSE
+	MULTIPLY_POISON_DEFENSE
+	MULTIPLY_SHOCK_DEFENSE
 	
 Status Ailments
 	BLIND					blackens the screen
+	CONFUSE
+	COUNTDOWN
 	PARALYZE
 	SILENCE
 	
 	CURE_BLIND
+	CURE_CONFUSE
+	CURE_COUNTDOWN
 	CURE_PARALYZE
 	CURE_SILENCE
 
 	IMMUNE_BLIND
+	IMMUNE_CONFUSE
+	IMMUNE_COUNTDOWN
 	IMMUNE_PARALYZE
 	IMMUNE_SILENCE
 
 Player Stats
-	MODIFY_CAST_SPEED		value adds linearly
+	MODIFY_COOLDOWN			% reduction in cooldown time, value adds linearly
+	MODIFY_FRICTION			value is proportion of standard friction, multiply to stack
 	MODIFY_JUMP_STRENGTH
 	MODIFY_MOVE_SPEED
 	REGENERATE_MAGIC		must stack to be fair
@@ -45,9 +49,15 @@ Player Stats
 Other
 	BAIT 					draw enemies' attention and fire
 	DEATH					for level boundaries/traps etc.
+	DETECT					see invisible players, strength determines range
 	ETHEREAL				disable collisions with projectiles
+	ILLUMINATE
 	INVISIBLE
 	LEVITATE
 	RECALL					teleport to nearest checkpoint
 	RESURRECT
+	REVEAL					negates invisibility
+	SHADE					negates sunlight
+	SUNLIGHT				damages vampires
 	UNDEAD					holy damage reduces health, everything else does 1 damage
+	VAMPIRE
