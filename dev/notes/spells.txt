@@ -6,7 +6,7 @@ Fists
 Fire
 	1	Fireball		DAMAGE_FIRE
 	2	Bounce fireball	DAMAGE_FIRE
-	3	Big fireball	DAMAGE_FIRE
+	3	Slow fall		MODIFY_FALL_SPEED
 	
 Ice
 	1	
@@ -14,6 +14,6 @@ Ice
 	3	Slide			MODIFY_FRICTION
 	
 Shock
-	1
-	2
+	1	Rapid fire		DAMAGE_SHOCK
+	2	Big shock ball	DAMAGE_SHOCK
 	3	Shock mine		DAMAGE_SHOCK

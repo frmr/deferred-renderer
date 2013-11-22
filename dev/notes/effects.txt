@@ -41,6 +41,7 @@ Status Ailments
 
 Player Stats
 	MODIFY_COOLDOWN			% reduction in cooldown time, value adds linearly
+	MODIFY_FALL_SPEED
 	MODIFY_FRICTION			value is proportion of standard friction, multiply to stack
 	MODIFY_JUMP_STRENGTH
 	MODIFY_MOVE_SPEED
