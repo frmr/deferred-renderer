@@ -41,6 +41,7 @@ private:
             GLuint  textureNum;
 
         public:
+            void DeleteDisplayList();
             GLuint GetDisplayList() const;
             void Render() const;
 
@@ -57,6 +58,7 @@ private:
         vector<frmr::Triangle>      collTriangles; //collision surfaces //TODO: MAKE THIS A QUADTREE
 
     public:
+        void DeleteDisplayLists();
         int16_t GetZoneNum() const;
         vector<int16_t> Render() const; //renders and returns a list of visible zones
 

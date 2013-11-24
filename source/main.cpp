@@ -51,6 +51,7 @@ int main()
         gameSim.Update( timer.GetElapsedTime(), timer.GetDeltaTime(), inputs, engineCfg.GetMouseSensitivity() );
 
         renderer.Render( gameSim, engineCfg );
+        //renderer.SimpleRender( gameSim, engineCfg );
         window.display();
 
         timer.Stop();

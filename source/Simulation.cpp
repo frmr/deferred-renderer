@@ -22,6 +22,12 @@ Camera Simulation::GetCamera() const
     return activeCamera;
 }
 
+vector<Light> Simulation::GetStaticLights() const
+{
+    vector<Light> foundLights;
+
+}
+
 void Simulation::RenderLit() const
 {
     glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );

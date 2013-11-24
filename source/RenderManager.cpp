@@ -102,7 +102,7 @@ void RenderManager::SetToPerspectiveProjection( const EngineConfig &engineCfg ) 
 {
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 10.0f, 500.0f );
+    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 10.0f, 5000.0f );
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 }
@@ -149,7 +149,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glUniform1i( m_testTextureID, 0);
 
     glPushMatrix();
-
         gameSim.RenderLit();
 
         int viewportParams[4];
@@ -176,35 +175,32 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 	glUniform1i( m_depthID, 0 );
     glCallList( fullscreenQuad );
 
+    GLfloat pixData;
+    glReadPixels( 720, 450, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &pixData );
+    //cout << pixData << endl;
+
     glDepthMask( GL_FALSE ); //disable writing to the depth buffer
     glDisable( GL_DEPTH_TEST );
 
-    //send all the textures and matrices to the deferred rendering shader so we don't have to do it for every light
+    //send all the textures, the viewport parameters and the perspective matrix to the deferred rendering shader so we don't have to do it for every light
     glUseProgram( deferredRenderingShader.GetProgramHandler() );
-
-	glActiveTexture( GL_TEXTURE0 );
-	glBindTexture( GL_TEXTURE_2D, m_normalsTexture );
 	glUniform1i( m_normalsID, 0 );
-
-	glActiveTexture( GL_TEXTURE1 );
-	glBindTexture( GL_TEXTURE_2D, m_diffuseTexture );
 	glUniform1i( m_diffuseID, 1 );
-
-	glActiveTexture( GL_TEXTURE2 );
-	glBindTexture( GL_TEXTURE_2D, m_depthTexture );
 	glUniform1i( m_depthID, 2 );
-
     glUniform4iv( m_viewportParamsID, 4, viewportParams );
     glUniformMatrix4fv( m_perspectiveMatrixID, 16, false, perspectiveMatrix );
-
     glUseProgram( 0 );
 
-    glColor4f( 1.0f, 1.0f, 1.0f, 1.0f);
+    glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
 
     glEnable( GL_STENCIL_TEST );
     glClearStencil( 0 );
 
-    const vector<Light> staticLights;// = gameSim.GetStaticLights();
+    //const vector<Light> staticLights;// = gameSim.GetStaticLights();
+    vector<Light> staticLights;// = gameSim.GetStaticLights();
+    staticLights.push_back( Light(frmr::Vec3f(0.0f, 0.0f, 50.0f), frmr::Vec3f(100.0f, 100.0f, 100.0f), 1000.0f, 0 ) );
+
+    glDisable( GL_BLEND );
 
     for ( auto lightIt : staticLights )
     {
@@ -231,7 +227,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
                 glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
                 glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
                 glDisable( GL_CULL_FACE );
-                glDisable( GL_DEPTH_TEST );
+                glDisable( GL_DEPTH_TEST ); //TODO: use the stencil buffer with depth fail and cull front face
+                glBindTexture( GL_TEXTURE_2D, 0 );
                 glCallList( icosphere );
             glPopMatrix();
 
@@ -275,9 +272,19 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glEnable( GL_BLEND );
         glBlendFunc( GL_ONE, GL_ONE );
 
+        //bind the diffuse, normal and depth maps before rendering fullscreen quad
+        glActiveTexture( GL_TEXTURE0 );
+        glBindTexture( GL_TEXTURE_2D, m_normalsTexture );
+
+        glActiveTexture( GL_TEXTURE1 );
+        glBindTexture( GL_TEXTURE_2D, m_diffuseTexture );
+
+        glActiveTexture( GL_TEXTURE2 );
+        glBindTexture( GL_TEXTURE_2D, m_depthTexture );
+
         glCallList( fullscreenQuad );
 
-        glDisable(GL_BLEND);
+        glDisable( GL_BLEND );
     }
 
     glDisable(GL_STENCIL_TEST );
@@ -292,7 +299,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 	glActiveTexture(GL_TEXTURE2);
 	glBindTexture(GL_TEXTURE_2D, 0);
 
-	glUseProgram(0);
+	glUseProgram( 0 );
 
     //change to perspective projection
 	//enable depth test
@@ -312,6 +319,17 @@ void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
     glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
     SetToPerspectiveProjection( engineCfg );
     glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+}
+
+void RenderManager::SimpleRender( const Simulation &gameSim, const EngineConfig &engineCfg ) const
+{
+    glEnable( GL_TEXTURE_2D );
+    SetToPerspectiveProjection( engineCfg );
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+    glEnable( GL_DEPTH_TEST );
+    glDisable( GL_CULL_FACE );
+    glUseProgram( 0 );
+    gameSim.RenderLit();
 }
 
 RenderManager::RenderManager( const EngineConfig &engineCfg )

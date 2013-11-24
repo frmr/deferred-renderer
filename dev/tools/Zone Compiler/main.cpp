@@ -346,20 +346,25 @@ int main( int argc, char *argv[] )
         }
 
         //print all the data for debugging purposes
-//        for ( auto zoneIt : zones )
-//        {
-//            cout << zoneIt.zoneNum << endl;
-//            for ( auto texTriangleIt : zoneIt.texTriangles )
-//            {
-//                cout << texTriangleIt.texName << endl;
-//                cout << texTriangleIt.vert0.GetX() << " " << texTriangleIt.vert0.GetY() << " " << texTriangleIt.vert0.GetZ() << endl;
-//                cout << texTriangleIt.vert0Tex.GetX() << " " << texTriangleIt.vert0Tex.GetY() << endl;
-//                cout << texTriangleIt.vert1.GetX() << " " << texTriangleIt.vert1.GetY() << " " << texTriangleIt.vert1.GetZ() << endl;
-//                cout << texTriangleIt.vert1Tex.GetX() << " " << texTriangleIt.vert1Tex.GetY() << endl;
-//                cout << texTriangleIt.vert2.GetX() << " " << texTriangleIt.vert2.GetY() << " " << texTriangleIt.vert2.GetZ() << endl;
-//                cout << texTriangleIt.vert2Tex.GetX() << " " << texTriangleIt.vert2Tex.GetY() << endl;
-//                cout << texTriangleIt.normal.GetX() << " " << texTriangleIt.normal.GetY() << " " << texTriangleIt.normal.GetZ() << endl;
-//            }
+        for ( auto zoneIt : zones )
+        {
+            cout << zoneIt.zoneNum << endl;
+            for ( auto texTriangleGroupIt : zoneIt.texTriangleGroups )
+            {
+
+                cout << texTriangleGroupIt.texName << endl;
+                for ( auto texTriangleIt : texTriangleGroupIt.texTriangles )
+                {
+                    cout << texTriangleIt.vert0.GetX() << " " << texTriangleIt.vert0.GetY() << " " << texTriangleIt.vert0.GetZ() << endl;
+                    cout << texTriangleIt.vert0Tex.GetX() << " " << texTriangleIt.vert0Tex.GetY() << endl;
+                    cout << texTriangleIt.vert1.GetX() << " " << texTriangleIt.vert1.GetY() << " " << texTriangleIt.vert1.GetZ() << endl;
+                    cout << texTriangleIt.vert1Tex.GetX() << " " << texTriangleIt.vert1Tex.GetY() << endl;
+                    cout << texTriangleIt.vert2.GetX() << " " << texTriangleIt.vert2.GetY() << " " << texTriangleIt.vert2.GetZ() << endl;
+                    cout << texTriangleIt.vert2Tex.GetX() << " " << texTriangleIt.vert2Tex.GetY() << endl;
+                    cout << texTriangleIt.normal.GetX() << " " << texTriangleIt.normal.GetY() << " " << texTriangleIt.normal.GetZ() << endl;
+                }
+            }
+        }
 //
 //            for ( auto portalIt : zoneIt.portals )
 //            {

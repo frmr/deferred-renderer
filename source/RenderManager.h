@@ -58,6 +58,7 @@ private:
 public:
     void Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const;
     void SetupOpenGL( const EngineConfig &engineCfg ) const;
+    void SimpleRender( const Simulation &gameSim, const EngineConfig &engineCfg ) const;
 
 public:
     RenderManager( const EngineConfig &engineCfg );

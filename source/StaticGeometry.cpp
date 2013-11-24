@@ -30,6 +30,11 @@ StaticGeometry::Portal::~Portal()
     glDeleteLists( displayList, 1 );
 }
 
+void StaticGeometry::Zone::TexTriangleGroup::DeleteDisplayList()
+{
+    glDeleteLists( displayList, 1 );
+}
+
 GLuint StaticGeometry::Zone::TexTriangleGroup::GetDisplayList() const
 {
     return displayList;
@@ -48,7 +53,15 @@ StaticGeometry::Zone::TexTriangleGroup::TexTriangleGroup( const GLuint displayLi
 
 StaticGeometry::Zone::TexTriangleGroup::TexTriangleGroup::~TexTriangleGroup()
 {
-    glDeleteLists( displayList, 1 );
+
+}
+
+void StaticGeometry::Zone::DeleteDisplayLists()
+{
+    for ( auto texTriangleGroupIt : texTriangleGroups )
+    {
+        texTriangleGroupIt.DeleteDisplayList();
+    }
 }
 
 int16_t StaticGeometry::Zone::GetZoneNum() const
@@ -63,12 +76,6 @@ vector<int16_t> StaticGeometry::Zone::Render() const
     for ( auto texTriangleGroupIt : texTriangleGroups )
     {
         texTriangleGroupIt.Render();
-    }
-
-    for ( auto texTriangleGroupIt : texTriangleGroups )
-    {
-        texTriangleGroupIt.Render();
-        //cout << "StaticGeometry::Zone::Render() - Rendered TexTriangleGroup" << endl;
     }
 
     visibleZones.push_back( 0 );
@@ -280,4 +287,8 @@ StaticGeometry::StaticGeometry()
 StaticGeometry::~StaticGeometry()
 {
     //free display list
+    for ( auto zoneIt : zones )
+    {
+        zoneIt.DeleteDisplayLists();
+    }
 }

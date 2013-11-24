@@ -119,6 +119,7 @@ AssetManager::AssetManager( const string assetListFilename, const bool filterTex
             if ( lineIt[0] == "texture" || lineIt[0] == "Texture" || lineIt[0] == "tex" || lineIt[0] == "Tex" )
             {
                 permanentTextures[StripFilename( lineIt[1] )] = LoadTexture( lineIt[1], filterTextures, false );
+                cout << "Loaded " << lineIt[1] << " as " << StripFilename( lineIt[1] ) << endl;
             }
             else if ( lineIt[0] == "mask" || lineIt[0] == "Mask" )
             {

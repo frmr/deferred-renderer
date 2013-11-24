@@ -44,7 +44,6 @@ void main( void )
 		vec3 fragPosition = unproject( gl_FragCoord.x, gl_FragCoord.y, fragDepth );
 
 		float lightDot = dot( normalize( fragPosition - lightPosition ), fragNormal.xyz );
-		
 		if ( lightDot <= 0.0 )
 		{
 			discard;
@@ -53,7 +52,11 @@ void main( void )
 		{
 			float dist = distance( fragPosition.xyz, lightPosition );
 			gl_FragColor = vec4( fragDiffuse.rgb * lightDot * lightColor / ( dist * lightLinearAttenuation + dist * dist * lightQuadraticAttenuation ), 0.0f );
+			//gl_FragColor = vec4( fragDiffuse.rgb * lightColor / ( dist * lightLinearAttenuation + dist * dist * lightQuadraticAttenuation ), 0.0f );
+			//gl_FragColor = vec4( fragDepth, 0.0, 0.0, 0.0 );
+			//gl_FragColor = vec4( fragPosition.xyz, 0.0 );
+			//gl_FragColor = vec4( fragDiffuse.rgb, 0.0 );
+			//gl_FragColor = vec4( lightDot, 0.0, 0.0, 0.0 );
 		}
 	}
 }
-

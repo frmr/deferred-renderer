@@ -6,7 +6,7 @@ float Light::CalculateRadius() const
     largestColorComponent = ( largestColorComponent > color.GetZ() ) ? largestColorComponent : color.GetZ();
 
     //return largestColorComponent / intensityLowerBound * linearAttenuation;
-    return 80.0f;
+    return 800.0f;
 }
 
 frmr::Vec3f Light::GetColor() const
@@ -46,17 +46,17 @@ Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const float
       radius( radius ),
       staticShadowVolume( staticShadowVolumeDisplayList )
 {
-    GLuint shadowList = glGenLists( 1 );
-    glNewList( shadowList, GL_COMPILE );
-        glBegin( GL_QUADS );
-            glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f );
-            glVertex3f( 90.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f );
-            glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 110.f, -50.0f, -50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f );
-            glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 110.0f, -50.0f, -50.0f );
-            glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, 50.0f );
-            glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f ); glVertex3f( 110.0f, -50.0f, -50.0f );
-        glEnd();
-    glEndList();
-
-    staticShadowVolume = Light::ShadowVolume( shadowList );
+//    GLuint shadowList = glGenLists( 1 );
+//    glNewList( shadowList, GL_COMPILE );
+//        glBegin( GL_QUADS );
+//            glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f );
+//            glVertex3f( 90.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f );
+//            glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 110.f, -50.0f, -50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f );
+//            glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 110.0f, -50.0f, -50.0f );
+//            glVertex3f( 90.0f, -50.0f, 50.0f ); glVertex3f( 110.0f, -50.0f, 50.0f ); glVertex3f( 110.0f, 50.0f, 50.0f ); glVertex3f( 90.0f, 50.0f, 50.0f );
+//            glVertex3f( 90.0f, -50.0f, -50.0f ); glVertex3f( 90.0f, 50.0f, -50.0f ); glVertex3f( 110.0f, 50.0f, -50.0f ); glVertex3f( 110.0f, -50.0f, -50.0f );
+//        glEnd();
+//    glEndList();
+//
+//    staticShadowVolume = Light::ShadowVolume( shadowList );
 }

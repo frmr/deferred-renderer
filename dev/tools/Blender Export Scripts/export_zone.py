@@ -9,17 +9,17 @@ mesh = bpy.context.active_object.to_mesh(bpy.context.scene, True, 'PREVIEW')
 numOfFaces = len(mesh.polygons)
 
 for faceIndex in range(0, numOfFaces):
-    v1 = (  mesh.vertices[mesh.polygons[faceIndex].vertices[0]].co.x * 10, 
-            mesh.vertices[mesh.polygons[faceIndex].vertices[0]].co.y * 10, 
-            mesh.vertices[mesh.polygons[faceIndex].vertices[0]].co.z * 10 )
+    v1 = (  mesh.vertices[mesh.polygons[faceIndex].vertices[0]].co.x * 100, 
+            mesh.vertices[mesh.polygons[faceIndex].vertices[0]].co.y * 100, 
+            mesh.vertices[mesh.polygons[faceIndex].vertices[0]].co.z * 100 )
             
-    v2 = (  mesh.vertices[mesh.polygons[faceIndex].vertices[1]].co.x * 10, 
-            mesh.vertices[mesh.polygons[faceIndex].vertices[1]].co.y * 10, 
-            mesh.vertices[mesh.polygons[faceIndex].vertices[1]].co.z * 10 )
+    v2 = (  mesh.vertices[mesh.polygons[faceIndex].vertices[1]].co.x * 100, 
+            mesh.vertices[mesh.polygons[faceIndex].vertices[1]].co.y * 100, 
+            mesh.vertices[mesh.polygons[faceIndex].vertices[1]].co.z * 100 )
             
-    v3 = (  mesh.vertices[mesh.polygons[faceIndex].vertices[2]].co.x * 10, 
-            mesh.vertices[mesh.polygons[faceIndex].vertices[2]].co.y * 10, 
-            mesh.vertices[mesh.polygons[faceIndex].vertices[2]].co.z * 10 )
+    v3 = (  mesh.vertices[mesh.polygons[faceIndex].vertices[2]].co.x * 100, 
+            mesh.vertices[mesh.polygons[faceIndex].vertices[2]].co.y * 100, 
+            mesh.vertices[mesh.polygons[faceIndex].vertices[2]].co.z * 100 )
     
     normal = ( mesh.polygons[faceIndex].normal.x, mesh.polygons[faceIndex].normal.y, mesh.polygons[faceIndex].normal.z )
     

@@ -1001,7 +1001,7 @@
 1377621645 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
 
-1385082100 x:\produce\wizmatch\source\effect.h
+1385160799 x:\produce\wizmatch\source\effect.h
 	<stdint.h>
 
 1378824416 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
@@ -1022,7 +1022,7 @@
 	"Config.h"
 	"frmr_vec2f.h"
 
-1382295133 source:x:\produce\wizmatch\source\main.cpp
+1385304215 source:x:\produce\wizmatch\source\main.cpp
 	"windows.h"
 	"GL/glew.h"
 	"AssetManager.h"
@@ -1032,11 +1032,11 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1385154353 source:x:\produce\wizmatch\source\simulation.cpp
+1385234574 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Simulation.h"
 
-1382295320 x:\produce\wizmatch\source\simulation.h
+1385234473 x:\produce\wizmatch\source\simulation.h
 	<string>
 	<vector>
 	<map>
@@ -2079,7 +2079,7 @@
 1376046737 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1379501925 x:\produce\wizmatch\source\rendermanager.h
+1385162972 x:\produce\wizmatch\source\rendermanager.h
 	"GL/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2422,7 +2422,7 @@
 	<string>
 	"GL/glew.h"
 
-1382278905 source:x:\produce\wizmatch\source\rendermanager.cpp
+1385305423 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2468,7 +2468,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1385155790 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1385241936 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2476,7 +2476,7 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1385159983 x:\produce\wizmatch\source\staticgeometry.h
+1385241843 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
@@ -2516,10 +2516,10 @@
 	"Camera.h"
 	<iostream>
 
-1382618158 source:x:\produce\wizmatch\source\light.cpp
+1385305248 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1382617973 x:\produce\wizmatch\source\light.h
+1385304796 x:\produce\wizmatch\source\light.h
 	<SFML/OpenGL.hpp>
 	<stdint.h>
 	<vector>
@@ -2570,7 +2570,7 @@
 	<stdlib.h>
 	<string>
 
-1382658838 source:x:\produce\wizmatch\source\assetmanager.cpp
+1385235422 source:x:\produce\wizmatch\source\assetmanager.cpp
 	<iostream>
 	"AssetManager.h"
 	"frmr_TextFile.h"
