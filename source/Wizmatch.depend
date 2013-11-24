@@ -2422,7 +2422,7 @@
 	<string>
 	"GL/glew.h"
 
-1385305423 source:x:\produce\wizmatch\source\rendermanager.cpp
+1385308515 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2512,14 +2512,14 @@
 	"Actor.h"
 	"InputState.h"
 
-1378995664 source:x:\produce\wizmatch\source\camera.cpp
+1385307826 source:x:\produce\wizmatch\source\camera.cpp
 	"Camera.h"
 	<iostream>
 
 1385305248 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
 
-1385304796 x:\produce\wizmatch\source\light.h
+1385308608 x:\produce\wizmatch\source\light.h
 	<SFML/OpenGL.hpp>
 	<stdint.h>
 	<vector>

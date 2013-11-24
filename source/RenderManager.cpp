@@ -198,7 +198,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     //const vector<Light> staticLights;// = gameSim.GetStaticLights();
     vector<Light> staticLights;// = gameSim.GetStaticLights();
-    staticLights.push_back( Light(frmr::Vec3f(0.0f, 0.0f, 50.0f), frmr::Vec3f(100.0f, 100.0f, 100.0f), 1000.0f, 0 ) );
+    staticLights.push_back( Light(frmr::Vec3f(0.0f, 0.0f, 100.0f), frmr::Vec3f(100.0f, 100.0f, 100.0f), 100.0f, 0 ) );
 
     glDisable( GL_BLEND );
 

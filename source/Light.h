@@ -29,7 +29,7 @@ private:
         }
         ~ShadowVolume()
         {
-            glDeleteLists( displayList, 1 );
+            //glDeleteLists( displayList, 1 ); //TODO: Must delete the list when the light is finally deleted
         }
     };
 
