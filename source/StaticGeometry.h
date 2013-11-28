@@ -59,6 +59,7 @@ private:
 
     public:
         void DeleteDisplayLists();
+        vector<Light> GetLights() const;
         int16_t GetZoneNum() const;
         vector<int16_t> Render() const; //renders and returns a list of visible zones
 
@@ -74,6 +75,7 @@ private:
     vector<Zone>            zones;
 
 public:
+    vector<Light> GetStaticLights() const;
     void Render() const;
 
 public:

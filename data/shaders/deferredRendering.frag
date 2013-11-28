@@ -45,7 +45,7 @@ void main( void )
 
 		//float lightDot = dot( normalize( fragPosition - lightPosition ), fragNormal.xyz );
 		float lightDot = dot( normalize( lightPosition - fragPosition ), fragNormal.xyz );
-		//lightDot = 1.0f;
+
 		if ( lightDot <= 0.0 )
 		{
 			discard;

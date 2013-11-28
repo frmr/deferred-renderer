@@ -102,7 +102,7 @@ void RenderManager::SetToPerspectiveProjection( const EngineConfig &engineCfg ) 
 {
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 10.0f, 5000.0f );
+    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 5000.0f );
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 }
@@ -197,8 +197,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glClearStencil( 0 );
 
     //const vector<Light> staticLights;// = gameSim.GetStaticLights();
-    vector<Light> staticLights;// = gameSim.GetStaticLights();
-    staticLights.push_back( Light(frmr::Vec3f(0.0f, 0.0f, 100.0f), frmr::Vec3f(100.0f, 100.0f, 100.0f), 100.0f, 0 ) );
+    vector<Light> staticLights = gameSim.GetStaticLights();
 
     glDisable( GL_BLEND );
 
@@ -216,37 +215,34 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glStencilFunc( GL_NEVER, 1, 0xFF ); // never pass stencil test
         glStencilOp( GL_REPLACE, GL_KEEP, GL_KEEP );  // replace stencil buffer values to ref=1
 
+        glRotatef( -gameSim.GetCamera().GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
+        glRotatef( -gameSim.GetCamera().GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
+        glTranslatef( -gameSim.GetCamera().GetPosition().GetX(), -gameSim.GetCamera().GetPosition().GetY(), -gameSim.GetCamera().GetPosition().GetZ() );
+
         glPushMatrix();
-            //transform to camera position/rotation
-            glRotatef( -gameSim.GetCamera().GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
-            glRotatef( -gameSim.GetCamera().GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
-            glTranslatef( -gameSim.GetCamera().GetPosition().GetX(), -gameSim.GetCamera().GetPosition().GetY(), -gameSim.GetCamera().GetPosition().GetZ() );
+            //render light radius at correct location and scale
+            glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
+            glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
 
-            glPushMatrix();
-                //render light at correct location and scale
-                glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
-                glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
-                glDisable( GL_CULL_FACE );
-                glDisable( GL_DEPTH_TEST ); //TODO: use the stencil buffer with depth fail and cull front face
-                glBindTexture( GL_TEXTURE_2D, 0 );
-                glCallList( icosphere );
-            glPopMatrix();
-
-            //shadows
-            glEnable( GL_DEPTH_TEST ); //using the depth buffer from the FBO
-            glEnable( GL_CULL_FACE );
-            glCullFace( GL_FRONT );
-            //increment on depth fail
-            glStencilFunc( GL_EQUAL, 1, 0xFF );
-            glStencilOp( GL_KEEP, GL_INCR, GL_KEEP );
-            lightIt.RenderShadowVolume();
-            glCullFace( GL_BACK );
-            //decrement on depth fail
-            glStencilFunc( GL_EQUAL, 2, 0xFF );
-            glStencilOp( GL_KEEP, GL_DECR, GL_KEEP );
-            lightIt.RenderShadowVolume();
-
+            glDisable( GL_CULL_FACE );
+            glDisable( GL_DEPTH_TEST ); //TODO: use the stencil buffer with depth fail and cull front face
+            glBindTexture( GL_TEXTURE_2D, 0 );
+            glCallList( icosphere );
         glPopMatrix();
+
+        //shadows
+        glEnable( GL_DEPTH_TEST ); //using the depth buffer from the FBO
+        glEnable( GL_CULL_FACE );
+        glCullFace( GL_FRONT );
+        //increment on depth fail
+        glStencilFunc( GL_EQUAL, 1, 0xFF );
+        glStencilOp( GL_KEEP, GL_INCR, GL_KEEP );
+        lightIt.RenderShadowVolume();
+        glCullFace( GL_BACK );
+        //decrement on depth fail
+        glStencilFunc( GL_EQUAL, 2, 0xFF );
+        glStencilOp( GL_KEEP, GL_DECR, GL_KEEP );
+        lightIt.RenderShadowVolume();
 
         glDisable( GL_DEPTH_TEST );
 
@@ -318,7 +314,7 @@ void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
     glewInit();
     glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
     SetToPerspectiveProjection( engineCfg );
-    glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
+    glClearColor( 0.1f, 0.0f, 0.0f, 0.0f );
 }
 
 void RenderManager::SimpleRender( const Simulation &gameSim, const EngineConfig &engineCfg ) const

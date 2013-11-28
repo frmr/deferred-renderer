@@ -64,6 +64,11 @@ void StaticGeometry::Zone::DeleteDisplayLists()
     }
 }
 
+vector<Light> StaticGeometry::Zone::GetLights() const
+{
+    return lights;
+}
+
 int16_t StaticGeometry::Zone::GetZoneNum() const
 {
     return zoneNum;
@@ -239,6 +244,18 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
     return true;
 }
 
+vector<Light> StaticGeometry::GetStaticLights() const
+{
+    vector<Light> foundLights;
+
+    for ( auto zoneIt : zones )
+    {
+        vector<Light> zoneLights = zoneIt.GetLights();
+        foundLights.insert( foundLights.end(), zoneLights.begin(), zoneLights.end() );
+    }
+    return foundLights;
+}
+
 void StaticGeometry::Render() const
 {
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
@@ -248,7 +265,10 @@ void StaticGeometry::Render() const
         //draw the portals
         //
     int16_t currentZone = 0;
-    zones[0].Render();
+    for ( auto zoneIt : zones )
+    {
+        zoneIt.Render();
+    }
 }
 
 StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )

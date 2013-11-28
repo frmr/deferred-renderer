@@ -24,8 +24,7 @@ Camera Simulation::GetCamera() const
 
 vector<Light> Simulation::GetStaticLights() const
 {
-    vector<Light> foundLights;
-
+    return staticGeometry.GetStaticLights();
 }
 
 void Simulation::RenderLit() const
