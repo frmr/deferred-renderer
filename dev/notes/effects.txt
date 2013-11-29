@@ -33,12 +33,6 @@ Status Ailments
 	CURE_PARALYZE
 	CURE_SILENCE
 
-	IMMUNE_BLIND
-	IMMUNE_CONFUSE
-	IMMUNE_COUNTDOWN
-	IMMUNE_PARALYZE
-	IMMUNE_SILENCE
-
 Player Stats
 	MODIFY_COOLDOWN			% reduction in cooldown time, value adds linearly
 	MODIFY_FALL_SPEED
