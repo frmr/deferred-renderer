@@ -19,29 +19,28 @@ private:
     frmr::Shader    deferredRenderingShader;
     frmr::Shader    depthTransferShader;
 
-    GLuint          m_testTexture;
-    GLuint          m_testTextureID;
+    GLuint			fbo; // The FBO ID
 
-    GLuint			m_fbo; // The FBO ID
+    GLuint          surfaceTextureID;
 
-	GLuint			m_normalsRT; // The normals render target
-	GLuint	        m_normalsTexture; // The OpenGL texture for the normals render target
-	GLuint          m_diffuseRT;
-	GLuint          m_diffuseTexture;
-	GLuint          m_depthRT;
-	GLuint          m_depthTexture;
+	GLuint			normalsRT; // The normals render target
+	GLuint	        normalsTexture; // The OpenGL texture for the normals render target
+	GLuint          diffuseRT;
+	GLuint          diffuseTexture;
+	GLuint          depthRT;
+	GLuint          depthTexture;
 
-	GLuint			m_normalsID; // Normals texture handle for the shader
-	GLuint          m_diffuseID;
-	GLuint          m_depthID;
+	GLuint			normalsID; // Normals texture handle for the shader
+	GLuint          diffuseID;
+	GLuint          depthID;
 
-	GLuint          m_viewportParamsID;
-	GLuint          m_perspectiveMatrixID;
+	GLuint          viewportParamsID;
+	GLuint          perspectiveMatrixID;
 
-	GLuint          m_lightPositionID;
-	GLuint          m_lightColorID;
-	GLuint          m_lightLinearAttenuationID;
-	GLuint          m_lightQuadraticAttenuationID;
+	GLuint          lightPositionID;
+	GLuint          lightColorID;
+	GLuint          lightLinearAttenuationID;
+	GLuint          lightQuadraticAttenuationID;
 
 	GLuint          icosphere;
 	GLuint          fullscreenQuad;
@@ -50,6 +49,7 @@ private:
     GLuint  CreateFullscreenQuad( const EngineConfig &engineCfg ) const;
     bool    InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const;
     void    MultiplyMatricesGL( const float matrixInA[16], const float matrixInB[16], float matrixOut[16] ) const;
+    void    ResetViewport( const EngineConfig &engienCfg ) const;
     void    SetToOrthogonalProjection( const EngineConfig &engineCfg ) const;
     void    SetToPerspectiveProjection( const EngineConfig &engineCfg ) const;
     void    StartRenderToFBO( const EngineConfig &engineCfg ) const;

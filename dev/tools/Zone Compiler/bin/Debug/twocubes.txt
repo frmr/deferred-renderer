@@ -179,11 +179,13 @@ zone
 			vert0		10.0 5.0 15.0
 			vert1		10.0 5.0 5.0
 			vert2		10.0 -5.0 5.0
+			normal		0.0 -1.0 0.0
 		/triangle
 		triangle
 			vert0		10.0 5.0 15.0
 			vert1		10.0 -5.0 5.0
 			vert2		10.0 -5.0 15.0
+			normal		0.0 -1.0 0.0
 		/triangle
 	/portal
 /zone
@@ -278,11 +280,13 @@ zone
 			vert0		10.0 5.0 5.0
 			vert1		10.0 5.0 15.0
 			vert2		10.0 -5.0 5.0
+			normal		0.0 1.0 0.0
 		/triangle
 		triangle
 			vert0		10.0 -5.0 5.0
 			vert1		10.0 5.0 15.0
 			vert2		10.0 -5.0 15.0
+			normal		0.0 1.0 0.0
 		/triangle
 	/portal
 	
@@ -292,11 +296,13 @@ zone
 			vert0		20.0 5.0 15.0
 			vert1		20.0 -5.0 5.0
 			vert2		20.0 -5.0 15.0
+			normal		0.0 -1.0 0.0
 		/triangle
 		triangle
 			vert0		20.0 5.0 15.0
 			vert1		20.0 5.0 5.0
 			vert2		20.0 -5.0 5.0
+			normal		0.0 -1.0 0.0
 		/triangle
 	/portal
 	
@@ -482,11 +488,13 @@ zone
 			vert0		20.0 5.0 5.0
 			vert1		20.0 5.0 15.0
 			vert2		20.0 -5.0 5.0
+			normal		0.0 1.0 0.0
 		/triangle
 		triangle
 			vert0		20.0 -5.0 5.0
 			vert1		20.0 5.0 15.0
 			vert2		20.0 -5.0 15.0
+			normal		0.0 1.0 0.0
 		/triangle
 	/portal
 /zone

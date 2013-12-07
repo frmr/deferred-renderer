@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1382571692 source:x:\produce\wizmatch\dev\tools\zone compiler\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<stdlib.h>
+	"frmr_Vec3f.h"
+	"frmr_Vec2f.h"
+	"frmr_textfile.h"
+	"frmr_encode.h"
+
+1355502676 source:x:\produce\wizmatch\dev\tools\zone compiler\frmr_stringfuncs.cpp
+	"frmr_stringfuncs.h"
+
+1347892474 x:\produce\wizmatch\dev\tools\zone compiler\frmr_stringfuncs.h
+	<vector>
+	<string>
+
+1355502810 source:x:\produce\wizmatch\dev\tools\zone compiler\frmr_textfile.cpp
+	<fstream>
+	"frmr_textfile.h"
+	"frmr_stringfuncs.h"
+
+1347892480 x:\produce\wizmatch\dev\tools\zone compiler\frmr_textfile.h
+	<vector>
+	<string>
+
+1378824416 source:x:\produce\wizmatch\dev\tools\zone compiler\frmr_vec2f.cpp
+	"frmr_Vec2f.h"
+	"math.h"
+
+1378824395 x:\produce\wizmatch\dev\tools\zone compiler\frmr_vec2f.h
+
+1378824378 source:x:\produce\wizmatch\dev\tools\zone compiler\frmr_vec3f.cpp
+	"frmr_Vec3f.h"
+	<cmath>
+
+1378824348 x:\produce\wizmatch\dev\tools\zone compiler\frmr_vec3f.h
+
+1382197701 source:x:\produce\wizmatch\dev\tools\zone compiler\frmr_encode.cpp
+	"frmr_encode.h"
+	<iostream>
+
+1382196633 x:\produce\wizmatch\dev\tools\zone compiler\frmr_encode.h
+	<stdlib.h>
+	<string>
+

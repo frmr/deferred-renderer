@@ -996,19 +996,19 @@
 	"matrix4.h"
 	"IVideoDriver.h"
 
-1378824348 x:\produce\wizmatch\source\frmr_vec3f.h
+1386368604 x:\produce\wizmatch\source\frmr_vec3f.h
 
 1377621645 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
 
-1385160799 x:\produce\wizmatch\source\effect.h
+1385683980 x:\produce\wizmatch\source\effect.h
 	<stdint.h>
 
 1378824416 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
 	"frmr_Vec2f.h"
 	"math.h"
 
-1378824395 x:\produce\wizmatch\source\frmr_vec2f.h
+1386368726 x:\produce\wizmatch\source\frmr_vec2f.h
 
 1378824378 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
 	"frmr_Vec3f.h"
@@ -1022,7 +1022,7 @@
 	"Config.h"
 	"frmr_vec2f.h"
 
-1385304215 source:x:\produce\wizmatch\source\main.cpp
+1385765851 source:x:\produce\wizmatch\source\main.cpp
 	"windows.h"
 	"GL/glew.h"
 	"AssetManager.h"
@@ -1032,7 +1032,7 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1385679916 source:x:\produce\wizmatch\source\simulation.cpp
+1385990238 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Simulation.h"
 
@@ -1047,7 +1047,7 @@
 	"Player.h"
 	"StaticGeometry.h"
 
-1378743683 x:\produce\wizmatch\source\player.h
+1385984854 x:\produce\wizmatch\source\player.h
 	<vector>
 	"Actor.h"
 	"AnimatedBillboard.h"
@@ -2079,7 +2079,7 @@
 1376046737 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1385162972 x:\produce\wizmatch\source\rendermanager.h
+1385765809 x:\produce\wizmatch\source\rendermanager.h
 	"GL/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2422,7 +2422,7 @@
 	<string>
 	"GL/glew.h"
 
-1385681820 source:x:\produce\wizmatch\source\rendermanager.cpp
+1385996835 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2468,21 +2468,21 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1385680720 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1386022352 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
 	"frmr_encode.h"
+	"frmr_math.h"
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1385680409 x:\produce\wizmatch\source\staticgeometry.h
+1386020080 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
-	"Light.h"
-	"frmr_Octree.h"
 	"AssetManager.h"
+	"Light.h"
 	"frmr_Triangle.h"
 
 1378766929 source:x:\produce\wizmatch\source\frmr_shader.cpp
@@ -2499,20 +2499,20 @@
 	<map>
 	<string>
 
-1381501268 source:x:\produce\wizmatch\source\actor.cpp
+1385986257 source:x:\produce\wizmatch\source\actor.cpp
 	"Actor.h"
 
-1381501268 x:\produce\wizmatch\source\actor.h
+1385986239 x:\produce\wizmatch\source\actor.h
 	<stdint.h>
 	<string>
 	"frmr_Vec3f.h"
 	"frmr_Vec2f.h"
 
-1377710006 x:\produce\wizmatch\source\camera.h
+1385986092 x:\produce\wizmatch\source\camera.h
 	"Actor.h"
 	"InputState.h"
 
-1385307826 source:x:\produce\wizmatch\source\camera.cpp
+1385986078 source:x:\produce\wizmatch\source\camera.cpp
 	"Camera.h"
 	<iostream>
 

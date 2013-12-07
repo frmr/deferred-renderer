@@ -6,16 +6,19 @@ namespace frmr
 	class Vec3f
 	{
 	private:
-		float x, y, z;
-		float length;
+		float   x, y, z;
+		float   length;
+		bool    valid;
 
 	public:
-		float   Length();
-		Vec3f   Unit();
-		void    Reset();
-		float   GetX() const;
+	    float   GetX() const;
 		float   GetY() const;
 		float   GetZ() const;
+	    bool    IsValid() const;
+		float   Length();
+		void    Reset();
+		void    SetValid( const bool newValid );
+		Vec3f   Unit();
 
 	public:
 		Vec3f 	operator+ ( const Vec3f &rhs ) const;

@@ -3,16 +3,28 @@
 
 #include "StaticGeometry.h"
 #include "frmr_encode.h"
+#include "frmr_math.h"
 #include "frmr_Vec2f.h"
 #include "frmr_Vec3f.h"
 
 using std::cout;
 using std::endl;
 
-void StaticGeometry::Portal::Render() const
+bool StaticGeometry::Portal::IsVisible( const frmr::Vec3f &cameraPosition ) const
 {
-    glBindTexture( GL_TEXTURE_2D, 0 );
-    glCallList( displayList );
+    for ( auto triangleIt : triangles )
+    {
+        //if triangle is within view frustum
+        frmr::Vec3f cameraToTriangleVector = triangleIt.GetVert0() - cameraPosition;
+
+        //if triangle is facing the camera
+        if ( frmr::VectorDot( triangleIt.GetNormal(), cameraToTriangleVector.Unit() ) > 0.0f )
+        {
+            //if triangle is within view frustum
+            return true;
+        }
+    }
+    return false;
 }
 
 int16_t StaticGeometry::Portal::GetTargetZoneNum() const
@@ -20,14 +32,9 @@ int16_t StaticGeometry::Portal::GetTargetZoneNum() const
     return targetZoneNum;
 }
 
-StaticGeometry::Portal::Portal( const GLuint displayList, const int16_t targetZoneNum )
-    : displayList( displayList ), targetZoneNum( targetZoneNum )
+StaticGeometry::Portal::Portal( const vector<frmr::Triangle> &triangles, const int16_t targetZoneNum )
+    : triangles( triangles ), targetZoneNum( targetZoneNum )
 {
-}
-
-StaticGeometry::Portal::~Portal()
-{
-    glDeleteLists( displayList, 1 );
 }
 
 void StaticGeometry::Zone::TexTriangleGroup::DeleteDisplayList()
@@ -74,17 +81,44 @@ int16_t StaticGeometry::Zone::GetZoneNum() const
     return zoneNum;
 }
 
-vector<int16_t> StaticGeometry::Zone::Render() const
+void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const
 {
-    vector<int16_t> visibleZones;
+    renderedZonesRef.push_back( zoneNum );
+
+    for ( auto renderedZoneIt : renderedZonesRef )
+    {
+        cout << renderedZoneIt;
+    }
+    cout << endl;
 
     for ( auto texTriangleGroupIt : texTriangleGroups )
     {
         texTriangleGroupIt.Render();
     }
 
-    visibleZones.push_back( 0 );
-    return visibleZones;
+    for ( auto portalIt : portals )
+    {
+        //if portal target zone not already rendered
+        bool targetZoneRendered = false;
+
+        for ( auto renderedZone : renderedZonesRef )
+        {
+            if ( portalIt.GetTargetZoneNum() == renderedZone )
+            {
+                targetZoneRendered = true;
+                break;
+            }
+        }
+
+        if ( !targetZoneRendered )
+        {
+            //if ( portalIt.IsVisible( cameraPosition, viewFrustum ) )
+            if ( portalIt.IsVisible( cameraPosition ) )
+            {
+                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, zones, renderedZonesRef );
+            }
+        }
+    }
 }
 
 StaticGeometry::Zone::Zone( const int16_t zoneNum, const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights )
@@ -186,19 +220,17 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
                 int16_t numOfTriangles = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
                 i += 2;
 
-                GLuint portalDisplayList = glGenLists(1);
-                glNewList( portalDisplayList, GL_COMPILE );
-                glBegin( GL_TRIANGLES );
+                vector<frmr::Triangle> triangles;
                 for ( int triangleIndex = 0; triangleIndex < numOfTriangles; triangleIndex++ )
                 {
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) );
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) );
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ) );
-                    i += 36;
+                    frmr::Vec3f vert0( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) );
+                    frmr::Vec3f vert1( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) );
+                    frmr::Vec3f vert2( frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ) );
+                    frmr::Vec3f normal( frmr::DecodeFloat( zoneString.substr( i+36, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+40, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+44, 4 ) ) );
+                    triangles.push_back( frmr::Triangle( vert0, vert1, vert2, normal ) );
+                    i += 48;
                 }
-                glEnd();
-                glEndList();
-                portals.push_back( StaticGeometry::Portal( portalDisplayList, targetZoneNum ) );
+                portals.push_back( StaticGeometry::Portal( triangles, targetZoneNum ) );
             }
 
             vector<Light> lights;
@@ -256,52 +288,21 @@ vector<Light> StaticGeometry::GetStaticLights() const
     return foundLights;
 }
 
-void StaticGeometry::Render() const
+void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition ) const
 {
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
-    //determine which zone the player is in
-    //draw that zone
+    //draw current zone
         //draw the geometry
         //draw the portals
-        //
-    int16_t currentZone = 0;
-    for ( auto zoneIt : zones )
-    {
-        zoneIt.Render();
-    }
+
+    vector<int> renderedZones;
+
+    zones[cameraZoneNum].Render( cameraPosition, zones, renderedZones );
 }
 
 StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )
-    : zoneTree( frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 100.0f, 100.0f, 100.0f ) )
 {
     LoadZoneFile( zoneDataFilename, assets );
-}
-
-StaticGeometry::StaticGeometry()
-    : zoneTree( frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 100.0f, 100.0f, 100.0f ) )
-{
-    int16_t* coolData;
-    coolData = new int16_t(31);
-    cout << *coolData << endl;
-
-    zoneTree = frmr::Octree<int16_t>( frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 100.0f, 100.0f, 100.0f ) );
-
-    vector<int> coord;
-    zoneTree.AddChild( coord, frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( 0.0f, 0.0f, 0.0f ) );
-
-    coord.push_back( 0 );
-
-    zoneTree.AddChild( coord, frmr::Vec3f( -100.0f, -100.0f, -100.0f ), frmr::Vec3f( -50.0f, -50.0f, -50.0f ), coolData );
-
-    int16_t* foundData = zoneTree.GetData( frmr::Vec3f( -75.0f, -75.0f, -75.0f ) );
-    if ( foundData == nullptr )
-    {
-        cout << "Returned null pointer." << endl;
-    }
-    else
-    {
-        cout << *foundData << endl;
-    }
 }
 
 StaticGeometry::~StaticGeometry()

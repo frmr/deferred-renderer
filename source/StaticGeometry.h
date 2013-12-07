@@ -5,9 +5,8 @@
 #include <vector>
 #include <string>
 
-#include "Light.h"
-#include "frmr_Octree.h"
 #include "AssetManager.h"
+#include "Light.h"
 #include "frmr_Triangle.h"
 
 using std::vector;
@@ -19,16 +18,16 @@ private:
     class Portal
     {
     private:
-        GLuint  displayList;
-        int16_t targetZoneNum;
+        vector<frmr::Triangle>  triangles;
+        int16_t                 targetZoneNum;
 
     public:
+        bool    IsVisible( const frmr::Vec3f &cameraPosition ) const;
         void    Render() const;
         int16_t GetTargetZoneNum() const;
 
     public:
-        Portal( const GLuint displayList, const int16_t targetZoneNum );
-        ~Portal();
+        Portal( const vector<frmr::Triangle> &triangles, const int16_t targetZoneNum );
     };
 
     class Zone
@@ -61,7 +60,7 @@ private:
         void DeleteDisplayLists();
         vector<Light> GetLights() const;
         int16_t GetZoneNum() const;
-        vector<int16_t> Render() const; //renders and returns a list of visible zones
+        void Render( const frmr::Vec3f &cameraPosition, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const; //recusively renders all visible zones
 
     public:
         Zone( const int16_t zoneNum, const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights );
@@ -71,17 +70,15 @@ private:
     bool LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets );
 
 private:
-    frmr::Octree<int16_t>   zoneTree;
-    vector<Zone>            zones;
+    vector<Zone>            zones; //zone::zoneNum = index in zone vector
 
 public:
-    vector<Light> GetStaticLights() const;
-    void Render() const;
+    vector<Light>   GetStaticLights() const;
+    void Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition ) const;
 
 public:
     //StaticGeometry( const string &octreeFilename, const string &zoneDataFilename,  );
     StaticGeometry( const string &zoneDataFilename, const AssetManager &assets );
-    StaticGeometry();
     ~StaticGeometry();
 };
 

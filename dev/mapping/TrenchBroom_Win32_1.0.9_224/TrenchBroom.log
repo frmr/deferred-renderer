@@ -1116,3 +1116,601 @@
 15308 2013-10-23 00:07:30: Created Browser Group Shader Program
 15308 2013-10-23 00:07:30: Created BrowserGroup.vertsh
 15308 2013-10-23 00:07:30: Created BrowserGroup.fragsh
+6880 2013-11-29 17:54:33: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+6880 2013-11-29 17:54:33: Depth buffer bits: 16
+6880 2013-11-29 17:54:33: Multisampling disabled
+6880 2013-11-29 17:54:33: OpenGL instancing enabled
+6880 2013-11-29 17:54:34: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+6880 2013-11-29 17:54:34: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+6880 2013-11-29 17:54:34: Created Face Shader Program
+6880 2013-11-29 17:54:34: Created Face.vertsh
+6880 2013-11-29 17:54:34: Created Face.fragsh
+6880 2013-11-29 17:54:34: Created Colored Edge Shader Program
+6880 2013-11-29 17:54:34: Created ColoredEdge.vertsh
+6880 2013-11-29 17:54:35: Created Edge.fragsh
+6880 2013-11-29 17:54:35: Created Text Shader Program
+6880 2013-11-29 17:54:35: Created Text.vertsh
+6880 2013-11-29 17:54:35: Created Text.fragsh
+6880 2013-11-29 17:54:35: Created Text Background Shader Program
+6880 2013-11-29 17:54:35: Created TextBackground.vertsh
+6880 2013-11-29 17:54:35: Created TextBackground.fragsh
+6880 2013-11-29 17:54:35: Created Edge Shader Program
+6880 2013-11-29 17:54:35: Created Edge.vertsh
+6880 2013-11-29 17:54:35: Created Entity Model Shader Program
+6880 2013-11-29 17:54:35: Created EntityModel.vertsh
+6880 2013-11-29 17:54:35: Created EntityModel.fragsh
+6880 2013-11-29 17:54:35: Created Browser Group Shader Program
+6880 2013-11-29 17:54:35: Created BrowserGroup.vertsh
+6880 2013-11-29 17:54:35: Created BrowserGroup.fragsh
+6880 2013-11-29 17:54:46: Created Handle Shader Program
+6880 2013-11-29 17:54:46: Created Handle.vertsh
+6880 2013-11-29 17:54:46: Created Handle.fragsh
+6880 2013-11-29 17:56:23: Created Instanced Point Handle Shader Program
+6880 2013-11-29 17:56:23: Created InstancedPointHandle.vertsh
+6880 2013-11-29 17:57:21: Created Point Handle Shader Program
+6880 2013-11-29 17:57:21: Created PointHandle.vertsh
+6880 2013-11-29 17:59:15: Created Colored Handle Shader Program
+6880 2013-11-29 17:59:15: Created ColoredHandle.vertsh
+6880 2013-11-29 18:15:11: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.011000 seconds
+6880 2013-11-29 18:15:12: Autosave directory created at C:\Users\Farmer\Desktop\autosave
+6880 2013-11-29 18:15:12: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 1.map in 0.001000 seconds
+6880 2013-11-29 18:17:00: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+348 2013-12-01 11:29:11: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+348 2013-12-01 11:29:11: Depth buffer bits: 16
+348 2013-12-01 11:29:11: Multisampling disabled
+348 2013-12-01 11:29:11: OpenGL instancing enabled
+348 2013-12-01 11:29:11: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+348 2013-12-01 11:29:11: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+348 2013-12-01 11:29:11: Created Face Shader Program
+348 2013-12-01 11:29:11: Created Face.vertsh
+348 2013-12-01 11:29:11: Created Face.fragsh
+348 2013-12-01 11:29:11: Created Colored Edge Shader Program
+348 2013-12-01 11:29:11: Created ColoredEdge.vertsh
+348 2013-12-01 11:29:11: Created Edge.fragsh
+348 2013-12-01 11:29:11: Created Text Shader Program
+348 2013-12-01 11:29:11: Created Text.vertsh
+348 2013-12-01 11:29:11: Created Text.fragsh
+348 2013-12-01 11:29:11: Created Text Background Shader Program
+348 2013-12-01 11:29:11: Created TextBackground.vertsh
+348 2013-12-01 11:29:11: Created TextBackground.fragsh
+348 2013-12-01 11:29:12: Created Edge Shader Program
+348 2013-12-01 11:29:12: Created Edge.vertsh
+348 2013-12-01 11:29:12: Created Entity Model Shader Program
+348 2013-12-01 11:29:12: Created EntityModel.vertsh
+348 2013-12-01 11:29:12: Created EntityModel.fragsh
+348 2013-12-01 11:29:12: Created Browser Group Shader Program
+348 2013-12-01 11:29:12: Created BrowserGroup.vertsh
+348 2013-12-01 11:29:12: Created BrowserGroup.fragsh
+348 2013-12-01 11:29:16: Unloading existing map file and textures...
+348 2013-12-01 11:29:16: Loading file C:\Users\Farmer\Desktop\unnamed1.map
+348 2013-12-01 11:29:16: Assuming floating point plane coordinates
+348 2013-12-01 11:29:16: Loaded map file in 0.003000 seconds
+348 2013-12-01 11:29:16: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+348 2013-12-01 11:29:39: Created Handle Shader Program
+348 2013-12-01 11:29:39: Created Handle.vertsh
+348 2013-12-01 11:29:39: Created Handle.fragsh
+348 2013-12-01 11:30:17: Created Instanced Point Handle Shader Program
+348 2013-12-01 11:30:17: Created InstancedPointHandle.vertsh
+348 2013-12-01 11:31:01: Created Point Handle Shader Program
+348 2013-12-01 11:31:01: Created PointHandle.vertsh
+348 2013-12-01 11:38:05: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+348 2013-12-01 11:39:11: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 2.map in 0.002000 seconds
+348 2013-12-01 11:41:11: Created Texture Browser Shader Program
+348 2013-12-01 11:41:11: Created TextureBrowser.vertsh
+348 2013-12-01 11:41:11: Created TextureBrowser.fragsh
+348 2013-12-01 11:41:44: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.127000 seconds
+348 2013-12-01 11:41:44: Created Texture Browser Border Shader Program
+348 2013-12-01 11:41:44: Created TextureBrowserBorder.vertsh
+348 2013-12-01 11:41:44: Created TextureBrowserBorder.fragsh
+348 2013-12-01 11:42:07: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:48:22: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+3444 2013-12-01 11:48:22: Depth buffer bits: 16
+3444 2013-12-01 11:48:22: Multisampling disabled
+3444 2013-12-01 11:48:22: OpenGL instancing enabled
+3444 2013-12-01 11:48:22: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+3444 2013-12-01 11:48:22: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3444 2013-12-01 11:48:22: Created Face Shader Program
+3444 2013-12-01 11:48:22: Created Face.vertsh
+3444 2013-12-01 11:48:22: Created Face.fragsh
+3444 2013-12-01 11:48:22: Created Colored Edge Shader Program
+3444 2013-12-01 11:48:22: Created ColoredEdge.vertsh
+3444 2013-12-01 11:48:22: Created Edge.fragsh
+3444 2013-12-01 11:48:22: Created Text Shader Program
+3444 2013-12-01 11:48:22: Created Text.vertsh
+3444 2013-12-01 11:48:22: Created Text.fragsh
+3444 2013-12-01 11:48:22: Created Text Background Shader Program
+3444 2013-12-01 11:48:22: Created TextBackground.vertsh
+3444 2013-12-01 11:48:22: Created TextBackground.fragsh
+3444 2013-12-01 11:48:23: Created Edge Shader Program
+3444 2013-12-01 11:48:23: Created Edge.vertsh
+3444 2013-12-01 11:48:23: Created Entity Model Shader Program
+3444 2013-12-01 11:48:23: Created EntityModel.vertsh
+3444 2013-12-01 11:48:23: Created EntityModel.fragsh
+3444 2013-12-01 11:48:23: Created Browser Group Shader Program
+3444 2013-12-01 11:48:23: Created BrowserGroup.vertsh
+3444 2013-12-01 11:48:23: Created BrowserGroup.fragsh
+3444 2013-12-01 11:48:26: Unloading existing map file and textures...
+3444 2013-12-01 11:48:26: Loading file C:\Users\Farmer\Desktop\unnamed1.map
+3444 2013-12-01 11:48:26: Assuming floating point plane coordinates
+3444 2013-12-01 11:48:26: Loaded map file in 0.003000 seconds
+3444 2013-12-01 11:48:26: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.001000 seconds
+3444 2013-12-01 11:48:26: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+3444 2013-12-01 11:48:34: Created Handle Shader Program
+3444 2013-12-01 11:48:34: Created Handle.vertsh
+3444 2013-12-01 11:48:34: Created Handle.fragsh
+3444 2013-12-01 11:48:40: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:49:46: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:51:56: Created Instanced Point Handle Shader Program
+3444 2013-12-01 11:51:56: Created InstancedPointHandle.vertsh
+3444 2013-12-01 11:52:55: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:55:26: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:55:40: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+3444 2013-12-01 11:56:08: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:56:46: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:57:45: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:58:22: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 3.map in 0.002000 seconds
+3444 2013-12-01 11:59:17: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 11:59:47: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+3444 2013-12-01 12:01:07: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+3444 2013-12-01 12:01:21: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+3444 2013-12-01 12:02:50: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+3444 2013-12-01 12:05:24: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4940 2013-12-01 14:56:20: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4940 2013-12-01 14:56:20: Depth buffer bits: 16
+4940 2013-12-01 14:56:20: Multisampling disabled
+4940 2013-12-01 14:56:20: OpenGL instancing enabled
+4940 2013-12-01 14:56:20: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4940 2013-12-01 14:56:20: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:20: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4940 2013-12-01 14:56:21: Created Face Shader Program
+4940 2013-12-01 14:56:21: Created Face.vertsh
+4940 2013-12-01 14:56:21: Created Face.fragsh
+4940 2013-12-01 14:56:21: Created Colored Edge Shader Program
+4940 2013-12-01 14:56:21: Created ColoredEdge.vertsh
+4940 2013-12-01 14:56:21: Created Edge.fragsh
+4940 2013-12-01 14:56:21: Created Text Shader Program
+4940 2013-12-01 14:56:21: Created Text.vertsh
+4940 2013-12-01 14:56:21: Created Text.fragsh
+4940 2013-12-01 14:56:21: Created Text Background Shader Program
+4940 2013-12-01 14:56:21: Created TextBackground.vertsh
+4940 2013-12-01 14:56:21: Created TextBackground.fragsh
+4940 2013-12-01 14:56:21: Created Edge Shader Program
+4940 2013-12-01 14:56:21: Created Edge.vertsh
+4940 2013-12-01 14:56:21: Created Entity Model Shader Program
+4940 2013-12-01 14:56:21: Created EntityModel.vertsh
+4940 2013-12-01 14:56:21: Created EntityModel.fragsh
+4940 2013-12-01 14:56:21: Created Browser Group Shader Program
+4940 2013-12-01 14:56:21: Created BrowserGroup.vertsh
+4940 2013-12-01 14:56:21: Created BrowserGroup.fragsh
+4940 2013-12-01 14:56:24: Unloading existing map file and textures...
+4940 2013-12-01 14:56:24: Loading file C:\Users\Farmer\Desktop\unnamed1.map
+4940 2013-12-01 14:56:24: Assuming floating point plane coordinates
+4940 2013-12-01 14:56:24: Loaded map file in 0.004000 seconds
+4940 2013-12-01 14:56:24: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.129000 seconds
+4940 2013-12-01 14:56:24: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4940 2013-12-01 14:57:21: Created Handle Shader Program
+4940 2013-12-01 14:57:21: Created Handle.vertsh
+4940 2013-12-01 14:57:21: Created Handle.fragsh
+4940 2013-12-01 14:57:40: Created Point Handle Shader Program
+4940 2013-12-01 14:57:40: Created PointHandle.vertsh
+4940 2013-12-01 15:01:37: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.016000 seconds
+4940 2013-12-01 15:03:03: Created Instanced Point Handle Shader Program
+4940 2013-12-01 15:03:03: Created InstancedPointHandle.vertsh
+4940 2013-12-01 15:04:31: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4940 2013-12-01 15:04:52: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4940 2013-12-01 15:05:42: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4940 2013-12-01 15:05:56: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4940 2013-12-01 15:06:20: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 4.map in 0.004000 seconds
+4940 2013-12-01 15:12:45: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+4940 2013-12-01 15:13:40: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+4940 2013-12-01 15:14:21: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4940 2013-12-01 15:16:20: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 5.map in 0.003000 seconds
+4940 2013-12-01 15:17:42: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+4940 2013-12-01 15:25:57: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.002000 seconds
+2672 2013-12-04 09:59:58: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+2672 2013-12-04 09:59:58: Depth buffer bits: 16
+2672 2013-12-04 09:59:58: Multisampling disabled
+2672 2013-12-04 09:59:58: OpenGL instancing enabled
+2672 2013-12-04 09:59:59: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+2672 2013-12-04 09:59:59: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+2672 2013-12-04 09:59:59: Created Face Shader Program
+2672 2013-12-04 09:59:59: Created Face.vertsh
+2672 2013-12-04 09:59:59: Created Face.fragsh
+2672 2013-12-04 09:59:59: Created Colored Edge Shader Program
+2672 2013-12-04 09:59:59: Created ColoredEdge.vertsh
+2672 2013-12-04 09:59:59: Created Edge.fragsh
+2672 2013-12-04 09:59:59: Created Text Shader Program
+2672 2013-12-04 09:59:59: Created Text.vertsh
+2672 2013-12-04 09:59:59: Created Text.fragsh
+2672 2013-12-04 09:59:59: Created Text Background Shader Program
+2672 2013-12-04 09:59:59: Created TextBackground.vertsh
+2672 2013-12-04 09:59:59: Created TextBackground.fragsh
+2672 2013-12-04 09:59:59: Created Edge Shader Program
+2672 2013-12-04 09:59:59: Created Edge.vertsh
+2672 2013-12-04 09:59:59: Created Entity Model Shader Program
+2672 2013-12-04 09:59:59: Created EntityModel.vertsh
+2672 2013-12-04 09:59:59: Created EntityModel.fragsh
+2672 2013-12-04 09:59:59: Created Browser Group Shader Program
+2672 2013-12-04 09:59:59: Created BrowserGroup.vertsh
+2672 2013-12-04 09:59:59: Created BrowserGroup.fragsh
+2672 2013-12-04 10:00:16: Unloading existing map file and textures...
+2672 2013-12-04 10:00:16: Loading file C:\Users\Farmer\Desktop\unnamed1.map
+2672 2013-12-04 10:00:16: Assuming floating point plane coordinates
+2672 2013-12-04 10:00:16: Loaded map file in 0.022000 seconds
+2672 2013-12-04 10:00:16: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.134000 seconds
+2672 2013-12-04 10:00:16: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+2672 2013-12-04 10:00:39: Created Handle Shader Program
+2672 2013-12-04 10:00:39: Created Handle.vertsh
+2672 2013-12-04 10:00:39: Created Handle.fragsh
+2672 2013-12-04 10:03:28: Created Instanced Point Handle Shader Program
+2672 2013-12-04 10:03:28: Created InstancedPointHandle.vertsh
+4128 2013-12-04 10:06:40: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4128 2013-12-04 10:06:40: Depth buffer bits: 16
+4128 2013-12-04 10:06:40: Multisampling disabled
+4128 2013-12-04 10:06:40: OpenGL instancing enabled
+4128 2013-12-04 10:06:40: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4128 2013-12-04 10:06:40: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4128 2013-12-04 10:06:40: Created Face Shader Program
+4128 2013-12-04 10:06:40: Created Face.vertsh
+4128 2013-12-04 10:06:40: Created Face.fragsh
+4128 2013-12-04 10:06:40: Created Colored Edge Shader Program
+4128 2013-12-04 10:06:40: Created ColoredEdge.vertsh
+4128 2013-12-04 10:06:40: Created Edge.fragsh
+4128 2013-12-04 10:06:40: Created Text Shader Program
+4128 2013-12-04 10:06:40: Created Text.vertsh
+4128 2013-12-04 10:06:40: Created Text.fragsh
+4128 2013-12-04 10:06:40: Created Text Background Shader Program
+4128 2013-12-04 10:06:40: Created TextBackground.vertsh
+4128 2013-12-04 10:06:40: Created TextBackground.fragsh
+4128 2013-12-04 10:06:40: Created Edge Shader Program
+4128 2013-12-04 10:06:40: Created Edge.vertsh
+4128 2013-12-04 10:06:40: Created Entity Model Shader Program
+4128 2013-12-04 10:06:40: Created EntityModel.vertsh
+4128 2013-12-04 10:06:40: Created EntityModel.fragsh
+4128 2013-12-04 10:06:40: Created Browser Group Shader Program
+4128 2013-12-04 10:06:40: Created BrowserGroup.vertsh
+4128 2013-12-04 10:06:40: Created BrowserGroup.fragsh
+4128 2013-12-04 10:06:43: Unloading existing map file and textures...
+4128 2013-12-04 10:06:43: Loading file C:\Users\Farmer\Desktop\unnamed1.map
+4128 2013-12-04 10:06:43: Assuming floating point plane coordinates
+4128 2013-12-04 10:06:43: Loaded map file in 0.004000 seconds
+4128 2013-12-04 10:06:43: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.001000 seconds
+4128 2013-12-04 10:06:43: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4128 2013-12-04 10:10:03: Created Handle Shader Program
+4128 2013-12-04 10:10:03: Created Handle.vertsh
+4128 2013-12-04 10:10:03: Created Handle.fragsh
+4128 2013-12-04 10:15:19: Created Texture Browser Border Shader Program
+4128 2013-12-04 10:15:19: Created TextureBrowserBorder.vertsh
+4128 2013-12-04 10:15:19: Created TextureBrowserBorder.fragsh
+4128 2013-12-04 10:15:19: Created Texture Browser Shader Program
+4128 2013-12-04 10:15:19: Created TextureBrowser.vertsh
+4128 2013-12-04 10:15:19: Created TextureBrowser.fragsh
+4128 2013-12-04 10:15:27: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:16:40: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 6.map in 0.003000 seconds
+4128 2013-12-04 10:20:16: Created Instanced Point Handle Shader Program
+4128 2013-12-04 10:20:16: Created InstancedPointHandle.vertsh
+4128 2013-12-04 10:25:47: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:26:40: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 7.map in 0.003000 seconds
+4128 2013-12-04 10:26:44: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:36:40: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 8.map in 0.003000 seconds
+4128 2013-12-04 10:40:08: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.004000 seconds
+4128 2013-12-04 10:40:53: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:42:07: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:43:37: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:46:41: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 9.map in 0.003000 seconds
+4128 2013-12-04 10:46:59: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:49:25: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.004000 seconds
+4128 2013-12-04 10:51:00: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.004000 seconds
+4128 2013-12-04 10:53:19: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.004000 seconds
+4128 2013-12-04 10:56:31: Saved map file to C:\Users\Farmer\Desktop\unnamed1.map in 0.003000 seconds
+4128 2013-12-04 10:56:41: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 10.map in 0.004000 seconds
+4128 2013-12-04 11:06:41: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 11.map in 0.003000 seconds
+4128 2013-12-04 11:16:41: Autosaved to C:\Users\Farmer\Desktop\autosave\unnamed1 12.map in 0.004000 seconds
+3928 2013-12-04 18:53:27: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+3928 2013-12-04 18:53:27: Depth buffer bits: 16
+3928 2013-12-04 18:53:27: Multisampling disabled
+3928 2013-12-04 18:53:27: OpenGL instancing enabled
+3928 2013-12-04 18:53:27: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+3928 2013-12-04 18:53:27: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+3928 2013-12-04 18:53:27: Created Face Shader Program
+3928 2013-12-04 18:53:27: Created Face.vertsh
+3928 2013-12-04 18:53:27: Created Face.fragsh
+3928 2013-12-04 18:53:27: Created Colored Edge Shader Program
+3928 2013-12-04 18:53:27: Created ColoredEdge.vertsh
+3928 2013-12-04 18:53:27: Created Edge.fragsh
+3928 2013-12-04 18:53:27: Created Text Shader Program
+3928 2013-12-04 18:53:27: Created Text.vertsh
+3928 2013-12-04 18:53:27: Created Text.fragsh
+3928 2013-12-04 18:53:27: Created Text Background Shader Program
+3928 2013-12-04 18:53:27: Created TextBackground.vertsh
+3928 2013-12-04 18:53:27: Created TextBackground.fragsh
+3928 2013-12-04 18:53:27: Created Edge Shader Program
+3928 2013-12-04 18:53:27: Created Edge.vertsh
+3928 2013-12-04 18:53:27: Created Entity Model Shader Program
+3928 2013-12-04 18:53:27: Created EntityModel.vertsh
+3928 2013-12-04 18:53:27: Created EntityModel.fragsh
+3928 2013-12-04 18:53:27: Created Browser Group Shader Program
+3928 2013-12-04 18:53:27: Created BrowserGroup.vertsh
+3928 2013-12-04 18:53:27: Created BrowserGroup.fragsh
+3928 2013-12-04 18:53:35: Unloading existing map file and textures...
+3928 2013-12-04 18:53:35: Loading file C:\Users\Farmer\Desktop\unnamed1.map
+3928 2013-12-04 18:53:35: Assuming floating point plane coordinates
+3928 2013-12-04 18:53:35: Loaded map file in 0.005000 seconds
+3928 2013-12-04 18:53:35: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.121000 seconds
+3928 2013-12-04 18:53:35: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+3928 2013-12-04 18:53:39: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+3928 2013-12-04 18:57:55: Created Handle Shader Program
+3928 2013-12-04 18:57:55: Created Handle.vertsh
+3928 2013-12-04 18:57:55: Created Handle.fragsh

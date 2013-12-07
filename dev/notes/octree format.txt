@@ -1,49 +1,4 @@
-minX minY minZ maxX maxY maxZ
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	minX minY minZ maxX maxY maxZ
-		0 1 2 3 4 5 6 7
-	
-
-	
-minX	4
-minY	4
-minZ	4
-maxX	4
-maxY	4
-maxZ	4
-info	1
-	minX	4
-	minY	4
-	minZ	4
-	maxX	4
-	maxY	4
-	maxZ	4
-	info	1
-	data	2
-	.
-	.
-	.
-	
-	
-	
-	
-	
-	
-	
-	
+WZO				3
 minX			4
 minY			4
 minZ			4
@@ -68,3 +23,26 @@ info			1		//specifies if the node carries children or data
 	.
 	.
 	.
+	
+
+minX
+minY
+minZ
+maxX
+maxY
+maxZ
+	1
+	2
+	3
+		8
+		9
+		10
+		11
+		12
+		13
+		14
+		15
+	4
+	5
+	6
+	7

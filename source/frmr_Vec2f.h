@@ -6,15 +6,18 @@ namespace frmr
 	class Vec2f
 	{
 	private:
-		float x, y;
-		float length;
+		float   x, y;
+		float   length;
+		bool    valid;
 
 	public:
-		float 	Length();
-		Vec2f 	Unit();
-		void	Reset();
-		float 	GetX() const;
+	    float 	GetX() const;
 		float 	GetY() const;
+		bool    IsValid() const;
+		float 	Length();
+		void	Reset();
+		void    SetValid( const bool newValid );
+		Vec2f 	Unit();
 
 	public:
 		Vec2f 	operator+ ( const Vec2f &rhs ) const;

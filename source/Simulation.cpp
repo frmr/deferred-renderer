@@ -32,7 +32,7 @@ void Simulation::RenderLit() const
     glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
     glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
     glTranslatef( -activeCamera.GetPosition().GetX(), -activeCamera.GetPosition().GetY(), -activeCamera.GetPosition().GetZ() );
-    staticGeometry.Render();
+    staticGeometry.Render( activeCamera.GetCurrentZoneNum(), activeCamera.GetPosition() );
 }
 
 bool Simulation::LoadMap( const string filename )
@@ -51,7 +51,7 @@ void Simulation::Update( const int32_t elapsedTime, const float deltaTime, const
 }
 
 Simulation::Simulation( const AssetManager &assets )
-    : activeCamera( "ActiveCamera", frmr::Vec3f(), frmr::Vec2f() ),
+    : activeCamera( "ActiveCamera", frmr::Vec3f( 0.0f, 0.0f, 10.0f ), frmr::Vec2f(), 2 ),
       staticGeometry( "X:/Produce/Wizmatch/dev/tools/Zone Compiler/bin/Debug/twocubes.wzz", assets )
 {
     //staticLights.push_back( Light( frmr::Vec3f( 80.0f, 0.0f, 0.0f ), frmr::Vec3f( 12.0f, 12.0f, 12.0f ), 0 ) );

@@ -89,6 +89,11 @@ void RenderManager::MultiplyMatricesGL( const float matrixInA[16], const float m
     matrixOut[15] = matrixInA[3] * matrixInB[12] + matrixInA[7] * matrixInB[13] + matrixInA[11] * matrixInB[14] + matrixInA[15] * matrixInB[15];
 }
 
+void RenderManager::ResetViewport( const EngineConfig &engineCfg ) const
+{
+    glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
+}
+
 void RenderManager::SetToOrthogonalProjection( const EngineConfig &engineCfg ) const
 {
     glMatrixMode( GL_PROJECTION );
@@ -109,7 +114,7 @@ void RenderManager::SetToPerspectiveProjection( const EngineConfig &engineCfg ) 
 
 void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 {
-    glBindFramebuffer( GL_FRAMEBUFFER, m_fbo );
+    glBindFramebuffer( GL_FRAMEBUFFER, fbo );
 	glPushAttrib( GL_VIEWPORT_BIT );
 
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); //clear the FBO
@@ -145,8 +150,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     //bind the surface texture and pass it to the shader
     glActiveTexture( GL_TEXTURE0 );
-    glBindTexture( GL_TEXTURE_2D, m_testTexture );
-    glUniform1i( m_testTextureID, 0);
+    glUniform1i( surfaceTextureID, 0);
 
     glPushMatrix();
         gameSim.RenderLit();
@@ -171,24 +175,20 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     SetToOrthogonalProjection( engineCfg );
     glUseProgram( depthTransferShader.GetProgramHandler() );
     glActiveTexture( GL_TEXTURE0 );
-	glBindTexture( GL_TEXTURE_2D, m_depthTexture );
-	glUniform1i( m_depthID, 0 );
+	glBindTexture( GL_TEXTURE_2D, depthTexture );
+	glUniform1i( depthID, 0 );
     glCallList( fullscreenQuad );
-
-    GLfloat pixData;
-    glReadPixels( 720, 450, 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &pixData );
-    //cout << pixData << endl;
 
     glDepthMask( GL_FALSE ); //disable writing to the depth buffer
     glDisable( GL_DEPTH_TEST );
 
     //send all the textures, the viewport parameters and the perspective matrix to the deferred rendering shader so we don't have to do it for every light
     glUseProgram( deferredRenderingShader.GetProgramHandler() );
-	glUniform1i( m_normalsID, 0 );
-	glUniform1i( m_diffuseID, 1 );
-	glUniform1i( m_depthID, 2 );
-    glUniform4iv( m_viewportParamsID, 4, viewportParams );
-    glUniformMatrix4fv( m_perspectiveMatrixID, 16, false, perspectiveMatrix );
+	glUniform1i( normalsID, 0 );
+	glUniform1i( diffuseID, 1 );
+	glUniform1i( depthID, 2 );
+    glUniform4iv( viewportParamsID, 4, viewportParams );
+    glUniformMatrix4fv( perspectiveMatrixID, 16, false, perspectiveMatrix );
     glUseProgram( 0 );
 
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
@@ -257,10 +257,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glUseProgram( deferredRenderingShader.GetProgramHandler() );
 
         //pass the light's attributes to the shader
-        glUniform3f( m_lightPositionID, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
-        glUniform3f( m_lightColorID, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
-        glUniform1f( m_lightLinearAttenuationID, lightIt.GetLinearAttenuation() );
-        glUniform1f( m_lightQuadraticAttenuationID, lightIt.GetQuadraticAttenuation() );
+        glUniform3f( lightPositionID, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
+        glUniform3f( lightColorID, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
+        glUniform1f( lightLinearAttenuationID, lightIt.GetLinearAttenuation() );
+        glUniform1f( lightQuadraticAttenuationID, lightIt.GetQuadraticAttenuation() );
 
         glDisable( GL_CULL_FACE );
 
@@ -270,13 +270,13 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
         //bind the diffuse, normal and depth maps before rendering fullscreen quad
         glActiveTexture( GL_TEXTURE0 );
-        glBindTexture( GL_TEXTURE_2D, m_normalsTexture );
+        glBindTexture( GL_TEXTURE_2D, normalsTexture );
 
         glActiveTexture( GL_TEXTURE1 );
-        glBindTexture( GL_TEXTURE_2D, m_diffuseTexture );
+        glBindTexture( GL_TEXTURE_2D, diffuseTexture );
 
         glActiveTexture( GL_TEXTURE2 );
-        glBindTexture( GL_TEXTURE_2D, m_depthTexture );
+        glBindTexture( GL_TEXTURE_2D, depthTexture );
 
         glCallList( fullscreenQuad );
 
@@ -312,7 +312,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
 {
     glewInit();
-    glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
+    ResetViewport( engineCfg );
     SetToPerspectiveProjection( engineCfg );
     glClearColor( 0.1f, 0.0f, 0.0f, 0.0f );
 }
@@ -336,59 +336,59 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
     depthTransferShader.Load( "../data/shaders/depthTransfer.vert", "../data/shaders/depthTransfer.frag" );
 
     // Generate the OGL resources for what we need
-	glGenFramebuffers(1, &m_fbo);
-	glGenRenderbuffers(1, &m_normalsRT);
-	glGenRenderbuffers(1, &m_diffuseRT);
-	glGenRenderbuffers(1, &m_depthRT );
+	glGenFramebuffers(1, &fbo);
+	glGenRenderbuffers(1, &normalsRT);
+	glGenRenderbuffers(1, &diffuseRT);
+	glGenRenderbuffers(1, &depthRT );
 
     // Bind the FBO so that the next operations will be bound to it
-	glBindFramebuffer(GL_FRAMEBUFFER, m_fbo);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 
 	// Bind the normal render target
-	glBindRenderbuffer(GL_RENDERBUFFER, m_normalsRT);
+	glBindRenderbuffer(GL_RENDERBUFFER, normalsRT);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight());
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, m_normalsRT);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, normalsRT);
 
-    glBindRenderbuffer(GL_RENDERBUFFER, m_diffuseRT);
+    glBindRenderbuffer(GL_RENDERBUFFER, diffuseRT);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight());
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_RENDERBUFFER, m_diffuseRT);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_RENDERBUFFER, diffuseRT);
 
-	glBindRenderbuffer(GL_RENDERBUFFER, m_depthRT);
+	glBindRenderbuffer(GL_RENDERBUFFER, depthRT);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight());
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_depthRT);
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthRT);
 
 	// Generate and bind the OGL texture for normals
-	glGenTextures(1, &m_normalsTexture);
-	glBindTexture(GL_TEXTURE_2D, m_normalsTexture);
+	glGenTextures(1, &normalsTexture);
+	glBindTexture(GL_TEXTURE_2D, normalsTexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_RGB, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// Attach the texture to the FBO
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, m_normalsTexture, 0);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, normalsTexture, 0);
 
     // Generate and bind the OGL texture for diffuse
-	glGenTextures(1, &m_diffuseTexture);
-	glBindTexture(GL_TEXTURE_2D, m_diffuseTexture);
+	glGenTextures(1, &diffuseTexture);
+	glBindTexture(GL_TEXTURE_2D, diffuseTexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB8, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_RGB, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// Attach the texture to the FBO
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, m_diffuseTexture, 0);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, diffuseTexture, 0);
 
     // Generate and bind the OGL texture for depth
-	glGenTextures(1, &m_depthTexture);
-	glBindTexture(GL_TEXTURE_2D, m_depthTexture);
+	glGenTextures(1, &depthTexture);
+	glBindTexture(GL_TEXTURE_2D, depthTexture);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight(), 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	// Attach the texture to the FBO
-	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_depthTexture, 0);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthTexture, 0);
     //check that FBO is complete
 
     if ( glCheckFramebufferStatus( GL_FRAMEBUFFER ) != GL_FRAMEBUFFER_COMPLETE )
@@ -399,33 +399,21 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glDisable(GL_LIGHTING);
 
-    //load the surface texture from file
-    sf::Image img_data;
-    img_data.loadFromFile("../data/textures/test.png");
-
-	glGenTextures(1, &m_testTexture);
-	glBindTexture(GL_TEXTURE_2D, m_testTexture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img_data.getSize().x, img_data.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, img_data.getPixelsPtr());
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
     //get the memory location of the surface texture in the shader
-	m_testTextureID = glGetUniformLocation(deferredShadingShader.GetProgramHandler(), "surfaceTexture");
+	surfaceTextureID = glGetUniformLocation( deferredShadingShader.GetProgramHandler(), "surfaceTexture" );
 
 	// Get the handles from the shader
-	m_normalsID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "normalsTexture" );
-	m_diffuseID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "diffuseTexture" );
-	m_depthID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "depthTexture" );
+	normalsID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "normalsTexture" );
+	diffuseID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "diffuseTexture" );
+	depthID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "depthTexture" );
 
-	m_viewportParamsID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "viewportParams" );
-	m_perspectiveMatrixID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "perspectiveMatrix" );
+	viewportParamsID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "viewportParams" );
+	perspectiveMatrixID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "perspectiveMatrix" );
 
-	m_lightPositionID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightPosition" );
-	m_lightColorID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightColor" );
-	m_lightLinearAttenuationID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightLinearAttenuation" );
-    m_lightQuadraticAttenuationID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightQuadraticAttenuation" );
+	lightPositionID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightPosition" );
+	lightColorID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightColor" );
+	lightLinearAttenuationID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightLinearAttenuation" );
+    lightQuadraticAttenuationID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightQuadraticAttenuation" );
 
 
     fullscreenQuad = CreateFullscreenQuad( engineCfg );
@@ -434,14 +422,13 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
 
 RenderManager::~RenderManager()
 {
-    glDeleteTextures(1, &m_testTexture);
-    glDeleteTextures(1, &m_normalsTexture);
-    glDeleteTextures(1, &m_diffuseTexture);
-    glDeleteTextures(1, &m_depthTexture );
-	glDeleteFramebuffers(1, &m_fbo);
-	glDeleteRenderbuffers(1, &m_normalsRT);
-	glDeleteRenderbuffers(1, &m_diffuseRT);
-	glDeleteRenderbuffers(1, &m_depthRT);
+    glDeleteTextures(1, &normalsTexture);
+    glDeleteTextures(1, &diffuseTexture);
+    glDeleteTextures(1, &depthTexture );
+	glDeleteFramebuffers(1, &fbo);
+	glDeleteRenderbuffers(1, &normalsRT);
+	glDeleteRenderbuffers(1, &diffuseRT);
+	glDeleteRenderbuffers(1, &depthRT);
 	glDeleteLists( icosphere, 1 );
 	glDeleteLists( fullscreenQuad, 1 );
 }

@@ -18,8 +18,10 @@ protected:
     int32_t         actorNum;
     string          name;
     frmr::Vec3f     position;
+    frmr::Vec3f     previousPosition;
     frmr::Vec2f     rotation;
     frmr::Vec3f     velocity;
+    int16_t         currentZoneNum;
 
 protected:
     void ApplyVelocity( const float deltaTime );
@@ -28,12 +30,13 @@ protected:
 
 public:
     int32_t     GetActorNum() const;
+    int16_t     GetCurrentZoneNum() const;
     string      GetName() const;
     frmr::Vec3f GetPosition() const;
     frmr::Vec2f GetRotation() const;
 
 public:
-    Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity );
+    Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum );
 };
 
 #endif // ACTOR_H

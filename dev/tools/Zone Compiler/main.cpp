@@ -21,6 +21,7 @@ struct Triangle
     Vec3f   vert0;
     Vec3f   vert1;
     Vec3f   vert2;
+    Vec3f   normal;
 };
 
 struct CollTriangle
@@ -216,6 +217,10 @@ int main( int argc, char *argv[] )
                         else if ( lineIt[0] == "vert2" )
                         {
                             currentTriangle.vert2 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+                        }
+                        else if ( lineIt[0] == "normal" )
+                        {
+                            currentTriangle.normal = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
                         }
                         else if ( lineIt[0] == "/triangle" )
                         {
@@ -454,6 +459,7 @@ int main( int argc, char *argv[] )
                     outFile << EncodeFloat( triangleIt.vert0.GetX() ) << EncodeFloat( triangleIt.vert0.GetY() ) << EncodeFloat( triangleIt.vert0.GetZ() );
                     outFile << EncodeFloat( triangleIt.vert1.GetX() ) << EncodeFloat( triangleIt.vert1.GetY() ) << EncodeFloat( triangleIt.vert1.GetZ() );
                     outFile << EncodeFloat( triangleIt.vert2.GetX() ) << EncodeFloat( triangleIt.vert2.GetY() ) << EncodeFloat( triangleIt.vert2.GetZ() );
+                    outFile << EncodeFloat( triangleIt.normal.GetX() ) << EncodeFloat( triangleIt.normal.GetY() ) << EncodeFloat( triangleIt.normal.GetZ() );
                 }
             }
 
