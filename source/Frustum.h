@@ -3,6 +3,9 @@
 
 #include <vector>
 #include "frmr_Triangle.h"
+#include "frmr_Vec2f.h"
+
+using std::vector;
 
 class Frustum
 {

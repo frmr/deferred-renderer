@@ -8,15 +8,12 @@ namespace frmr
 	private:
 		float   x, y;
 		float   length;
-		bool    valid;
 
 	public:
 	    float 	GetX() const;
 		float 	GetY() const;
-		bool    IsValid() const;
 		float 	Length();
 		void	Reset();
-		void    SetValid( const bool newValid );
 		Vec2f 	Unit();
 
 	public:
@@ -27,6 +24,8 @@ namespace frmr
 		Vec2f& 	operator+= ( const Vec2f &rhs );
 		Vec2f& 	operator-= ( const Vec2f &rhs );
 		Vec2f& 	operator*= ( const float &rhs );
+		Vec2f& 	operator/= ( const float &rhs );
+		
 
 	public:
 		Vec2f( const float x, const float y );

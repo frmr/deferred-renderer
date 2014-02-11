@@ -11,11 +11,6 @@ float frmr::Vec2f::GetY() const
 	return y;
 }
 
-bool frmr::Vec2f::IsValid() const
-{
-    return valid;
-}
-
 float frmr::Vec2f::Length()
 {
 	if ( length == -1.0f )
@@ -30,12 +25,6 @@ void frmr::Vec2f::Reset()
 	x = 0.0f;
 	y = 0.0f;
 	length = 0.0f;
-	valid = true;
-}
-
-void frmr::Vec2f::SetValid( const bool newValid )
-{
-    valid = newValid;
 }
 
 frmr::Vec2f frmr::Vec2f::Unit()
@@ -98,13 +87,21 @@ frmr::Vec2f& frmr::Vec2f::operator*= ( const float &rhs )
 	return *this;
 }
 
+frmr::Vec2f& frmr::Vec2f::operator/= ( const float &rhs )
+{
+	x /= rhs;
+	y /= rhs;
+	length = -1.0f;
+	return *this;
+}
+
 frmr::Vec2f::Vec2f( const float x, const float y )
-	: x( x ), y( y ), length( -1.0f ), valid( true )
+	: x( x ), y( y ), length( -1.0f )
 {
 }
 
 frmr::Vec2f::Vec2f()
-	: x( 0.0f ), y( 0.0f ), length( 0.0f ), valid( true )
+	: x( 0.0f ), y( 0.0f ), length( 0.0f )
 {
 }
 

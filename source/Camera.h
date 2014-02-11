@@ -12,7 +12,9 @@ public:
     float       speed;
 
 public:
-    void Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime );
+    frmr::Vec3f GetViewVector() const;
+    void        Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime );
+
 
 public:
     Camera( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const int16_t zoneNum );

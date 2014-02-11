@@ -1,7 +1,7 @@
 #include "frmr_math.h"
 
 #include <iostream>
-#include "math.h"
+#include <cmath>
 
 using std::cout;
 using std::endl;
@@ -76,9 +76,7 @@ frmr::Vec3f frmr::LinePlaneIntersection(const frmr::Vec3f &planeNormal, const fr
 
     if ( parallelCheck == 0.0f )
     {
-        frmr::Vec3f invalidPoint;
-        invalidPoint.SetValid( false );
-        return invalidPoint;
+        return frmr::Vec3f();
     }
     else
     {
@@ -86,9 +84,7 @@ frmr::Vec3f frmr::LinePlaneIntersection(const frmr::Vec3f &planeNormal, const fr
         if ( vectorMult <= 0.0f && !bidirectional )
         {
             cout << "frmr::LinePlaneIntersection() - Line is not bidirectional." << endl;
-            frmr::Vec3f invalidPoint;
-            invalidPoint.SetValid( false );
-            return invalidPoint;
+            return frmr::Vec3f();
         }
         else
         {
@@ -132,18 +128,14 @@ frmr::Vec3f frmr::LineLineIntersection( const frmr::Vec3f &start1, const frmr::V
     float parallelCheck = vec1.GetY() * vec2.GetX() - vec1.GetX() * vec2.GetY();
     if ( parallelCheck == 0.0f )
     {
-        frmr::Vec3f invalidPoint;
-        invalidPoint.SetValid( false );
-        return invalidPoint;
+        return frmr::Vec3f();
     }
     else
     {
         float multiplier = ( vec1.GetY() * start1.GetX() - vec1.GetY() * start2.GetX() + vec1.GetX() * start2.GetY() - vec1.GetX() * start1.GetY() ) / parallelCheck;
         if ( limitToBounds && ( multiplier > 1.0f || multiplier < 0.0f ) )
         {
-            frmr::Vec3f invalidPoint;
-            invalidPoint.SetValid( false );
-            return invalidPoint;
+            return frmr::Vec3f();
         }
         else
         {

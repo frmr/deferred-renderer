@@ -150,7 +150,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     //bind the surface texture and pass it to the shader
     glActiveTexture( GL_TEXTURE0 );
-    glUniform1i( surfaceTextureID, 0);
+    glUniform1i( surfaceTextureID, 0 );
 
     glPushMatrix();
         gameSim.RenderLit();

@@ -1,9 +1,15 @@
 #include "Camera.h"
 
 #include <iostream>
+#include <cmath>
 
 using std::cout;
 using std::endl;
+
+frmr::Vec3f Camera::GetViewVector() const
+{
+    return frmr::Vec3f( sin( ( rotation.GetY() + 180.0f ) * 0.01745 ), tan( rotation.GetX() * 0.01745 ), cos( ( rotation.GetY() + 180.0f ) * 0.01745 ) ).Unit();
+}
 
 void Camera::Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime )
 {

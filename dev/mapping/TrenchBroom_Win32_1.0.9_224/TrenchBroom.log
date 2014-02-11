@@ -1714,3 +1714,315 @@
 3928 2013-12-04 18:57:55: Created Handle Shader Program
 3928 2013-12-04 18:57:55: Created Handle.vertsh
 3928 2013-12-04 18:57:55: Created Handle.fragsh
+652 2014-01-22 20:54:12: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+652 2014-01-22 20:54:12: Depth buffer bits: 16
+652 2014-01-22 20:54:12: Multisampling disabled
+652 2014-01-22 20:54:12: OpenGL instancing enabled
+652 2014-01-22 20:54:12: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+652 2014-01-22 20:54:12: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:12: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+652 2014-01-22 20:54:13: Created Face Shader Program
+652 2014-01-22 20:54:13: Created Face.vertsh
+652 2014-01-22 20:54:13: Created Face.fragsh
+652 2014-01-22 20:54:13: Created Colored Edge Shader Program
+652 2014-01-22 20:54:13: Created ColoredEdge.vertsh
+652 2014-01-22 20:54:13: Created Edge.fragsh
+652 2014-01-22 20:54:13: Created Text Shader Program
+652 2014-01-22 20:54:13: Created Text.vertsh
+652 2014-01-22 20:54:13: Created Text.fragsh
+652 2014-01-22 20:54:13: Created Text Background Shader Program
+652 2014-01-22 20:54:13: Created TextBackground.vertsh
+652 2014-01-22 20:54:13: Created TextBackground.fragsh
+652 2014-01-22 20:54:13: Created Edge Shader Program
+652 2014-01-22 20:54:13: Created Edge.vertsh
+652 2014-01-22 20:54:13: Created Entity Model Shader Program
+652 2014-01-22 20:54:13: Created EntityModel.vertsh
+652 2014-01-22 20:54:13: Created EntityModel.fragsh
+652 2014-01-22 20:54:13: Created Browser Group Shader Program
+652 2014-01-22 20:54:13: Created BrowserGroup.vertsh
+652 2014-01-22 20:54:13: Created BrowserGroup.fragsh
+652 2014-01-22 20:54:35: Unloading existing map file and textures...
+652 2014-01-22 20:54:35: Loading file X:\Produce\Quake Map\derwent.map
+652 2014-01-22 20:54:35: Assuming floating point plane coordinates
+652 2014-01-22 20:54:35: Loaded map file in 0.015000 seconds
+652 2014-01-22 20:54:35: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.123000 seconds
+652 2014-01-22 20:54:35: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+652 2014-01-22 20:56:05: Created Texture Browser Border Shader Program
+652 2014-01-22 20:56:05: Created TextureBrowserBorder.vertsh
+652 2014-01-22 20:56:05: Created TextureBrowserBorder.fragsh
+652 2014-01-22 20:56:05: Created Texture Browser Shader Program
+652 2014-01-22 20:56:05: Created TextureBrowser.vertsh
+652 2014-01-22 20:56:05: Created TextureBrowser.fragsh
+652 2014-01-22 20:56:46: Created Handle Shader Program
+652 2014-01-22 20:56:46: Created Handle.vertsh
+652 2014-01-22 20:56:46: Created Handle.fragsh
+652 2014-01-22 21:00:45: Saved map file to X:\Produce\Quake Map\derwent.map in 0.028000 seconds
+652 2014-01-22 21:04:12: Deleted file X:\Produce\Quake Map\autosave\derwent 1.map
+652 2014-01-22 21:04:12: Moved file X:\Produce\Quake Map\autosave\derwent 2.map to X:\Produce\Quake Map\autosave\derwent 1.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 3.map to X:\Produce\Quake Map\autosave\derwent 2.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 4.map to X:\Produce\Quake Map\autosave\derwent 3.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 5.map to X:\Produce\Quake Map\autosave\derwent 4.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 6.map to X:\Produce\Quake Map\autosave\derwent 5.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 7.map to X:\Produce\Quake Map\autosave\derwent 6.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 8.map to X:\Produce\Quake Map\autosave\derwent 7.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 9.map to X:\Produce\Quake Map\autosave\derwent 8.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 10.map to X:\Produce\Quake Map\autosave\derwent 9.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 11.map to X:\Produce\Quake Map\autosave\derwent 10.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 12.map to X:\Produce\Quake Map\autosave\derwent 11.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 13.map to X:\Produce\Quake Map\autosave\derwent 12.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 14.map to X:\Produce\Quake Map\autosave\derwent 13.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 15.map to X:\Produce\Quake Map\autosave\derwent 14.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 16.map to X:\Produce\Quake Map\autosave\derwent 15.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 17.map to X:\Produce\Quake Map\autosave\derwent 16.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 18.map to X:\Produce\Quake Map\autosave\derwent 17.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 19.map to X:\Produce\Quake Map\autosave\derwent 18.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 20.map to X:\Produce\Quake Map\autosave\derwent 19.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 21.map to X:\Produce\Quake Map\autosave\derwent 20.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 22.map to X:\Produce\Quake Map\autosave\derwent 21.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 23.map to X:\Produce\Quake Map\autosave\derwent 22.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 24.map to X:\Produce\Quake Map\autosave\derwent 23.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 25.map to X:\Produce\Quake Map\autosave\derwent 24.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 26.map to X:\Produce\Quake Map\autosave\derwent 25.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 27.map to X:\Produce\Quake Map\autosave\derwent 26.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 28.map to X:\Produce\Quake Map\autosave\derwent 27.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 29.map to X:\Produce\Quake Map\autosave\derwent 28.map
+652 2014-01-22 21:04:13: Moved file X:\Produce\Quake Map\autosave\derwent 30.map to X:\Produce\Quake Map\autosave\derwent 29.map
+652 2014-01-22 21:04:13: Autosaved to X:\Produce\Quake Map\autosave\derwent 30.map in 0.026000 seconds
+652 2014-01-22 21:08:09: Saved map file to X:\Produce\Quake Map\derwent.map in 0.016000 seconds
+4420 2014-01-22 21:08:16: Renderer info: AMD Radeon HD 7800 Series version 4.2.12217 Compatibility Profile Context 12.104.0.0 from ATI Technologies Inc.
+4420 2014-01-22 21:08:16: Depth buffer bits: 16
+4420 2014-01-22 21:08:16: Multisampling disabled
+4420 2014-01-22 21:08:16: OpenGL instancing enabled
+4420 2014-01-22 21:08:16: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4420 2014-01-22 21:08:16: Loading 'progs/player.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/armor.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/suit.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/invisibl.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/invulner.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/quaddama.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'maps/b_batt0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'maps/b_bh25.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/w_s_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/w_g_key.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'maps/b_rock0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'maps/b_shell0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/end1.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'maps/b_nail0.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/flame2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/flame.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'maps/b_explob.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'maps/b_exbox2.bsp' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/teleport.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/soldier.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/boss.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/demon.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/dog.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/enforcer.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/fish.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/hknight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/knight.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/ogre.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/oldone.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/shalrath.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/shambler.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/tarbaby.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/wizard.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/zombie.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/g_rock.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/g_light.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/g_nail.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/g_rock2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/g_nail2.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Loading 'progs/g_shot.mdl' (searching X:\Software\PC\Games\Quake 1\Id1)
+4420 2014-01-22 21:08:16: Created Face Shader Program
+4420 2014-01-22 21:08:16: Created Face.vertsh
+4420 2014-01-22 21:08:16: Created Face.fragsh
+4420 2014-01-22 21:08:16: Created Colored Edge Shader Program
+4420 2014-01-22 21:08:16: Created ColoredEdge.vertsh
+4420 2014-01-22 21:08:16: Created Edge.fragsh
+4420 2014-01-22 21:08:16: Created Text Shader Program
+4420 2014-01-22 21:08:16: Created Text.vertsh
+4420 2014-01-22 21:08:16: Created Text.fragsh
+4420 2014-01-22 21:08:16: Created Text Background Shader Program
+4420 2014-01-22 21:08:16: Created TextBackground.vertsh
+4420 2014-01-22 21:08:16: Created TextBackground.fragsh
+4420 2014-01-22 21:08:16: Created Edge Shader Program
+4420 2014-01-22 21:08:16: Created Edge.vertsh
+4420 2014-01-22 21:08:16: Created Entity Model Shader Program
+4420 2014-01-22 21:08:16: Created EntityModel.vertsh
+4420 2014-01-22 21:08:16: Created EntityModel.fragsh
+4420 2014-01-22 21:08:16: Created Browser Group Shader Program
+4420 2014-01-22 21:08:16: Created BrowserGroup.vertsh
+4420 2014-01-22 21:08:16: Created BrowserGroup.fragsh
+4420 2014-01-22 21:08:23: Unloading existing map file and textures...
+4420 2014-01-22 21:08:23: Loading file X:\Produce\Quake Map\derwent.map
+4420 2014-01-22 21:08:23: Assuming floating point plane coordinates
+4420 2014-01-22 21:08:23: Loaded map file in 0.015000 seconds
+4420 2014-01-22 21:08:23: Loaded X:\Software\PC\Games\Quake 1\wads\quake.wad in 0.001000 seconds
+4420 2014-01-22 21:08:23: Loading entity definition file X:\Produce\Wizmatch\dev\mapping\TrenchBroom_Win32_1.0.9_224\Resources\Defs\Quake.fgd
+4420 2014-01-22 21:08:28: Created Handle Shader Program
+4420 2014-01-22 21:08:28: Created Handle.vertsh
+4420 2014-01-22 21:08:28: Created Handle.fragsh
+4420 2014-01-22 21:08:43: Created Texture Browser Border Shader Program
+4420 2014-01-22 21:08:43: Created TextureBrowserBorder.vertsh
+4420 2014-01-22 21:08:43: Created TextureBrowserBorder.fragsh
+4420 2014-01-22 21:08:43: Created Texture Browser Shader Program
+4420 2014-01-22 21:08:43: Created TextureBrowser.vertsh
+4420 2014-01-22 21:08:43: Created TextureBrowser.fragsh
+4420 2014-01-22 21:10:31: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:10:51: Saved map file to X:\Produce\Quake Map\derwent.map in 0.018000 seconds
+4420 2014-01-22 21:11:31: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:14:19: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:16:48: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:18:22: Deleted file X:\Produce\Quake Map\autosave\derwent 1.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 2.map to X:\Produce\Quake Map\autosave\derwent 1.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 3.map to X:\Produce\Quake Map\autosave\derwent 2.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 4.map to X:\Produce\Quake Map\autosave\derwent 3.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 5.map to X:\Produce\Quake Map\autosave\derwent 4.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 6.map to X:\Produce\Quake Map\autosave\derwent 5.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 7.map to X:\Produce\Quake Map\autosave\derwent 6.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 8.map to X:\Produce\Quake Map\autosave\derwent 7.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 9.map to X:\Produce\Quake Map\autosave\derwent 8.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 10.map to X:\Produce\Quake Map\autosave\derwent 9.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 11.map to X:\Produce\Quake Map\autosave\derwent 10.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 12.map to X:\Produce\Quake Map\autosave\derwent 11.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 13.map to X:\Produce\Quake Map\autosave\derwent 12.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 14.map to X:\Produce\Quake Map\autosave\derwent 13.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 15.map to X:\Produce\Quake Map\autosave\derwent 14.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 16.map to X:\Produce\Quake Map\autosave\derwent 15.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 17.map to X:\Produce\Quake Map\autosave\derwent 16.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 18.map to X:\Produce\Quake Map\autosave\derwent 17.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 19.map to X:\Produce\Quake Map\autosave\derwent 18.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 20.map to X:\Produce\Quake Map\autosave\derwent 19.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 21.map to X:\Produce\Quake Map\autosave\derwent 20.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 22.map to X:\Produce\Quake Map\autosave\derwent 21.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 23.map to X:\Produce\Quake Map\autosave\derwent 22.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 24.map to X:\Produce\Quake Map\autosave\derwent 23.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 25.map to X:\Produce\Quake Map\autosave\derwent 24.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 26.map to X:\Produce\Quake Map\autosave\derwent 25.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 27.map to X:\Produce\Quake Map\autosave\derwent 26.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 28.map to X:\Produce\Quake Map\autosave\derwent 27.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 29.map to X:\Produce\Quake Map\autosave\derwent 28.map
+4420 2014-01-22 21:18:22: Moved file X:\Produce\Quake Map\autosave\derwent 30.map to X:\Produce\Quake Map\autosave\derwent 29.map
+4420 2014-01-22 21:18:22: Autosaved to X:\Produce\Quake Map\autosave\derwent 30.map in 0.017000 seconds
+4420 2014-01-22 21:19:01: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:19:28: Saved map file to X:\Produce\Quake Map\derwent.map in 0.016000 seconds
+4420 2014-01-22 21:19:43: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:20:25: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:20:35: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:21:54: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:23:23: Saved map file to X:\Produce\Quake Map\derwent.map in 0.017000 seconds
+4420 2014-01-22 21:23:52: Saved map file to X:\Produce\Quake Map\derwent.map in 0.021000 seconds
+4420 2014-01-22 21:26:41: Saved map file to X:\Produce\Quake Map\derwent.map in 0.021000 seconds
+4420 2014-01-22 21:27:57: Saved map file to X:\Produce\Quake Map\derwent.map in 0.022000 seconds
+4420 2014-01-22 21:28:22: Deleted file X:\Produce\Quake Map\autosave\derwent 1.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 2.map to X:\Produce\Quake Map\autosave\derwent 1.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 3.map to X:\Produce\Quake Map\autosave\derwent 2.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 4.map to X:\Produce\Quake Map\autosave\derwent 3.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 5.map to X:\Produce\Quake Map\autosave\derwent 4.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 6.map to X:\Produce\Quake Map\autosave\derwent 5.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 7.map to X:\Produce\Quake Map\autosave\derwent 6.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 8.map to X:\Produce\Quake Map\autosave\derwent 7.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 9.map to X:\Produce\Quake Map\autosave\derwent 8.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 10.map to X:\Produce\Quake Map\autosave\derwent 9.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 11.map to X:\Produce\Quake Map\autosave\derwent 10.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 12.map to X:\Produce\Quake Map\autosave\derwent 11.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 13.map to X:\Produce\Quake Map\autosave\derwent 12.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 14.map to X:\Produce\Quake Map\autosave\derwent 13.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 15.map to X:\Produce\Quake Map\autosave\derwent 14.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 16.map to X:\Produce\Quake Map\autosave\derwent 15.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 17.map to X:\Produce\Quake Map\autosave\derwent 16.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 18.map to X:\Produce\Quake Map\autosave\derwent 17.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 19.map to X:\Produce\Quake Map\autosave\derwent 18.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 20.map to X:\Produce\Quake Map\autosave\derwent 19.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 21.map to X:\Produce\Quake Map\autosave\derwent 20.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 22.map to X:\Produce\Quake Map\autosave\derwent 21.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 23.map to X:\Produce\Quake Map\autosave\derwent 22.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 24.map to X:\Produce\Quake Map\autosave\derwent 23.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 25.map to X:\Produce\Quake Map\autosave\derwent 24.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 26.map to X:\Produce\Quake Map\autosave\derwent 25.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 27.map to X:\Produce\Quake Map\autosave\derwent 26.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 28.map to X:\Produce\Quake Map\autosave\derwent 27.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 29.map to X:\Produce\Quake Map\autosave\derwent 28.map
+4420 2014-01-22 21:28:22: Moved file X:\Produce\Quake Map\autosave\derwent 30.map to X:\Produce\Quake Map\autosave\derwent 29.map
+4420 2014-01-22 21:28:22: Autosaved to X:\Produce\Quake Map\autosave\derwent 30.map in 0.029000 seconds
+4420 2014-01-22 21:28:48: Saved map file to X:\Produce\Quake Map\derwent.map in 0.022000 seconds
+4420 2014-01-22 21:29:11: Saved map file to X:\Produce\Quake Map\derwent.map in 0.018000 seconds
+4420 2014-01-22 21:29:51: Saved map file to X:\Produce\Quake Map\derwent.map in 0.025000 seconds
+4420 2014-01-22 21:30:17: Saved map file to X:\Produce\Quake Map\derwent.map in 0.018000 seconds
+4420 2014-01-22 21:30:47: Saved map file to X:\Produce\Quake Map\derwent.map in 0.018000 seconds
+4420 2014-01-22 21:32:12: Saved map file to X:\Produce\Quake Map\derwent.map in 0.051000 seconds
+4420 2014-01-22 21:34:15: Created Instanced Point Handle Shader Program
+4420 2014-01-22 21:34:15: Created InstancedPointHandle.vertsh
+4420 2014-01-22 21:34:48: Saved map file to X:\Produce\Quake Map\derwent.map in 0.016000 seconds
+4420 2014-01-22 21:35:08: Saved map file to X:\Produce\Quake Map\derwent.map in 0.016000 seconds
+4420 2014-01-22 21:35:57: Saved map file to X:\Produce\Quake Map\derwent.map in 0.018000 seconds
+4420 2014-01-22 21:38:22: Deleted file X:\Produce\Quake Map\autosave\derwent 1.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 2.map to X:\Produce\Quake Map\autosave\derwent 1.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 3.map to X:\Produce\Quake Map\autosave\derwent 2.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 4.map to X:\Produce\Quake Map\autosave\derwent 3.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 5.map to X:\Produce\Quake Map\autosave\derwent 4.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 6.map to X:\Produce\Quake Map\autosave\derwent 5.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 7.map to X:\Produce\Quake Map\autosave\derwent 6.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 8.map to X:\Produce\Quake Map\autosave\derwent 7.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 9.map to X:\Produce\Quake Map\autosave\derwent 8.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 10.map to X:\Produce\Quake Map\autosave\derwent 9.map
+4420 2014-01-22 21:38:22: Moved file X:\Produce\Quake Map\autosave\derwent 11.map to X:\Produce\Quake Map\autosave\derwent 10.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 12.map to X:\Produce\Quake Map\autosave\derwent 11.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 13.map to X:\Produce\Quake Map\autosave\derwent 12.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 14.map to X:\Produce\Quake Map\autosave\derwent 13.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 15.map to X:\Produce\Quake Map\autosave\derwent 14.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 16.map to X:\Produce\Quake Map\autosave\derwent 15.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 17.map to X:\Produce\Quake Map\autosave\derwent 16.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 18.map to X:\Produce\Quake Map\autosave\derwent 17.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 19.map to X:\Produce\Quake Map\autosave\derwent 18.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 20.map to X:\Produce\Quake Map\autosave\derwent 19.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 21.map to X:\Produce\Quake Map\autosave\derwent 20.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 22.map to X:\Produce\Quake Map\autosave\derwent 21.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 23.map to X:\Produce\Quake Map\autosave\derwent 22.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 24.map to X:\Produce\Quake Map\autosave\derwent 23.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 25.map to X:\Produce\Quake Map\autosave\derwent 24.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 26.map to X:\Produce\Quake Map\autosave\derwent 25.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 27.map to X:\Produce\Quake Map\autosave\derwent 26.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 28.map to X:\Produce\Quake Map\autosave\derwent 27.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 29.map to X:\Produce\Quake Map\autosave\derwent 28.map
+4420 2014-01-22 21:38:23: Moved file X:\Produce\Quake Map\autosave\derwent 30.map to X:\Produce\Quake Map\autosave\derwent 29.map
+4420 2014-01-22 21:38:23: Autosaved to X:\Produce\Quake Map\autosave\derwent 30.map in 0.500000 seconds

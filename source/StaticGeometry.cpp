@@ -12,19 +12,48 @@ using std::endl;
 
 bool StaticGeometry::Portal::IsVisible( const frmr::Vec3f &cameraPosition ) const
 {
+    vector<frmr::Vec3f> visiblePoints;
+
     for ( auto triangleIt : triangles )
     {
-        //if triangle is within view frustum
+        //if triangle is facing the camera
+
+        bool vert0Visible, vert1Visible, vert2Visible;
+        vert0Visible = vert1Visible = vert2Visible = false;
+
+        //for each vertex
+        //  if within frustum
+        //      add to visible points
+
+        //if all three vertices are visible
+        //  great! add them to visiblePoints and move onto the next triangle
+        //else
+        //  for each edge
+        //      if edge is at all visible (use vertex info)
+        //          get collisions with frustum and add them to visiblePoints
+        //  for each frustum line
+        //      get collision with triangle and add it to visiblePoints
+
         frmr::Vec3f cameraToTriangleVector = triangleIt.GetVert0() - cameraPosition;
 
-        //if triangle is facing the camera
         if ( frmr::VectorDot( triangleIt.GetNormal(), cameraToTriangleVector.Unit() ) > 0.0f )
         {
             //if triangle is within view frustum
-            return true;
+            //visible = true;
         }
     }
-    return false;
+
+    if ( visiblePoints.empty() )
+    {
+        return false;
+    }
+    else
+    {
+        //gluProject all points
+        //find AABB
+        //apply glScissor
+        return true;
+    }
 }
 
 int16_t StaticGeometry::Portal::GetTargetZoneNum() const
@@ -87,9 +116,9 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const vect
 
     for ( auto renderedZoneIt : renderedZonesRef )
     {
-        cout << renderedZoneIt;
+        //cout << renderedZoneIt;
     }
-    cout << endl;
+    //cout << endl;
 
     for ( auto texTriangleGroupIt : texTriangleGroups )
     {

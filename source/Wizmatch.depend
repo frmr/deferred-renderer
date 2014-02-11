@@ -996,21 +996,21 @@
 	"matrix4.h"
 	"IVideoDriver.h"
 
-1386368604 x:\produce\wizmatch\source\frmr_vec3f.h
+1387384956 x:\produce\wizmatch\source\frmr_vec3f.h
 
 1377621645 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
 
-1385683980 x:\produce\wizmatch\source\effect.h
+1392076854 x:\produce\wizmatch\source\effect.h
 	<stdint.h>
 
-1378824416 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
+1387385032 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
 	"frmr_Vec2f.h"
 	"math.h"
 
-1386368726 x:\produce\wizmatch\source\frmr_vec2f.h
+1387385014 x:\produce\wizmatch\source\frmr_vec2f.h
 
-1378824378 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
+1387385002 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
 	"frmr_Vec3f.h"
 	<cmath>
 
@@ -1032,8 +1032,9 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1385990238 source:x:\produce\wizmatch\source\simulation.cpp
+1386424701 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
+	"Frustum.h"
 	"Simulation.h"
 
 1385234473 x:\produce\wizmatch\source\simulation.h
@@ -2422,7 +2423,7 @@
 	<string>
 	"GL/glew.h"
 
-1385996835 source:x:\produce\wizmatch\source\rendermanager.cpp
+1392076628 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	<iostream>
@@ -2468,7 +2469,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1386022352 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1386424264 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2508,13 +2509,14 @@
 	"frmr_Vec3f.h"
 	"frmr_Vec2f.h"
 
-1385986092 x:\produce\wizmatch\source\camera.h
+1386423874 x:\produce\wizmatch\source\camera.h
 	"Actor.h"
 	"InputState.h"
 
-1385986078 source:x:\produce\wizmatch\source\camera.cpp
+1386424141 source:x:\produce\wizmatch\source\camera.cpp
 	"Camera.h"
 	<iostream>
+	<cmath>
 
 1385305248 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
@@ -2533,12 +2535,12 @@
 	<vector>
 	"frmr_Vec3f.h"
 
-1379624503 source:x:\produce\wizmatch\source\frmr_math.cpp
+1386897582 source:x:\produce\wizmatch\source\frmr_math.cpp
 	"frmr_math.h"
 	<iostream>
-	"math.h"
+	<cmath>
 
-1379624480 x:\produce\wizmatch\source\frmr_math.h
+1392076863 x:\produce\wizmatch\source\frmr_math.h
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
@@ -2590,4 +2592,13 @@
 	<fstream>
 	<iostream>
 	"frmr_TextFile.h"
+
+1386375042 source:x:\produce\wizmatch\source\frustum.cpp
+	"Frustum.h"
+	"frmr_math.h"
+
+1386424174 x:\produce\wizmatch\source\frustum.h
+	<vector>
+	"frmr_Triangle.h"
+	"frmr_Vec2f.h"
 

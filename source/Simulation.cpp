@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "Frustum.h"
 #include "Simulation.h"
 
 using std::cout;
@@ -29,6 +30,10 @@ vector<Light> Simulation::GetStaticLights() const
 
 void Simulation::RenderLit() const
 {
+    //construct view frustum
+    frmr::Vec3f viewVector = activeCamera.GetViewVector();
+    Frustum viewFrustum( );
+
     glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
     glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
     glTranslatef( -activeCamera.GetPosition().GetX(), -activeCamera.GetPosition().GetY(), -activeCamera.GetPosition().GetZ() );

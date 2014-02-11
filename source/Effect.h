@@ -32,6 +32,8 @@ public:
 		EFFECT_MULTIPLY_POISON_DEFENSE,
 		EFFECT_MULTIPLY_SHOCK_DEFENSE,
 
+		EFFECT_MULTIPLY_HEALTH, //use for demi, quarter, etc.
+
 		//status ailments, strength has no effect on these
 		EFFECT_BLIND,
 		EFFECT_CONFUSE,
@@ -53,6 +55,7 @@ public:
 		EFFECT_REGENERATE_MAGIC,	//most players regenerate magic
 
 		//misc effects
+		EFFECT_ABSORB,		//absorb damage
 		EFFECT_BAIT,		//draw enemies' attention and fire
 		EFFECT_DEATH,		//for level boundaries, traps, etc.
 		EFFECT_DETECT,      //see invisible players
@@ -66,7 +69,8 @@ public:
 		EFFECT_SHADE,
 		EFFECT_SUNLIGHT,    //damages vampires
 		EFFECT_UNDEAD,		//holy damage reduces health, everything else does 1 damage per second
-		EFFECT_VAMPIRE      //damaged by sunlight, needs a benefit of some kind
+		EFFECT_VAMPIRE,     //damaged by sunlight, needs a benefit of some kind
+		EFFECT_XRAY			//see players through walls
 	};
 
 private:

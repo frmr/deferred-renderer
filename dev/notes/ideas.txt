@@ -1,3 +1,10 @@
 Powerful spells with negative side-effects, could make use of vampirism
-Spell to negate sun damage for a time, should make vampirism less annoying
 Assign multiple items/spells to one button
+Projectile strength attenuation
+Homing projectiles
+MGS-style keycard doors (based on either effect or item)
+From a design perspective, switches should not open doors that are too far away to be seen. Use keycards in such cases.
+Projectiles should either disappear or explode when their lifetime runs out
+
+Enemy names
+	Misery Guts
