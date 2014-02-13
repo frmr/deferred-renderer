@@ -56,7 +56,7 @@ float frmr::CalculateRotationFromCoords( const frmr::Vec3f &coord )
 
 frmr::Vec3f	frmr::CalculateVectorFromRotation( const float rotationX, const float rotationY ) //takes degrees
 {
-	return frmr::Vec3f( sin( rotationY * 0.01745f ), tan( rotationX * 0.01745f ), cos( rotationY * 0.01745f ) ).Unit();
+	return frmr::Vec3f( -sin( rotationY * 0.01745f ), tan( rotationX * 0.01745f ), -cos( rotationY * 0.01745f ) ).Unit();
 }
 
 float frmr::NormaliseAngle( const float &angle )

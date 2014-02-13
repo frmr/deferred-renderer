@@ -2,10 +2,6 @@
 
 #include "frmr_math.h"
 
-#include <iostream>
-using std::cout;
-using std::endl;
-
 bool Frustum::Contains( const frmr::Vec3f &point ) const
 {
     for ( auto faceIt : faces )
@@ -46,12 +42,6 @@ Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRo
     frmr::Vec3f topRightPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() + halfFovY, cameraRotation.GetY() - halfFovX ) * 1000.0f;
     frmr::Vec3f bottomRightPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() + halfFovY, cameraRotation.GetY() + halfFovX ) * 1000.0f;
     frmr::Vec3f bottomLeftPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() - halfFovY, cameraRotation.GetY() + halfFovX ) * 1000.0f;
-
-//    cout << topLeftPoint.GetX() << " " << topLeftPoint.GetY() << " " << topLeftPoint.GetZ() << endl;
-//    cout << topRightPoint.GetX() << " " << topRightPoint.GetY() << " " << topRightPoint.GetZ() << endl;
-//    cout << bottomRightPoint.GetX() << " " << bottomRightPoint.GetY() << " " << bottomRightPoint.GetZ() << endl;
-//    cout << bottomLeftPoint.GetX() << " " << bottomLeftPoint.GetY() << " " << bottomLeftPoint.GetZ() << endl;
-//	cout << "------------" << endl;
 
 	faces.push_back( frmr::Triangle( cameraPosition, topLeftPoint, topRightPoint ) );
 	faces.push_back( frmr::Triangle( cameraPosition, topRightPoint, bottomRightPoint ) );

@@ -9,7 +9,7 @@ using std::endl;
 void Camera::UpdateViewVector()
 {
 	//viewVector = frmr::Vec3f( sin( ( rotation.GetY() + 180.0f ) * 0.01745f ), tan( rotation.GetX() * 0.01745f ), cos( ( rotation.GetY() + 180.0f ) * 0.01745f ) ).Unit();
-	viewVector = frmr::CalculateVectorFromRotation( rotation.GetX(), rotation.GetY() + 180.0f );
+	viewVector = frmr::CalculateVectorFromRotation( rotation.GetX(), rotation.GetY() );
 }
 
 frmr::Vec3f Camera::GetViewVector() const
@@ -56,17 +56,17 @@ void Camera::Update( const InputState &inputs, const float mouseSensitivity, con
         if ( inputs.GetLeftHeld() && !inputs.GetRightHeld() )
         {
             buttonPressed = true;
-            velocityChange += frmr::CalculateVectorFromRotation( 0.0f, rotation.GetY() - 90.0f );
+            velocityChange += frmr::CalculateVectorFromRotation( 0.0f, rotation.GetY() + 90.0f );
         }
         if ( inputs.GetBackwardHeld() && !inputs.GetForwardHeld() )
         {
             buttonPressed = true;
-            velocityChange += frmr::CalculateVectorFromRotation( -rotation.GetX(), rotation.GetY() );
+            velocityChange -= viewVector;
         }
         if ( inputs.GetRightHeld() && !inputs.GetLeftHeld() )
         {
             buttonPressed = true;
-            velocityChange += frmr::CalculateVectorFromRotation( 0.0f, rotation.GetY() + 90.0f );
+            velocityChange += frmr::CalculateVectorFromRotation( 0.0f, rotation.GetY() - 90.0f );
         }
     }
     //else
