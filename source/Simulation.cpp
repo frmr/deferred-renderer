@@ -28,11 +28,18 @@ vector<Light> Simulation::GetStaticLights() const
     return staticGeometry.GetStaticLights();
 }
 
-void Simulation::RenderLit() const
+void Simulation::RenderLit( const float fovX, const float fovY ) const
 {
     //construct view frustum
     frmr::Vec3f viewVector = activeCamera.GetViewVector();
-    Frustum viewFrustum( );
+    Frustum viewFrustum( activeCamera.GetPosition(), activeCamera.GetRotation(), fovX, fovY );
+    cout << activeCamera.GetPosition().GetX() << " " << activeCamera.GetPosition().GetY() << " " << activeCamera.GetPosition().GetZ() << endl;
+    cout << viewVector.GetX() << " " << viewVector.GetY() << " " << viewVector.GetZ() << endl;
+    for ( auto face : viewFrustum.GetFaces() )
+	{
+		cout << face.GetVert1().GetX() << " " << face.GetVert1().GetY() << " " << face.GetVert1().GetZ() << endl;
+	}
+	cout << "------------------" << endl;
 
     glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
     glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );

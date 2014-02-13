@@ -35,7 +35,7 @@ public:
     bool            ChangeMap( const string filename );
     Camera          GetCamera() const;
     vector<Light>   GetStaticLights() const;
-    void            RenderLit() const;
+    void            RenderLit( const float fovX, const float fovY ) const;
 	void            Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:

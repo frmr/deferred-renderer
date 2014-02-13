@@ -10,6 +10,10 @@ public:
     float       acceleration;
     float       speedMax;
     float       speed;
+    frmr::Vec3f	viewVector;
+
+private:
+	void 		UpdateViewVector();
 
 public:
     frmr::Vec3f GetViewVector() const;

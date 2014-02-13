@@ -1,8 +1,6 @@
 #ifndef FRMR_MATH_H
 #define FRMR_MATH_H
 
-//#include <
-
 #include "frmr_Vec2f.h"
 #include "frmr_Vec3f.h"
 
@@ -17,6 +15,7 @@ namespace frmr
     frmr::Vec3f VectorCross( const frmr::Vec3f &vect1, const frmr::Vec3f &vect2 );
 
     float       CalculateRotationFromCoords( const frmr::Vec3f &coord );
+	frmr::Vec3f	CalculateVectorFromRotation( const float rotationX, const float rotationY ); //takes degrees
 
     float       NormaliseAngle( const float &angle );
 

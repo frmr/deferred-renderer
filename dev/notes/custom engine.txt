@@ -4,4 +4,4 @@ SFML
 	Window
 	
 Collision detection
-	OZCollide
+	OZCollide/Bullet/ODE

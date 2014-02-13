@@ -13,12 +13,13 @@ private:
     vector<frmr::Triangle> faces;
 
 public:
-    bool                Contains( const frmr::Vec3f &point ) const;
-    vector<frmr::Vec3f> GetIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const;
+    bool                	Contains( const frmr::Vec3f &point ) const;
+    vector<frmr::Vec3f> 	GetIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const;
+    vector<frmr::Triangle>	GetFaces() const;
 
 public:
-    Frustum( const frmr::Vec3f &viewVector, const float fov, const frmr::Vec2f &lowerLeft, const frmr::Vec2f &viewportSize );
-    Frustum( const frmr::Vec3f &viewVector, const float fov, const frmr::Vec2f &lowerLeft, const frmr::Vec2f &viewportSize, const float nearPlane, const float farPlane );
+    Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY );
+    Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY, const float nearPlane, const float farPlane );
 };
 
 #endif // FRUSTUM_H
