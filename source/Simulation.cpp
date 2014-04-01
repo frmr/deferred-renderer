@@ -33,18 +33,18 @@ void Simulation::RenderLit( const float fovX, const float fovY ) const
     //construct view frustum
     frmr::Vec3f viewVector = activeCamera.GetViewVector();
     Frustum viewFrustum( activeCamera.GetPosition(), activeCamera.GetRotation(), fovX, fovY );
-    cout << activeCamera.GetPosition().GetX() << " " << activeCamera.GetPosition().GetY() << " " << activeCamera.GetPosition().GetZ() << endl;
-    cout << viewVector.GetX() << " " << viewVector.GetY() << " " << viewVector.GetZ() << endl;
-    for ( auto face : viewFrustum.GetFaces() )
-	{
-		cout << face.GetVert1().GetX() << " " << face.GetVert1().GetY() << " " << face.GetVert1().GetZ() << endl;
-	}
-	cout << "------------------" << endl;
+    //cout << activeCamera.GetPosition().GetX() << " " << activeCamera.GetPosition().GetY() << " " << activeCamera.GetPosition().GetZ() << endl;
+//    cout << viewVector.GetX() << " " << viewVector.GetY() << " " << viewVector.GetZ() << endl;
+//    for ( auto face : viewFrustum.GetFaces() )
+//	{
+//		cout << face.GetVert1().GetX() << " " << face.GetVert1().GetY() << " " << face.GetVert1().GetZ() << endl;
+//	}
+//	cout << "------------------" << endl;
 
     glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
     glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
     glTranslatef( -activeCamera.GetPosition().GetX(), -activeCamera.GetPosition().GetY(), -activeCamera.GetPosition().GetZ() );
-    staticGeometry.Render( activeCamera.GetCurrentZoneNum(), activeCamera.GetPosition() );
+    staticGeometry.Render( activeCamera.GetCurrentZoneNum(), activeCamera.GetPosition(), viewFrustum );
 }
 
 bool Simulation::LoadMap( const string filename )

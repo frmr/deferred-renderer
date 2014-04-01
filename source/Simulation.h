@@ -22,7 +22,7 @@ private:
 	//object lists
 	Camera          activeCamera;
 	StaticGeometry  staticGeometry;
-	vector<Player>  players;
+	vector<Player>  players; //TODO: make sure this list is sorted by actorNumEncoded when constructed, then use encoded num sent through network to find actor without decoding. Further players can just be added to the end
 
 	map<string, map<string, vector<AnimatedBillboard::Frame>>>  animations;
 

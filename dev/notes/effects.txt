@@ -3,21 +3,18 @@ Damage
 	DAMAGE_HOLY
 	DAMAGE_ICE
 	DAMAGE_NORMAL
-	DAMAGE_POISON
 	DAMAGE_SHOCK
 
 	MULTIPLY_FIRE_ATTACK
 	MULTIPLY_HOLY_ATTACK
 	MULTIPLY_ICE_ATTACK
 	MULTIPLY_NORMAL_ATTACK
-	MULTIPLY_POISON_ATTACK
 	MULTIPLY_SHOCK_ATTACK
 	
 	MULTIPLY_FIRE_DEFENSE
 	MULTIPLY_HOLY_DEFENSE
 	MULTIPLY_ICE_DEFENSE
 	MULTIPLY_NORMAL_DEFENSE
-	MULTIPLY_POISON_DEFENSE
 	MULTIPLY_SHOCK_DEFENSE
 	
 	MULTIPLY_HEALTH
@@ -25,9 +22,9 @@ Damage
 Status Ailments
 	BLIND					blackens the screen
 	CONFUSE
-	COUNTDOWN
-	PARALYZE
-	SILENCE
+	COUNTDOWN				kills player when timer reaches zero
+	PARALYZE				prevents movement
+	SILENCE					prevents casting of spells
 	
 	CURE_BLIND
 	CURE_CONFUSE
@@ -36,7 +33,7 @@ Status Ailments
 	CURE_SILENCE
 
 Player Stats
-	MODIFY_COOLDOWN			% reduction in cooldown time, value adds linearly
+	MODIFY_COOLDOWN			% remaining cooldown time, multiply to stack
 	MODIFY_FALL_SPEED
 	MODIFY_FRICTION			value is proportion of standard friction, multiply to stack
 	MODIFY_JUMP_STRENGTH
@@ -44,7 +41,6 @@ Player Stats
 	REGENERATE_MAGIC		must stack to be fair
 	
 Other
-	ABSORB					% of incoming damage to convert to health
 	BAIT 					draw enemies' attention and fire
 	DEATH					for level boundaries/traps etc.
 	DETECT					see invisible players, strength determines range

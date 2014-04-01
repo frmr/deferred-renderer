@@ -4,3 +4,4 @@ Spawn calls should be sent to the ScriptManager, which handles all the timers
 Quake 3 player is 56 units high, map everything accordingly
 Need to make sure the exact amount of damage is done i.e. if the effect timer over-runs, don't apply the whole time
 Should provide secret key to new Clients, which they use to identify themselves when they attempt to modify a Player's position/name/etc?
+Use std pointers instead of the C pointer

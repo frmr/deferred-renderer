@@ -6,6 +6,7 @@
 #include <string>
 
 #include "AssetManager.h"
+#include "Frustum.h"
 #include "Light.h"
 #include "frmr_Triangle.h"
 
@@ -22,9 +23,9 @@ private:
         int16_t                 targetZoneNum;
 
     public:
-        bool    IsVisible( const frmr::Vec3f &cameraPosition ) const;
-        void    Render() const;
-        int16_t GetTargetZoneNum() const;
+        vector<frmr::Vec3f>		CheckVisibility( const frmr::Vec3f &cameraPosition ) const;
+        void    				Render() const;
+        int16_t 				GetTargetZoneNum() const;
 
     public:
         Portal( const vector<frmr::Triangle> &triangles, const int16_t targetZoneNum );
@@ -60,7 +61,7 @@ private:
         void DeleteDisplayLists();
         vector<Light> GetLights() const;
         int16_t GetZoneNum() const;
-        void Render( const frmr::Vec3f &cameraPosition, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const; //recusively renders all visible zones
+        void Render( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const; //recusively renders all visible zones
 
     public:
         Zone( const int16_t zoneNum, const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights );
@@ -74,7 +75,7 @@ private:
 
 public:
     vector<Light>   GetStaticLights() const;
-    void Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition ) const;
+    void Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const;
 
 public:
     //StaticGeometry( const string &octreeFilename, const string &zoneDataFilename,  );

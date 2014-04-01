@@ -16,6 +16,7 @@ private:
 
 protected:
     int32_t         actorNum;
+    string			actorNumEncoded;
     string          name;
     frmr::Vec3f     position;
     frmr::Vec3f     previousPosition;

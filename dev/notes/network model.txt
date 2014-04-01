@@ -1,0 +1,21 @@
+Client
+	update input
+	get updates from server
+	update own player with input
+	update other players with network info
+	send own player info to server
+	
+Server
+	get updates from clients
+	update players with network info
+	broadcast new sim state
+	
+	
+	
+Authoritative Client
+	Player position
+	
+Authoritative Server
+	Projectile spawning
+	Item allocation
+	Item use

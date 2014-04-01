@@ -8,3 +8,7 @@ Projectiles should either disappear or explode when their lifetime runs out
 
 Enemy names
 	Misery Guts
+	
+Items
+	Message Crystal
+	Voice Crystal

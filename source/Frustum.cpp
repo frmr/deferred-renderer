@@ -1,6 +1,11 @@
 #include "Frustum.h"
 
+#include <iostream>
+
 #include "frmr_math.h"
+
+using std::cout;
+using std::endl;
 
 bool Frustum::Contains( const frmr::Vec3f &point ) const
 {
@@ -52,4 +57,22 @@ Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRo
 Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY, const float nearPlane, const float farPlane )
 {
     //create 12 triangles
+}
+
+Frustum::Frustum( const frmr::Vec3f &cameraPosition, const vector<frmr::Vec3f> &vertices )
+{
+	if ( vertices.size() < 2 )
+	{
+		cout << "Frustum::Frustum() - Not enough vertices supplied to frustum constructor." << endl;
+	}
+	else
+	{
+		//create faces between the camera position, a given vertex, and the next vertex in the list
+		for ( int vertexIndex = 0; vertexIndex < vertices.size() - 1; vertexIndex++ )
+		{
+			faces.push_back( frmr::Triangle( cameraPosition, vertices[vertexIndex], vertices[vertexIndex+1] ) );
+		}
+		//create a final vertex from the first and last vertices
+		faces.push_back( frmr::Triangle( cameraPosition, vertices[vertices.size()-1], vertices[0] ) );
+	}
 }

@@ -10,7 +10,7 @@
 using std::cout;
 using std::endl;
 
-bool StaticGeometry::Portal::IsVisible( const frmr::Vec3f &cameraPosition ) const
+vector<frmr::Vec3f> StaticGeometry::Portal::CheckVisibility( const frmr::Vec3f &cameraPosition ) const
 {
     vector<frmr::Vec3f> visiblePoints;
 
@@ -43,17 +43,7 @@ bool StaticGeometry::Portal::IsVisible( const frmr::Vec3f &cameraPosition ) cons
         }
     }
 
-    if ( visiblePoints.empty() )
-    {
-        return false;
-    }
-    else
-    {
-        //gluProject all points
-        //find AABB
-        //apply glScissor
-        return true;
-    }
+    return visiblePoints;
 }
 
 int16_t StaticGeometry::Portal::GetTargetZoneNum() const
@@ -110,21 +100,23 @@ int16_t StaticGeometry::Zone::GetZoneNum() const
     return zoneNum;
 }
 
-void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const
+void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const
 {
     renderedZonesRef.push_back( zoneNum );
 
     for ( auto renderedZoneIt : renderedZonesRef )
     {
-        //cout << renderedZoneIt;
+        cout << renderedZoneIt << " ";
     }
-    //cout << endl;
+    cout << endl;
 
+	//draw the visible parts of the room
     for ( auto texTriangleGroupIt : texTriangleGroups )
     {
         texTriangleGroupIt.Render();
     }
 
+	//draw zones that are visible through a portal
     for ( auto portalIt : portals )
     {
         //if portal target zone not already rendered
@@ -142,9 +134,15 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const vect
         if ( !targetZoneRendered )
         {
             //if ( portalIt.IsVisible( cameraPosition, viewFrustum ) )
-            if ( portalIt.IsVisible( cameraPosition ) )
+            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition );
+            if ( !visiblePoints.empty() )
             {
-                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, zones, renderedZonesRef );
+            	//gluProject all points
+				//find AABB
+				//apply glScissor
+				//construct new frustum from AABB vertices
+				Frustum newFrustum(  );
+                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, newFrustum, zones, renderedZonesRef );
             }
         }
     }
@@ -317,7 +315,7 @@ vector<Light> StaticGeometry::GetStaticLights() const
     return foundLights;
 }
 
-void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition ) const
+void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const
 {
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
     //draw current zone
@@ -326,7 +324,7 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
 
     vector<int> renderedZones;
 
-    zones[cameraZoneNum].Render( cameraPosition, zones, renderedZones );
+    zones[cameraZoneNum].Render( cameraPosition, viewFrustum, zones, renderedZones );
 }
 
 StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )
