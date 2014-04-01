@@ -15,7 +15,7 @@ private:
     static int32_t  actorNumIncrementor;
 
 protected:
-    int32_t         actorNum;
+    int32_t         actorNum; //TODO: Change this to actorId?
     string			actorNumEncoded;
     string          name;
     frmr::Vec3f     position;
