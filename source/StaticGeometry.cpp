@@ -2,7 +2,6 @@
 #include <fstream>
 
 #include "StaticGeometry.h"
-#include "frmr_encode.h"
 #include "frmr_Encoder.h"
 #include "frmr_math.h"
 #include "frmr_Vec2f.h"
@@ -181,26 +180,26 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
         }
 
         i += 3;
-        int16_t numOfZones = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+        int16_t numOfZones = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
         i += 2;
 
         for ( int zoneIndex = 0; zoneIndex < numOfZones; zoneIndex++ )
         {
-            int16_t zoneNum = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+            int16_t zoneNum = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
             i += 2;
-            int16_t numOfTexTriangleGroups = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+            int16_t numOfTexTriangleGroups = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
             i += 2;
 
             vector<StaticGeometry::Zone::TexTriangleGroup> texTriangleGroups;
 
             for ( int texTriangleGroupIndex = 0; texTriangleGroupIndex < numOfTexTriangleGroups; texTriangleGroupIndex++ )
             {
-                int16_t texNameLength = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+                int16_t texNameLength = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
                 i += 2;
                 string texName = zoneString.substr( i, texNameLength );
                 i += texNameLength;
                 GLuint textureNum = assets.GetTexture( texName, AssetManager::SearchMode::PERMANENT );
-                int32_t numOfTexTriangles = frmr::DecodeINT32( zoneString.substr( i, 4 ) );
+                int32_t numOfTexTriangles = frmr::Encoder<int32_t>::Decode( zoneString.substr( i, 4 ) );
                 i += 4;
 
                 GLuint texTriangleGroupDisplayList = glGenLists(1);
@@ -209,13 +208,13 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
 
                 for ( int texTriangleIndex = 0; texTriangleIndex < numOfTexTriangles; texTriangleIndex++ )
                 {
-                    glNormal3f( frmr::DecodeFloat( zoneString.substr( i+60, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+64, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+68, 4 ) ) );
-                    glTexCoord2f( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ) );
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) );
-                    glTexCoord2f( frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+36, 4 ) ) );
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ) );
-                    glTexCoord2f( frmr::DecodeFloat( zoneString.substr( i+52, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+56, 4 ) ) );
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i+40, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+44, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+48, 4 ) ) );
+                    glNormal3f( 	frmr::Encoder<float>::Decode( zoneString.substr( i+60, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+64, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+68, 4 ) ) );
+                    glTexCoord2f( 	frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ) );
+                    glVertex3f( 	frmr::Encoder<float>::Decode( zoneString.substr( i, 4 ) ), 		frmr::Encoder<float>::Decode( zoneString.substr( i+4, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+8, 4 ) ) );
+                    glTexCoord2f( 	frmr::Encoder<float>::Decode( zoneString.substr( i+32, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+36, 4 ) ) );
+                    glVertex3f( 	frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+28, 4 ) ) );
+                    glTexCoord2f( 	frmr::Encoder<float>::Decode( zoneString.substr( i+52, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+56, 4 ) ) );
+                    glVertex3f( 	frmr::Encoder<float>::Decode( zoneString.substr( i+40, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+44, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+48, 4 ) ) );
                     i += 72;
                 }
                 glEnd();
@@ -225,37 +224,37 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
 
             vector<frmr::Triangle> collTriangles;
 
-            int32_t numOfCollTriangles = frmr::DecodeINT32( zoneString.substr( i, 4 ) );
+            int32_t numOfCollTriangles = frmr::Encoder<int32_t>::Decode( zoneString.substr( i, 4 ) );
             i += 4;
 
             for ( int collTriangleIndex = 0; collTriangleIndex < numOfCollTriangles; collTriangleIndex++ )
             {
-                collTriangles.push_back( frmr::Triangle( frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) ),
-                                                         frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) ),
-                                                         frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ) ),
-                                                         frmr::Vec3f( frmr::DecodeFloat( zoneString.substr( i+36, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+40, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+44, 4 ) ) ) ) );
+                collTriangles.push_back( frmr::Triangle( frmr::Vec3f( frmr::Encoder<float>::Decode( zoneString.substr( i, 4 ) ),	frmr::Encoder<float>::Decode( zoneString.substr( i+4, 4 ) ),	frmr::Encoder<float>::Decode( zoneString.substr( i+8, 4 ) ) ),
+                                                         frmr::Vec3f( frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ),	frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ) ),
+                                                         frmr::Vec3f( frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+28, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+32, 4 ) ) ),
+                                                         frmr::Vec3f( frmr::Encoder<float>::Decode( zoneString.substr( i+36, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+40, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+44, 4 ) ) ) ) );
                 i += 48;
             }
 
             vector<StaticGeometry::Portal> portals;
 
-            int16_t numOfPortals = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+            int16_t numOfPortals = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
             i += 2;
 
             for ( int portalIndex = 0; portalIndex < numOfPortals; portalIndex++ )
             {
-                int16_t targetZoneNum = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+                int16_t targetZoneNum = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
                 i += 2;
-                int16_t numOfTriangles = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+                int16_t numOfTriangles = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
                 i += 2;
 
                 vector<frmr::Triangle> triangles;
                 for ( int triangleIndex = 0; triangleIndex < numOfTriangles; triangleIndex++ )
                 {
-                    frmr::Vec3f vert0( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) );
-                    frmr::Vec3f vert1( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) );
-                    frmr::Vec3f vert2( frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ) );
-                    frmr::Vec3f normal( frmr::DecodeFloat( zoneString.substr( i+36, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+40, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+44, 4 ) ) );
+                    frmr::Vec3f vert0( frmr::Encoder<float>::Decode( zoneString.substr( i, 4 ) ), 		frmr::Encoder<float>::Decode( zoneString.substr( i+4, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+8, 4 ) ) );
+                    frmr::Vec3f vert1( frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ) );
+                    frmr::Vec3f vert2( frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+28, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+32, 4 ) ) );
+                    frmr::Vec3f normal( frmr::Encoder<float>::Decode( zoneString.substr( i+36, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+40, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+44, 4 ) ) );
                     triangles.push_back( frmr::Triangle( vert0, vert1, vert2, normal ) );
                     i += 48;
                 }
@@ -264,15 +263,15 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
 
             vector<Light> lights;
 
-            int16_t numOfLights = frmr::DecodeINT16( zoneString.substr( i, 2 ) );
+            int16_t numOfLights = frmr::Encoder<int16_t>::Decode( zoneString.substr( i, 2 ) );
             i += 2;
 
             for ( int lightIndex = 0; lightIndex < numOfLights; lightIndex++ )
             {
-                frmr::Vec3f position( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) );
-                frmr::Vec3f color( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) );
-                float radius = frmr::DecodeFloat( zoneString.substr( i+24, 4 ) );
-                int32_t numOfTriangles = frmr::DecodeINT32( zoneString.substr( i+28, 4 ) );
+                frmr::Vec3f position( frmr::Encoder<float>::Decode( zoneString.substr( i, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+4, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+8, 4 ) ) );
+                frmr::Vec3f color( frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ) );
+                float radius = frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) );
+                int32_t numOfTriangles = frmr::Encoder<int32_t>::Decode( zoneString.substr( i+28, 4 ) );
                 i += 32;
 
                 GLuint lightDisplayList = glGenLists( 1 );
@@ -281,9 +280,9 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
 
                 for ( int triangleIndex = 0; triangleIndex < numOfTriangles; triangleIndex++ )
                 {
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+4, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+8, 4 ) ) );
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i+12, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+16, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+20, 4 ) ) );
-                    glVertex3f( frmr::DecodeFloat( zoneString.substr( i+24, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+28, 4 ) ), frmr::DecodeFloat( zoneString.substr( i+32, 4 ) ) );
+                    glVertex3f( frmr::Encoder<float>::Decode( zoneString.substr( i, 4 ) ), 		frmr::Encoder<float>::Decode( zoneString.substr( i+4, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+8, 4 ) ) );
+                    glVertex3f( frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ) );
+                    glVertex3f( frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+28, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+32, 4 ) ) );
                     i += 36;
                 }
 

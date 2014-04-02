@@ -1,7 +1,5 @@
 #include "Actor.h"
 
-#include "frmr_encode.h"
-
 int32_t Actor::actorNumIncrementor = 0;
 
 void Actor::ApplyVelocity( const float deltaTime )
@@ -48,7 +46,6 @@ frmr::Vec2f Actor::GetRotation() const
 
 Actor::Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum )
     : actorNum( actorNumIncrementor++ ),
-      actorNumEncoded( frmr::EncodeINT32( actorNum ) ),
       name( name ),
       position( position ),
       previousPosition( position ),

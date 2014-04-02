@@ -2469,17 +2469,16 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1396453631 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1396456554 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
-	"frmr_encode.h"
 	"frmr_Encoder.h"
 	"frmr_math.h"
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1392318801 x:\produce\wizmatch\source\staticgeometry.h
+1396454200 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
@@ -2502,11 +2501,10 @@
 	<map>
 	<string>
 
-1396221802 source:x:\produce\wizmatch\source\actor.cpp
+1396456677 source:x:\produce\wizmatch\source\actor.cpp
 	"Actor.h"
-	"frmr_encode.h"
 
-1396365848 x:\produce\wizmatch\source\actor.h
+1396456662 x:\produce\wizmatch\source\actor.h
 	<stdint.h>
 	<string>
 	"frmr_Vec3f.h"
@@ -2596,7 +2594,7 @@
 	<iostream>
 	"frmr_TextFile.h"
 
-1392324067 source:x:\produce\wizmatch\source\frustum.cpp
+1396454117 source:x:\produce\wizmatch\source\frustum.cpp
 	"Frustum.h"
 	<iostream>
 	"frmr_math.h"
