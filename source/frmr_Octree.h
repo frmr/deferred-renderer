@@ -9,7 +9,8 @@ using std::vector;
 
 namespace frmr
 {
-    template <class Type> class Octree
+    template <class Type>
+    class Octree
     {
     private:
         class Octant

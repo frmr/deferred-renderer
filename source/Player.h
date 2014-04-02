@@ -15,7 +15,7 @@ using std::vector;
 class Player : public Actor
 {
 private:
-    AnimatedBillboard       skinBillboard;
+    AnimatedBillboard       skinBillboard; //TODO: Have one billboard and use a shader to color the appropriate parts
     AnimatedBillboard       clothesBillboard;
 
 	float 				    healthMax;

@@ -3,6 +3,7 @@
 
 #include "StaticGeometry.h"
 #include "frmr_encode.h"
+#include "frmr_Encoder.h"
 #include "frmr_math.h"
 #include "frmr_Vec2f.h"
 #include "frmr_Vec3f.h"
@@ -134,7 +135,7 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
         if ( !targetZoneRendered )
         {
             //if ( portalIt.IsVisible( cameraPosition, viewFrustum ) )
-            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition );
+            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition ); //send view frustum
             if ( !visiblePoints.empty() )
             {
             	//gluProject all points
@@ -142,7 +143,8 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
 				//apply glScissor
 				//construct new frustum from AABB vertices
 				Frustum newFrustum(  );
-                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, newFrustum, zones, renderedZonesRef );
+                //zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, newFrustum, zones, renderedZonesRef );
+                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, viewFrustum, zones, renderedZonesRef );
             }
         }
     }
@@ -322,7 +324,7 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
         //draw the geometry
         //draw the portals
 
-    vector<int> renderedZones;
+    vector<int> renderedZones; //TODO: Return this when we're done so that Simulation knows which Actors to render
 
     zones[cameraZoneNum].Render( cameraPosition, viewFrustum, zones, renderedZones );
 }

@@ -86,6 +86,7 @@
 		<Unit filename="SpellSet.h" />
 		<Unit filename="StaticGeometry.cpp" />
 		<Unit filename="StaticGeometry.h" />
+		<Unit filename="frmr_Encoder.h" />
 		<Unit filename="frmr_Octree.cpp" />
 		<Unit filename="frmr_Octree.h" />
 		<Unit filename="frmr_Shader.cpp" />

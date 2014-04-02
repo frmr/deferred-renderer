@@ -68,7 +68,7 @@ Frustum::Frustum( const frmr::Vec3f &cameraPosition, const vector<frmr::Vec3f> &
 	else
 	{
 		//create faces between the camera position, a given vertex, and the next vertex in the list
-		for ( int vertexIndex = 0; vertexIndex < vertices.size() - 1; vertexIndex++ )
+		for ( unsigned int vertexIndex = 0; vertexIndex < vertices.size() - 1; vertexIndex++ )
 		{
 			faces.push_back( frmr::Triangle( cameraPosition, vertices[vertexIndex], vertices[vertexIndex+1] ) );
 		}

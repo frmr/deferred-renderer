@@ -18,8 +18,8 @@ class AnimatedBillboard
 public:
     enum class BillboardType
     {
-        BILLBOARD_ROTATION,
-        BILLBOARD_POSITION
+        CAMERA_ROTATION,
+        CAMERA_POSITION
     };
 
     class Frame

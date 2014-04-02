@@ -7,12 +7,14 @@
 #include "frmr_Vec3f.h"
 #include "frmr_Vec2f.h"
 #include "frmr_textfile.h"
-#include "frmr_encode.h"
+#include "frmr_Encoder.h"
 
 using std::cout;
 using std::endl;
 using std::string;
 using std::vector;
+
+using frmr::Encoder;
 
 using namespace frmr;
 
@@ -412,71 +414,71 @@ int main( int argc, char *argv[] )
         std::ofstream outFile( outFilename + ".wzz" );
 
         outFile << "WZZ";
-        outFile << EncodeINT16( zones.size() );
+        outFile << Encoder<int16_t>::Encode( (int16_t) zones.size() );
 
         for ( auto zoneIt : zones )
         {
-            outFile << EncodeINT16( zoneIt.zoneNum );
-            outFile << EncodeINT16( zoneIt.texTriangleGroups.size() );
+            outFile << Encoder<int16_t>::Encode( zoneIt.zoneNum );
+            outFile << Encoder<int16_t>::Encode( (int16_t) zoneIt.texTriangleGroups.size() );
 
             for ( auto texTriangleGroupIt : zoneIt.texTriangleGroups )
             {
-                outFile << EncodeINT16( texTriangleGroupIt.texName.size() );
+                outFile << Encoder<int16_t>::Encode( (int16_t) texTriangleGroupIt.texName.size() );
                 outFile << texTriangleGroupIt.texName;
-                outFile << EncodeINT32( texTriangleGroupIt.texTriangles.size() );
+                outFile << Encoder<int32_t>::Encode( (int32_t) texTriangleGroupIt.texTriangles.size() );
 
                 for ( auto texTriangleIt : texTriangleGroupIt.texTriangles )
                 {
-                    outFile << EncodeFloat( texTriangleIt.vert0.GetX() ) << EncodeFloat( texTriangleIt.vert0.GetY() ) << EncodeFloat( texTriangleIt.vert0.GetZ() );
-                    outFile << EncodeFloat( texTriangleIt.vert0Tex.GetX() ) << EncodeFloat( texTriangleIt.vert0Tex.GetY() );
-                    outFile << EncodeFloat( texTriangleIt.vert1.GetX() ) << EncodeFloat( texTriangleIt.vert1.GetY() ) << EncodeFloat( texTriangleIt.vert1.GetZ() );
-                    outFile << EncodeFloat( texTriangleIt.vert1Tex.GetX() ) << EncodeFloat( texTriangleIt.vert1Tex.GetY() );
-                    outFile << EncodeFloat( texTriangleIt.vert2.GetX() ) << EncodeFloat( texTriangleIt.vert2.GetY() ) << EncodeFloat( texTriangleIt.vert2.GetZ() );
-                    outFile << EncodeFloat( texTriangleIt.vert2Tex.GetX() ) << EncodeFloat( texTriangleIt.vert2Tex.GetY() );
-                    outFile << EncodeFloat( texTriangleIt.normal.GetX() ) << EncodeFloat( texTriangleIt.normal.GetY() ) << EncodeFloat( texTriangleIt.normal.GetZ() );
+                    outFile << Encoder<float>::Encode( texTriangleIt.vert0.GetX() ) << Encoder<float>::Encode( texTriangleIt.vert0.GetY() ) << Encoder<float>::Encode( texTriangleIt.vert0.GetZ() );
+                    outFile << Encoder<float>::Encode( texTriangleIt.vert0Tex.GetX() ) << Encoder<float>::Encode( texTriangleIt.vert0Tex.GetY() );
+                    outFile << Encoder<float>::Encode( texTriangleIt.vert1.GetX() ) << Encoder<float>::Encode( texTriangleIt.vert1.GetY() ) << Encoder<float>::Encode( texTriangleIt.vert1.GetZ() );
+                    outFile << Encoder<float>::Encode( texTriangleIt.vert1Tex.GetX() ) << Encoder<float>::Encode( texTriangleIt.vert1Tex.GetY() );
+                    outFile << Encoder<float>::Encode( texTriangleIt.vert2.GetX() ) << Encoder<float>::Encode( texTriangleIt.vert2.GetY() ) << Encoder<float>::Encode( texTriangleIt.vert2.GetZ() );
+                    outFile << Encoder<float>::Encode( texTriangleIt.vert2Tex.GetX() ) << Encoder<float>::Encode( texTriangleIt.vert2Tex.GetY() );
+                    outFile << Encoder<float>::Encode( texTriangleIt.normal.GetX() ) << Encoder<float>::Encode( texTriangleIt.normal.GetY() ) << Encoder<float>::Encode( texTriangleIt.normal.GetZ() );
                 }
             }
 
-            outFile << EncodeINT32( zoneIt.collTriangles.size() );
+            outFile << Encoder<int32_t>::Encode( (int32_t) zoneIt.collTriangles.size() );
 
             for ( auto collTriangleIt : zoneIt.collTriangles )
             {
-                outFile << EncodeFloat( collTriangleIt.vert0.GetX() ) << EncodeFloat( collTriangleIt.vert0.GetY() ) << EncodeFloat( collTriangleIt.vert0.GetZ() );
-                outFile << EncodeFloat( collTriangleIt.vert1.GetX() ) << EncodeFloat( collTriangleIt.vert1.GetY() ) << EncodeFloat( collTriangleIt.vert1.GetZ() );
-                outFile << EncodeFloat( collTriangleIt.vert2.GetX() ) << EncodeFloat( collTriangleIt.vert2.GetY() ) << EncodeFloat( collTriangleIt.vert2.GetZ() );
-                outFile << EncodeFloat( collTriangleIt.normal.GetX() ) << EncodeFloat( collTriangleIt.normal.GetY() ) << EncodeFloat( collTriangleIt.normal.GetZ() );
+                outFile << Encoder<float>::Encode( collTriangleIt.vert0.GetX() ) << Encoder<float>::Encode( collTriangleIt.vert0.GetY() ) << Encoder<float>::Encode( collTriangleIt.vert0.GetZ() );
+                outFile << Encoder<float>::Encode( collTriangleIt.vert1.GetX() ) << Encoder<float>::Encode( collTriangleIt.vert1.GetY() ) << Encoder<float>::Encode( collTriangleIt.vert1.GetZ() );
+                outFile << Encoder<float>::Encode( collTriangleIt.vert2.GetX() ) << Encoder<float>::Encode( collTriangleIt.vert2.GetY() ) << Encoder<float>::Encode( collTriangleIt.vert2.GetZ() );
+                outFile << Encoder<float>::Encode( collTriangleIt.normal.GetX() ) << Encoder<float>::Encode( collTriangleIt.normal.GetY() ) << Encoder<float>::Encode( collTriangleIt.normal.GetZ() );
             }
 
-            outFile << EncodeINT16( zoneIt.portals.size() );
+            outFile << Encoder<int16_t>::Encode( (int16_t) zoneIt.portals.size() );
 
             for ( auto portalIt : zoneIt.portals )
             {
-                outFile << EncodeINT16( portalIt.targetZoneNum );
-                outFile << EncodeINT16( portalIt.triangles.size() );
+                outFile << Encoder<int16_t>::Encode( portalIt.targetZoneNum );
+                outFile << Encoder<int16_t>::Encode( (int16_t) portalIt.triangles.size() );
 
                 for ( auto triangleIt : portalIt.triangles )
                 {
-                    outFile << EncodeFloat( triangleIt.vert0.GetX() ) << EncodeFloat( triangleIt.vert0.GetY() ) << EncodeFloat( triangleIt.vert0.GetZ() );
-                    outFile << EncodeFloat( triangleIt.vert1.GetX() ) << EncodeFloat( triangleIt.vert1.GetY() ) << EncodeFloat( triangleIt.vert1.GetZ() );
-                    outFile << EncodeFloat( triangleIt.vert2.GetX() ) << EncodeFloat( triangleIt.vert2.GetY() ) << EncodeFloat( triangleIt.vert2.GetZ() );
-                    outFile << EncodeFloat( triangleIt.normal.GetX() ) << EncodeFloat( triangleIt.normal.GetY() ) << EncodeFloat( triangleIt.normal.GetZ() );
+                    outFile << Encoder<float>::Encode( triangleIt.vert0.GetX() ) << Encoder<float>::Encode( triangleIt.vert0.GetY() ) << Encoder<float>::Encode( triangleIt.vert0.GetZ() );
+                    outFile << Encoder<float>::Encode( triangleIt.vert1.GetX() ) << Encoder<float>::Encode( triangleIt.vert1.GetY() ) << Encoder<float>::Encode( triangleIt.vert1.GetZ() );
+                    outFile << Encoder<float>::Encode( triangleIt.vert2.GetX() ) << Encoder<float>::Encode( triangleIt.vert2.GetY() ) << Encoder<float>::Encode( triangleIt.vert2.GetZ() );
+                    outFile << Encoder<float>::Encode( triangleIt.normal.GetX() ) << Encoder<float>::Encode( triangleIt.normal.GetY() ) << Encoder<float>::Encode( triangleIt.normal.GetZ() );
                 }
             }
 
-            outFile << EncodeINT16( zoneIt.lights.size() );
+            outFile << Encoder<int16_t>::Encode( (int16_t) zoneIt.lights.size() );
 
             for ( auto lightIt : zoneIt.lights )
             {
-                outFile << EncodeFloat( lightIt.position.GetX() ) << EncodeFloat( lightIt.position.GetY() ) << EncodeFloat( lightIt.position.GetZ() );
-                outFile << EncodeFloat( lightIt.color.GetX() ) << EncodeFloat( lightIt.color.GetY() ) << EncodeFloat( lightIt.color.GetZ() );
-                outFile << EncodeFloat( lightIt.radius );
-                outFile << EncodeINT32( lightIt.triangles.size() );
+                outFile << Encoder<float>::Encode( lightIt.position.GetX() ) << Encoder<float>::Encode( lightIt.position.GetY() ) << Encoder<float>::Encode( lightIt.position.GetZ() );
+                outFile << Encoder<float>::Encode( lightIt.color.GetX() ) << Encoder<float>::Encode( lightIt.color.GetY() ) << Encoder<float>::Encode( lightIt.color.GetZ() );
+                outFile << Encoder<float>::Encode( lightIt.radius );
+                outFile << Encoder<int32_t>::Encode( (int32_t) lightIt.triangles.size() );
 
                 for ( auto triangleIt : lightIt.triangles )
                 {
-                    outFile << EncodeFloat( triangleIt.vert0.GetX() ) << EncodeFloat( triangleIt.vert0.GetY() ) << EncodeFloat( triangleIt.vert0.GetZ() );
-                    outFile << EncodeFloat( triangleIt.vert1.GetX() ) << EncodeFloat( triangleIt.vert1.GetY() ) << EncodeFloat( triangleIt.vert1.GetZ() );
-                    outFile << EncodeFloat( triangleIt.vert2.GetX() ) << EncodeFloat( triangleIt.vert2.GetY() ) << EncodeFloat( triangleIt.vert2.GetZ() );
+                    outFile << Encoder<float>::Encode( triangleIt.vert0.GetX() ) << Encoder<float>::Encode( triangleIt.vert0.GetY() ) << Encoder<float>::Encode( triangleIt.vert0.GetZ() );
+                    outFile << Encoder<float>::Encode( triangleIt.vert1.GetX() ) << Encoder<float>::Encode( triangleIt.vert1.GetY() ) << Encoder<float>::Encode( triangleIt.vert1.GetZ() );
+                    outFile << Encoder<float>::Encode( triangleIt.vert2.GetX() ) << Encoder<float>::Encode( triangleIt.vert2.GetY() ) << Encoder<float>::Encode( triangleIt.vert2.GetZ() );
                 }
             }
         }

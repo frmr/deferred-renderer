@@ -53,9 +53,9 @@ private:
     private:
         int16_t                     zoneNum;
         vector<TexTriangleGroup>    texTriangleGroups;
+        vector<frmr::Triangle>      collTriangles; //collision surfaces //TODO: MAKE THIS A OCTREE
         vector<Portal>              portals;
         vector<Light>               lights;
-        vector<frmr::Triangle>      collTriangles; //collision surfaces //TODO: MAKE THIS A QUADTREE
 
     public:
         void DeleteDisplayLists();

@@ -37,12 +37,11 @@
 			<Add option="-static-libgcc" />
 			<Add option="-static-libstdc++" />
 		</Linker>
+		<Unit filename="frmr_Encoder.h" />
 		<Unit filename="frmr_Vec2f.cpp" />
 		<Unit filename="frmr_Vec2f.h" />
 		<Unit filename="frmr_Vec3f.cpp" />
 		<Unit filename="frmr_Vec3f.h" />
-		<Unit filename="frmr_encode.cpp" />
-		<Unit filename="frmr_encode.h" />
 		<Unit filename="frmr_stringfuncs.cpp" />
 		<Unit filename="frmr_stringfuncs.h" />
 		<Unit filename="frmr_textfile.cpp" />
