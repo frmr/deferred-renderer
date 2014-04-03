@@ -75,25 +75,25 @@ float frmr::NormaliseAngle( const float &angle )
     }
 }
 
-frmr::Vec3f frmr::LinePlaneIntersection(const frmr::Vec3f &planeNormal, const frmr::Vec3f &planeVertex, const frmr::Vec3f &lineStart, const frmr::Vec3f &lineDirection, const bool bidirectional ) //bidirectional refers to the line i.e. check in opposite direction?
+bool frmr::LinePlaneIntersection( const frmr::Vec3f &planeNormal, const frmr::Vec3f &planeVertex, const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector, const bool limitToBounds, frmr::Vec3f &intersect )
 {
-    float parallelCheck = VectorDot( planeNormal, lineDirection );
+    float parallelCheck = VectorDot( planeNormal, lineVector );
 
-    if ( parallelCheck == 0.0f )
+    if ( parallelCheck < 0.001f && parallelCheck > -0.001f )
     {
-        return frmr::Vec3f();
+        return false;
     }
     else
     {
         float vectorMult = VectorDot( planeNormal, planeVertex - lineStart ) / parallelCheck;
-        if ( vectorMult <= 0.0f && !bidirectional )
+        if ( ( vectorMult < 0.0f || vectorMult > 1.0f ) && limitToBounds )
         {
-            cout << "frmr::LinePlaneIntersection() - Line is not bidirectional." << endl;
-            return frmr::Vec3f();
+            return false;
         }
         else
         {
-            return lineStart + lineDirection * vectorMult;
+            intersect = lineStart + lineVector * vectorMult;
+            return true;
         }
     }
 }

@@ -41,9 +41,9 @@ private:
             GLuint  textureNum;
 
         public:
-            void DeleteDisplayList();
-            GLuint GetDisplayList() const;
-            void Render() const;
+            void 	DeleteDisplayList();
+            GLuint 	GetDisplayList() const;
+            void 	Render() const;
 
         public:
             TexTriangleGroup( const GLuint displayList, GLuint textureNum );
@@ -58,10 +58,10 @@ private:
         vector<Light>               lights;
 
     public:
-        void DeleteDisplayLists();
-        vector<Light> GetLights() const;
-        int16_t GetZoneNum() const;
-        void Render( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const; //recusively renders all visible zones
+        void 			DeleteDisplayLists();
+        vector<Light> 	GetLights() const;
+        int16_t 		GetZoneNum() const;
+        void 			Render( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const; //recusively renders all visible zones
 
     public:
         Zone( const int16_t zoneNum, const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights );
@@ -71,11 +71,11 @@ private:
     bool LoadZoneFile( const string &zoneDataFilename, const AssetManager &assets );
 
 private:
-    vector<Zone>            zones; //zone::zoneNum = index in zone vector
+    vector<Zone> zones; //zone::zoneNum = index in zone vector
 
 public:
     vector<Light>   GetStaticLights() const;
-    void Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const;
+    void 			Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const;
 
 public:
     //StaticGeometry( const string &octreeFilename, const string &zoneDataFilename,  );

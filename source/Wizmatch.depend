@@ -996,7 +996,7 @@
 	"matrix4.h"
 	"IVideoDriver.h"
 
-1387388556 x:\produce\wizmatch\source\frmr_vec3f.h
+1396526041 x:\produce\wizmatch\source\frmr_vec3f.h
 
 1377625245 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
@@ -1010,7 +1010,7 @@
 
 1387388614 x:\produce\wizmatch\source\frmr_vec2f.h
 
-1387388602 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
+1396526044 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
 	"frmr_Vec3f.h"
 	<cmath>
 
@@ -2469,7 +2469,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1396456554 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1396535383 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2478,7 +2478,7 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1396454200 x:\produce\wizmatch\source\staticgeometry.h
+1396533295 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
@@ -2536,16 +2536,16 @@
 	<vector>
 	"frmr_Vec3f.h"
 
-1392304505 source:x:\produce\wizmatch\source\frmr_math.cpp
+1396531913 source:x:\produce\wizmatch\source\frmr_math.cpp
 	"frmr_math.h"
 	<iostream>
 	<cmath>
 
-1392253333 x:\produce\wizmatch\source\frmr_math.h
+1396531833 x:\produce\wizmatch\source\frmr_math.h
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1382573354 source:x:\produce\wizmatch\source\frmr_triangle.cpp
+1396531270 source:x:\produce\wizmatch\source\frmr_triangle.cpp
 	"frmr_Triangle.h"
 	"frmr_math.h"
 
@@ -2594,7 +2594,7 @@
 	<iostream>
 	"frmr_TextFile.h"
 
-1396454117 source:x:\produce\wizmatch\source\frustum.cpp
+1396534690 source:x:\produce\wizmatch\source\frustum.cpp
 	"Frustum.h"
 	<iostream>
 	"frmr_math.h"

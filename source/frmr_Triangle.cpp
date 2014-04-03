@@ -20,7 +20,7 @@ bool frmr::Triangle::ContainsPoint( const frmr::Vec3f &point ) const
     float u = ( dot22 * dot1p - dot12 * dot2p ) * invDenom;
     float v = ( dot11 * dot2p - dot12 * dot1p ) * invDenom;
 
-    return ( ( u > 0 ) && ( v > 0 ) && ( u + v < 1 ) ) ? true : false;
+    return ( ( u > 0.0f ) && ( v > 0.0f ) && ( u + v < 1.0f ) ) ? true : false;
 }
 
 frmr::Vec3f frmr::Triangle::GetVert0() const

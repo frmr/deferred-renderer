@@ -15,6 +15,7 @@ namespace frmr
 		float   GetZ() const;
 		float   Length();
 		void    Reset();
+		void	Set( const float x, const float y, const float z );
 		Vec3f   Unit();
 
 	public:

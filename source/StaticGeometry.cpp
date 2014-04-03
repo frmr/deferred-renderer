@@ -36,8 +36,9 @@ vector<frmr::Vec3f> StaticGeometry::Portal::CheckVisibility( const frmr::Vec3f &
 
         frmr::Vec3f cameraToTriangleVector = triangleIt.GetVert0() - cameraPosition;
 
-        if ( frmr::VectorDot( triangleIt.GetNormal(), cameraToTriangleVector.Unit() ) > 0.0f )
+        if ( frmr::VectorDot( triangleIt.GetNormal(), cameraToTriangleVector.Unit() ) > 0.0f ) //TODO: Make sure portal faces are declared counter-clockwise
         {
+        	cout << "portal " << targetZoneNum << endl;
             //if triangle is within view frustum
             //visible = true;
         }
@@ -122,7 +123,7 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
         //if portal target zone not already rendered
         bool targetZoneRendered = false;
 
-        for ( auto renderedZone : renderedZonesRef )
+        for ( auto renderedZone : renderedZonesRef ) //TODO: use std::find here
         {
             if ( portalIt.GetTargetZoneNum() == renderedZone )
             {

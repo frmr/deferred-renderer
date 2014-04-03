@@ -33,6 +33,14 @@ void frmr::Vec3f::Reset()
     length = 0.0f;
 }
 
+void frmr::Vec3f::Set( const float x, const float y, const float z )
+{
+	this->x = x;
+	this->y = y;
+	this->z = z;
+	length = -1.0f;
+}
+
 frmr::Vec3f frmr::Vec3f::Unit()
 {
 	Length();
