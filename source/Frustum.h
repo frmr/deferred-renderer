@@ -10,11 +10,14 @@ using std::vector;
 class Frustum
 {
 private:
-    vector<frmr::Triangle> faces;
+	frmr::Vec3f				position;
+	vector<frmr::Vec3f>		edgeVectors;
+    vector<frmr::Triangle> 	faces;
 
 public:
     bool                	Contains( const frmr::Vec3f &point ) const;
-    vector<frmr::Vec3f> 	GetIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const;
+    vector<frmr::Vec3f> 	GetLineIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const;
+    vector<frmr::Vec3f>		GetVisibleTrianglePoints( const frmr::Triangle &triangle ) const;
     vector<frmr::Triangle>	GetFaces() const;
 
 public:

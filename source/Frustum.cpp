@@ -22,7 +22,7 @@ bool Frustum::Contains( const frmr::Vec3f &point ) const
 }
 
 //returns a vector of any intersections of a line cutting throw the frustum's faces
-vector<frmr::Vec3f> Frustum::GetIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const
+vector<frmr::Vec3f> Frustum::GetLineIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const
 {
     vector<frmr::Vec3f> intersections;
 
@@ -41,6 +41,48 @@ vector<frmr::Vec3f> Frustum::GetIntersections( const frmr::Vec3f &lineStart, con
     return intersections;
 }
 
+vector<frmr::Vec3f> Frustum::GetVisibleTrianglePoints( const frmr::Triangle &triangle ) const
+{
+	vector<frmr::Vec3f> visiblePoints;
+
+	//check if each vertex is within the view frustum
+	bool vert0Visible = Contains( triangle.GetVert0() );
+	bool vert1Visible = Contains( triangle.GetVert1() );
+	bool vert2Visible = Contains( triangle.GetVert2() );
+
+	if ( vert0Visible ) { visiblePoints.push_back( triangle.GetVert0() ); }
+	if ( vert1Visible ) { visiblePoints.push_back( triangle.GetVert1() ); }
+	if ( vert2Visible ) { visiblePoints.push_back( triangle.GetVert2() ); }
+
+	//if the entire triangle is not within the view frustum
+	if ( visiblePoints.size() != 3 )
+	{
+		vector<frmr::Vec3f> intersections;
+		//get intersections between triangle edges and the faces of the view frustum
+		intersections = GetLineIntersections( triangle.GetVert0(), triangle.GetVec01() );
+		visiblePoints.insert( visiblePoints.end(), intersections.begin(), intersections.end() );
+		intersections = GetLineIntersections( triangle.GetVert0(), triangle.GetVec02() );
+		visiblePoints.insert( visiblePoints.end(), intersections.begin(), intersections.end() );
+		intersections = GetLineIntersections( triangle.GetVert1(), triangle.GetVec12() );
+		visiblePoints.insert( visiblePoints.end(), intersections.begin(), intersections.end() );
+
+		//get intersections between edges of the view frustum and the triangle
+		for ( auto vectorIt : edgeVectors )
+		{
+			frmr::Vec3f intersect;
+			bool doesIntersect = frmr::LinePlaneIntersection( triangle.GetNormal(), triangle.GetVert0(), position, vectorIt, true, intersect );
+			if ( doesIntersect )
+			{
+				if ( triangle.ContainsPoint( intersect ) )
+				{
+					visiblePoints.push_back( intersect );
+				}
+			}
+		}
+	}
+	return visiblePoints;
+}
+
 vector<frmr::Triangle> Frustum::GetFaces() const
 {
 	return faces;
@@ -53,7 +95,13 @@ Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRo
 
 //vertices must be listed counter-clockwise
 Frustum::Frustum( const frmr::Vec3f &cameraPosition, const vector<frmr::Vec3f> &vertices )
+	: position( cameraPosition )
 {
+	for ( auto vertexIt : vertices )
+	{
+		edgeVectors.push_back( vertexIt - cameraPosition );
+	}
+
 	if ( vertices.size() < 2 )
 	{
 		cout << "Frustum::Frustum() - Not enough vertices supplied to frustum constructor." << endl;
