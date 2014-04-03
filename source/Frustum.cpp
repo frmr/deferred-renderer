@@ -46,25 +46,6 @@ vector<frmr::Triangle> Frustum::GetFaces() const
 	return faces;
 }
 
-Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY )
-{
-    //create four triangles
-    //calculate the four far points
-    float halfFovX = 0.5f * fovX;
-    float halfFovY = 0.5f * fovY;
-
-    frmr::Vec3f topLeftPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() + halfFovY, cameraRotation.GetY() + halfFovX ) * 1000.0f;
-    frmr::Vec3f topRightPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() + halfFovY, cameraRotation.GetY() - halfFovX ) * 1000.0f;
-    frmr::Vec3f bottomRightPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() - halfFovY, cameraRotation.GetY() - halfFovX ) * 1000.0f;
-    frmr::Vec3f bottomLeftPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() - halfFovY, cameraRotation.GetY() + halfFovX ) * 1000.0f;
-
-	//face vertices declared counter-clockwise
-	faces.push_back( frmr::Triangle( cameraPosition, topRightPoint,		topLeftPoint ) );
-	faces.push_back( frmr::Triangle( cameraPosition, topLeftPoint, 		bottomLeftPoint ) );
-	faces.push_back( frmr::Triangle( cameraPosition, bottomLeftPoint,	bottomRightPoint ) );
-	faces.push_back( frmr::Triangle( cameraPosition, bottomRightPoint, 	topRightPoint ) );
-}
-
 Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY, const float nearPlane, const float farPlane )
 {
     //create 12 triangles

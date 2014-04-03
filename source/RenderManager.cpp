@@ -153,7 +153,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glUniform1i( surfaceTextureID, 0 );
 
     glPushMatrix();
-        gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveVerticalFOV() );
+        //gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveVerticalFOV() );
+        gameSim.RenderLit( engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
         int viewportParams[4];
         float modelViewParams[16];
         float projectionParams[16];
@@ -324,7 +325,8 @@ void RenderManager::SimpleRender( const Simulation &gameSim, const EngineConfig 
     glEnable( GL_DEPTH_TEST );
     glDisable( GL_CULL_FACE );
     glUseProgram( 0 );
-    gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveVerticalFOV() );
+    //gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveVerticalFOV() );
+    gameSim.RenderLit( engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 }
 
 RenderManager::RenderManager( const EngineConfig &engineCfg )

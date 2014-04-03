@@ -28,22 +28,38 @@ vector<Light> Simulation::GetStaticLights() const
     return staticGeometry.GetStaticLights();
 }
 
-void Simulation::RenderLit( const float fovX, const float fovY ) const
+//void Simulation::RenderLit( const float fovX, const float fovY ) const
+void Simulation::RenderLit( const int windowWidth, const int windowHeight ) const
 {
-    //construct view frustum
     frmr::Vec3f viewVector = activeCamera.GetViewVector();
-    Frustum viewFrustum( activeCamera.GetPosition(), activeCamera.GetRotation(), fovX, fovY );
-    //cout << activeCamera.GetPosition().GetX() << " " << activeCamera.GetPosition().GetY() << " " << activeCamera.GetPosition().GetZ() << endl;
-//    cout << viewVector.GetX() << " " << viewVector.GetY() << " " << viewVector.GetZ() << endl;
-//    for ( auto face : viewFrustum.GetFaces() )
-//	{
-//		cout << face.GetVert1().GetX() << " " << face.GetVert1().GetY() << " " << face.GetVert1().GetZ() << endl;
-//	}
-//	cout << "------------------" << endl;
 
     glRotatef( -activeCamera.GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
     glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
     glTranslatef( -activeCamera.GetPosition().GetX(), -activeCamera.GetPosition().GetY(), -activeCamera.GetPosition().GetZ() );
+
+	//unproject the four corners of the screen, then use them to build the view frustum
+	int viewportParams[4];
+	double modelViewParams[16];
+	double projectionParams[16];
+
+	glGetIntegerv( GL_VIEWPORT, viewportParams );
+	glGetDoublev( GL_MODELVIEW_MATRIX, modelViewParams );
+	glGetDoublev( GL_PROJECTION_MATRIX, projectionParams );
+
+	vector<frmr::Vec3f> frustumVertices;
+	double objX, objY, objZ;
+
+	gluUnProject( 0.0, (double) windowHeight, 0.0, &modelViewParams[0], &projectionParams[0], &viewportParams[0], &objX, &objY, &objZ ); //top left
+	frustumVertices.push_back( activeCamera.GetPosition() + ( frmr::Vec3f( (float) objX, (float) objY, (float) objZ ) - activeCamera.GetPosition() ) * 1000.0f );
+	gluUnProject( 0.0, 0.0, 0.0, &modelViewParams[0], &projectionParams[0], &viewportParams[0], &objX, &objY, &objZ ); //bottom left
+	frustumVertices.push_back( activeCamera.GetPosition() + ( frmr::Vec3f( (float) objX, (float) objY, (float) objZ ) - activeCamera.GetPosition() ) * 1000.0f );
+	gluUnProject( (double) windowWidth, 0.0, 0.0, &modelViewParams[0], &projectionParams[0], &viewportParams[0], &objX, &objY, &objZ ); //bottom right
+	frustumVertices.push_back( activeCamera.GetPosition() + ( frmr::Vec3f( (float) objX, (float) objY, (float) objZ ) - activeCamera.GetPosition() ) * 1000.0f );
+	gluUnProject( (double) windowWidth, (double) windowHeight, 0.0, &modelViewParams[0], &projectionParams[0], &viewportParams[0], &objX, &objY, &objZ ); //top right
+	frustumVertices.push_back( activeCamera.GetPosition() + ( frmr::Vec3f( (float) objX, (float) objY, (float) objZ ) - activeCamera.GetPosition() ) * 1000.0f );
+
+    Frustum viewFrustum( activeCamera.GetPosition(), frustumVertices );
+
     staticGeometry.Render( activeCamera.GetCurrentZoneNum(), activeCamera.GetPosition(), viewFrustum );
 }
 

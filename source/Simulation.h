@@ -36,6 +36,7 @@ public:
     Camera          GetCamera() const;
     vector<Light>   GetStaticLights() const;
     void            RenderLit( const float fovX, const float fovY ) const;
+    void            RenderLit( const int windowWidth, const int windowHeight ) const;
 	void            Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:
