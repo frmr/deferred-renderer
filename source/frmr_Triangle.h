@@ -14,6 +14,7 @@ namespace frmr
 
         frmr::Vec3f vec01; //vector from vert0 to vert1
         frmr::Vec3f vec02; //vector from vert0 to vert2
+        frmr::Vec3f vec12; //vector from vert1 to vert2
 
         frmr::Vec3f normal;
 
@@ -29,6 +30,7 @@ namespace frmr
 
         frmr::Vec3f GetVec01() const;
         frmr::Vec3f GetVec02() const;
+        frmr::Vec3f GetVec12() const;
 
         frmr::Vec3f GetNormal() const;
 
@@ -36,7 +38,7 @@ namespace frmr
         Triangle( const frmr::Vec3f &vert0, const frmr::Vec3f &vert1, const frmr::Vec3f &vert2 );
 
         Triangle( const frmr::Vec3f &vert0, const frmr::Vec3f &vert1, const frmr::Vec3f &vert2,
-                  const frmr::Vec3f &vec01, const frmr::Vec3f &vec02,
+                  const frmr::Vec3f &vec01, const frmr::Vec3f &vec02, const frmr::Vec3f &vec12,
                   const frmr::Vec3f &normal );
 
         Triangle( const frmr::Vec3f &vert0, const frmr::Vec3f &vert1, const frmr::Vec3f &vert2,

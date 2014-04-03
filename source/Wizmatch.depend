@@ -2478,7 +2478,7 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1396533295 x:\produce\wizmatch\source\staticgeometry.h
+1396536469 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
@@ -2545,11 +2545,11 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1396531270 source:x:\produce\wizmatch\source\frmr_triangle.cpp
+1396537779 source:x:\produce\wizmatch\source\frmr_triangle.cpp
 	"frmr_Triangle.h"
 	"frmr_math.h"
 
-1382573290 x:\produce\wizmatch\source\frmr_triangle.h
+1396537711 x:\produce\wizmatch\source\frmr_triangle.h
 	"frmr_Vec3f.h"
 
 1380501720 x:\produce\wizmatch\source\octree.h

@@ -48,6 +48,11 @@ frmr::Vec3f frmr::Triangle::GetVec02() const
     return vec02;
 }
 
+frmr::Vec3f frmr::Triangle::GetVec12() const
+{
+	return vec12;
+}
+
 frmr::Vec3f frmr::Triangle::GetNormal() const
 {
     return normal;
@@ -59,18 +64,20 @@ frmr::Triangle::Triangle( const frmr::Vec3f &vert0, const frmr::Vec3f &vert1, co
       vert2( vert2 ),
       vec01( vert1 - vert0 ),
       vec02( vert2 - vert0 ),
+      vec12( vert2 - vert1 ),
       normal( CalculateNormal() )
 {
 }
 
 frmr::Triangle::Triangle( const frmr::Vec3f &vert0, const frmr::Vec3f &vert1, const frmr::Vec3f &vert2,
-                          const frmr::Vec3f &vec01, const frmr::Vec3f &vec02,
+                          const frmr::Vec3f &vec01, const frmr::Vec3f &vec02, const frmr::Vec3f &vec12,
                           const frmr::Vec3f &normal )
     : vert0( vert0 ),
       vert1( vert1 ),
       vert2( vert2 ),
       vec01( vec01 ),
       vec02( vec02 ),
+      vec12( vec12 ),
       normal( normal )
 {
 }
@@ -82,6 +89,7 @@ frmr::Triangle::Triangle( const frmr::Vec3f &vert0, const frmr::Vec3f &vert1, co
       vert2( vert2 ),
       vec01( vert1 - vert0 ),
       vec02( vert2 - vert0 ),
+      vec12( vert2 - vert1 ),
       normal( normal )
 {
 }

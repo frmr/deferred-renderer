@@ -10,37 +10,43 @@
 using std::cout;
 using std::endl;
 
-vector<frmr::Vec3f> StaticGeometry::Portal::CheckVisibility( const frmr::Vec3f &cameraPosition ) const
+vector<frmr::Vec3f> StaticGeometry::Portal::CheckVisibility( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const
 {
     vector<frmr::Vec3f> visiblePoints;
 
     for ( auto triangleIt : triangles )
     {
-        //if triangle is facing the camera
-
-        bool vert0Visible, vert1Visible, vert2Visible;
-        vert0Visible = vert1Visible = vert2Visible = false;
-
-        //for each vertex
-        //  if within frustum
-        //      add to visible points
-
-        //if all three vertices are visible
-        //  great! add them to visiblePoints and move onto the next triangle
-        //else
-        //  for each edge
-        //      if edge is at all visible (use vertex info)
-        //          get collisions with frustum and add them to visiblePoints
-        //  for each frustum line
-        //      get collision with triangle and add it to visiblePoints
-
         frmr::Vec3f cameraToTriangleVector = triangleIt.GetVert0() - cameraPosition;
 
-        if ( frmr::VectorDot( triangleIt.GetNormal(), cameraToTriangleVector.Unit() ) > 0.0f ) //TODO: Make sure portal faces are declared counter-clockwise
+        if ( frmr::VectorDot( triangleIt.GetNormal(), cameraToTriangleVector.Unit() ) > 0.0f ) //TODO: Make sure portal faces are declared counter-clockwise when exported
         {
-        	cout << "portal " << targetZoneNum << endl;
-            //if triangle is within view frustum
-            //visible = true;
+        	//check if each vertex is within the view frustum
+        	bool vert0Visible = viewFrustum.Contains( triangleIt.GetVert0() );
+        	bool vert1Visible = viewFrustum.Contains( triangleIt.GetVert1() );
+        	bool vert2Visible = viewFrustum.Contains( triangleIt.GetVert2() );
+
+        	if ( vert0Visible ) { visiblePoints.push_back( triangleIt.GetVert0() ); }
+        	if ( vert1Visible ) { visiblePoints.push_back( triangleIt.GetVert1() ); }
+        	if ( vert2Visible ) { visiblePoints.push_back( triangleIt.GetVert2() ); }
+
+			//if the entire triangle is within the view frustum
+        	if ( vert0Visible && vert1Visible && vert2Visible )
+			{
+				continue;
+			}
+			else
+			{
+				//get intersections between triangle edges and the faces of the view frustum
+				vector<frmr::Vec3f> intersections;
+				intersections = viewFrustum.GetIntersections( triangleIt.GetVert0(), triangleIt.GetVec01() );
+				visiblePoints.insert( visiblePoints.end(), intersections.begin(), intersections.end() );
+				intersections = viewFrustum.GetIntersections( triangleIt.GetVert0(), triangleIt.GetVec02() );
+				visiblePoints.insert( visiblePoints.end(), intersections.begin(), intersections.end() );
+				intersections = viewFrustum.GetIntersections( triangleIt.GetVert1(), triangleIt.GetVec12() );
+				visiblePoints.insert( visiblePoints.end(), intersections.begin(), intersections.end() );
+
+				//TODO: if all the above doesn't do it, get intersections between edges of the view frustum and the triangle
+			}
         }
     }
 
@@ -134,8 +140,7 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
 
         if ( !targetZoneRendered )
         {
-            //if ( portalIt.IsVisible( cameraPosition, viewFrustum ) )
-            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition ); //send view frustum
+            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition, viewFrustum ); //send view frustum
             if ( !visiblePoints.empty() )
             {
             	//gluProject all points

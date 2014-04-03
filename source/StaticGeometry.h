@@ -23,7 +23,7 @@ private:
         int16_t                 targetZoneNum;
 
     public:
-        vector<frmr::Vec3f>		CheckVisibility( const frmr::Vec3f &cameraPosition ) const;
+        vector<frmr::Vec3f>		CheckVisibility( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const;
         void    				Render() const;
         int16_t 				GetTargetZoneNum() const;
 
