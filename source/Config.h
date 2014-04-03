@@ -14,7 +14,7 @@ private:
     int     fullscreenWidth;
     int     fullscreenHeight;
     bool    fullscreen;
-    int     fov;
+    float   fov;
     bool    filterTextures;
     float   masterVolume;
     float   effectsVolume;
@@ -29,7 +29,8 @@ public:
     int     GetActiveWidth() const;
     int     GetActiveHeight() const;
     bool    GetFullscreen() const;
-    int     GetFOV() const;
+    float	GetFOV() const;
+	float	GetActiveVerticalFOV() const;
     bool    GetFilterTextures() const;
     float   GetMasterVolume() const;
     float   GetEffectsVolume() const;

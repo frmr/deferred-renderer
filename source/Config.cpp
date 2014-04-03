@@ -9,7 +9,8 @@ int     EngineConfig::GetFullscreenHeight() const   { return fullscreenHeight; }
 int     EngineConfig::GetActiveWidth() const        { return ( fullscreen ) ? fullscreenWidth : windowWidth; }
 int     EngineConfig::GetActiveHeight() const       { return ( fullscreen ) ? fullscreenHeight : windowHeight; }
 bool    EngineConfig::GetFullscreen() const         { return fullscreen; }
-int     EngineConfig::GetFOV() const                { return fov; }
+float	EngineConfig::GetFOV() const                { return fov; }
+float	EngineConfig::GetActiveVerticalFOV() const	{ return (float) GetActiveHeight() / (float) GetActiveWidth() * fov; }
 bool    EngineConfig::GetFilterTextures() const     { return filterTextures; }
 float   EngineConfig::GetMasterVolume() const       { return masterVolume; }
 float   EngineConfig::GetEffectsVolume() const      { return effectsVolume; }
@@ -24,7 +25,7 @@ EngineConfig::EngineConfig( const string &configFilename )
     fullscreenWidth = 800;
     fullscreenHeight = 600;
     fullscreen = false;
-    fov = 120;
+    fov = 120.0f;
     filterTextures = false;
     masterVolume = 1.0f;
     effectsVolume = 1.0f;
@@ -40,7 +41,7 @@ EngineConfig::EngineConfig( const string &configFilename )
         else if ( lineIt[0] == "fullscreenWidth" )  { fullscreenWidth = atoi( lineIt[1].c_str() ); }
         else if ( lineIt[0] == "fullscreenHeight" ) { fullscreenHeight = atoi( lineIt[1].c_str() ); }
         else if ( lineIt[0] == "fullscreen" )       { fullscreen = atoi( lineIt[1].c_str() ); }
-        else if ( lineIt[0] == "fov" )              { fov = atoi( lineIt[1].c_str() ); }
+        else if ( lineIt[0] == "fov" )              { fov = atof( lineIt[1].c_str() ); }
         else if ( lineIt[0] == "fulterTextures" )   { filterTextures = atoi( lineIt[1].c_str() ); }
         else if ( lineIt[0] == "masterVolume" )     { masterVolume = atof( lineIt[1].c_str() ); }
         else if ( lineIt[0] == "effectsVolume" )    { effectsVolume = atof( lineIt[1].c_str() ) ; }

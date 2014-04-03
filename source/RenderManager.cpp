@@ -107,7 +107,7 @@ void RenderManager::SetToPerspectiveProjection( const EngineConfig &engineCfg ) 
 {
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    gluPerspective( (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 5000.0f );
+    gluPerspective( engineCfg.GetActiveVerticalFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 5000.0f );
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 }
@@ -153,7 +153,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glUniform1i( surfaceTextureID, 0 );
 
     glPushMatrix();
-        gameSim.RenderLit( engineCfg.GetFOV(), (float) engineCfg.GetActiveHeight() / (float) engineCfg.GetActiveWidth() * (float) engineCfg.GetFOV() );
+        gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveVerticalFOV() );
         int viewportParams[4];
         float modelViewParams[16];
         float projectionParams[16];
@@ -324,7 +324,7 @@ void RenderManager::SimpleRender( const Simulation &gameSim, const EngineConfig 
     glEnable( GL_DEPTH_TEST );
     glDisable( GL_CULL_FACE );
     glUseProgram( 0 );
-    gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveHeight() / engineCfg.GetActiveWidth() * engineCfg.GetFOV() );
+    gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveVerticalFOV() );
 }
 
 RenderManager::RenderManager( const EngineConfig &engineCfg )

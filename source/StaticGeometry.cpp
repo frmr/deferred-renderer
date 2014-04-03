@@ -111,12 +111,6 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
 {
     renderedZonesRef.push_back( zoneNum );
 
-    for ( auto renderedZoneIt : renderedZonesRef )
-    {
-        cout << renderedZoneIt << " ";
-    }
-    cout << endl;
-
 	//draw the visible parts of the room
     for ( auto texTriangleGroupIt : texTriangleGroups )
     {
@@ -140,14 +134,14 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
 
         if ( !targetZoneRendered )
         {
-            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition, viewFrustum ); //send view frustum
+            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition, viewFrustum );
             if ( !visiblePoints.empty() )
             {
             	//gluProject all points
 				//find AABB
 				//apply glScissor
 				//construct new frustum from AABB vertices
-				Frustum newFrustum(  );
+				//Frustum newFrustum(  );
                 //zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, newFrustum, zones, renderedZonesRef );
                 zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, viewFrustum, zones, renderedZonesRef );
             }
@@ -332,6 +326,12 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
     vector<int> renderedZones; //TODO: Return this when we're done so that Simulation knows which Actors to render
 
     zones[cameraZoneNum].Render( cameraPosition, viewFrustum, zones, renderedZones );
+
+    for ( auto renderedZoneIt : renderedZones )
+    {
+        cout << renderedZoneIt << " ";
+    }
+    cout << endl;
 }
 
 StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )

@@ -50,12 +50,12 @@ Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRo
 {
     //create four triangles
     //calculate the four far points
-    float halfFovX = fovX / 2.0f;
-    float halfFovY = fovY / 2.0f;
+    float halfFovX = 0.5f * fovX;
+    float halfFovY = 0.5f * fovY;
 
-    frmr::Vec3f topLeftPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() - halfFovY, cameraRotation.GetY() - halfFovX ) * 1000.0f;
+    frmr::Vec3f topLeftPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() + halfFovY, cameraRotation.GetY() + halfFovX ) * 1000.0f;
     frmr::Vec3f topRightPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() + halfFovY, cameraRotation.GetY() - halfFovX ) * 1000.0f;
-    frmr::Vec3f bottomRightPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() + halfFovY, cameraRotation.GetY() + halfFovX ) * 1000.0f;
+    frmr::Vec3f bottomRightPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() - halfFovY, cameraRotation.GetY() - halfFovX ) * 1000.0f;
     frmr::Vec3f bottomLeftPoint = cameraPosition + frmr::CalculateVectorFromRotation( cameraRotation.GetX() - halfFovY, cameraRotation.GetY() + halfFovX ) * 1000.0f;
 
 	//face vertices declared counter-clockwise
