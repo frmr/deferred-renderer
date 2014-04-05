@@ -1032,7 +1032,7 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1396716452 source:x:\produce\wizmatch\source\simulation.cpp
+1396718091 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
@@ -2480,13 +2480,14 @@
 	"frmr_Vec2f.h"
 	"frmr_Vec3f.h"
 
-1396536469 x:\produce\wizmatch\source\staticgeometry.h
+1396719732 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
 	"AssetManager.h"
 	"Frustum.h"
 	"Light.h"
+	"ProjectionState.h"
 	"frmr_Triangle.h"
 
 1378770529 source:x:\produce\wizmatch\source\frmr_shader.cpp
@@ -2618,7 +2619,7 @@
 	<SFML/OpenGL.hpp>
 	"ProjectionMatrices.h"
 
-1396706519 x:\produce\wizmatch\source\projectionstate.h
+1396719897 x:\produce\wizmatch\source\projectionstate.h
 	"frmr_Vec3f.h"
 
 1396716172 source:x:\produce\wizmatch\source\projectionstate.cpp

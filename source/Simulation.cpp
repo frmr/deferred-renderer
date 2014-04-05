@@ -50,7 +50,7 @@ ProjectionState Simulation::RenderLit( const int windowWidth, const int windowHe
 
 		Frustum viewFrustum( activeCamera.GetPosition(), frustumVertices );
 
-		staticGeometry.Render( activeCamera.GetCurrentZoneNum(), activeCamera.GetPosition(), viewFrustum );
+		staticGeometry.Render( activeCamera.GetCurrentZoneNum(), activeCamera.GetPosition(), cameraProjection, viewFrustum );
 
     glPopMatrix();
 

@@ -8,6 +8,7 @@
 #include "AssetManager.h"
 #include "Frustum.h"
 #include "Light.h"
+#include "ProjectionState.h"
 #include "frmr_Triangle.h"
 
 using std::vector;
@@ -61,7 +62,7 @@ private:
         void 			DeleteDisplayLists();
         vector<Light> 	GetLights() const;
         int16_t 		GetZoneNum() const;
-        void 			Render( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const; //recusively renders all visible zones
+        void 			Render( const frmr::Vec3f &cameraPosition, const ProjectionState &cameraProjection, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const; //recusively renders all visible zones
 
     public:
         Zone( const int16_t zoneNum, const vector<TexTriangleGroup> &texTriangleGroups, const vector<frmr::Triangle> &collTriangles, const vector<Portal> &portals, const vector<Light> &lights );
@@ -75,7 +76,7 @@ private:
 
 public:
     vector<Light>   GetStaticLights() const;
-    void 			Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const;
+    void 			Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const ProjectionState &cameraProjection, const Frustum &viewFrustum ) const;
 
 public:
     //StaticGeometry( const string &octreeFilename, const string &zoneDataFilename,  );

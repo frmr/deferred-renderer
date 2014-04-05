@@ -16,8 +16,8 @@ private:
 	void MultiplyMatrices( const float matInA[16], const float matInB[16], float matOut[16] ) const;
 
 public:
-	frmr::Vec3f	Project( const frmr::Vec3f &objectCoord );
-	frmr::Vec3f	UnProject( const frmr::Vec3f &windowCoord );
+	frmr::Vec3f	Project( const frmr::Vec3f &objectCoord ) const;
+	frmr::Vec3f	UnProject( const frmr::Vec3f &windowCoord ) const;
 
 public:
 	void		CopyModelviewMatrix( double newModel[] );

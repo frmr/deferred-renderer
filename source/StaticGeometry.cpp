@@ -82,7 +82,7 @@ int16_t StaticGeometry::Zone::GetZoneNum() const
     return zoneNum;
 }
 
-void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const
+void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const ProjectionState &cameraProjection, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const
 {
     renderedZonesRef.push_back( zoneNum );
 
@@ -102,12 +102,18 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
             if ( !visiblePoints.empty() )
             {
             	//gluProject all points
+            	vector<frmr::Vec3f> projectedPoints;
+            	for ( auto pointIt : visiblePoints )
+				{
+					projectedPoints.push_back( cameraProjection.Project( pointIt ) );
+				}
 				//find AABB
+
 				//apply glScissor
-				//construct new frustum from AABB vertices
+				//construct new frustum from AABB vertices (UnProject)
 				//Frustum newFrustum(  );
                 //zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, newFrustum, zones, renderedZonesRef );
-                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, viewFrustum, zones, renderedZonesRef );
+                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, cameraProjection, viewFrustum, zones, renderedZonesRef );
             }
 		}
     }
@@ -280,7 +286,7 @@ vector<Light> StaticGeometry::GetStaticLights() const
     return foundLights;
 }
 
-void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const
+void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const ProjectionState &cameraProjection, const Frustum &viewFrustum ) const
 {
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
     //draw current zone
@@ -289,7 +295,7 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
 
     vector<int> renderedZones; //TODO: Return this when we're done so that Simulation knows which Actors to render
 
-    zones[cameraZoneNum].Render( cameraPosition, viewFrustum, zones, renderedZones );
+    zones[cameraZoneNum].Render( cameraPosition, cameraProjection, viewFrustum, zones, renderedZones );
 
     for ( auto renderedZoneIt : renderedZones )
     {
