@@ -98,12 +98,16 @@ void ProjectionState::MultiplyMatrices( const float matInA[16], const float matI
 
 frmr::Vec3f ProjectionState::Project( const frmr::Vec3f &objectCoord )
 {
-
+	double winX, winY, winZ;
+	gluProject( (double) objectCoord.GetX(), (double) objectCoord.GetY(), (double) objectCoord.GetZ(), modelview, projection, viewport, &winX, &winY, &winZ );
+	return frmr::Vec3f( (float) winX, (float) winY, (float) winZ );
 }
 
 frmr::Vec3f ProjectionState::UnProject( const frmr::Vec3f &windowCoord )
 {
-
+	double objX, objY, objZ;
+	gluUnProject( (double) windowCoord.GetX(), (double) windowCoord.GetY(), (double) windowCoord.GetZ(), modelview, projection, viewport, &objX, &objY, &objZ );
+	return frmr::Vec3f( (float) objX, (float) objY, (float) objZ );
 }
 
 ProjectionState::ProjectionState()

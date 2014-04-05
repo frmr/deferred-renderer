@@ -96,20 +96,9 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
     for ( auto portalIt : portals )
     {
         //if portal target zone not already rendered
-        bool targetZoneRendered = false;
-
-        for ( auto renderedZone : renderedZonesRef ) //TODO: use std::find here
-        {
-            if ( portalIt.GetTargetZoneNum() == renderedZone )
-            {
-                targetZoneRendered = true;
-                break;
-            }
-        }
-
-        if ( !targetZoneRendered )
-        {
-            vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition, viewFrustum );
+        if ( std::find( renderedZonesRef.begin(), renderedZonesRef.end(), portalIt.GetTargetZoneNum() ) == renderedZonesRef.end() )
+		{
+			vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition, viewFrustum );
             if ( !visiblePoints.empty() )
             {
             	//gluProject all points
@@ -120,7 +109,7 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Frus
                 //zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, newFrustum, zones, renderedZonesRef );
                 zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, viewFrustum, zones, renderedZonesRef );
             }
-        }
+		}
     }
 }
 

@@ -1,8 +1,6 @@
 #ifndef PROJECTION_STATE_H
 #define PROJECTION_STATE_H
 
-#include <memory>
-
 #include "frmr_Vec3f.h"
 
 class ProjectionState
