@@ -10,7 +10,7 @@ using std::endl;
 
 namespace frmr
 {
-	template <typename T>
+	template <class T>
 	class Encoder
 	{
 		private:

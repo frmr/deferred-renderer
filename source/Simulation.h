@@ -10,6 +10,7 @@
 #include "InputState.h"
 #include "Light.h"
 #include "Player.h"
+#include "ProjectionState.h"
 #include "StaticGeometry.h"
 
 using std::string;
@@ -32,12 +33,11 @@ private:
     void UnloadCurrentMap();
 
 public:
-    bool            ChangeMap( const string filename );
-    Camera          GetCamera() const;
-    vector<Light>   GetStaticLights() const;
-    void            RenderLit( const float fovX, const float fovY ) const;
-    void            RenderLit( const int windowWidth, const int windowHeight ) const;
-	void            Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
+    bool            	ChangeMap( const string filename );
+    Camera          	GetCamera() const;
+    vector<Light>   	GetStaticLights() const;
+	ProjectionState		RenderLit( const int windowWidth, const int windowHeight ) const;
+	void            	Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:
 	Simulation( const AssetManager &assets );

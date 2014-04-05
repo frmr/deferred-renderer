@@ -78,6 +78,8 @@
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="Potion.h" />
+		<Unit filename="ProjectionMatrices.cpp" />
+		<Unit filename="ProjectionMatrices.h" />
 		<Unit filename="RenderManager.cpp" />
 		<Unit filename="RenderManager.h" />
 		<Unit filename="Server.h" />

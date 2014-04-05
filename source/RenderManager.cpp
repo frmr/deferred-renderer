@@ -1,7 +1,7 @@
 #include "RenderManager.h"
 
 #include "IcosphereGenerator.h"
-
+#include "ProjectionState.h"
 #include <iostream>
 
 using std::cout;
@@ -28,30 +28,30 @@ GLuint RenderManager::CreateFullscreenQuad( const EngineConfig &engineCfg ) cons
 }
 
 //this code is from MESA implementation of GLU's gluInvertMatrix(), although it is slightly modified
-bool RenderManager::InvertMatrixGL( const float matrixIn[16], float matrixOut[16] ) const
+bool RenderManager::InvertMatrixGL( const float matIn[16], float matOut[16] ) const
 {
     float inv[16];
     float det;
     int i;
 
-    inv[0] = matrixIn[5] * matrixIn[10] * matrixIn[15] - matrixIn[5] * matrixIn[11] * matrixIn[14] - matrixIn[9] * matrixIn[6] * matrixIn[15] + matrixIn[9] * matrixIn[7] * matrixIn[14] + matrixIn[13] * matrixIn[6] * matrixIn[11] - matrixIn[13] * matrixIn[7] * matrixIn[10];
-    inv[4] = -matrixIn[4] * matrixIn[10] * matrixIn[15] + matrixIn[4] * matrixIn[11] * matrixIn[14] + matrixIn[8] * matrixIn[6] * matrixIn[15] - matrixIn[8] * matrixIn[7] * matrixIn[14] - matrixIn[12] * matrixIn[6] * matrixIn[11] + matrixIn[12] * matrixIn[7] * matrixIn[10];
-    inv[8] = matrixIn[4] * matrixIn[9] * matrixIn[15] - matrixIn[4] * matrixIn[11] * matrixIn[13] - matrixIn[8] * matrixIn[5] * matrixIn[15] + matrixIn[8] * matrixIn[7] * matrixIn[13] + matrixIn[12] * matrixIn[5] * matrixIn[11] - matrixIn[12] * matrixIn[7] * matrixIn[9];
-    inv[12] = -matrixIn[4] * matrixIn[9] * matrixIn[14] + matrixIn[4] * matrixIn[10] * matrixIn[13] + matrixIn[8] * matrixIn[5] * matrixIn[14] - matrixIn[8] * matrixIn[6] * matrixIn[13] - matrixIn[12] * matrixIn[5] * matrixIn[10] + matrixIn[12] * matrixIn[6] * matrixIn[9];
-    inv[1] = -matrixIn[1] * matrixIn[10] * matrixIn[15] + matrixIn[1] * matrixIn[11] * matrixIn[14] + matrixIn[9] * matrixIn[2] * matrixIn[15] - matrixIn[9] * matrixIn[3] * matrixIn[14] - matrixIn[13] * matrixIn[2] * matrixIn[11] + matrixIn[13] * matrixIn[3] * matrixIn[10];
-    inv[5] = matrixIn[0] * matrixIn[10] * matrixIn[15] - matrixIn[0] * matrixIn[11] * matrixIn[14] - matrixIn[8] * matrixIn[2] * matrixIn[15] + matrixIn[8] * matrixIn[3] * matrixIn[14] + matrixIn[12] * matrixIn[2] * matrixIn[11] - matrixIn[12] * matrixIn[3] * matrixIn[10];
-    inv[9] = -matrixIn[0] * matrixIn[9] * matrixIn[15] + matrixIn[0] * matrixIn[11] * matrixIn[13] + matrixIn[8] * matrixIn[1] * matrixIn[15] - matrixIn[8] * matrixIn[3] * matrixIn[13] - matrixIn[12] * matrixIn[1] * matrixIn[11] + matrixIn[12] * matrixIn[3] * matrixIn[9];
-    inv[13] = matrixIn[0] * matrixIn[9] * matrixIn[14] - matrixIn[0] * matrixIn[10] * matrixIn[13] - matrixIn[8] * matrixIn[1] * matrixIn[14] + matrixIn[8] * matrixIn[2] * matrixIn[13] + matrixIn[12] * matrixIn[1] * matrixIn[10] - matrixIn[12] * matrixIn[2] * matrixIn[9];
-    inv[2] = matrixIn[1] * matrixIn[6] * matrixIn[15] - matrixIn[1] * matrixIn[7] * matrixIn[14] - matrixIn[5] * matrixIn[2] * matrixIn[15] + matrixIn[5] * matrixIn[3] * matrixIn[14] + matrixIn[13] * matrixIn[2] * matrixIn[7] - matrixIn[13] * matrixIn[3] * matrixIn[6];
-    inv[6] = -matrixIn[0] * matrixIn[6] * matrixIn[15] + matrixIn[0] * matrixIn[7] * matrixIn[14] + matrixIn[4] * matrixIn[2] * matrixIn[15] - matrixIn[4] * matrixIn[3] * matrixIn[14] - matrixIn[12] * matrixIn[2] * matrixIn[7] + matrixIn[12] * matrixIn[3] * matrixIn[6];
-    inv[10] = matrixIn[0] * matrixIn[5] * matrixIn[15] - matrixIn[0] * matrixIn[7] * matrixIn[13] - matrixIn[4]  * matrixIn[1] * matrixIn[15] + matrixIn[4] * matrixIn[3] * matrixIn[13] + matrixIn[12] * matrixIn[1] * matrixIn[7] - matrixIn[12] * matrixIn[3] * matrixIn[5];
-    inv[14] = -matrixIn[0] * matrixIn[5] * matrixIn[14] + matrixIn[0] * matrixIn[6] * matrixIn[13] + matrixIn[4] * matrixIn[1] * matrixIn[14] - matrixIn[4] * matrixIn[2] * matrixIn[13] - matrixIn[12] * matrixIn[1] * matrixIn[6] + matrixIn[12] * matrixIn[2] * matrixIn[5];
-    inv[3] = -matrixIn[1] * matrixIn[6] * matrixIn[11] + matrixIn[1] * matrixIn[7] * matrixIn[10] + matrixIn[5] * matrixIn[2] * matrixIn[11] - matrixIn[5] * matrixIn[3] * matrixIn[10] - matrixIn[9] * matrixIn[2] * matrixIn[7] + matrixIn[9] * matrixIn[3] * matrixIn[6];
-    inv[7] = matrixIn[0] * matrixIn[6] * matrixIn[11] - matrixIn[0] * matrixIn[7] * matrixIn[10] - matrixIn[4] * matrixIn[2] * matrixIn[11] + matrixIn[4] * matrixIn[3] * matrixIn[10] + matrixIn[8] * matrixIn[2] * matrixIn[7] - matrixIn[8] * matrixIn[3] * matrixIn[6];
-    inv[11] = -matrixIn[0] * matrixIn[5] * matrixIn[11] + matrixIn[0] * matrixIn[7] * matrixIn[9] + matrixIn[4] * matrixIn[1] * matrixIn[11] - matrixIn[4] * matrixIn[3] * matrixIn[9] - matrixIn[8] * matrixIn[1] * matrixIn[7] + matrixIn[8] * matrixIn[3] * matrixIn[5];
-    inv[15] = matrixIn[0] * matrixIn[5] * matrixIn[10] - matrixIn[0] * matrixIn[6] * matrixIn[9] - matrixIn[4] * matrixIn[1] * matrixIn[10] + matrixIn[4] * matrixIn[2] * matrixIn[9] + matrixIn[8] * matrixIn[1] * matrixIn[6] - matrixIn[8] * matrixIn[2] * matrixIn[5];
+    inv[0] = matIn[5] * matIn[10] * matIn[15] - matIn[5] * matIn[11] * matIn[14] - matIn[9] * matIn[6] * matIn[15] + matIn[9] * matIn[7] * matIn[14] + matIn[13] * matIn[6] * matIn[11] - matIn[13] * matIn[7] * matIn[10];
+    inv[4] = -matIn[4] * matIn[10] * matIn[15] + matIn[4] * matIn[11] * matIn[14] + matIn[8] * matIn[6] * matIn[15] - matIn[8] * matIn[7] * matIn[14] - matIn[12] * matIn[6] * matIn[11] + matIn[12] * matIn[7] * matIn[10];
+    inv[8] = matIn[4] * matIn[9] * matIn[15] - matIn[4] * matIn[11] * matIn[13] - matIn[8] * matIn[5] * matIn[15] + matIn[8] * matIn[7] * matIn[13] + matIn[12] * matIn[5] * matIn[11] - matIn[12] * matIn[7] * matIn[9];
+    inv[12] = -matIn[4] * matIn[9] * matIn[14] + matIn[4] * matIn[10] * matIn[13] + matIn[8] * matIn[5] * matIn[14] - matIn[8] * matIn[6] * matIn[13] - matIn[12] * matIn[5] * matIn[10] + matIn[12] * matIn[6] * matIn[9];
+    inv[1] = -matIn[1] * matIn[10] * matIn[15] + matIn[1] * matIn[11] * matIn[14] + matIn[9] * matIn[2] * matIn[15] - matIn[9] * matIn[3] * matIn[14] - matIn[13] * matIn[2] * matIn[11] + matIn[13] * matIn[3] * matIn[10];
+    inv[5] = matIn[0] * matIn[10] * matIn[15] - matIn[0] * matIn[11] * matIn[14] - matIn[8] * matIn[2] * matIn[15] + matIn[8] * matIn[3] * matIn[14] + matIn[12] * matIn[2] * matIn[11] - matIn[12] * matIn[3] * matIn[10];
+    inv[9] = -matIn[0] * matIn[9] * matIn[15] + matIn[0] * matIn[11] * matIn[13] + matIn[8] * matIn[1] * matIn[15] - matIn[8] * matIn[3] * matIn[13] - matIn[12] * matIn[1] * matIn[11] + matIn[12] * matIn[3] * matIn[9];
+    inv[13] = matIn[0] * matIn[9] * matIn[14] - matIn[0] * matIn[10] * matIn[13] - matIn[8] * matIn[1] * matIn[14] + matIn[8] * matIn[2] * matIn[13] + matIn[12] * matIn[1] * matIn[10] - matIn[12] * matIn[2] * matIn[9];
+    inv[2] = matIn[1] * matIn[6] * matIn[15] - matIn[1] * matIn[7] * matIn[14] - matIn[5] * matIn[2] * matIn[15] + matIn[5] * matIn[3] * matIn[14] + matIn[13] * matIn[2] * matIn[7] - matIn[13] * matIn[3] * matIn[6];
+    inv[6] = -matIn[0] * matIn[6] * matIn[15] + matIn[0] * matIn[7] * matIn[14] + matIn[4] * matIn[2] * matIn[15] - matIn[4] * matIn[3] * matIn[14] - matIn[12] * matIn[2] * matIn[7] + matIn[12] * matIn[3] * matIn[6];
+    inv[10] = matIn[0] * matIn[5] * matIn[15] - matIn[0] * matIn[7] * matIn[13] - matIn[4]  * matIn[1] * matIn[15] + matIn[4] * matIn[3] * matIn[13] + matIn[12] * matIn[1] * matIn[7] - matIn[12] * matIn[3] * matIn[5];
+    inv[14] = -matIn[0] * matIn[5] * matIn[14] + matIn[0] * matIn[6] * matIn[13] + matIn[4] * matIn[1] * matIn[14] - matIn[4] * matIn[2] * matIn[13] - matIn[12] * matIn[1] * matIn[6] + matIn[12] * matIn[2] * matIn[5];
+    inv[3] = -matIn[1] * matIn[6] * matIn[11] + matIn[1] * matIn[7] * matIn[10] + matIn[5] * matIn[2] * matIn[11] - matIn[5] * matIn[3] * matIn[10] - matIn[9] * matIn[2] * matIn[7] + matIn[9] * matIn[3] * matIn[6];
+    inv[7] = matIn[0] * matIn[6] * matIn[11] - matIn[0] * matIn[7] * matIn[10] - matIn[4] * matIn[2] * matIn[11] + matIn[4] * matIn[3] * matIn[10] + matIn[8] * matIn[2] * matIn[7] - matIn[8] * matIn[3] * matIn[6];
+    inv[11] = -matIn[0] * matIn[5] * matIn[11] + matIn[0] * matIn[7] * matIn[9] + matIn[4] * matIn[1] * matIn[11] - matIn[4] * matIn[3] * matIn[9] - matIn[8] * matIn[1] * matIn[7] + matIn[8] * matIn[3] * matIn[5];
+    inv[15] = matIn[0] * matIn[5] * matIn[10] - matIn[0] * matIn[6] * matIn[9] - matIn[4] * matIn[1] * matIn[10] + matIn[4] * matIn[2] * matIn[9] + matIn[8] * matIn[1] * matIn[6] - matIn[8] * matIn[2] * matIn[5];
 
-    det = matrixIn[0] * inv[0] + matrixIn[1] * inv[4] + matrixIn[2] * inv[8] + matrixIn[3] * inv[12];
+    det = matIn[0] * inv[0] + matIn[1] * inv[4] + matIn[2] * inv[8] + matIn[3] * inv[12];
 
     if ( det < 0.001f && det > -0.001f )
     {
@@ -62,31 +62,31 @@ bool RenderManager::InvertMatrixGL( const float matrixIn[16], float matrixOut[16
 
     for ( i = 0; i < 16; i++ )
     {
-        matrixOut[i] = inv[i] * det;
+        matOut[i] = inv[i] * det;
     }
 
     return true;
 }
 
 //this code is from GLU's MultiplyMatrices4by4OpenGL_FLOAT(), although the parameters have been renamed
-void RenderManager::MultiplyMatricesGL( const float matrixInA[16], const float matrixInB[16], float matrixOut[16] ) const
+void RenderManager::MultiplyMatricesGL( const float matInA[16], const float matInB[16], float matOut[16] ) const
 {
-    matrixOut[0] = matrixInA[0] * matrixInB[0] + matrixInA[4] * matrixInB[1] + matrixInA[8] * matrixInB[2] + matrixInA[12] * matrixInB[3];
-    matrixOut[4] = matrixInA[0] * matrixInB[4] + matrixInA[4] * matrixInB[5] + matrixInA[8] * matrixInB[6] + matrixInA[12] * matrixInB[7];
-    matrixOut[8] = matrixInA[0] * matrixInB[8] + matrixInA[4] * matrixInB[9] + matrixInA[8] * matrixInB[10] + matrixInA[12] * matrixInB[11];
-    matrixOut[12] = matrixInA[0] * matrixInB[12] + matrixInA[4] * matrixInB[13] + matrixInA[8] * matrixInB[14] + matrixInA[12] * matrixInB[15];
-    matrixOut[1] = matrixInA[1] * matrixInB[0] + matrixInA[5] * matrixInB[1] + matrixInA[9] * matrixInB[2] + matrixInA[13] * matrixInB[3];
-    matrixOut[5] = matrixInA[1] * matrixInB[4] + matrixInA[5] * matrixInB[5] + matrixInA[9] * matrixInB[6] + matrixInA[13] * matrixInB[7];
-    matrixOut[9] = matrixInA[1] * matrixInB[8] + matrixInA[5] * matrixInB[9] + matrixInA[9] * matrixInB[10] + matrixInA[13] * matrixInB[11];
-    matrixOut[13] = matrixInA[1] * matrixInB[12] + matrixInA[5] * matrixInB[13] + matrixInA[9] * matrixInB[14] + matrixInA[13] * matrixInB[15];
-    matrixOut[2] = matrixInA[2] * matrixInB[0] + matrixInA[6] * matrixInB[1] + matrixInA[10] * matrixInB[2] + matrixInA[14] * matrixInB[3];
-    matrixOut[6] = matrixInA[2] * matrixInB[4] + matrixInA[6] * matrixInB[5] + matrixInA[10] * matrixInB[6] + matrixInA[14] * matrixInB[7];
-    matrixOut[10] = matrixInA[2] * matrixInB[8] + matrixInA[6] * matrixInB[9] + matrixInA[10] * matrixInB[10] + matrixInA[14] * matrixInB[11];
-    matrixOut[14] = matrixInA[2] * matrixInB[12] + matrixInA[6] * matrixInB[13] + matrixInA[10] * matrixInB[14] + matrixInA[14] * matrixInB[15];
-    matrixOut[3] = matrixInA[3] * matrixInB[0] + matrixInA[7] * matrixInB[1] + matrixInA[11] * matrixInB[2] + matrixInA[15] * matrixInB[3];
-    matrixOut[7] = matrixInA[3] * matrixInB[4] + matrixInA[7] * matrixInB[5] + matrixInA[11] * matrixInB[6] + matrixInA[15] * matrixInB[7];
-    matrixOut[11] = matrixInA[3] * matrixInB[8] + matrixInA[7] * matrixInB[9] + matrixInA[11] * matrixInB[10] + matrixInA[15] * matrixInB[11];
-    matrixOut[15] = matrixInA[3] * matrixInB[12] + matrixInA[7] * matrixInB[13] + matrixInA[11] * matrixInB[14] + matrixInA[15] * matrixInB[15];
+    matOut[0] = matInA[0] * matInB[0] + matInA[4] * matInB[1] + matInA[8] * matInB[2] + matInA[12] * matInB[3];
+    matOut[4] = matInA[0] * matInB[4] + matInA[4] * matInB[5] + matInA[8] * matInB[6] + matInA[12] * matInB[7];
+    matOut[8] = matInA[0] * matInB[8] + matInA[4] * matInB[9] + matInA[8] * matInB[10] + matInA[12] * matInB[11];
+    matOut[12] = matInA[0] * matInB[12] + matInA[4] * matInB[13] + matInA[8] * matInB[14] + matInA[12] * matInB[15];
+    matOut[1] = matInA[1] * matInB[0] + matInA[5] * matInB[1] + matInA[9] * matInB[2] + matInA[13] * matInB[3];
+    matOut[5] = matInA[1] * matInB[4] + matInA[5] * matInB[5] + matInA[9] * matInB[6] + matInA[13] * matInB[7];
+    matOut[9] = matInA[1] * matInB[8] + matInA[5] * matInB[9] + matInA[9] * matInB[10] + matInA[13] * matInB[11];
+    matOut[13] = matInA[1] * matInB[12] + matInA[5] * matInB[13] + matInA[9] * matInB[14] + matInA[13] * matInB[15];
+    matOut[2] = matInA[2] * matInB[0] + matInA[6] * matInB[1] + matInA[10] * matInB[2] + matInA[14] * matInB[3];
+    matOut[6] = matInA[2] * matInB[4] + matInA[6] * matInB[5] + matInA[10] * matInB[6] + matInA[14] * matInB[7];
+    matOut[10] = matInA[2] * matInB[8] + matInA[6] * matInB[9] + matInA[10] * matInB[10] + matInA[14] * matInB[11];
+    matOut[14] = matInA[2] * matInB[12] + matInA[6] * matInB[13] + matInA[10] * matInB[14] + matInA[14] * matInB[15];
+    matOut[3] = matInA[3] * matInB[0] + matInA[7] * matInB[1] + matInA[11] * matInB[2] + matInA[15] * matInB[3];
+    matOut[7] = matInA[3] * matInB[4] + matInA[7] * matInB[5] + matInA[11] * matInB[6] + matInA[15] * matInB[7];
+    matOut[11] = matInA[3] * matInB[8] + matInA[7] * matInB[9] + matInA[11] * matInB[10] + matInA[15] * matInB[11];
+    matOut[15] = matInA[3] * matInB[12] + matInA[7] * matInB[13] + matInA[11] * matInB[14] + matInA[15] * matInB[15];
 }
 
 void RenderManager::ResetViewport( const EngineConfig &engineCfg ) const
@@ -152,21 +152,13 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glActiveTexture( GL_TEXTURE0 );
     glUniform1i( surfaceTextureID, 0 );
 
-    glPushMatrix();
-        //gameSim.RenderLit( engineCfg.GetFOV(), engineCfg.GetActiveVerticalFOV() );
-        gameSim.RenderLit( engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
-        int viewportParams[4];
-        float modelViewParams[16];
-        float projectionParams[16];
-        float perspectiveMatrix[16];
+	//render the simulation
+	ProjectionState cameraProjection = gameSim.RenderLit( engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
+	int viewportMatrix[4];
+	float perspectiveMatrix[16];
 
-        glGetIntegerv( GL_VIEWPORT, viewportParams );
-        glGetFloatv( GL_MODELVIEW_MATRIX, modelViewParams );
-        glGetFloatv( GL_PROJECTION_MATRIX, projectionParams );
-        MultiplyMatricesGL( projectionParams, modelViewParams, perspectiveMatrix );
-        InvertMatrixGL( perspectiveMatrix, perspectiveMatrix );
-
-    glPopMatrix();
+	cameraProjection.CopyViewportMatrix( viewportMatrix );
+	cameraProjection.CopyPerspectiveMatrix( perspectiveMatrix );
 
     StopRenderToFBO();
 
@@ -187,7 +179,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 	glUniform1i( normalsID, 0 );
 	glUniform1i( diffuseID, 1 );
 	glUniform1i( depthID, 2 );
-    glUniform4iv( viewportParamsID, 4, viewportParams );
+    glUniform4iv( viewportParamsID, 4, viewportMatrix );
     glUniformMatrix4fv( perspectiveMatrixID, 16, false, perspectiveMatrix );
     glUseProgram( 0 );
 

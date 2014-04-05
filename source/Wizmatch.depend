@@ -1032,12 +1032,12 @@
 	"Simulation.h"
 	"frmr_TimeManager.h"
 
-1396558952 source:x:\produce\wizmatch\source\simulation.cpp
+1396705508 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
 
-1396556006 x:\produce\wizmatch\source\simulation.h
+1396706014 x:\produce\wizmatch\source\simulation.h
 	<string>
 	<vector>
 	<map>
@@ -1046,6 +1046,7 @@
 	"InputState.h"
 	"Light.h"
 	"Player.h"
+	"ProjectionState.h"
 	"StaticGeometry.h"
 
 1396374870 x:\produce\wizmatch\source\player.h
@@ -2080,7 +2081,7 @@
 1376050337 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1385769409 x:\produce\wizmatch\source\rendermanager.h
+1396635821 x:\produce\wizmatch\source\rendermanager.h
 	"GL/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2423,9 +2424,10 @@
 	<string>
 	"GL/glew.h"
 
-1396556180 source:x:\produce\wizmatch\source\rendermanager.cpp
+1396706033 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
+	"ProjectionState.h"
 	<iostream>
 
 1376258476 source:x:\produce\wizmatch\source\glew\glew.c
@@ -2594,7 +2596,7 @@
 	<iostream>
 	"frmr_TextFile.h"
 
-1396558989 source:x:\produce\wizmatch\source\frustum.cpp
+1396569191 source:x:\produce\wizmatch\source\frustum.cpp
 	"Frustum.h"
 	<iostream>
 	"frmr_math.h"
@@ -2604,7 +2606,23 @@
 	"frmr_Triangle.h"
 	"frmr_Vec2f.h"
 
-1396454034 x:\produce\wizmatch\source\frmr_encoder.h
+1396668074 x:\produce\wizmatch\source\frmr_encoder.h
 	<string>
 	<iostream>
+
+1396705761 x:\produce\wizmatch\source\projectionmatrices.h
+	<memory>
+	"frmr_Vec3f.h"
+
+1396703110 source:x:\produce\wizmatch\source\projectionmatrices.cpp
+	<SFML/OpenGL.hpp>
+	"ProjectionMatrices.h"
+
+1396705978 x:\produce\wizmatch\source\projectionstate.h
+	<memory>
+	"frmr_Vec3f.h"
+
+1396705960 source:x:\produce\wizmatch\source\projectionstate.cpp
+	<SFML/OpenGL.hpp>
+	"ProjectionState.h"
 
