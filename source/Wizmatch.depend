@@ -996,7 +996,8 @@
 	"matrix4.h"
 	"IVideoDriver.h"
 
-1396526041 x:\produce\wizmatch\source\frmr_vec3f.h
+1396742187 x:\produce\wizmatch\source\frmr_vec3f.h
+	<array>
 
 1377625245 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
@@ -1010,7 +1011,7 @@
 
 1387388614 x:\produce\wizmatch\source\frmr_vec2f.h
 
-1396526044 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
+1396743182 source:x:\produce\wizmatch\source\frmr_vec3f.cpp
 	"frmr_Vec3f.h"
 	<cmath>
 
@@ -2471,7 +2472,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1396568469 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1396719859 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2622,7 +2623,7 @@
 1396719897 x:\produce\wizmatch\source\projectionstate.h
 	"frmr_Vec3f.h"
 
-1396716172 source:x:\produce\wizmatch\source\projectionstate.cpp
+1396719907 source:x:\produce\wizmatch\source\projectionstate.cpp
 	<SFML/OpenGL.hpp>
 	"ProjectionState.h"
 

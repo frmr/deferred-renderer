@@ -1,22 +1,26 @@
 #ifndef FRMR_VEC3F_H
 #define FRMR_VEC3F_H
 
+#include <array>
+using std::array;
+
 namespace frmr
 {
 	class Vec3f
 	{
 	private:
-		float   x, y, z;
-		float   length;
+		array<float, 3> point;
+		float   		length;
 
 	public:
-	    float   GetX() const;
-		float   GetY() const;
-		float   GetZ() const;
-		float   Length();
-		void    Reset();
-		void	Set( const float x, const float y, const float z );
-		Vec3f   Unit();
+		array<float, 3>	GetArray() const;
+	    float   		GetX() const;
+		float   		GetY() const;
+		float			GetZ() const;
+		float   		Length();
+		void    		Reset();
+		void			Set( const float x, const float y, const float z );
+		Vec3f   		Unit();
 
 	public:
 		Vec3f 	operator+ ( const Vec3f &rhs ) const;
