@@ -2,6 +2,7 @@
 #include <fstream>
 
 #include "StaticGeometry.h"
+#include "frmr_BoundingBox.h"
 #include "frmr_Encoder.h"
 #include "frmr_math.h"
 #include "frmr_Vec2f.h"
@@ -86,7 +87,7 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Proj
 {
     renderedZonesRef.push_back( zoneNum );
 
-	//draw the visible parts of the room
+	//draw the zone
     for ( auto texTriangleGroupIt : texTriangleGroups )
     {
         texTriangleGroupIt.Render();
@@ -101,19 +102,47 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Proj
 			vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition, viewFrustum );
             if ( !visiblePoints.empty() )
             {
-            	//gluProject all points
+            	//project all points
             	vector<frmr::Vec3f> projectedPoints;
             	for ( auto pointIt : visiblePoints )
 				{
 					projectedPoints.push_back( cameraProjection.Project( pointIt ) );
 				}
-				//find AABB
+				//find bounding box
+				frmr::BoundingBox<frmr::Vec3f> portalBox( projectedPoints );
 
+				glGetError();
 				//apply glScissor
-				//construct new frustum from AABB vertices (UnProject)
-				//Frustum newFrustum(  );
-                //zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, newFrustum, zones, renderedZonesRef );
-                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, cameraProjection, viewFrustum, zones, renderedZonesRef );
+				int scissorWidth = frmr::Round( portalBox.GetMax().GetX() - portalBox.GetMin().GetX() );
+				int scissorHeight = frmr::Round( portalBox.GetMax().GetY() - portalBox.GetMin().GetY() );
+				glScissor( 	frmr::Round( portalBox.GetMin().GetX() ), frmr::Round( portalBox.GetMin().GetY() ), scissorWidth, scissorHeight );
+
+				GLenum err = glGetError();
+				if ( err != GL_NO_ERROR )
+				{
+					 switch(err)
+					 {
+                        case GL_INVALID_OPERATION:	cout << "INVALID_OPERATION" << endl;	break;
+                        case GL_INVALID_ENUM:       cout << "INVALID_ENUM" << endl;			break;
+                        case GL_INVALID_VALUE:      cout << "INVALID_VALUE" << endl;		break;
+                        case GL_OUT_OF_MEMORY:      cout << "OUT_OF_MEMORY" << endl;		break;
+					}
+				}
+				cout << "Min: " << portalBox.GetMin().GetX() << " " << portalBox.GetMin().GetY() << endl;
+				cout << "Max: " << portalBox.GetMax().GetX() << " " << portalBox.GetMax().GetY() << endl;
+				cout << "Sci: " << scissorWidth << " " << scissorHeight << endl;
+
+				glClear( GL_COLOR_BUFFER_BIT );
+
+				//construct new frustum from AABB vertices
+				vector<frmr::Vec3f> newFrustumVertices;
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMin().GetX(), portalBox.GetMax().GetY(), 0.998f ) ) );	//top left
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMin().GetX(), portalBox.GetMin().GetY(), 0.998f ) ) );	//bottom left
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMin().GetY(), 0.998f ) ) );	//bottom right
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMax().GetY(), 0.998f ) ) );	//top right
+
+				Frustum newFrustum( cameraPosition, newFrustumVertices );
+                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, cameraProjection, newFrustum, zones, renderedZonesRef );
             }
 		}
     }

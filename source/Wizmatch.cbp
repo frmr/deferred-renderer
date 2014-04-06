@@ -78,8 +78,8 @@
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="Potion.h" />
-		<Unit filename="ProjectionMatrices.cpp" />
-		<Unit filename="ProjectionMatrices.h" />
+		<Unit filename="ProjectionState.cpp" />
+		<Unit filename="ProjectionState.h" />
 		<Unit filename="RenderManager.cpp" />
 		<Unit filename="RenderManager.h" />
 		<Unit filename="Server.h" />
@@ -88,6 +88,8 @@
 		<Unit filename="SpellSet.h" />
 		<Unit filename="StaticGeometry.cpp" />
 		<Unit filename="StaticGeometry.h" />
+		<Unit filename="frmr_BoundingBox.cpp" />
+		<Unit filename="frmr_BoundingBox.h" />
 		<Unit filename="frmr_Encoder.h" />
 		<Unit filename="frmr_Octree.cpp" />
 		<Unit filename="frmr_Octree.h" />

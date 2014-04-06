@@ -6,6 +6,11 @@ array<float, 3>	frmr::Vec3f::GetArray() const
 	return point;
 }
 
+float frmr::Vec3f::GetAt( const size_t index ) const
+{
+	return point[index];
+}
+
 float frmr::Vec3f::GetX() const
 {
 	return point[0];
@@ -42,6 +47,31 @@ void frmr::Vec3f::Set( const float x, const float y, const float z )
 	point.at( 1 ) = y;
 	point.at( 2 ) = z;
 	length = -1.0f;
+}
+
+void frmr::Vec3f::SetAt( const size_t index, const float newValue )
+{
+	point.at( index ) = newValue;
+}
+
+void frmr::Vec3f::SetX( const float newX )
+{
+	point.at( 0 ) = newX;
+}
+
+void frmr::Vec3f::SetY( const float newY )
+{
+	point.at( 1 ) = newY;
+}
+
+void frmr::Vec3f::SetZ( const float newZ )
+{
+	point.at( 2 ) = newZ;
+}
+
+size_t frmr::Vec3f::Size() const
+{
+	return point.size();
 }
 
 frmr::Vec3f frmr::Vec3f::Unit()
@@ -116,8 +146,14 @@ frmr::Vec3f& frmr::Vec3f::operator/= ( const float &rhs )
 	length = -1.0f;
 	return *this;
 }
+
 frmr::Vec3f::Vec3f( const float x, const float y, const float z )
 	: point({{ x, y, z }}), length( -1.0f )
+{
+}
+
+frmr::Vec3f::Vec3f( const float xyz )
+	: point({{ xyz, xyz, xyz }}), length( -1.0f )
 {
 }
 

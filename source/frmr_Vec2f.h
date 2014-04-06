@@ -15,11 +15,16 @@ namespace frmr
 
 	public:
 		array<float, 2>	GetArray() const;
+		float			GetAt( const size_t index ) const;
 	    float 			GetX() const;
 		float 			GetY() const;
 		float 			Length();
 		void			Reset();
 		void			Set( const float x, const float y );
+		void			SetAt( const size_t index, const float newValue );
+		void			SetX( const float newX );
+		void			SetY( const float newY );
+		size_t			Size() const;
 		Vec2f 			Unit();
 
 	public:
@@ -35,6 +40,7 @@ namespace frmr
 
 	public:
 		Vec2f( const float x, const float y );
+		Vec2f( const float xyz );
 		Vec2f();
 		~Vec2f();
 	};

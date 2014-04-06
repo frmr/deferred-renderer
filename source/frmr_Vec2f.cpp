@@ -6,6 +6,11 @@ array<float, 2>	frmr::Vec2f::GetArray() const
 	return point;
 }
 
+float frmr::Vec2f::GetAt( const size_t index ) const
+{
+	return point.at( index );
+}
+
 float frmr::Vec2f::GetX() const
 {
 	return point[0];
@@ -36,6 +41,26 @@ void frmr::Vec2f::Set( const float x, const float y )
 	point.at( 0 ) = x;
 	point.at( 1 ) = y;
 	length = -1.0f;
+}
+
+void frmr::Vec2f::SetAt( const size_t index, const float newValue )
+{
+	point.at( index ) = newValue;
+}
+
+void frmr::Vec2f::SetX( const float newX )
+{
+	point.at( 0 ) = newX;
+}
+
+void frmr::Vec2f::SetY( const float newY )
+{
+	point.at( 1 ) = newY;
+}
+
+size_t frmr::Vec2f::Size() const
+{
+	return point.size();
 }
 
 frmr::Vec2f frmr::Vec2f::Unit()
@@ -108,6 +133,11 @@ frmr::Vec2f& frmr::Vec2f::operator/= ( const float &rhs )
 
 frmr::Vec2f::Vec2f( const float x, const float y )
 	: point({{ x, y }}), length( -1.0f )
+{
+}
+
+frmr::Vec2f::Vec2f( const float xyz )
+	: point({{ xyz, xyz }}), length( -1.0f )
 {
 }
 

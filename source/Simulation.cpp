@@ -43,10 +43,10 @@ ProjectionState Simulation::RenderLit( const int windowWidth, const int windowHe
 		ProjectionState cameraProjection;
 		vector<frmr::Vec3f> frustumVertices;
 
-		frustumVertices.push_back( activeCamera.GetPosition() + ( cameraProjection.UnProject( frmr::Vec3f( 0.0f, windowHeight, 0.0f ) ) - activeCamera.GetPosition() ) * 1000.0f );	//top left
-		frustumVertices.push_back( activeCamera.GetPosition() + ( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 0.0f, 0.0f ) ) - activeCamera.GetPosition() ) * 1000.0f ); //bottom left
-		frustumVertices.push_back( activeCamera.GetPosition() + ( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 0.0f, 0.0f ) ) - activeCamera.GetPosition() ) * 1000.0f ); //bottom right
-		frustumVertices.push_back( activeCamera.GetPosition() + ( cameraProjection.UnProject( frmr::Vec3f( windowWidth, windowHeight, 0.0f ) ) - activeCamera.GetPosition() ) * 1000.0f ); //top right
+		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			windowHeight, 	0.998f ) ) );	//top left
+		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			0.0f, 			0.998f ) ) );	//bottom left
+		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	0.0f, 			0.998f ) ) );	//bottom right
+		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	windowHeight, 	0.998f ) ) );	//top right
 
 		Frustum viewFrustum( activeCamera.GetPosition(), frustumVertices );
 
