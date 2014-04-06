@@ -301,7 +301,7 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
     {
         cout << renderedZoneIt << " ";
     }
-    cout << endl;
+    cout << std::endl;
 }
 
 StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )

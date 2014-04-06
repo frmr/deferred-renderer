@@ -1,15 +1,6 @@
 #include "frmr_Vec3f.h"
 #include <cmath>
 
-float frmr::Vec3f::Length()
-{
-	if (length == -1.0f)
-	{
-		length = sqrt( point[0] * point[0] + point[1] * point[1] + point[2] * point[2] );
-	}
-	return length;
-}
-
 array<float, 3>	frmr::Vec3f::GetArray() const
 {
 	return point;
@@ -17,17 +8,26 @@ array<float, 3>	frmr::Vec3f::GetArray() const
 
 float frmr::Vec3f::GetX() const
 {
-	return point.at( 0 );
+	return point[0];
 }
 
 float frmr::Vec3f::GetY() const
 {
-	return point.at( 1 );
+	return point[1];
 }
 
 float frmr::Vec3f::GetZ() const
 {
-	return point.at( 2 );
+	return point[2];
+}
+
+float frmr::Vec3f::Length()
+{
+	if (length == -1.0f)
+	{
+		length = sqrt( point[0] * point[0] + point[1] * point[1] + point[2] * point[2] );
+	}
+	return length;
 }
 
 void frmr::Vec3f::Reset()
@@ -47,7 +47,7 @@ void frmr::Vec3f::Set( const float x, const float y, const float z )
 frmr::Vec3f frmr::Vec3f::Unit()
 {
 	Length();
-	if ( length > 0.0001f )
+	if ( length > 0.001f )
     {
         point.at( 0 ) /= length;
         point.at( 1 ) /= length;
