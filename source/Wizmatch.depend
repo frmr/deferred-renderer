@@ -1034,7 +1034,7 @@
 	"Simulation.h"
 	"frmr/TimeManager.h"
 
-1396892844 source:x:\produce\wizmatch\source\simulation.cpp
+1396899948 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
@@ -2473,15 +2473,15 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1396891168 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1396899885 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
-	"frmr_BoundingBox.h"
-	"frmr_Encoder.h"
-	"frmr_math.h"
-	"frmr_Vec2f.h"
-	"frmr_Vec3f.h"
+	"frmr/BoundingBox.h"
+	"frmr/Encoder.h"
+	"frmr/frmrMath.h"
+	"frmr/Vec2f.h"
+	"frmr/Vec3f.h"
 
 1396898742 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
@@ -2713,4 +2713,8 @@
 1396898964 source:x:\produce\wizmatch\source\frmr\vec3f.cpp
 	"../frmr/Vec3f.h"
 	<cmath>
+
+1396668074 x:\produce\wizmatch\source\frmr\encoder.h
+	<string>
+	<iostream>
 
