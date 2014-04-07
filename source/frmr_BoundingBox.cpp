@@ -44,7 +44,7 @@ frmr::BoundingBox<T>::BoundingBox( const vector<T> &points )
 			{
 				min.SetAt( i, pointIt.GetAt( i ) );
 			}
-			else if ( pointIt.GetAt( i ) > max.GetAt( i ) )
+			if ( pointIt.GetAt( i ) > max.GetAt( i ) )
 			{
 				max.SetAt( i, pointIt.GetAt( i ) );
 			}

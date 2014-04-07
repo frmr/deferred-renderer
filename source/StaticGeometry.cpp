@@ -111,23 +111,12 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Proj
 				//find bounding box
 				frmr::BoundingBox<frmr::Vec3f> portalBox( projectedPoints );
 
-				glGetError();
 				//apply glScissor
 				int scissorWidth = frmr::Round( portalBox.GetMax().GetX() - portalBox.GetMin().GetX() );
 				int scissorHeight = frmr::Round( portalBox.GetMax().GetY() - portalBox.GetMin().GetY() );
+
 				glScissor( 	frmr::Round( portalBox.GetMin().GetX() ), frmr::Round( portalBox.GetMin().GetY() ), scissorWidth, scissorHeight );
 
-				GLenum err = glGetError();
-				if ( err != GL_NO_ERROR )
-				{
-					 switch(err)
-					 {
-                        case GL_INVALID_OPERATION:	cout << "INVALID_OPERATION" << endl;	break;
-                        case GL_INVALID_ENUM:       cout << "INVALID_ENUM" << endl;			break;
-                        case GL_INVALID_VALUE:      cout << "INVALID_VALUE" << endl;		break;
-                        case GL_OUT_OF_MEMORY:      cout << "OUT_OF_MEMORY" << endl;		break;
-					}
-				}
 				cout << "Min: " << portalBox.GetMin().GetX() << " " << portalBox.GetMin().GetY() << endl;
 				cout << "Max: " << portalBox.GetMax().GetX() << " " << portalBox.GetMax().GetY() << endl;
 				cout << "Sci: " << scissorWidth << " " << scissorHeight << endl;
