@@ -28,7 +28,7 @@ int32_t frmr::TimeManager::GetElapsedTime() const
 
 frmr::TimeManager::TimeManager()
 	: timeBase( 4 ),
-	  deltaTime( 1 ),
+	  deltaTime( 1.0f ),
 	  elapsedTime( 1 )
 {
 }
