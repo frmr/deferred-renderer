@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "frmr_Vec3f.h"
+#include "frmr/Vec3f.h"
 
 using std::vector;
 

@@ -2,8 +2,8 @@
 #define FRUSTUM_H
 
 #include <vector>
-#include "frmr_Triangle.h"
-#include "frmr_Vec2f.h"
+#include "frmr/Triangle.h"
+#include "frmr/Vec2f.h"
 
 using std::vector;
 

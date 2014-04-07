@@ -1,7 +1,7 @@
 #ifndef PROJECTION_STATE_H
 #define PROJECTION_STATE_H
 
-#include "frmr_Vec3f.h"
+#include "frmr/Vec3f.h"
 
 class ProjectionState
 {

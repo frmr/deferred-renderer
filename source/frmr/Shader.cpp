@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "frmr_Shader.h"
+#include "../frmr/Shader.h"
 
 using std::cout;
 using std::endl;

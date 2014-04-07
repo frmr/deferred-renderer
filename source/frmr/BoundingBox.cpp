@@ -1,9 +1,9 @@
-#include "frmr_BoundingBox.h"
+#include "../frmr/BoundingBox.h"
 
 #include <limits>
 
-#include "frmr_Vec2f.h"
-#include "frmr_Vec3f.h"
+#include "../frmr/Vec2f.h"
+#include "../frmr/Vec3f.h"
 
 template<class T>
 bool frmr::BoundingBox<T>::Contains( const T point ) const

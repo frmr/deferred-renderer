@@ -1,6 +1,6 @@
 #include <iostream>
 #include "AssetManager.h"
-#include "frmr_TextFile.h"
+#include "frmr/TextFile.h"
 
 #define GL_R8 0x8229 //needed to make use of sized internal OpenGL format
 

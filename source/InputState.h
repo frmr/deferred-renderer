@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Config.h"
-#include "frmr_vec2f.h"
+#include "frmr/vec2f.h"
 
 class InputState
 {

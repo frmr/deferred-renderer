@@ -6,7 +6,7 @@
 #include "InputState.h"
 #include "RenderManager.h"
 #include "Simulation.h"
-#include "frmr_TimeManager.h"
+#include "frmr/TimeManager.h"
 
 void ModifyWindow( sf::RenderWindow* const window, const EngineConfig engineCfg )
 {

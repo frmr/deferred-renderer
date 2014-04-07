@@ -1,6 +1,5 @@
-#include "frmr_Triangle.h"
-
-#include "frmr_math.h"
+#include "../frmr/Triangle.h"
+#include "../frmr/frmrMath.h"
 
 frmr::Vec3f frmr::Triangle::CalculateNormal() const
 {

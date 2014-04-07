@@ -1,4 +1,4 @@
-#include "frmr_TimeManager.h"
+#include "../frmr/TimeManager.h"
 
 void frmr::TimeManager::UpdateDeltaTime()
 {

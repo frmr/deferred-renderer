@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "frmr_math.h"
+#include "frmr/frmrMath.h"
 
 using std::cout;
 using std::endl;

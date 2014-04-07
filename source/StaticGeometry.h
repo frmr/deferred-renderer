@@ -9,7 +9,7 @@
 #include "Frustum.h"
 #include "Light.h"
 #include "ProjectionState.h"
-#include "frmr_Triangle.h"
+#include "frmr/Triangle.h"
 
 using std::vector;
 using std::string;

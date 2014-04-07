@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "frmr_TextFile.h"
+#include "../frmr/TextFile.h"
 
 using std::cout;
 using std::endl;

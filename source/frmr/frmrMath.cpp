@@ -1,4 +1,4 @@
-#include "frmr_math.h"
+#include "../frmr/frmrMath.h"
 
 #include <iostream>
 #include <cmath>

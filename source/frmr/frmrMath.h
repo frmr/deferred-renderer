@@ -1,8 +1,8 @@
 #ifndef FRMR_MATH_H
 #define FRMR_MATH_H
 
-#include "frmr_Vec2f.h"
-#include "frmr_Vec3f.h"
+#include "../frmr/Vec2f.h"
+#include "../frmr/Vec3f.h"
 
 namespace frmr
 {

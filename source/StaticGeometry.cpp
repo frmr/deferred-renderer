@@ -2,11 +2,11 @@
 #include <fstream>
 
 #include "StaticGeometry.h"
-#include "frmr_BoundingBox.h"
-#include "frmr_Encoder.h"
-#include "frmr_math.h"
-#include "frmr_Vec2f.h"
-#include "frmr_Vec3f.h"
+#include "frmr/BoundingBox.h"
+#include "frmr/Encoder.h"
+#include "frmr/frmrMath.h"
+#include "frmr/Vec2f.h"
+#include "frmr/Vec3f.h"
 
 using std::cout;
 using std::endl;

@@ -1,4 +1,4 @@
-#include "frmr_Vec2f.h"
+#include "../frmr/Vec2f.h"
 #include "math.h"
 
 array<float, 2>	frmr::Vec2f::GetArray() const

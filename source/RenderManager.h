@@ -8,8 +8,8 @@
 
 #include "Config.h"
 #include "Simulation.h"
-#include "frmr_Shader.h"
-#include "frmr_Vec3f.h"
+#include "frmr/Shader.h"
+#include "frmr/Vec3f.h"
 
 class RenderManager
 {

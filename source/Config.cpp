@@ -1,5 +1,5 @@
 #include "config.h"
-#include "frmr_TextFile.h"
+#include "frmr/TextFile.h"
 #include <stdlib.h>
 
 int     EngineConfig::GetWindowWidth() const        { return windowWidth; }

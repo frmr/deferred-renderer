@@ -1,4 +1,4 @@
-#include "frmr_Octree.h"
+#include "../frmr/Octree.h"
 
 #include <iostream>
 
