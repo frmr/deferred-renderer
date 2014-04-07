@@ -2690,9 +2690,9 @@
 	<stdint.h>
 	<SFML/System/Clock.hpp>
 
-1396898964 source:x:\produce\wizmatch\source\frmr\triangle.cpp
+1396899212 source:x:\produce\wizmatch\source\frmr\triangle.cpp
 	"../frmr/Triangle.h"
-	"../frmr/math.h"
+	"../frmr/frmrMath.h"
 
 1396898964 x:\produce\wizmatch\source\frmr\triangle.h
 	"../frmr/Vec3f.h"

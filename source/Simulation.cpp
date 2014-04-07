@@ -39,10 +39,11 @@ ProjectionState Simulation::RenderLit( const int windowWidth, const int windowHe
 		glRotatef( -activeCamera.GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
 		glTranslatef( -activeCamera.GetPosition().GetX(), -activeCamera.GetPosition().GetY(), -activeCamera.GetPosition().GetZ() );
 
-		//unproject the four corners of the screen, then use them to build the view frustum
+		//unproject the four corners of the screen and use them to build the view frustum
 		ProjectionState cameraProjection;
-		vector<frmr::Vec3f> frustumVertices;
 
+		vector<frmr::Vec3f> frustumVertices;
+		frustumVertices.reserve( 4 );
 		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			windowHeight, 	0.998f ) ) );	//top left
 		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			0.0f, 			0.998f ) ) );	//bottom left
 		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	0.0f, 			0.998f ) ) );	//bottom right
