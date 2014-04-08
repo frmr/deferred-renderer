@@ -42,7 +42,6 @@
 		<Linker>
 			<Add option="-static-libgcc" />
 			<Add option="-static-libstdc++" />
-			<Add library="gdi32" />
 			<Add library="glu32" />
 			<Add library="sfml-graphics-s" />
 			<Add library="sfml-window-s" />

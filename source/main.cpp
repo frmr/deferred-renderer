@@ -1,4 +1,3 @@
-#include "windows.h"
 #include "GLEW/glew.h"
 #include <SFML/OpenGL.hpp>
 
