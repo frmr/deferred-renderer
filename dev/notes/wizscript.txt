@@ -1,13 +1,20 @@
-Commands
-	Wait
-	Spawn		(Player, Projectile)
-	Add effect	(
+Wait
+Call
+Spawn
+AddEffect
+
+Mover
+	Start
+	Stop
+	ChangeDirection
+	SetForward
+	SetBackward
 	
-Methods
-	Mover
-		States
-			Continue
-			Stop
-		Direction
-			Forward
-			Backward
+Light
+	Toggle
+	TurnOn
+	TurnOff
+	
+Teleport
+	Activate
+	

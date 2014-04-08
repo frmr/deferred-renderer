@@ -12,10 +12,10 @@ using std::string;
 class Actor
 {
 private:
-    static int32_t  actorNumIncrementor;
+    static int32_t  idIncrementor;
 
 protected:
-    int32_t         actorNum; //TODO: Change this to actorId?
+    int32_t         id; //TODO: Change this to actorId?
     string          name;
     frmr::Vec3f     position;
     frmr::Vec3f     previousPosition;
@@ -29,7 +29,7 @@ protected:
     void SetRotationY( const float &newY );
 
 public:
-    int32_t     GetActorNum() const;
+    int32_t     GetId() const;
     int16_t     GetCurrentZoneNum() const;
     string      GetName() const;
     frmr::Vec3f GetPosition() const;

@@ -1,6 +1,6 @@
 #include "Actor.h"
 
-int32_t Actor::actorNumIncrementor = 0;
+int32_t Actor::idIncrementor = 0;
 
 void Actor::ApplyVelocity( const float deltaTime )
 {
@@ -19,9 +19,9 @@ void Actor::SetRotationY( const float &newY )
     rotation = frmr::Vec2f( rotation.GetX(), newY );
 }
 
-int32_t Actor::GetActorNum() const
+int32_t Actor::GetId() const
 {
-    return actorNum;
+    return id;
 }
 
 int16_t Actor::GetCurrentZoneNum() const
@@ -45,7 +45,7 @@ frmr::Vec2f Actor::GetRotation() const
 }
 
 Actor::Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum )
-    : actorNum( actorNumIncrementor++ ),
+    : id( idIncrementor++ ),
       name( name ),
       position( position ),
       previousPosition( position ),
