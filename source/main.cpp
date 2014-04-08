@@ -1,5 +1,6 @@
 #include "windows.h"
-#include "GL/glew.h"
+#include "GLEW/glew.h"
+#include <SFML/OpenGL.hpp>
 
 #include "AssetManager.h"
 #include "Config.h"

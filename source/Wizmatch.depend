@@ -1024,9 +1024,10 @@
 	"Config.h"
 	"frmr/vec2f.h"
 
-1396898742 source:x:\produce\wizmatch\source\main.cpp
+1396916889 source:x:\produce\wizmatch\source\main.cpp
 	"windows.h"
-	"GL/glew.h"
+	"GLEW/glew.h"
+	<SFML/OpenGL.hpp>
 	"AssetManager.h"
 	"Config.h"
 	"InputState.h"
@@ -2083,8 +2084,8 @@
 1376050337 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1396898742 x:\produce\wizmatch\source\rendermanager.h
-	"GL/glew.h"
+1396916901 x:\produce\wizmatch\source\rendermanager.h
+	"GLEW/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
 	"Config.h"
@@ -2092,7 +2093,7 @@
 	"frmr/Shader.h"
 	"frmr/Vec3f.h"
 
-1376258467 x:\produce\wizmatch\include\gl\glew.h
+1396865860 x:\produce\wizmatch\include\gl\glew.h
 	<stddef.h>
 	<inttypes.h>
 	<stdint.h>
@@ -2432,7 +2433,7 @@
 	"ProjectionState.h"
 	<iostream>
 
-1376258476 source:x:\produce\wizmatch\source\glew\glew.c
+1396906732 source:x:\produce\wizmatch\source\glew\glew.c
 	<GL/glew.h>
 	<GL/wglew.h>
 	<GL/glxew.h>
@@ -2669,14 +2670,14 @@
 	<vector>
 	"../frmr/Vec3f.h"
 
-1396898964 source:x:\produce\wizmatch\source\frmr\shader.cpp
+1396912485 source:x:\produce\wizmatch\source\frmr\shader.cpp
 	<fstream>
 	<iostream>
 	"../frmr/Shader.h"
 
-1377625621 x:\produce\wizmatch\source\frmr\shader.h
+1396916906 x:\produce\wizmatch\source\frmr\shader.h
 	<string>
-	"GL/glew.h"
+	"GLEW/glew.h"
 
 1396898964 source:x:\produce\wizmatch\source\frmr\textfile.cpp
 	<fstream>
@@ -2717,4 +2718,12 @@
 1396668074 x:\produce\wizmatch\source\frmr\encoder.h
 	<string>
 	<iostream>
+
+1396865860 x:\produce\wizmatch\include\glew\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
 

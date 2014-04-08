@@ -2,7 +2,8 @@
 #define FRMR_SHADER_H
 
 #include <string>
-#include "GL/glew.h"
+#include "GLEW/glew.h"
+
 using std::string;
 
 namespace frmr

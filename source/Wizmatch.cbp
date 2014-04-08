@@ -35,7 +35,7 @@
 			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add option="-DDSFML_STATIC" />
+			<Add option="-DSFML_STATIC" />
 			<Add option="-DGLEW_STATIC" />
 			<Add directory="../include" />
 		</Compiler>
@@ -44,10 +44,9 @@
 			<Add option="-static-libstdc++" />
 			<Add library="gdi32" />
 			<Add library="glu32" />
-			<Add library="opengl32" />
-			<Add library="sfml-graphics" />
-			<Add library="sfml-window" />
-			<Add library="sfml-system" />
+			<Add library="sfml-graphics-s" />
+			<Add library="sfml-window-s" />
+			<Add library="sfml-system-s" />
 			<Add directory="../lib" />
 			<Add directory="../lib/SFML" />
 		</Linker>
@@ -66,9 +65,6 @@
 		<Unit filename="Effect.h" />
 		<Unit filename="Frustum.cpp" />
 		<Unit filename="Frustum.h" />
-		<Unit filename="GLEW/glew.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="IcosphereGenerator.cpp" />
 		<Unit filename="IcosphereGenerator.h" />
 		<Unit filename="InputState.cpp" />
@@ -88,25 +84,25 @@
 		<Unit filename="SpellSet.h" />
 		<Unit filename="StaticGeometry.cpp" />
 		<Unit filename="StaticGeometry.h" />
-		<Unit filename="frmr_BoundingBox.cpp" />
-		<Unit filename="frmr_BoundingBox.h" />
-		<Unit filename="frmr_Encoder.h" />
-		<Unit filename="frmr_Octree.cpp" />
-		<Unit filename="frmr_Octree.h" />
-		<Unit filename="frmr_Shader.cpp" />
-		<Unit filename="frmr_Shader.h" />
-		<Unit filename="frmr_TextFile.cpp" />
-		<Unit filename="frmr_TextFile.h" />
-		<Unit filename="frmr_TimeManager.cpp" />
-		<Unit filename="frmr_TimeManager.h" />
-		<Unit filename="frmr_Triangle.cpp" />
-		<Unit filename="frmr_Triangle.h" />
-		<Unit filename="frmr_Vec2f.cpp" />
-		<Unit filename="frmr_Vec2f.h" />
-		<Unit filename="frmr_Vec3f.cpp" />
-		<Unit filename="frmr_Vec3f.h" />
-		<Unit filename="frmr_math.cpp" />
-		<Unit filename="frmr_math.h" />
+		<Unit filename="frmr/BoundingBox.cpp" />
+		<Unit filename="frmr/BoundingBox.h" />
+		<Unit filename="frmr/Encoder.h" />
+		<Unit filename="frmr/Octree.cpp" />
+		<Unit filename="frmr/Octree.h" />
+		<Unit filename="frmr/Shader.cpp" />
+		<Unit filename="frmr/Shader.h" />
+		<Unit filename="frmr/TextFile.cpp" />
+		<Unit filename="frmr/TextFile.h" />
+		<Unit filename="frmr/TimeManager.cpp" />
+		<Unit filename="frmr/TimeManager.h" />
+		<Unit filename="frmr/Triangle.cpp" />
+		<Unit filename="frmr/Triangle.h" />
+		<Unit filename="frmr/Vec2f.cpp" />
+		<Unit filename="frmr/Vec2f.h" />
+		<Unit filename="frmr/Vec3f.cpp" />
+		<Unit filename="frmr/Vec3f.h" />
+		<Unit filename="frmr/frmrMath.cpp" />
+		<Unit filename="frmr/frmrMath.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<DoxyBlocks>

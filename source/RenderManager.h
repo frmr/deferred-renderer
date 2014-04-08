@@ -1,7 +1,7 @@
 #ifndef RENDER_MANAGER_H
 #define RENDER_MANAGER_H
 
-#include "GL/glew.h"
+#include "GLEW/glew.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
