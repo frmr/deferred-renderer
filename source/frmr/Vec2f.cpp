@@ -46,16 +46,19 @@ void frmr::Vec2f::Set( const float x, const float y )
 void frmr::Vec2f::SetAt( const size_t index, const float newValue )
 {
 	point.at( index ) = newValue;
+	length = -1.0f;
 }
 
 void frmr::Vec2f::SetX( const float newX )
 {
 	point.at( 0 ) = newX;
+	length = -1.0f;
 }
 
 void frmr::Vec2f::SetY( const float newY )
 {
 	point.at( 1 ) = newY;
+	length = -1.0f;
 }
 
 size_t frmr::Vec2f::Size() const

@@ -57,9 +57,9 @@ GLuint AssetManager::LoadTexture( const string &filename, const bool filter, con
 {
     sf::Image imageData;
     imageData.loadFromFile( filename );
-    GLuint textureID;
-    glGenTextures( 1, &textureID );
-    glBindTexture( GL_TEXTURE_2D, textureID );
+    GLuint textureId;
+    glGenTextures( 1, &textureId );
+    glBindTexture( GL_TEXTURE_2D, textureId );
     if ( mask )
     {
         glTexImage2D( GL_TEXTURE_2D, 0, GL_R8, imageData.getSize().x, imageData.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData.getPixelsPtr() );
@@ -83,7 +83,7 @@ GLuint AssetManager::LoadTexture( const string &filename, const bool filter, con
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT );
 
-    return textureID;
+    return textureId;
 }
 
 string AssetManager::StripFilename( const string &filename ) const

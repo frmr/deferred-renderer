@@ -68,7 +68,7 @@ void InputState::Update( sf::RenderWindow &window, const EngineConfig &engineCfg
         }
         else if ( event.type == sf::Event::MouseMoved )
         {
-            mouseChange = frmr::Vec2f( engineCfg.GetActiveHeight() / 2 - event.mouseMove.y, engineCfg.GetActiveWidth() / 2 - event.mouseMove.x );
+            mouseChange = frmr::Vec2f( engineCfg.GetActiveWidth() / 2 - event.mouseMove.x, engineCfg.GetActiveHeight() / 2 - event.mouseMove.y );
         }
         else if ( event.type == sf::Event::Closed )
         {

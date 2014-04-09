@@ -21,7 +21,7 @@ public:
 
 
 public:
-    Camera( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const int16_t zoneNum );
+    Camera( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const int16_t zoneNum );
 };
 
 #endif // CAMERA_H

@@ -52,21 +52,25 @@ void frmr::Vec3f::Set( const float x, const float y, const float z )
 void frmr::Vec3f::SetAt( const size_t index, const float newValue )
 {
 	point.at( index ) = newValue;
+	length = -1.0f;
 }
 
 void frmr::Vec3f::SetX( const float newX )
 {
 	point.at( 0 ) = newX;
+	length = -1.0f;
 }
 
 void frmr::Vec3f::SetY( const float newY )
 {
 	point.at( 1 ) = newY;
+	length = -1.0f;
 }
 
 void frmr::Vec3f::SetZ( const float newZ )
 {
 	point.at( 2 ) = newZ;
+	length = -1.0f;
 }
 
 size_t frmr::Vec3f::Size() const

@@ -38,7 +38,7 @@ private:
 	vector<Effect>		    effects;
 
 	bool				    humanControlled;
-	unsigned int		    humanNetworkID;
+	unsigned int		    humanNetworkId;
 	frmr::Vec3f	            color;
 	int8_t				    team;
 

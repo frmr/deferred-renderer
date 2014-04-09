@@ -18,3 +18,13 @@ Light
 Teleport
 	Activate
 	
+	
+	
+	
+	
+class WizScript
+{
+private:
+	int16_t	id;
+	
+	

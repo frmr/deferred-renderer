@@ -19,9 +19,9 @@ private:
     frmr::Shader    deferredRenderingShader;
     frmr::Shader    depthTransferShader;
 
-    GLuint			fbo; // The FBO ID
+    GLuint			fbo; // The FBO Id
 
-    GLuint          surfaceTextureID;
+    GLuint          surfaceTextureId;
 
 	GLuint			normalsRT; // The normals render target
 	GLuint	        normalsTexture; // The OpenGL texture for the normals render target
@@ -30,17 +30,17 @@ private:
 	GLuint          depthRT;
 	GLuint          depthTexture;
 
-	GLuint			normalsID; // Normals texture handle for the shader
-	GLuint          diffuseID;
-	GLuint          depthID;
+	GLuint			normalsId; // Normals texture handle for the shader
+	GLuint          diffuseId;
+	GLuint          depthId;
 
-	GLuint          viewportParamsID;
-	GLuint          perspectiveMatrixID;
+	GLuint          viewportParamsId;
+	GLuint          perspectiveMatrixId;
 
-	GLuint          lightPositionID;
-	GLuint          lightColorID;
-	GLuint          lightLinearAttenuationID;
-	GLuint          lightQuadraticAttenuationID;
+	GLuint          lightPositionId;
+	GLuint          lightColorId;
+	GLuint          lightLinearAttenuationId;
+	GLuint          lightQuadraticAttenuationId;
 
 	GLuint          icosphere;
 	GLuint          fullscreenQuad;

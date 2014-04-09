@@ -10,13 +10,13 @@ void Actor::ApplyVelocity( const float deltaTime )
 
 void Actor::RotateY( const float &change )
 {
-    rotation = frmr::Vec2f( rotation.GetX(), rotation.GetY() + change );
+    rotation = frmr::Vec3f( rotation.GetX(), rotation.GetY() + change, rotation.GetZ() );
     //TODO normalise angle
 }
 
 void Actor::SetRotationY( const float &newY )
 {
-    rotation = frmr::Vec2f( rotation.GetX(), newY );
+    rotation.SetY( newY );
 }
 
 int32_t Actor::GetId() const
@@ -39,12 +39,12 @@ frmr::Vec3f Actor::GetPosition() const
     return position;
 }
 
-frmr::Vec2f Actor::GetRotation() const
+frmr::Vec3f Actor::GetRotation() const
 {
     return rotation;
 }
 
-Actor::Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum )
+Actor::Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum )
     : id( idIncrementor++ ),
       name( name ),
       position( position ),

@@ -25,7 +25,7 @@ public:
     class Frame
     {
     private:
-        vector<GLuint*> meshes; //eight directions
+        vector<GLuint*> meshes; //eight directions, TODO: use std::array
         int32_t         duration;
 
     public:

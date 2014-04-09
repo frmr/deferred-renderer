@@ -2,7 +2,7 @@
 1377624784 source:x:\produce\wizmatch\source\animatedbillboard.cpp
 	"AnimatedBillboard.h"
 
-1396898710 x:\produce\wizmatch\source\animatedbillboard.h
+1397000813 x:\produce\wizmatch\source\animatedbillboard.h
 	<string>
 	<vector>
 	<map>
@@ -1002,7 +1002,7 @@
 1377625245 source:x:\produce\wizmatch\source\effect.cpp
 	"Effect.h"
 
-1396368256 x:\produce\wizmatch\source\effect.h
+1396998445 x:\produce\wizmatch\source\effect.h
 	<stdint.h>
 
 1396815302 source:x:\produce\wizmatch\source\frmr_vec2f.cpp
@@ -1016,7 +1016,7 @@
 	"frmr_Vec3f.h"
 	<cmath>
 
-1392303919 source:x:\produce\wizmatch\source\inputstate.cpp
+1397001519 source:x:\produce\wizmatch\source\inputstate.cpp
 	"InputState.h"
 
 1396898742 x:\produce\wizmatch\source\inputstate.h
@@ -1034,7 +1034,7 @@
 	"Simulation.h"
 	"frmr/TimeManager.h"
 
-1396899948 source:x:\produce\wizmatch\source\simulation.cpp
+1397002084 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
@@ -1051,7 +1051,7 @@
 	"ProjectionState.h"
 	"StaticGeometry.h"
 
-1396898742 x:\produce\wizmatch\source\player.h
+1396998032 x:\produce\wizmatch\source\player.h
 	<vector>
 	"Actor.h"
 	"AnimatedBillboard.h"
@@ -2083,7 +2083,7 @@
 1376050337 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1396916901 x:\produce\wizmatch\source\rendermanager.h
+1396998032 x:\produce\wizmatch\source\rendermanager.h
 	"GLEW/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2426,7 +2426,7 @@
 	<string>
 	"GL/glew.h"
 
-1396706033 source:x:\produce\wizmatch\source\rendermanager.cpp
+1396998032 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	"ProjectionState.h"
@@ -2507,20 +2507,19 @@
 	<map>
 	<string>
 
-1396993963 source:x:\produce\wizmatch\source\actor.cpp
+1397001115 source:x:\produce\wizmatch\source\actor.cpp
 	"Actor.h"
 
-1396993979 x:\produce\wizmatch\source\actor.h
+1397001156 x:\produce\wizmatch\source\actor.h
 	<stdint.h>
 	<string>
 	"frmr/Vec3f.h"
-	"frmr/Vec2f.h"
 
-1392252032 x:\produce\wizmatch\source\camera.h
+1397002073 x:\produce\wizmatch\source\camera.h
 	"Actor.h"
 	"InputState.h"
 
-1396899200 source:x:\produce\wizmatch\source\camera.cpp
+1397002075 source:x:\produce\wizmatch\source\camera.cpp
 	"Camera.h"
 	<iostream>
 	"frmr/frmrMath.h"
@@ -2579,7 +2578,7 @@
 	<stdlib.h>
 	<string>
 
-1396898742 source:x:\produce\wizmatch\source\assetmanager.cpp
+1396998032 source:x:\produce\wizmatch\source\assetmanager.cpp
 	<iostream>
 	"AssetManager.h"
 	"frmr/TextFile.h"
@@ -2706,11 +2705,11 @@
 	"../frmr/Vec2f.h"
 	"../frmr/Vec3f.h"
 
-1396898964 source:x:\produce\wizmatch\source\frmr\vec2f.cpp
+1397001997 source:x:\produce\wizmatch\source\frmr\vec2f.cpp
 	"../frmr/Vec2f.h"
 	"math.h"
 
-1396898964 source:x:\produce\wizmatch\source\frmr\vec3f.cpp
+1397001966 source:x:\produce\wizmatch\source\frmr\vec3f.cpp
 	"../frmr/Vec3f.h"
 	<cmath>
 

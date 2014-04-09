@@ -150,7 +150,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     //bind the surface texture and pass it to the shader
     glActiveTexture( GL_TEXTURE0 );
-    glUniform1i( surfaceTextureID, 0 );
+    glUniform1i( surfaceTextureId, 0 );
 
 	//render the simulation
 	ProjectionState cameraProjection = gameSim.RenderLit( engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
@@ -168,7 +168,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glUseProgram( depthTransferShader.GetProgramHandler() );
     glActiveTexture( GL_TEXTURE0 );
 	glBindTexture( GL_TEXTURE_2D, depthTexture );
-	glUniform1i( depthID, 0 );
+	glUniform1i( depthId, 0 );
     glCallList( fullscreenQuad );
 
     glDepthMask( GL_FALSE ); //disable writing to the depth buffer
@@ -176,11 +176,11 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     //send all the textures, the viewport parameters and the perspective matrix to the deferred rendering shader so we don't have to do it for every light
     glUseProgram( deferredRenderingShader.GetProgramHandler() );
-	glUniform1i( normalsID, 0 );
-	glUniform1i( diffuseID, 1 );
-	glUniform1i( depthID, 2 );
-    glUniform4iv( viewportParamsID, 4, viewportMatrix );
-    glUniformMatrix4fv( perspectiveMatrixID, 16, false, perspectiveMatrix );
+	glUniform1i( normalsId, 0 );
+	glUniform1i( diffuseId, 1 );
+	glUniform1i( depthId, 2 );
+    glUniform4iv( viewportParamsId, 4, viewportMatrix );
+    glUniformMatrix4fv( perspectiveMatrixId, 16, false, perspectiveMatrix );
     glUseProgram( 0 );
 
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
@@ -249,10 +249,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glUseProgram( deferredRenderingShader.GetProgramHandler() );
 
         //pass the light's attributes to the shader
-        glUniform3f( lightPositionID, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
-        glUniform3f( lightColorID, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
-        glUniform1f( lightLinearAttenuationID, lightIt.GetLinearAttenuation() );
-        glUniform1f( lightQuadraticAttenuationID, lightIt.GetQuadraticAttenuation() );
+        glUniform3f( lightPositionId, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
+        glUniform3f( lightColorId, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
+        glUniform1f( lightLinearAttenuationId, lightIt.GetLinearAttenuation() );
+        glUniform1f( lightQuadraticAttenuationId, lightIt.GetQuadraticAttenuation() );
 
         glDisable( GL_CULL_FACE );
 
@@ -393,20 +393,20 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
     glDisable(GL_LIGHTING);
 
     //get the memory location of the surface texture in the shader
-	surfaceTextureID = glGetUniformLocation( deferredShadingShader.GetProgramHandler(), "surfaceTexture" );
+	surfaceTextureId = glGetUniformLocation( deferredShadingShader.GetProgramHandler(), "surfaceTexture" );
 
 	// Get the handles from the shader
-	normalsID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "normalsTexture" );
-	diffuseID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "diffuseTexture" );
-	depthID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "depthTexture" );
+	normalsId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "normalsTexture" );
+	diffuseId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "diffuseTexture" );
+	depthId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "depthTexture" );
 
-	viewportParamsID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "viewportParams" );
-	perspectiveMatrixID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "perspectiveMatrix" );
+	viewportParamsId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "viewportParams" );
+	perspectiveMatrixId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "perspectiveMatrix" );
 
-	lightPositionID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightPosition" );
-	lightColorID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightColor" );
-	lightLinearAttenuationID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightLinearAttenuation" );
-    lightQuadraticAttenuationID = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightQuadraticAttenuation" );
+	lightPositionId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightPosition" );
+	lightColorId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightColor" );
+	lightLinearAttenuationId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightLinearAttenuation" );
+    lightQuadraticAttenuationId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightQuadraticAttenuation" );
 
 
     fullscreenQuad = CreateFullscreenQuad( engineCfg );

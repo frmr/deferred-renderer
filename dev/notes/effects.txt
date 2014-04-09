@@ -38,7 +38,7 @@ Player Stats
 	MODIFY_FRICTION			value is proportion of standard friction, multiply to stack
 	MODIFY_JUMP_STRENGTH
 	MODIFY_MOVE_SPEED
-	REGENERATE_MAGIC		must stack to be fair
+	GENERATE_MAGIC			must stack to be fair
 	
 Other
 	BAIT 					draw enemies' attention and fire

@@ -50,7 +50,7 @@ public:
 		MODIFY_FRICTION,
 		MODIFY_JUMP_STRENGTH,
 		MODIFY_MOVE_SPEED,
-		REGENERATE_MAGIC,		//most players regenerate magic
+		GENERATE_MAGIC,			//must stack to be fair
 
 		//misc effects
 		BAIT,					//draw enemies' attention and fire

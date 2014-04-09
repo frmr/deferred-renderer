@@ -74,7 +74,7 @@ void Simulation::Update( const int32_t elapsedTime, const float deltaTime, const
 }
 
 Simulation::Simulation( const AssetManager &assets )
-    : activeCamera( "ActiveCamera", frmr::Vec3f( 0.0f, 0.0f, 10.0f ), frmr::Vec2f(), 2 ),
+    : activeCamera( "ActiveCamera", frmr::Vec3f( 0.0f, 0.0f, 10.0f ), frmr::Vec3f(), 2 ),
       staticGeometry( "../maps/twocubes.wzz", assets )
 {
     //staticLights.push_back( Light( frmr::Vec3f( 80.0f, 0.0f, 0.0f ), frmr::Vec3f( 12.0f, 12.0f, 12.0f ), 0 ) );
