@@ -14,7 +14,7 @@ private:
     static int32_t  idIncrementor;
 
 protected:
-    int32_t         id; //TODO: Change this to actorId?
+    int32_t         id;
     string          name;
     frmr::Vec3f     position;
     frmr::Vec3f     previousPosition;

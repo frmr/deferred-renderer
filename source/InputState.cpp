@@ -68,7 +68,7 @@ void InputState::Update( sf::RenderWindow &window, const EngineConfig &engineCfg
         }
         else if ( event.type == sf::Event::MouseMoved )
         {
-            mouseChange = frmr::Vec2f( engineCfg.GetActiveWidth() / 2 - event.mouseMove.x, engineCfg.GetActiveHeight() / 2 - event.mouseMove.y );
+            mouseChange.Set( engineCfg.GetActiveWidth() / 2 - event.mouseMove.x, engineCfg.GetActiveHeight() / 2 - event.mouseMove.y );
         }
         else if ( event.type == sf::Event::Closed )
         {
@@ -83,7 +83,7 @@ bool        InputState::GetForwardHeld() const 		    { return forwardHeld; }
 bool        InputState::GetBackwardHeld() const 		{ return backwardHeld; }
 bool        InputState::GetLeftHeld() const 			{ return leftHeld; }
 bool        InputState::GetRightHeld() const 			{ return rightHeld; }
-bool        InputState::GetDirectionHeld() const        { if ( forwardHeld || backwardHeld || leftHeld || rightHeld){ return true; } else { return false; } }
+bool        InputState::GetDirectionHeld() const        { return ( forwardHeld || backwardHeld || leftHeld || rightHeld) ? true : false; }
 bool        InputState::GetJumpHeld() const 			{ return jumpHeld; }
 bool        InputState::GetSprintHeld() const 			{ return sprintHeld; }
 bool        InputState::GetUseHeld() const 			    { return useHeld; }

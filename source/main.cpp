@@ -48,7 +48,7 @@ int main()
             running = false;
         }
 
-        gameSim.Update( timer.GetElapsedTime(), timer.GetDeltaTime(), inputs, engineCfg.GetMouseSensitivity() );
+        gameSim.Update( timer.GetElapsedTime(), timer.GetDeltaTime(), inputs, engineCfg.GetMouseGameSensitivity() );
 
         renderer.Render( gameSim, engineCfg );
         //renderer.SimpleRender( gameSim, engineCfg );

@@ -19,7 +19,8 @@ private:
     float   masterVolume;
     float   effectsVolume;
     float   musicVolume;
-    float   mouseSensitivity;
+    float   mouseMenuSensitivity;
+    float	mouseGameSensitivity;
 
 public:
     int     GetWindowWidth() const;
@@ -35,7 +36,8 @@ public:
     float   GetMasterVolume() const;
     float   GetEffectsVolume() const;
     float   GetMusicVolume() const;
-    float   GetMouseSensitivity() const;
+    float   GetMouseMenuSensitivity() const;
+    float   GetMouseGameSensitivity() const;
 
 public:
     EngineConfig( const string &configFilename );
