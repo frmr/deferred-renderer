@@ -1034,7 +1034,7 @@
 	"Simulation.h"
 	"frmr/TimeManager.h"
 
-1397002084 source:x:\produce\wizmatch\source\simulation.cpp
+1397008445 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
@@ -2473,7 +2473,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1396899885 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1397005358 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2498,7 +2498,7 @@
 	<iostream>
 	"frmr_Shader.h"
 
-1397004451 source:x:\produce\wizmatch\source\config.cpp
+1397004526 source:x:\produce\wizmatch\source\config.cpp
 	"config.h"
 	"frmr/TextFile.h"
 	<stdlib.h>
@@ -2515,11 +2515,11 @@
 	<string>
 	"frmr/Vec3f.h"
 
-1397005048 x:\produce\wizmatch\source\camera.h
+1397008434 x:\produce\wizmatch\source\camera.h
 	"Entity.h"
 	"InputState.h"
 
-1397002075 source:x:\produce\wizmatch\source\camera.cpp
+1397008428 source:x:\produce\wizmatch\source\camera.cpp
 	"Camera.h"
 	<iostream>
 	"frmr/frmrMath.h"
@@ -2725,8 +2725,12 @@
 	<OpenGL/glu.h>
 	<GL/glu.h>
 
-1397004959 x:\produce\wizmatch\source\entity.h
+1397008355 x:\produce\wizmatch\source\entity.h
 	<stdint.h>
 	<string>
+	"frmr/Vec2f.h"
 	"frmr/Vec3f.h"
+
+1397008355 source:x:\produce\wizmatch\source\entity.cpp
+	"Entity.h"
 

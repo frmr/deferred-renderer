@@ -39,12 +39,12 @@ frmr::Vec3f Entity::GetPosition() const
     return position;
 }
 
-frmr::Vec3f Entity::GetRotation() const
+frmr::Vec2f Entity::GetRotation() const
 {
     return rotation;
 }
 
-Entity::Entity( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum )
+Entity::Entity( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum )
     : id( idIncrementor++ ),
       name( name ),
       position( position ),

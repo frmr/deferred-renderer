@@ -18,26 +18,26 @@ frmr::Vec3f Camera::GetViewVector() const
 
 void Camera::Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime )
 {
-    rotation += frmr::Vec3f( inputs.GetMouseChange().GetY() * mouseSensitivity, inputs.GetMouseChange().GetX() * mouseSensitivity, 0.0f );
+    rotation += frmr::Vec2f( inputs.GetMouseChange().GetY() * mouseSensitivity, inputs.GetMouseChange().GetX() * mouseSensitivity );
 
     //limit rotation on x-axis
     if ( rotation.GetX() < -89.9f )
     {
-        rotation.Set( -89.9f, rotation.GetY(), 0.0f );
+        rotation.Set( -89.9f, rotation.GetY() );
     }
     else if ( rotation.GetX() > 89.9 )
     {
-        rotation.Set( 89.9f, rotation.GetY(), 0.0f );
+        rotation.Set( 89.9f, rotation.GetY() );
     }
 
     //let rotation on y-axis loop around, always staying within 0-360 degrees
     if ( rotation.GetY() < 0.0f )
     {
-        rotation.Set( rotation.GetX(), 360.0f - rotation.GetY(), 0.0f );
+        rotation.Set( rotation.GetX(), 360.0f - rotation.GetY() );
     }
     else if ( rotation.GetY() >= 360.0f )
     {
-        rotation.Set( rotation.GetX(), rotation.GetY() - 360.0f, 0.0f );
+        rotation.Set( rotation.GetX(), rotation.GetY() - 360.0f );
     }
 
 	UpdateViewVector();
@@ -94,7 +94,7 @@ void Camera::Update( const InputState &inputs, const float mouseSensitivity, con
     ApplyVelocity( deltaTime );
 }
 
-Camera::Camera( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const int16_t zoneNum )
+Camera::Camera( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const int16_t zoneNum )
     : Entity( name, position, rotation, frmr::Vec3f(), zoneNum ),
       acceleration( 0.008f ),
       speedMax( 0.15f ),

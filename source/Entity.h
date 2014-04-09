@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string>
 
+#include "frmr/Vec2f.h"
 #include "frmr/Vec3f.h"
 
 using std::string;
@@ -18,7 +19,7 @@ protected:
     string          name;
     frmr::Vec3f     position;
     frmr::Vec3f     previousPosition;
-    frmr::Vec3f     rotation;
+    frmr::Vec2f     rotation;
     frmr::Vec3f     velocity;
     int16_t         currentZoneNum;
 
@@ -32,10 +33,10 @@ public:
     int16_t     GetCurrentZoneNum() const;
     string      GetName() const;
     frmr::Vec3f GetPosition() const;
-    frmr::Vec3f GetRotation() const;
+    frmr::Vec2f GetRotation() const;
 
 public:
-    Entity( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum );
+    Entity( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum );
 };
 
 #endif // ACTOR_H

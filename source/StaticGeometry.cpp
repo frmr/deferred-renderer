@@ -309,7 +309,7 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
         //draw the geometry
         //draw the portals
 
-    vector<int> renderedZones; //TODO: Return this when we're done so that Simulation knows which Actors to render
+    vector<int> renderedZones;
 
     zones[cameraZoneNum].Render( cameraPosition, cameraProjection, viewFrustum, zones, renderedZones );
 
@@ -319,7 +319,7 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
     }
     cout << std::endl;
 
-    vector<int> visibleEntityZones;
+    vector<int> visibleEntityZones = renderedZones; //TODO: Return this when we're done so that Simulation knows which Entities to render
 }
 
 StaticGeometry::StaticGeometry( const string &zoneDataFilename, const AssetManager &assets )
