@@ -1,10 +1,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Actor.h"
+#include "Entity.h"
 #include "InputState.h"
 
-class Camera : public Actor
+class Camera : public Entity
 {
 public:
     float       acceleration;

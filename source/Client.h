@@ -16,7 +16,7 @@ class Client
 private:
     InputState                      inputs;
     bool                            spectator;
-    int32_t                         playerActorId;
+    int32_t                         playerEntityId;
     vector<pair<string, int32_t>>   screenMessages; //and lifetime timers
     string							currentMessage;
 };

@@ -1,5 +1,5 @@
-#ifndef ACTOR_H
-#define ACTOR_H
+#ifndef ENTITY_H
+#define ENTITY_H
 
 #include <stdint.h>
 #include <string>
@@ -8,7 +8,7 @@
 
 using std::string;
 
-class Actor
+class Entity
 {
 private:
     static int32_t  idIncrementor;
@@ -35,7 +35,7 @@ public:
     frmr::Vec3f GetRotation() const;
 
 public:
-    Actor( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum );
+    Entity( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const frmr::Vec3f &velocity, const int16_t zoneNum );
 };
 
 #endif // ACTOR_H

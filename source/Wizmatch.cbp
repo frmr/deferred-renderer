@@ -49,8 +49,6 @@
 			<Add directory="../lib" />
 			<Add directory="../lib/SFML" />
 		</Linker>
-		<Unit filename="Actor.cpp" />
-		<Unit filename="Actor.h" />
 		<Unit filename="AnimatedBillboard.cpp" />
 		<Unit filename="AnimatedBillboard.h" />
 		<Unit filename="AssetManager.cpp" />
@@ -62,6 +60,8 @@
 		<Unit filename="Config.h" />
 		<Unit filename="Effect.cpp" />
 		<Unit filename="Effect.h" />
+		<Unit filename="Entity.cpp" />
+		<Unit filename="Entity.h" />
 		<Unit filename="Frustum.cpp" />
 		<Unit filename="Frustum.h" />
 		<Unit filename="IcosphereGenerator.cpp" />

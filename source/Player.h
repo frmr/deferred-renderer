@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "Actor.h"
+#include "Entity.h"
 #include "AnimatedBillboard.h"
 #include "Effect.h"
 #include "Potion.h"
@@ -12,7 +12,7 @@
 
 using std::vector;
 
-class Player : public Actor
+class Player : public Entity
 {
 private:
     AnimatedBillboard       skinBillboard; //TODO: Have one billboard and use a shader to color the appropriate parts

@@ -1024,7 +1024,7 @@
 	"Config.h"
 	"frmr/vec2f.h"
 
-1396919434 source:x:\produce\wizmatch\source\main.cpp
+1397004464 source:x:\produce\wizmatch\source\main.cpp
 	"GLEW/glew.h"
 	<SFML/OpenGL.hpp>
 	"AssetManager.h"
@@ -1051,9 +1051,9 @@
 	"ProjectionState.h"
 	"StaticGeometry.h"
 
-1396998032 x:\produce\wizmatch\source\player.h
+1397005048 x:\produce\wizmatch\source\player.h
 	<vector>
-	"Actor.h"
+	"Entity.h"
 	"AnimatedBillboard.h"
 	"Effect.h"
 	"Potion.h"
@@ -2515,8 +2515,8 @@
 	<string>
 	"frmr/Vec3f.h"
 
-1397002073 x:\produce\wizmatch\source\camera.h
-	"Actor.h"
+1397005048 x:\produce\wizmatch\source\camera.h
+	"Entity.h"
 	"InputState.h"
 
 1397002075 source:x:\produce\wizmatch\source\camera.cpp
@@ -2724,4 +2724,9 @@
 	<inttypes.h>
 	<OpenGL/glu.h>
 	<GL/glu.h>
+
+1397004959 x:\produce\wizmatch\source\entity.h
+	<stdint.h>
+	<string>
+	"frmr/Vec3f.h"
 

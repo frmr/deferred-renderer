@@ -95,7 +95,7 @@ void Camera::Update( const InputState &inputs, const float mouseSensitivity, con
 }
 
 Camera::Camera( const string &name, const frmr::Vec3f &position, const frmr::Vec3f &rotation, const int16_t zoneNum )
-    : Actor( name, position, rotation, frmr::Vec3f(), zoneNum ),
+    : Entity( name, position, rotation, frmr::Vec3f(), zoneNum ),
       acceleration( 0.008f ),
       speedMax( 0.15f ),
       speed( 0.0f ),
