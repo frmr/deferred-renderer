@@ -26,7 +26,7 @@ namespace frmr
 
         public:
             bool    AddChild( const frmr::Vec3f &minCoord, const frmr::Vec3f &maxCoord, Type* const newData = nullptr );
-            Octant* GetChild( const int index );
+            Octant* GetChild( const unsigned int index );
             Type*   GetData( const frmr::Vec3f &point ) const;
 
         public:

@@ -8,7 +8,7 @@
 template<class T>
 bool frmr::BoundingBox<T>::Contains( const T point ) const
 {
-	for ( int i = 0; i < point.Size(); i++ )
+	for ( unsigned int i = 0; i < point.Size(); i++ )
 	{
 		if ( point.GetAt( i ) > max.GetAt( i ) || point.GetAt( i ) < min.GetAt( i ) )
 		{
@@ -35,10 +35,9 @@ frmr::BoundingBox<T>::BoundingBox( const vector<T> &points )
 	: min( std::numeric_limits<float>::max() ),
 	  max( std::numeric_limits<float>::min() )
 {
-
 	for ( auto pointIt : points )
 	{
-		for ( int i = 0; i < pointIt.Size(); i++ )
+		for ( unsigned int i = 0; i < pointIt.Size(); i++ )
 		{
 			if ( pointIt.GetAt( i ) < min.GetAt( i ) )
 			{
@@ -52,6 +51,5 @@ frmr::BoundingBox<T>::BoundingBox( const vector<T> &points )
 	}
 }
 
-//valid instantiations
 template class frmr::BoundingBox<frmr::Vec2f>;
 template class frmr::BoundingBox<frmr::Vec3f>;

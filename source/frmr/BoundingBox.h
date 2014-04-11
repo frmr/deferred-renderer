@@ -14,9 +14,6 @@ namespace frmr
 		T	min;
 		T	max;
 
-	private:
-
-
 	public:
 		bool	Contains( const T point ) const;
 		T		GetMin() const;

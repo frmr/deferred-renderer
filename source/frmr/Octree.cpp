@@ -43,7 +43,7 @@ bool frmr::Octree<Type>::Octant::AddChild( const frmr::Vec3f &minCoord, const fr
 }
 
 template<class Type>
-typename frmr::Octree<Type>::Octant* frmr::Octree<Type>::Octant::GetChild( const int index )
+typename frmr::Octree<Type>::Octant* frmr::Octree<Type>::Octant::GetChild( const unsigned int index )
 {
     if ( data == nullptr )
     {
