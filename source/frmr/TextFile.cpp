@@ -8,31 +8,31 @@ using std::endl;
 
 vector<string> frmr::TextFile::SplitString( const string inString ) const
 {
-    vector<string> outVector;
+    vector<string> wordList;
     string word = "";
 
-    for ( unsigned int charIndex = 0; charIndex < inString.length(); charIndex++ )
+    for ( auto charIt : inString )
     {
-        if ( inString[charIndex] == ' ' || inString[charIndex] == '\t' )
+        if ( charIt == ' ' || charIt == '\t' )
         {
-            if ( word.length() > 0 )
+            if ( !word.empty() )
             {
-                outVector.push_back( word );
-                word = "";
+                wordList.push_back( word );
+                word.clear();
             }
         }
         else
         {
-            word += inString[charIndex];
+            word += charIt;
         }
     }
 
-	if ( word.length() > 0 )
+	if ( !word.empty() )
 	{
-		outVector.push_back( word );
+		wordList.push_back( word );
 	}
 
-    return outVector;
+    return wordList;
 }
 
 int frmr::TextFile::GetNumOfLines() const
@@ -55,7 +55,7 @@ frmr::TextFile::TextFile( const string filename )
         string fullLine;
         while ( getline( readFile, fullLine ) )
         {
-            if ( !( fullLine == "" || fullLine == "\n" ) )
+            if ( fullLine != "" && fullLine != "\n" )
             {
 				lines.push_back( SplitString( fullLine ) );
             }
@@ -63,7 +63,7 @@ frmr::TextFile::TextFile( const string filename )
     }
     else
     {
-        cout << "frmr::TextFile::TextFile() - Could not open file " << filename << endl;
+        cout << "frmr::TextFile::TextFile() - Could not open file " << filename << "." << endl;
     }
     readFile.close();
 }

@@ -9,40 +9,49 @@ Variables
 	
 
 Functions
-	<bool>	Wait( <int> )
-	<bool>	Call( <funcName> )
-	<bool>	Spawn( 
-	<bool>	Despawn()
-	<bool>	AddEffect
-	<bool>	Exists()
+	bool	Wait( int time )
+	bool	Call( string script )
+	bool	Spawn( string file, string name )
+	bool	Despawn( string name )
+	bool	Exists()
 
 	Mover
-		<bool>	Start()
-		<bool>	Stop()
-		<bool>	Toggle()
-		<bool>	ToggleDirection()
-		<bool>	SetForward()
-		<bool>	SetBackward()
+		bool	Start()
+		bool	Stop()
+		bool	Toggle()
+		bool	IsMoving()
+		bool	SetForward()
+		bool	SetBackward()
+		bool	ToggleDirection()
 		
 	Light
-		<bool>	Toggle()
-		<bool>	TurnOn()
-		<bool>	TurnOff()
+		bool	TurnOn()
+		bool	TurnOff()
+		bool	Toggle()
+		
+	JumpPad
+		bool	Activate()
 		
 	Teleporter
-		<bool>	Activate()
+		bool	Activate()
 		
 	Container
-		<bool>	Contains( <string> )
-		<bool>	IsEmpty()
+		bool	Contains( string item )
+		bool	IsEmpty()
 	
 	Player
-		<int>	GetHealth()
-		<Vec3>	GetVelocity()
-		<bool>	HasEffect( <string> )
+		int		GetHealth()
+		int		GetMagic()
+		bool	AddEffect( string type, int timer, float strength, bool canStack )
+		bool	HasEffect( string type )
+		bool	HasSpell( string spell )
+		bool	HasItem( string item )
+		bool	LookAt( string target )
+		bool	Target( string target, float projectileSpeed )	//sets rotation, checks line of sight
+		bool	Cast( string spell )
 		
 	Switch
-		<bool>	Activate()
+		bool	Activate()
 
 <bool>		::= "true" | "false"
 <digit>		::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9

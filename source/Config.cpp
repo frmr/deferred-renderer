@@ -32,7 +32,6 @@ EngineConfig::EngineConfig( const string &configFilename )
 		mouseMenuSensitivity( 0.1f ),
 		mouseGameSensitivity( 0.1f )
 {
-
     frmr::TextFile configFile( configFilename );
 
     for ( auto lineIt : configFile.GetLines() )
