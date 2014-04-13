@@ -168,8 +168,8 @@ zone
 	/texTriangleGroup
 
 	light
-		position		0	0	10
-		color			10	0	0
+		position		30	0	10
+		color			0	0	0
 		radius			100
 	/light
 	
@@ -270,7 +270,7 @@ zone
 	
 	light
 		position		15	0	10
-		color			0	10	0
+		color			0	0	0
 		radius			100
 	/light
 	
@@ -477,9 +477,29 @@ zone
 	/texTriangleGroup
 	
 	light
-		position		30	0	10
+		position		0	0	10
 		color			0	0	10
 		radius			100
+		triangle
+			vert0		20	-10	20
+			vert1		40	-10	20
+			vert2		20	10	20
+		/triangle
+		triangle
+			vert0		40	-10	20
+			vert1		40	10	20
+			vert2		20	10	20
+		/triangle
+		triangle
+			vert0		40	10	20
+			vert1		40	-10	20
+			vert2		20	5	15
+		/triangle
+		triangle
+			vert0		40	-10	20
+			vert1		20	-5	15
+			vert2		20	5	15
+		/triangle
 	/light
 	
 	portal

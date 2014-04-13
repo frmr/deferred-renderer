@@ -238,7 +238,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
         glDisable( GL_DEPTH_TEST );
 
-        //light only where the stencil buffer is equal to 2
+        //light only where the stencil buffer is equal to 1
         glStencilFunc( GL_EQUAL, 1, 0xFF );
 
         glColorMask( GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE ); //enable writing to the color buffer
