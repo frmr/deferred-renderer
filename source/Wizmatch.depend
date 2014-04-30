@@ -1034,7 +1034,7 @@
 	"Simulation.h"
 	"frmr/TimeManager.h"
 
-1397344093 source:x:\produce\wizmatch\source\simulation.cpp
+1398872284 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
@@ -2599,12 +2599,13 @@
 	<iostream>
 	"frmr_TextFile.h"
 
-1396899148 source:x:\produce\wizmatch\source\frustum.cpp
+1398871641 source:x:\produce\wizmatch\source\frustum.cpp
 	"Frustum.h"
 	<iostream>
 	"frmr/frmrMath.h"
 
-1396898742 x:\produce\wizmatch\source\frustum.h
+1398869470 x:\produce\wizmatch\source\frustum.h
+	<array>
 	<vector>
 	"frmr/Triangle.h"
 	"frmr/Vec2f.h"
@@ -2689,14 +2690,14 @@
 	<stdint.h>
 	<SFML/System/Clock.hpp>
 
-1396899212 source:x:\produce\wizmatch\source\frmr\triangle.cpp
+1398872178 source:x:\produce\wizmatch\source\frmr\triangle.cpp
 	"../frmr/Triangle.h"
 	"../frmr/frmrMath.h"
 
-1396898964 x:\produce\wizmatch\source\frmr\triangle.h
+1398870487 x:\produce\wizmatch\source\frmr\triangle.h
 	"../frmr/Vec3f.h"
 
-1396899123 source:x:\produce\wizmatch\source\frmr\frmrmath.cpp
+1398871793 source:x:\produce\wizmatch\source\frmr\frmrmath.cpp
 	"../frmr/frmrMath.h"
 	<iostream>
 	<cmath>

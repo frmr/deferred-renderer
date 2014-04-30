@@ -1,10 +1,12 @@
 #ifndef FRUSTUM_H
 #define FRUSTUM_H
 
+#include <array>
 #include <vector>
 #include "frmr/Triangle.h"
 #include "frmr/Vec2f.h"
 
+using std::array;
 using std::vector;
 
 class Frustum

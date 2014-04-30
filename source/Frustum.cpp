@@ -21,7 +21,7 @@ bool Frustum::Contains( const frmr::Vec3f &point ) const
     return true;
 }
 
-//returns a vector of any intersections of a line cutting throw the frustum's faces
+//returns a vector of any intersections of a line cutting through the frustum's faces
 vector<frmr::Vec3f> Frustum::GetLineIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const
 {
     vector<frmr::Vec3f> intersections;
@@ -29,13 +29,10 @@ vector<frmr::Vec3f> Frustum::GetLineIntersections( const frmr::Vec3f &lineStart,
     for ( auto faceIt : faces )
     {
         frmr::Vec3f intersect;
-        bool doesIntersect = frmr::LinePlaneIntersection(  faceIt.GetNormal(), faceIt.GetVert0(), lineStart, lineVector, true, intersect );
+        bool doesIntersect = faceIt.LineIntersection( lineStart, lineVector, true, false, intersect );
         if ( doesIntersect )
 		{
-			if ( faceIt.ContainsPoint( intersect ) )
-			{
-				intersections.push_back( intersect );
-			}
+			intersections.push_back( intersect );
 		}
     }
     return intersections;
@@ -70,13 +67,10 @@ vector<frmr::Vec3f> Frustum::GetVisibleTrianglePoints( const frmr::Triangle &tri
 		for ( auto vectorIt : edgeVectors )
 		{
 			frmr::Vec3f intersect;
-			bool doesIntersect = frmr::LinePlaneIntersection( triangle.GetNormal(), triangle.GetVert0(), position, vectorIt, true, intersect );
+			bool doesIntersect = triangle.LineIntersection( position, vectorIt, false, true, intersect );
 			if ( doesIntersect )
 			{
-				if ( triangle.ContainsPoint( intersect ) )
-				{
-					visiblePoints.push_back( intersect );
-				}
+				visiblePoints.push_back( intersect );
 			}
 		}
 	}

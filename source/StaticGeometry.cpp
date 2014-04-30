@@ -120,10 +120,10 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Proj
 				//construct new frustum from AABB vertices
 				vector<frmr::Vec3f> newFrustumVertices;
 				newFrustumVertices.reserve( 4 );
-				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMin().GetX(), portalBox.GetMax().GetY(), 0.998f ) ) );	//top left
-				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMin().GetX(), portalBox.GetMin().GetY(), 0.998f ) ) );	//bottom left
-				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMin().GetY(), 0.998f ) ) );	//bottom right
-				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMax().GetY(), 0.998f ) ) );	//top right
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMin().GetX(), portalBox.GetMax().GetY(), 0.0f ) ) );	//top left
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMin().GetX(), portalBox.GetMin().GetY(), 0.0f ) ) );	//bottom left
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMin().GetY(), 0.0f ) ) );	//bottom right
+				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMax().GetY(), 0.0f ) ) );	//top right
 
 				Frustum newFrustum( cameraPosition, newFrustumVertices );
 

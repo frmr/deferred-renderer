@@ -6,7 +6,7 @@ frmr::Vec3f frmr::Triangle::CalculateNormal() const
     return frmr::VectorCross( vec01, vec02 ).Unit();
 }
 
-bool frmr::Triangle::ContainsPoint( const frmr::Vec3f &point ) const
+bool frmr::Triangle::Contains( const frmr::Vec3f &point, const bool closed ) const
 {
     frmr::Vec3f pVec = point - vert0;
     float dot11 = VectorDot( vec01, vec01 );
@@ -19,7 +19,30 @@ bool frmr::Triangle::ContainsPoint( const frmr::Vec3f &point ) const
     float u = ( dot22 * dot1p - dot12 * dot2p ) * invDenom;
     float v = ( dot11 * dot2p - dot12 * dot1p ) * invDenom;
 
-    return ( ( u > 0.0f ) && ( v > 0.0f ) && ( u + v < 1.0f ) ) ? true : false;
+	if ( u < 0.0f || v < 0.0f )
+	{
+		return false;
+	}
+	else
+	{
+		if ( u + v > 1.0f && closed )
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+}
+
+bool frmr::Triangle::LineIntersection( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector, const bool lineBounds, const bool triangleBounds, frmr::Vec3f &intersect ) const
+{
+	bool doesIntersect = frmr::LinePlaneIntersection( normal, vert0, lineStart, lineVector, lineBounds, intersect );
+	if ( doesIntersect )
+	{
+		return Contains( intersect, triangleBounds );
+	}
 }
 
 frmr::Vec3f frmr::Triangle::GetVert0() const

@@ -86,7 +86,8 @@ bool frmr::LinePlaneIntersection( const frmr::Vec3f &planeNormal, const frmr::Ve
     else
     {
         float vectorMult = VectorDot( planeNormal, planeVertex - lineStart ) / parallelCheck;
-        if ( ( vectorMult < 0.0f || vectorMult > 1.0f ) && limitToBounds )
+        //if ( ( vectorMult < 0.0f || vectorMult > 1.0f ) && limitToBounds )
+        if ( vectorMult < 0.0f  || ( vectorMult > 1.0f && limitToBounds ) )
         {
             return false;
         }

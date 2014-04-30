@@ -22,7 +22,8 @@ namespace frmr
         frmr::Vec3f CalculateNormal() const;
 
     public:
-        bool        ContainsPoint( const frmr::Vec3f &point ) const;
+        bool        Contains( const frmr::Vec3f &point, const bool closed ) const;
+        bool		LineIntersection( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector, const bool lineBounds, const bool triangleBounds, frmr::Vec3f &intersect ) const;
 
         frmr::Vec3f GetVert0() const;
         frmr::Vec3f GetVert1() const;
