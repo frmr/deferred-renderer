@@ -306,7 +306,8 @@ void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
     glewInit();
     ResetViewport( engineCfg );
     SetToPerspectiveProjection( engineCfg );
-    glClearColor( 0.1f, 0.0f, 0.0f, 0.0f );
+    glClearColor( 0.2f, 0.0f, 0.2f, 0.0f );
+    glDepthFunc( GL_LEQUAL );
 }
 
 void RenderManager::SimpleRender( const Simulation &gameSim, const EngineConfig &engineCfg ) const

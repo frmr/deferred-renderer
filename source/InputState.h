@@ -48,7 +48,7 @@ public:
 	frmr::Vec2f GetMouseChange() const;
 
 public:
-	InputState(); //binding config
+	InputState( sf::RenderWindow &window, const EngineConfig &engineCfg ); //binding config
 	~InputState();
 };
 

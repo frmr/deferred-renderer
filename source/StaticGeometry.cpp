@@ -290,7 +290,7 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
     return true;
 }
 
-vector<Light> StaticGeometry::GetStaticLights() const
+vector<Light> StaticGeometry::GetStaticLights() const //TODO: only return lights that could be visible
 {
     vector<Light> foundLights;
 

@@ -1016,15 +1016,15 @@
 	"frmr_Vec3f.h"
 	<cmath>
 
-1397002835 source:x:\produce\wizmatch\source\inputstate.cpp
+1398945076 source:x:\produce\wizmatch\source\inputstate.cpp
 	"InputState.h"
 
-1396898742 x:\produce\wizmatch\source\inputstate.h
+1398945087 x:\produce\wizmatch\source\inputstate.h
 	<SFML/Graphics.hpp>
 	"Config.h"
 	"frmr/vec2f.h"
 
-1397004464 source:x:\produce\wizmatch\source\main.cpp
+1398945036 source:x:\produce\wizmatch\source\main.cpp
 	"GLEW/glew.h"
 	<SFML/OpenGL.hpp>
 	"AssetManager.h"
@@ -2426,7 +2426,7 @@
 	<string>
 	"GL/glew.h"
 
-1397350128 source:x:\produce\wizmatch\source\rendermanager.cpp
+1398875475 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	"ProjectionState.h"
@@ -2473,7 +2473,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1397005358 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1398878424 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"

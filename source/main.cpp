@@ -27,7 +27,7 @@ int main()
     bool isServer = false;
 
     frmr::TimeManager   timer;
-    InputState          inputs; //this should be done within the Client
+    InputState          inputs( window, engineCfg ); //this should be done within the Client
     AssetManager        assets( "../data.txt", engineCfg.GetFilterTextures() );
     RenderManager       renderer( engineCfg );
     Simulation          gameSim( assets );

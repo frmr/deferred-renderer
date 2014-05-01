@@ -22,7 +22,6 @@ void InputState::ResetAll()
 	tertiaryFireHeld = false;
 	ResetOneFrameKeys();
 	mouseChange.Reset();
-
 }
 
 void InputState::Update( sf::RenderWindow &window, const EngineConfig &engineCfg )
@@ -96,9 +95,10 @@ bool        InputState::GetSecondaryFireHeld() const 	{ return secondaryFireHeld
 bool        InputState::GetTertiaryFireHeld() const 	{ return tertiaryFireHeld; }
 frmr::Vec2f InputState::GetMouseChange() const 		    { return mouseChange; }
 
-InputState::InputState()
+InputState::InputState( sf::RenderWindow &window, const EngineConfig &engineCfg )
 {
 	ResetAll();
+	sf::Mouse::setPosition( sf::Vector2i( engineCfg.GetActiveWidth() / 2, engineCfg.GetActiveHeight() / 2 ), window );
 }
 
 InputState::~InputState()
