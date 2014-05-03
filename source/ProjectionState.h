@@ -24,6 +24,7 @@ public:
 	void		CopyProjectionMatrix( double newProj[]  );
 	void		CopyViewportMatrix( int newView[] );
 	void		CopyPerspectiveMatrix( float newPerspective[] );
+	void		Refresh();
 
 public:
 	ProjectionState();

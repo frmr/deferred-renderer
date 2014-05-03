@@ -96,7 +96,7 @@ Frustum::Frustum( const frmr::Vec3f &cameraPosition, const vector<frmr::Vec3f> &
 		edgeVectors.push_back( vertexIt - cameraPosition );
 	}
 
-	if ( vertices.size() < 2 )
+	if ( vertices.size() < 3 )
 	{
 		cout << "Frustum::Frustum() - Not enough vertices supplied to frustum constructor." << endl;
 	}

@@ -110,7 +110,7 @@ frmr::Vec3f ProjectionState::UnProject( const frmr::Vec3f &windowCoord ) const
 	return frmr::Vec3f( (float) objX, (float) objY, (float) objZ );
 }
 
-ProjectionState::ProjectionState()
+void ProjectionState::Refresh()
 {
 	glGetIntegerv( GL_VIEWPORT, viewport );
 
@@ -123,4 +123,9 @@ ProjectionState::ProjectionState()
 
 	glGetDoublev( GL_MODELVIEW_MATRIX, modelview );
 	glGetDoublev( GL_PROJECTION_MATRIX, projection );
+}
+
+ProjectionState::ProjectionState()
+{
+	Refresh();
 }

@@ -53,8 +53,6 @@
 		<Unit filename="AnimatedBillboard.h" />
 		<Unit filename="AssetManager.cpp" />
 		<Unit filename="AssetManager.h" />
-		<Unit filename="Camera.cpp" />
-		<Unit filename="Camera.h" />
 		<Unit filename="Client.h" />
 		<Unit filename="Config.cpp" />
 		<Unit filename="Config.h" />
@@ -80,6 +78,8 @@
 		<Unit filename="Server.h" />
 		<Unit filename="Simulation.cpp" />
 		<Unit filename="Simulation.h" />
+		<Unit filename="Spectator.cpp" />
+		<Unit filename="Spectator.h" />
 		<Unit filename="SpellSet.h" />
 		<Unit filename="StaticGeometry.cpp" />
 		<Unit filename="StaticGeometry.h" />

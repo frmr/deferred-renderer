@@ -1,27 +1,29 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "Entity.h"
-#include "InputState.h"
+#include "frmr/Vec2f.h"
+#include "ProjectionState.h"
 
-class Camera : public Entity
+class Camera
 {
-public:
-    float       acceleration;
-    float       speedMax;
-    float       speed;
-    frmr::Vec3f	viewVector;
-
 private:
-	void 		UpdateViewVector();
+	frmr::Vec3f			position;
+	frmr::Vec2f			rotation;
+	bool				orthographic;
+	ProjectionState		projection;
+	int16_t				zoneNum;
 
 public:
-    frmr::Vec3f GetViewVector() const;
-    void        Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime );
-
+	void			ApplyTransformation() const;
+	frmr::Vec3f		GetPosition() const;
+	frmr::Vec2f		GetRotation() const;
+	bool			GetOrthographic() const;
+	ProjectionState	GetProjectionState() const;
+	int16_t			GetZoneNum() const;
+	void			RefreshProjectionState();
 
 public:
-    Camera( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const int16_t zoneNum );
+	Camera( const frmr::Vec3f &position, const frmr::Vec2f &rotation, const bool orthographic, const int16_t zoneNum );
 };
 
 #endif // CAMERA_H

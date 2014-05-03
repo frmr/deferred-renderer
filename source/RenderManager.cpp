@@ -207,9 +207,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glStencilFunc( GL_NEVER, 1, 0xFF ); // never pass stencil test
         glStencilOp( GL_REPLACE, GL_KEEP, GL_KEEP );  // replace stencil buffer values to ref=1
 
-        glRotatef( -gameSim.GetCamera().GetRotation().GetX(), 1.0f, 0.0f, 0.0f );
-        glRotatef( -gameSim.GetCamera().GetRotation().GetY(), 0.0f, 1.0f, 0.0f );
-        glTranslatef( -gameSim.GetCamera().GetPosition().GetX(), -gameSim.GetCamera().GetPosition().GetY(), -gameSim.GetCamera().GetPosition().GetZ() );
+        gameSim.GetActiveCamera().ApplyTransformation();
 
         glPushMatrix();
             //render light radius at correct location and scale
