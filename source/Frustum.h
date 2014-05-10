@@ -25,6 +25,7 @@ public:
     vector<frmr::Vec3f> 	GetLineIntersections( const frmr::Vec3f &lineStart, const frmr::Vec3f &lineVector ) const;
     vector<frmr::Vec3f>		GetVisibleTrianglePoints( const frmr::Triangle &triangle ) const;
     vector<frmr::Triangle>	GetFaces() const;
+    frmr::Vec3f				GetPosition() const;
 
 public:
     Frustum( const frmr::Vec3f &position, const frmr::Vec2f &cameraRotation, const int verticalFov, const float fovRatio );

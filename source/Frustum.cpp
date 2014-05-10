@@ -109,6 +109,11 @@ vector<frmr::Triangle> Frustum::GetFaces() const
 	return faces;
 }
 
+frmr::Vec3f Frustum::GetPosition() const
+{
+	return position;
+}
+
 Frustum::Frustum( const frmr::Vec3f &position, const frmr::Vec2f &cameraRotation, const int verticalFov, const float fovRatio )
 	:	position( position )
 {

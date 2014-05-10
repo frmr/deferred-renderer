@@ -11,13 +11,13 @@
 using std::cout;
 using std::endl;
 
-vector<frmr::Vec3f> StaticGeometry::Portal::CheckVisibility( const frmr::Vec3f &cameraPosition, const Frustum &viewFrustum ) const
+vector<frmr::Vec3f> StaticGeometry::Portal::CheckVisibility( const Frustum &viewFrustum ) const
 {
     vector<frmr::Vec3f> visiblePoints;
 
     for ( auto triangleIt : triangles )
     {
-        frmr::Vec3f cameraToTriangleVector = triangleIt.GetVert0() - cameraPosition;
+        frmr::Vec3f cameraToTriangleVector = triangleIt.GetVert0() - viewFrustum.GetPosition();
 
         if ( frmr::VectorDot( triangleIt.GetNormal(), cameraToTriangleVector.Unit() ) > 0.0f ) //TODO: Make sure portal faces are declared counter-clockwise when exported
         {
@@ -83,7 +83,7 @@ int16_t StaticGeometry::Zone::GetZoneNum() const
     return zoneNum;
 }
 
-void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const ProjectionState &cameraProjection, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const
+void StaticGeometry::Zone::Render( const ProjectionState &cameraProjection, const Frustum &viewFrustum, const vector<Zone> &zones, vector<int> &renderedZonesRef ) const
 {
     renderedZonesRef.push_back( zoneNum );
 
@@ -99,7 +99,7 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Proj
         //if portal target zone not already rendered
         if ( std::find( renderedZonesRef.begin(), renderedZonesRef.end(), portalIt.GetTargetZoneNum() ) == renderedZonesRef.end() )
 		{
-			vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( cameraPosition, viewFrustum );
+			vector<frmr::Vec3f> visiblePoints = portalIt.CheckVisibility( viewFrustum );
             if ( !visiblePoints.empty() )
             {
             	//project all points
@@ -108,13 +108,13 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Proj
 				{
 					projectedPoints.push_back( cameraProjection.Project( pointIt ) );
 				}
+
 				//find bounding box
 				frmr::BoundingBox<frmr::Vec3f> portalBox( projectedPoints );
 
 				//apply glScissor
 				int scissorWidth = frmr::Round( portalBox.GetMax().GetX() - portalBox.GetMin().GetX() );
 				int scissorHeight = frmr::Round( portalBox.GetMax().GetY() - portalBox.GetMin().GetY() );
-
 				glScissor( frmr::Round( portalBox.GetMin().GetX() ), frmr::Round( portalBox.GetMin().GetY() ), scissorWidth, scissorHeight );
 
 				//construct new frustum from AABB vertices
@@ -125,10 +125,10 @@ void StaticGeometry::Zone::Render( const frmr::Vec3f &cameraPosition, const Proj
 				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMin().GetY(), 0.0f ) ) );	//bottom right
 				newFrustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( portalBox.GetMax().GetX(), portalBox.GetMax().GetY(), 0.0f ) ) );	//top right
 
-				Frustum newFrustum( cameraPosition, newFrustumVertices );
+				Frustum newFrustum( viewFrustum.GetPosition(), newFrustumVertices );
 
 				glEnable( GL_SCISSOR_TEST );
-                zones[portalIt.GetTargetZoneNum()].Render( cameraPosition, cameraProjection, newFrustum, zones, renderedZonesRef );
+					zones[portalIt.GetTargetZoneNum()].Render( cameraProjection, newFrustum, zones, renderedZonesRef );
                 glDisable( GL_SCISSOR_TEST );
             }
 		}
@@ -302,7 +302,7 @@ vector<Light> StaticGeometry::GetStaticLights() const //TODO: only return lights
     return foundLights;
 }
 
-void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cameraPosition, const ProjectionState &cameraProjection, const Frustum &viewFrustum ) const
+void StaticGeometry::Render( const int16_t cameraZoneNum, const ProjectionState &cameraProjection, const Frustum &viewFrustum ) const
 {
     glColor4f( 1.0f, 1.0f, 1.0f, 1.0f );
     //draw current zone
@@ -311,7 +311,7 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const frmr::Vec3f &cam
 
     vector<int> renderedZones;
 
-    zones[cameraZoneNum].Render( cameraPosition, cameraProjection, viewFrustum, zones, renderedZones );
+    zones[cameraZoneNum].Render( cameraProjection, viewFrustum, zones, renderedZones );
 
     for ( auto renderedZoneIt : renderedZones )
     {

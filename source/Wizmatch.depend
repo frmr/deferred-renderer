@@ -1034,7 +1034,7 @@
 	"Simulation.h"
 	"frmr/TimeManager.h"
 
-1399742462 source:x:\produce\wizmatch\source\simulation.cpp
+1399743907 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
@@ -2474,7 +2474,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1399651772 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1399743583 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2484,7 +2484,7 @@
 	"frmr/Vec2f.h"
 	"frmr/Vec3f.h"
 
-1396898742 x:\produce\wizmatch\source\staticgeometry.h
+1399743594 x:\produce\wizmatch\source\staticgeometry.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	<string>
@@ -2601,13 +2601,13 @@
 	<iostream>
 	"frmr_TextFile.h"
 
-1399741112 source:x:\produce\wizmatch\source\frustum.cpp
+1399743312 source:x:\produce\wizmatch\source\frustum.cpp
 	"Frustum.h"
 	<iostream>
 	<cmath>
 	"frmr/frmrMath.h"
 
-1399741668 x:\produce\wizmatch\source\frustum.h
+1399743291 x:\produce\wizmatch\source\frustum.h
 	<array>
 	<vector>
 	"frmr/Triangle.h"
@@ -2744,7 +2744,7 @@
 	"Entity.h"
 	"InputState.h"
 
-1399741747 source:x:\produce\wizmatch\source\spectator.cpp
+1399742674 source:x:\produce\wizmatch\source\spectator.cpp
 	"Spectator.h"
 	<iostream>
 	"frmr/frmrMath.h"

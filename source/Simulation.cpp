@@ -34,7 +34,7 @@ ProjectionState Simulation::RenderLit( const int viewportWidth, const int viewpo
 
 		activeCamera.ApplyTransformation();
 		ProjectionState cameraProjection;
-		staticGeometry.Render( activeCamera.GetZoneNum(), activeCamera.GetPosition(), cameraProjection, activeCamera.GetFrustum() );
+		staticGeometry.Render( activeCamera.GetZoneNum(), cameraProjection, activeCamera.GetFrustum() );
 
     glPopMatrix();
 
@@ -43,7 +43,13 @@ ProjectionState Simulation::RenderLit( const int viewportWidth, const int viewpo
 
 void Simulation::RenderShadowCasters( const PerspectiveCamera &lightView ) const
 {
+	glPushMatrix();
 
+		lightView.ApplyTransformation();
+		ProjectionState cameraProjection;
+		staticGeometry.Render( activeCamera.GetZoneNum(), cameraProjection, activeCamera.GetFrustum() );
+
+	glPopMatrix();
 }
 
 bool Simulation::LoadMap( const string filename )
