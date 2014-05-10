@@ -7,6 +7,32 @@
 using std::cout;
 using std::endl;
 
+//vertices must be listed counter-clockwise
+void Frustum::ConstructFaces( const vector<frmr::Vec3f> &vertices )
+{
+	if ( vertices.size() < 3 )
+	{
+		cout << "Frustum::Frustum() - Not enough vertices supplied to frustum constructor." << endl;
+	}
+	else
+	{
+		faces.reserve( vertices.size() );
+		edgeVectors.reserve( vertices.size() );
+		for ( auto vertexIt : vertices )
+		{
+			edgeVectors.push_back( ( vertexIt - position ).Unit() );
+		}
+
+		//create faces between the camera position, a given vertex, and the next vertex in the list
+		for ( unsigned int vertexIndex = 0; vertexIndex < vertices.size() - 1; vertexIndex++ )
+		{
+			faces.push_back( frmr::Triangle( position, vertices[vertexIndex], vertices[vertexIndex+1] ) );
+		}
+		//create a final vertex from the first and last vertices
+		faces.push_back( frmr::Triangle( position, vertices[vertices.size()-1], vertices[0] ) );
+	}
+}
+
 //returns true if point is facing the back side of each triangle
 bool Frustum::Contains( const frmr::Vec3f &point ) const
 {
@@ -82,32 +108,55 @@ vector<frmr::Triangle> Frustum::GetFaces() const
 	return faces;
 }
 
-Frustum::Frustum( const frmr::Vec3f &cameraPosition, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY, const float nearPlane, const float farPlane )
+#include "math.h"
+frmr::Vec3f Rotate( frmr::Vec3f p, frmr::Vec2f rot )
 {
-    //create 12 triangles
+	float yx = p.GetX() * cos(rot.GetY()* 0.01745f) + p.GetZ() * sin(rot.GetY()* 0.01745f);
+	float yy = p.GetY();
+	float yz = p.GetX() * -sin(rot.GetY()* 0.01745f) + p.GetZ() * cos(rot.GetY()* 0.01745f);
+
+	float xx = yx;
+	float xy = yy * cos(rot.GetX()* 0.01745f) - yz * sin(rot.GetX()* 0.01745f);
+	float xz = yy * sin(rot.GetX()* 0.01745f) + yz * cos(rot.GetX()* 0.01745f);
+
+//	float xx = p.GetX();
+//	float xy = p.GetY() * cos(rot.GetX()* 0.01745f) - p.GetZ() * sin(rot.GetX()* 0.01745f);
+//	float xz = p.GetY() * sin(rot.GetX()* 0.01745f) + p.GetZ() * cos(rot.GetX()* 0.01745f);
+//
+//	float yx = xx * cos(rot.GetY()* 0.01745f) + xz * sin(rot.GetY()* 0.01745f);
+//	float yy = xy;
+//	float yz = xx * -sin(rot.GetY()* 0.01745f) + xz * cos(rot.GetY()* 0.01745f);
+
+
+
+	return frmr::Vec3f( xx, xy, xz );
 }
 
-//vertices must be listed counter-clockwise
-Frustum::Frustum( const frmr::Vec3f &cameraPosition, const vector<frmr::Vec3f> &vertices )
-	: position( cameraPosition )
+Frustum::Frustum( const frmr::Vec3f &position, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY )
+	:	position( position )
 {
-	for ( auto vertexIt : vertices )
-	{
-		edgeVectors.push_back( vertexIt - cameraPosition );
-	}
 
-	if ( vertices.size() < 3 )
-	{
-		cout << "Frustum::Frustum() - Not enough vertices supplied to frustum constructor." << endl;
-	}
-	else
-	{
-		//create faces between the camera position, a given vertex, and the next vertex in the list
-		for ( unsigned int vertexIndex = 0; vertexIndex < vertices.size() - 1; vertexIndex++ )
-		{
-			faces.push_back( frmr::Triangle( cameraPosition, vertices[vertexIndex], vertices[vertexIndex+1] ) );
-		}
-		//create a final vertex from the first and last vertices
-		faces.push_back( frmr::Triangle( cameraPosition, vertices[vertices.size()-1], vertices[0] ) );
-	}
+	float halfUnitPlaneHeight = tan( fovY * 0.5f * 0.01745f );
+	float halfUnitPlaneWidth = halfUnitPlaneHeight * fovX / fovY;
+
+	frmr::Vec3f viewVector = frmr::CalculateVectorFromRotation( cameraRotation.GetX(), cameraRotation.GetY() );
+	frmr::Vec3f leftVector = frmr::CalculateVectorFromRotation( 0.0f, cameraRotation.GetY() + 90.0f );
+	frmr::Vec3f upVector = frmr::VectorCross( viewVector, leftVector );
+
+	//construct vertices
+	vector<frmr::Vec3f> vertices;
+	vertices.reserve( 4 );
+
+	vertices.push_back( position + viewVector + upVector * halfUnitPlaneHeight + leftVector * halfUnitPlaneWidth );
+	vertices.push_back( position + viewVector - upVector * halfUnitPlaneHeight + leftVector * halfUnitPlaneWidth );
+	vertices.push_back( position + viewVector - upVector * halfUnitPlaneHeight - leftVector * halfUnitPlaneWidth );
+	vertices.push_back( position + viewVector + upVector * halfUnitPlaneHeight - leftVector * halfUnitPlaneWidth );
+
+	ConstructFaces( vertices );
+}
+
+Frustum::Frustum( const frmr::Vec3f &position, const vector<frmr::Vec3f> &vertices )
+	:	position( position )
+{
+	ConstructFaces( vertices );
 }

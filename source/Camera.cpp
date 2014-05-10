@@ -28,26 +28,15 @@ bool Camera::GetOrthographic() const
 	return orthographic;
 }
 
-ProjectionState	Camera::GetProjectionState() const
-{
-	return projection;
-}
-
 int16_t Camera::GetZoneNum() const
 {
 	return zoneNum;
-}
-
-void Camera::RefreshProjectionState()
-{
-	projection.Refresh();
 }
 
 Camera::Camera( const frmr::Vec3f &position, const frmr::Vec2f &rotation, const bool orthographic, const int16_t zoneNum )
 	:	position( position ),
 		rotation( rotation ),
 		orthographic( orthographic ),
-		projection(),
 		zoneNum( zoneNum )
 {
 }

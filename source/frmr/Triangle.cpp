@@ -43,6 +43,10 @@ bool frmr::Triangle::LineIntersection( const frmr::Vec3f &lineStart, const frmr:
 	{
 		return Contains( intersect, triangleBounds );
 	}
+	else
+	{
+		return false;
+	}
 }
 
 frmr::Vec3f frmr::Triangle::GetVert0() const

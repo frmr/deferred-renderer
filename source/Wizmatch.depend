@@ -1016,7 +1016,7 @@
 	"frmr_Vec3f.h"
 	<cmath>
 
-1398945076 source:x:\produce\wizmatch\source\inputstate.cpp
+1399648389 source:x:\produce\wizmatch\source\inputstate.cpp
 	"InputState.h"
 
 1398945087 x:\produce\wizmatch\source\inputstate.h
@@ -1034,12 +1034,12 @@
 	"Simulation.h"
 	"frmr/TimeManager.h"
 
-1399077536 source:x:\produce\wizmatch\source\simulation.cpp
+1399660696 source:x:\produce\wizmatch\source\simulation.cpp
 	<iostream>
 	"Frustum.h"
 	"Simulation.h"
 
-1399075172 x:\produce\wizmatch\source\simulation.h
+1399644966 x:\produce\wizmatch\source\simulation.h
 	<string>
 	<vector>
 	<map>
@@ -2474,7 +2474,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1398878424 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1399651772 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2516,11 +2516,11 @@
 	<string>
 	"frmr/Vec3f.h"
 
-1399078375 x:\produce\wizmatch\source\camera.h
+1399645453 x:\produce\wizmatch\source\camera.h
 	"frmr/Vec2f.h"
 	"ProjectionState.h"
 
-1399078389 source:x:\produce\wizmatch\source\camera.cpp
+1399645491 source:x:\produce\wizmatch\source\camera.cpp
 	"Camera.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2601,16 +2601,17 @@
 	<iostream>
 	"frmr_TextFile.h"
 
-1399072077 source:x:\produce\wizmatch\source\frustum.cpp
+1399726389 source:x:\produce\wizmatch\source\frustum.cpp
 	"Frustum.h"
 	<iostream>
 	"frmr/frmrMath.h"
 
-1398869470 x:\produce\wizmatch\source\frustum.h
+1399645502 x:\produce\wizmatch\source\frustum.h
 	<array>
 	<vector>
 	"frmr/Triangle.h"
 	"frmr/Vec2f.h"
+	"ProjectionState.h"
 
 1396668074 x:\produce\wizmatch\source\frmr_encoder.h
 	<string>
@@ -2640,7 +2641,7 @@
 1396811399 x:\produce\wizmatch\source\frmr_boundingbox.h
 	<vector>
 
-1396812104 x:\produce\wizmatch\source\frmr\vec3f.h
+1399483952 x:\produce\wizmatch\source\frmr\vec3f.h
 	<array>
 
 1396815194 x:\produce\wizmatch\source\frmr\vec2f.h
@@ -2692,14 +2693,14 @@
 	<stdint.h>
 	<SFML/System/Clock.hpp>
 
-1398872178 source:x:\produce\wizmatch\source\frmr\triangle.cpp
+1399726468 source:x:\produce\wizmatch\source\frmr\triangle.cpp
 	"../frmr/Triangle.h"
 	"../frmr/frmrMath.h"
 
 1398870487 x:\produce\wizmatch\source\frmr\triangle.h
 	"../frmr/Vec3f.h"
 
-1398871793 source:x:\produce\wizmatch\source\frmr\frmrmath.cpp
+1399648461 source:x:\produce\wizmatch\source\frmr\frmrmath.cpp
 	"../frmr/frmrMath.h"
 	<iostream>
 	<cmath>
@@ -2712,7 +2713,7 @@
 	"../frmr/Vec2f.h"
 	"math.h"
 
-1397001966 source:x:\produce\wizmatch\source\frmr\vec3f.cpp
+1399482243 source:x:\produce\wizmatch\source\frmr\vec3f.cpp
 	"../frmr/Vec3f.h"
 	<cmath>
 
@@ -2742,7 +2743,7 @@
 	"Entity.h"
 	"InputState.h"
 
-1399075406 source:x:\produce\wizmatch\source\spectator.cpp
+1399648748 source:x:\produce\wizmatch\source\spectator.cpp
 	"Spectator.h"
 	<iostream>
 	"frmr/frmrMath.h"

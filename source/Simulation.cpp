@@ -28,7 +28,7 @@ vector<Light> Simulation::GetStaticLights() const
     return staticGeometry.GetStaticLights();
 }
 
-ProjectionState Simulation::RenderLit( const int windowWidth, const int windowHeight ) const
+ProjectionState Simulation::RenderLit( const int viewportWidth, const int viewportHeight ) const
 {
 	glPushMatrix();
 
@@ -36,14 +36,16 @@ ProjectionState Simulation::RenderLit( const int windowWidth, const int windowHe
 		ProjectionState cameraProjection;
 
 		//unproject the four corners of the screen and use them to build the view frustum
-		vector<frmr::Vec3f> frustumVertices;
-		frustumVertices.reserve( 4 );
-		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			windowHeight, 	0.0f ) ) );	//top left
-		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			0.0f, 			0.0f ) ) );	//bottom left
-		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	0.0f, 			0.0f ) ) );	//bottom right
-		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	windowHeight, 	0.0f ) ) );	//top right
+//		vector<frmr::Vec3f> frustumVertices;
+//		frustumVertices.reserve( 4 );
+//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			windowHeight, 	0.0f ) ) );	//top left
+//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			0.0f, 			0.0f ) ) );	//bottom left
+//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	0.0f, 			0.0f ) ) );	//bottom right
+//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	windowHeight, 	0.0f ) ) );	//top right
+//
+//		Frustum viewFrustum( activeCamera.GetPosition(), frustumVertices );
 
-		Frustum viewFrustum( activeCamera.GetPosition(), frustumVertices );
+		Frustum viewFrustum( activeCamera.GetPosition(), activeCamera.GetRotation(), 120.0f, 75.0f ); //TODO: Change this to activeCamera.GetFrustum()
 
 		staticGeometry.Render( activeCamera.GetZoneNum(), activeCamera.GetPosition(), cameraProjection, viewFrustum );
 

@@ -9,8 +9,9 @@ class Camera
 private:
 	frmr::Vec3f			position;
 	frmr::Vec2f			rotation;
+	float				fov;
+	float				vfov;
 	bool				orthographic;
-	ProjectionState		projection;
 	int16_t				zoneNum;
 
 public:

@@ -38,7 +38,8 @@ public:
     bool            	ChangeMap( const string filename );
     Camera          	GetActiveCamera() const;
     vector<Light>   	GetStaticLights() const;
-	ProjectionState		RenderLit( const int windowWidth, const int windowHeight ) const;
+	ProjectionState		RenderLit( const int viewportWidth, const int viewportHeight ) const;
+	void				RenderShadowCasters( const Camera lightView ) const;
 	void            	Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:

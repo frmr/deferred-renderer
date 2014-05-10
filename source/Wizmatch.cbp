@@ -53,6 +53,8 @@
 		<Unit filename="AnimatedBillboard.h" />
 		<Unit filename="AssetManager.cpp" />
 		<Unit filename="AssetManager.h" />
+		<Unit filename="Camera.cpp" />
+		<Unit filename="Camera.h" />
 		<Unit filename="Client.h" />
 		<Unit filename="Config.cpp" />
 		<Unit filename="Config.h" />
