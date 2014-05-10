@@ -50,8 +50,6 @@ private:
     bool    InvertMatrixGL( const float matIn[16], float matOut[16] ) const;
     void    MultiplyMatricesGL( const float matInA[16], const float matInB[16], float matOut[16] ) const;
     void    ResetViewport( const EngineConfig &engienCfg ) const;
-    void    SetToOrthogonalProjection( const EngineConfig &engineCfg ) const;
-    void    SetToPerspectiveProjection( const EngineConfig &engineCfg ) const;
     void    StartRenderToFBO( const EngineConfig &engineCfg ) const;
     void    StopRenderToFBO() const;
 

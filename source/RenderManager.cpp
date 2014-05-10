@@ -1,6 +1,8 @@
 #include "RenderManager.h"
 
 #include "IcosphereGenerator.h"
+#include "OrthographicCamera.h"
+#include "PerspectiveCamera.h"
 #include "ProjectionState.h"
 #include <iostream>
 
@@ -94,24 +96,6 @@ void RenderManager::ResetViewport( const EngineConfig &engineCfg ) const
     glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 }
 
-void RenderManager::SetToOrthogonalProjection( const EngineConfig &engineCfg ) const
-{
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
-    glOrtho(0.0, (double) engineCfg.GetActiveWidth(), (double) engineCfg.GetActiveHeight(), 0.0, -1.0, 1.0);
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity();
-}
-
-void RenderManager::SetToPerspectiveProjection( const EngineConfig &engineCfg ) const
-{
-    glMatrixMode( GL_PROJECTION );
-    glLoadIdentity();
-    gluPerspective( engineCfg.GetActiveVerticalFOV(), (float) engineCfg.GetActiveWidth() / (float) engineCfg.GetActiveHeight(), 1.0f, 5000.0f );
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity();
-}
-
 void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 {
     glBindFramebuffer( GL_FRAMEBUFFER, fbo );
@@ -135,8 +119,6 @@ void RenderManager::StopRenderToFBO() const
 
 void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const
 {
-    SetToPerspectiveProjection( engineCfg );
-
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); //clear the screen buffer
     glUseProgram( deferredShadingShader.GetProgramHandler() );
 
@@ -163,8 +145,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     StopRenderToFBO();
 
     //render depth buffer onto a fullscreen quad
-    glClear( GL_DEPTH_BUFFER_BIT );
-    SetToOrthogonalProjection( engineCfg );
+	glClear( GL_DEPTH_BUFFER_BIT );
+	OrthographicCamera orthoCamera( frmr::Vec3f(), frmr::Vec2f(), engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
+	orthoCamera.ApplyTransformation();
+
     glUseProgram( depthTransferShader.GetProgramHandler() );
     glActiveTexture( GL_TEXTURE0 );
 	glBindTexture( GL_TEXTURE_2D, depthTexture );
@@ -195,8 +179,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
     for ( auto lightIt : staticLights )
     {
-        SetToPerspectiveProjection( engineCfg );
-
         glUseProgram( 0 );
 
         glColorMask( GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE ); //disable writing to the color buffer
@@ -242,7 +224,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glColorMask( GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE ); //enable writing to the color buffer
         glStencilMask( 0x00 ); //disable writing to the stencil buffer
 
-        SetToOrthogonalProjection( engineCfg );
+		orthoCamera.ApplyTransformation();
 
         glUseProgram( deferredRenderingShader.GetProgramHandler() );
 
@@ -303,7 +285,6 @@ void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
 {
     glewInit();
     ResetViewport( engineCfg );
-    SetToPerspectiveProjection( engineCfg );
     glClearColor( 0.2f, 0.0f, 0.2f, 0.0f );
     glDepthFunc( GL_LEQUAL );
 }
@@ -311,7 +292,6 @@ void RenderManager::SetupOpenGL( const EngineConfig &engineCfg ) const
 void RenderManager::SimpleRender( const Simulation &gameSim, const EngineConfig &engineCfg ) const
 {
     glEnable( GL_TEXTURE_2D );
-    SetToPerspectiveProjection( engineCfg );
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     glEnable( GL_DEPTH_TEST );
     glDisable( GL_CULL_FACE );
