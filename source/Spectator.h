@@ -1,7 +1,7 @@
 #ifndef SPECTATOR_H
 #define SPECTATOR_H
 
-#include "Camera.h"
+#include "PerspectiveCamera.h"
 #include "Entity.h"
 #include "InputState.h"
 
@@ -17,9 +17,9 @@ private:
 	void 		UpdateViewVector();
 
 public:
-	Camera		GetCamera() const;
-    frmr::Vec3f GetViewVector() const;
-    void        Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime );
+	PerspectiveCamera	GetCamera() const;
+    frmr::Vec3f 		GetViewVector() const;
+    void        		Update( const InputState &inputs, const float mouseSensitivity, const float deltaTime );
 
 
 public:

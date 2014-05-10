@@ -27,8 +27,7 @@ public:
     vector<frmr::Triangle>	GetFaces() const;
 
 public:
-    Frustum( const frmr::Vec3f &position, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY );
-    //Frustum( const frmr::Vec3f &position, const ProjectionState &projection );
+    Frustum( const frmr::Vec3f &position, const frmr::Vec2f &cameraRotation, const int verticalFov, const float fovRatio );
     Frustum( const frmr::Vec3f &position, const vector<frmr::Vec3f> &vertices );
 };
 

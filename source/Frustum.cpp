@@ -1,6 +1,7 @@
 #include "Frustum.h"
 
 #include <iostream>
+#include <cmath>
 
 #include "frmr/frmrMath.h"
 
@@ -108,36 +109,11 @@ vector<frmr::Triangle> Frustum::GetFaces() const
 	return faces;
 }
 
-#include "math.h"
-frmr::Vec3f Rotate( frmr::Vec3f p, frmr::Vec2f rot )
-{
-	float yx = p.GetX() * cos(rot.GetY()* 0.01745f) + p.GetZ() * sin(rot.GetY()* 0.01745f);
-	float yy = p.GetY();
-	float yz = p.GetX() * -sin(rot.GetY()* 0.01745f) + p.GetZ() * cos(rot.GetY()* 0.01745f);
-
-	float xx = yx;
-	float xy = yy * cos(rot.GetX()* 0.01745f) - yz * sin(rot.GetX()* 0.01745f);
-	float xz = yy * sin(rot.GetX()* 0.01745f) + yz * cos(rot.GetX()* 0.01745f);
-
-//	float xx = p.GetX();
-//	float xy = p.GetY() * cos(rot.GetX()* 0.01745f) - p.GetZ() * sin(rot.GetX()* 0.01745f);
-//	float xz = p.GetY() * sin(rot.GetX()* 0.01745f) + p.GetZ() * cos(rot.GetX()* 0.01745f);
-//
-//	float yx = xx * cos(rot.GetY()* 0.01745f) + xz * sin(rot.GetY()* 0.01745f);
-//	float yy = xy;
-//	float yz = xx * -sin(rot.GetY()* 0.01745f) + xz * cos(rot.GetY()* 0.01745f);
-
-
-
-	return frmr::Vec3f( xx, xy, xz );
-}
-
-Frustum::Frustum( const frmr::Vec3f &position, const frmr::Vec2f &cameraRotation, const float fovX, const float fovY )
+Frustum::Frustum( const frmr::Vec3f &position, const frmr::Vec2f &cameraRotation, const int verticalFov, const float fovRatio )
 	:	position( position )
 {
-
-	float halfUnitPlaneHeight = tan( fovY * 0.5f * 0.01745f );
-	float halfUnitPlaneWidth = halfUnitPlaneHeight * fovX / fovY;
+	float halfUnitPlaneHeight = tan( (float) verticalFov * 0.5f * 0.01745f );
+	float halfUnitPlaneWidth = halfUnitPlaneHeight * fovRatio;
 
 	frmr::Vec3f viewVector = frmr::CalculateVectorFromRotation( cameraRotation.GetX(), cameraRotation.GetY() );
 	frmr::Vec3f leftVector = frmr::CalculateVectorFromRotation( 0.0f, cameraRotation.GetY() + 90.0f );

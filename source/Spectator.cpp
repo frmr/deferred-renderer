@@ -11,9 +11,9 @@ void Spectator::UpdateViewVector()
 	viewVector = frmr::CalculateVectorFromRotation( rotation.GetX(), rotation.GetY() );
 }
 
-Camera Spectator::GetCamera() const
+PerspectiveCamera Spectator::GetCamera() const
 {
-	return Camera( position, rotation, false, currentZoneNum );
+	return PerspectiveCamera( position, rotation, currentZoneNum, 75.0f, 120.0f / 75.0f );
 }
 
 frmr::Vec3f Spectator::GetViewVector() const

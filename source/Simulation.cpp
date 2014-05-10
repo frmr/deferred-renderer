@@ -18,7 +18,7 @@ bool Simulation::ChangeMap( const string filename )
     return true;
 }
 
-Camera Simulation::GetActiveCamera() const
+PerspectiveCamera Simulation::GetActiveCamera() const
 {
     return activeCamera;
 }
@@ -34,24 +34,16 @@ ProjectionState Simulation::RenderLit( const int viewportWidth, const int viewpo
 
 		activeCamera.ApplyTransformation();
 		ProjectionState cameraProjection;
-
-		//unproject the four corners of the screen and use them to build the view frustum
-//		vector<frmr::Vec3f> frustumVertices;
-//		frustumVertices.reserve( 4 );
-//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			windowHeight, 	0.0f ) ) );	//top left
-//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( 0.0f, 			0.0f, 			0.0f ) ) );	//bottom left
-//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	0.0f, 			0.0f ) ) );	//bottom right
-//		frustumVertices.push_back( cameraProjection.UnProject( frmr::Vec3f( windowWidth, 	windowHeight, 	0.0f ) ) );	//top right
-//
-//		Frustum viewFrustum( activeCamera.GetPosition(), frustumVertices );
-
-		Frustum viewFrustum( activeCamera.GetPosition(), activeCamera.GetRotation(), 120.0f, 75.0f ); //TODO: Change this to activeCamera.GetFrustum()
-
-		staticGeometry.Render( activeCamera.GetZoneNum(), activeCamera.GetPosition(), cameraProjection, viewFrustum );
+		staticGeometry.Render( activeCamera.GetZoneNum(), activeCamera.GetPosition(), cameraProjection, activeCamera.GetFrustum() );
 
     glPopMatrix();
 
     return cameraProjection;
+}
+
+void Simulation::RenderShadowCasters( const PerspectiveCamera &lightView ) const
+{
+
 }
 
 bool Simulation::LoadMap( const string filename )
@@ -71,7 +63,7 @@ void Simulation::Update( const int32_t elapsedTime, const float deltaTime, const
 }
 
 Simulation::Simulation( const AssetManager &assets )
-    :	activeCamera( frmr::Vec3f(), frmr::Vec2f(), false, 0 ),
+    :	activeCamera( frmr::Vec3f(), frmr::Vec2f(), 0, 1.0f, 1.0f ),
 		spectator( "Spectator", frmr::Vec3f( 30.0f, 0.0f, 0.0f ), frmr::Vec2f(), 0 ),
 		staticGeometry( "../maps/twocubes.wzz", assets )
 {
