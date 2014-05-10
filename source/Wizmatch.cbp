@@ -70,6 +70,10 @@
 		<Unit filename="InputState.h" />
 		<Unit filename="Light.cpp" />
 		<Unit filename="Light.h" />
+		<Unit filename="OrthographicCamera.cpp" />
+		<Unit filename="OrthographicCamera.h" />
+		<Unit filename="PerspectiveCamera.cpp" />
+		<Unit filename="PerspectiveCamera.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="Potion.h" />
