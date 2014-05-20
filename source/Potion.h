@@ -14,7 +14,7 @@ private:
 
 public:
 	vector<Effect>	GetEffects() const;
-	void			AddEffect( const Effect newEffect )
+	void			AddEffect( const Effect &newEffect )
 	{
 		effects.push_back( newEffect );
 	}

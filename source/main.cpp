@@ -8,7 +8,7 @@
 #include "Simulation.h"
 #include "frmr/TimeManager.h"
 
-void ModifyWindow( sf::RenderWindow* const window, const EngineConfig engineCfg )
+void ModifyWindow( sf::RenderWindow* const window, const EngineConfig &engineCfg )
 {
     sf::Uint32 style = ( engineCfg.GetFullscreen() ) ? sf::Style::Fullscreen : sf::Style::Default;
     window->create( sf::VideoMode( engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() ), "Wizmatch", style, sf::ContextSettings( 24, 8 ) );

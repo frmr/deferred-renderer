@@ -46,7 +46,7 @@ private:
 	bool				    HasEffect( const Effect::EffectType effect ) const;
 
 public:
-	void				    AddEffect( const Effect newEffect );
+	void				    AddEffect( const Effect &newEffect );
 	bool				    IsDead() const;
 	void 				    SetColor( const unsigned int newRed, const unsigned int newGreen, const unsigned int newBlue );
 	void				    SetTeam( const uint8_t newTeam );

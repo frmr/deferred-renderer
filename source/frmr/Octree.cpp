@@ -73,10 +73,9 @@ Type* frmr::Octree<Type>::Octant::GetData( const frmr::Vec3f &point ) const
         if ( data == nullptr )
         {
             //check children
-            Type* childData;
             for ( auto childIt : children )
             {
-                childData = childIt->GetData( point );
+            	Type* childData = childIt->GetData( point );
                 if ( childData != nullptr )
                 {
                     return childData;

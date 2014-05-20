@@ -12,7 +12,7 @@ private:
     struct Triangle
     {
         frmr::Vec3f v0, v1, v2;
-        Triangle( const frmr::Vec3f v0, const frmr::Vec3f v1, const frmr::Vec3f v2 )
+        Triangle( const frmr::Vec3f &v0, const frmr::Vec3f &v1, const frmr::Vec3f &v2 )
             : v0( v0 ), v1( v1 ), v2( v2 )
         {
         }

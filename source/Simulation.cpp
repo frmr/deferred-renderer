@@ -28,7 +28,7 @@ vector<Light> Simulation::GetStaticLights() const
     return staticGeometry.GetStaticLights();
 }
 
-ProjectionState Simulation::RenderLit( const int viewportWidth, const int viewportHeight ) const
+ProjectionState Simulation::RenderLit() const
 {
 	glPushMatrix();
 

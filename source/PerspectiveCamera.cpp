@@ -6,7 +6,7 @@ void PerspectiveCamera::ApplyTransformation() const
 {
 	glMatrixMode( GL_PROJECTION );
 	glLoadIdentity();
-	gluPerspective( verticalFov, fovRatio, 1.0f, 5000.0f );
+	gluPerspective( (double) verticalFov, (double) fovRatio, 1.0, 5000.0 );
 	glMatrixMode( GL_MODELVIEW );
 	glLoadIdentity();
 

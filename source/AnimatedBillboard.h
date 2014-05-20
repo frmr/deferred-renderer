@@ -44,7 +44,7 @@ private:
 	map<string, vector<Frame>>* animations;
 
 private:
-	void LookAt( const frmr::Vec3f pos );
+	void LookAt( const frmr::Vec3f &pos );
 	void SetAnimation( const string animationName );
 
 public:

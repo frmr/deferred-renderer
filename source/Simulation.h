@@ -38,7 +38,7 @@ public:
     bool				ChangeMap( const string filename );
     PerspectiveCamera	GetActiveCamera() const;
     vector<Light>		GetStaticLights() const;
-	ProjectionState		RenderLit( const int viewportWidth, const int viewportHeight ) const;
+	ProjectionState		RenderLit() const;
 	void				RenderShadowCasters( const PerspectiveCamera &lightView ) const;
 	void				Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
