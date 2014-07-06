@@ -2,7 +2,7 @@
 1377624784 source:x:\produce\wizmatch\source\animatedbillboard.cpp
 	"AnimatedBillboard.h"
 
-1397000813 x:\produce\wizmatch\source\animatedbillboard.h
+1400622787 x:\produce\wizmatch\source\animatedbillboard.h
 	<string>
 	<vector>
 	<map>
@@ -1052,7 +1052,7 @@
 	"Spectator.h"
 	"StaticGeometry.h"
 
-1397005048 x:\produce\wizmatch\source\player.h
+1400622539 x:\produce\wizmatch\source\player.h
 	<vector>
 	"Entity.h"
 	"AnimatedBillboard.h"
@@ -1061,7 +1061,7 @@
 	"SpellSet.h."
 	"frmr/Vec3f.h"
 
-1373733274 x:\produce\wizmatch\source\potion.h
+1400622563 x:\produce\wizmatch\source\potion.h
 	<vector>
 	"effect.h"
 
@@ -2427,7 +2427,7 @@
 	<string>
 	"GL/glew.h"
 
-1400002267 source:x:\produce\wizmatch\source\rendermanager.cpp
+1400622291 source:x:\produce\wizmatch\source\rendermanager.cpp
 	"RenderManager.h"
 	"IcosphereGenerator.h"
 	"OrthographicCamera.h"
@@ -2540,7 +2540,7 @@
 1378828769 source:x:\produce\wizmatch\source\icospheregenerator.cpp
 	"IcosphereGenerator.h"
 
-1396898742 x:\produce\wizmatch\source\icospheregenerator.h
+1400622733 x:\produce\wizmatch\source\icospheregenerator.h
 	<SFML/OpenGL.hpp>
 	<vector>
 	"frmr/Vec3f.h"
@@ -2667,7 +2667,7 @@
 1397240771 x:\produce\wizmatch\source\frmr\boundingbox.h
 	<vector>
 
-1397242353 source:x:\produce\wizmatch\source\frmr\octree.cpp
+1400622455 source:x:\produce\wizmatch\source\frmr\octree.cpp
 	"../frmr/Octree.h"
 	<iostream>
 
@@ -2751,7 +2751,7 @@
 	<iostream>
 	"frmr/frmrMath.h"
 
-1399742228 x:\produce\wizmatch\source\perspectivecamera.h
+1404608910 x:\produce\wizmatch\source\perspectivecamera.h
 	"Camera.h"
 	"Frustum.h"
 

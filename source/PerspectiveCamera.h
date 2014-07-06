@@ -9,6 +9,7 @@ class PerspectiveCamera : public Camera
 private:
 	int		verticalFov;
 	float	fovRatio;
+	Frustum	viewFrustum;
 
 public:
 	void 	ApplyTransformation() const;

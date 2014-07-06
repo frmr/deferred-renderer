@@ -17,13 +17,14 @@ void PerspectiveCamera::ApplyTransformation() const
 
 Frustum	PerspectiveCamera::GetFrustum() const
 {
-	return Frustum( position, rotation, verticalFov, fovRatio );
+	return viewFrustum;
 }
 
 PerspectiveCamera::PerspectiveCamera( const frmr::Vec3f &position, const frmr::Vec2f &rotation, const int16_t zoneNum, const int verticalFov, const float fovRatio )
 	:	Camera( position, rotation, zoneNum ),
 		verticalFov( verticalFov ),
-		fovRatio( fovRatio )
+		fovRatio( fovRatio ),
+		viewFrustum( position, rotation, verticalFov, fovRatio )
 {
 
 }

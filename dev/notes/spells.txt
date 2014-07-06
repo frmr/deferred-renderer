@@ -24,3 +24,4 @@ Misc. Spell Ideas
 	Frenzy		Invulnerable but lose health until dead
 	Sacrifice	Explode, killing yourself and damaging those around you
 	Banzai		Gives one-hit-kill punches at the cost of all magic abilities
+	Canceller	Cheap projectile shot at enemy projectiles to detonate them
