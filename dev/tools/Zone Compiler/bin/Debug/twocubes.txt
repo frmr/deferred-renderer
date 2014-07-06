@@ -172,7 +172,7 @@ zone
 		color			0	0	0
 		radius			100
 	/light
-	
+
 	portal
 		targetZoneNum	1
 		triangle
@@ -267,13 +267,13 @@ zone
 			normal		0.0 -0.0 1.0
 		/texTriangle
 	/texTriangleGroup
-	
+
 	light
 		position		15	0	10
 		color			0	0	0
 		radius			100
 	/light
-	
+
 	portal
 		targetZoneNum	0
 		triangle
@@ -289,7 +289,7 @@ zone
 			normal		1.0 0.0 0.0
 		/triangle
 	/portal
-	
+
 	portal
 		targetZoneNum	2
 		triangle
@@ -305,7 +305,7 @@ zone
 			normal		-1.0 0.0 0.0
 		/triangle
 	/portal
-	
+
 /zone
 
 zone
@@ -475,33 +475,13 @@ zone
 			normal		-1.0 -0.0 -0.0
 		/texTriangle
 	/texTriangleGroup
-	
+
 	light
 		position		0	0	10
 		color			0	0	10
 		radius			100
-		triangle
-			vert0		20	-10	20
-			vert1		40	-10	20
-			vert2		20	10	20
-		/triangle
-		triangle
-			vert0		40	-10	20
-			vert1		40	10	20
-			vert2		20	10	20
-		/triangle
-		triangle
-			vert0		40	10	20
-			vert1		40	-10	20
-			vert2		20	5	15
-		/triangle
-		triangle
-			vert0		40	-10	20
-			vert1		20	-5	15
-			vert2		20	5	15
-		/triangle
 	/light
-	
+
 	portal
 		targetZoneNum	1
 		triangle

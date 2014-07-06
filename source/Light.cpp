@@ -34,31 +34,9 @@ float Light::GetQuadraticAttenuation() const
     return quadraticAttenuation;
 }
 
-void Light::RenderShadowVolume() const
-{
-    glBindTexture( GL_TEXTURE_2D, 0 );
-    staticShadowVolume.Render();
-}
-
-Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const float radius, const GLuint staticShadowVolumeDisplayList )
+Light::Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const float radius )
     : position( position ),
       color( color ),
-      radius( radius ),
-      staticShadowVolume( staticShadowVolumeDisplayList )
+      radius( radius )
 {
-//    GLuint shadowList = glGenLists( 1 );
-//    glNewList( shadowList, GL_COMPILE );
-//        glBegin( GL_QUADS );
-//            glVertex3f( 40.0f, 10.0f, 20.0f ); glVertex3f( 40.0f, -10.0f, 20.0f ); glVertex3f( 20.0f, -5.0f, 15.0f ); glVertex3f( 20.0f, 5.0f, 15.0f );
-//            //glVertex3f( 20.0f, 5.0f, 15.0f ); glVertex3f( 20.0f, -5.0f, 15.0f ); glVertex3f( 40.0f, -10.0f, 20.0f ); glVertex3f( 40.0f, 10.0f, 20.0f );
-//            glVertex3f( 20.0f, -10.0f, 20.0f ); glVertex3f( 40.0f, -10.0f, 20.0f ); glVertex3f( 40.0f, 10.0f, 20.0f ); glVertex3f( 20.0f, 10.0f, 20.0f );
-//            //glVertex3f( 20.0f, 10.0f, 20.0f ); glVertex3f( 40.0f, 10.0f, 20.0f ); glVertex3f( 40.0f, -10.0f, 20.0f ); glVertex3f( 20.0f, -10.0f, 20.0f );
-////            glVertex3f( 11.0f, 5.0f, 5.0f ); glVertex3f( 11.0f, -5.0f, 5.0f ); glVertex3f( 11.f, -5.0f, -5.0f ); glVertex3f( 11.0f, 5.0f, -5.0f );
-////            glVertex3f( 11.0f, -5.0f, 5.0f ); glVertex3f( 9.0f, -5.0f, 5.0f ); glVertex3f( 9.0f, -5.0f, -5.0f ); glVertex3f( 11.0f, -5.0f, -5.0f );
-////            glVertex3f( 9.0f, -5.0f, 5.0f ); glVertex3f( 11.0f, -5.0f, 5.0f ); glVertex3f( 11.0f, 5.0f, 5.0f ); glVertex3f( 9.0f, 5.0f, 5.0f );
-////            glVertex3f( 9.0f, -5.0f, -5.0f ); glVertex3f( 9.0f, 5.0f, -5.0f ); glVertex3f( 11.0f, 5.0f, -5.0f ); glVertex3f( 11.0f, -5.0f, -5.0f );
-//        glEnd();
-//    glEndList();
-
-//    staticShadowVolume = Light::ShadowVolume( shadowList );
 }

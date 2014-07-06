@@ -259,59 +259,27 @@ int main( int argc, char *argv[] )
                 }
                 else if ( loadingLight )
                 {
-                    if ( loadingTriangle )
-                    {
-                        if ( lineIt[0] == "vert0" )
-                        {
-                            currentTriangle.vert0 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                        }
-                        else if ( lineIt[0] == "vert1" )
-                        {
-                            currentTriangle.vert1 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                        }
-                        else if ( lineIt[0] == "vert2" )
-                        {
-                            currentTriangle.vert2 = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                        }
-                        else if ( lineIt[0] == "/triangle" )
-                        {
-                            currentLight.triangles.push_back( currentTriangle );
-                            loadingTriangle = false;
-                        }
-                        else
-                        {
-                            cout << "Unrecognised command while loading Triangle in Light: " << lineIt[0] << endl;
-                        }
-                    }
-                    else
-                    {
-                        if ( lineIt[0] == "position" )
-                        {
-                            currentLight.position = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                        }
-                        else if ( lineIt[0] == "color" )
-                        {
-                            currentLight.color = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
-                        }
-                        else if ( lineIt[0] == "radius" )
-                        {
-                            currentLight.radius = atof( lineIt[1].c_str() );
-                        }
-                        else if ( lineIt[0] == "triangle" )
-                        {
-                            loadingTriangle = true;
-                            currentTriangle = Triangle();
-                        }
-                        else if ( lineIt[0] == "/light" )
-                        {
-                            currentZone.lights.push_back( currentLight );
-                            loadingLight = false;
-                        }
-                        else
-                        {
-                            cout << "Unrecognised command while loading Light: " << lineIt[0] << endl;
-                        }
-                    }
+					if ( lineIt[0] == "position" )
+					{
+						currentLight.position = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+					}
+					else if ( lineIt[0] == "color" )
+					{
+						currentLight.color = Vec3f( atof( lineIt[1].c_str() ), atof( lineIt[2].c_str() ), atof( lineIt[3].c_str() ) );
+					}
+					else if ( lineIt[0] == "radius" )
+					{
+						currentLight.radius = atof( lineIt[1].c_str() );
+					}
+					else if ( lineIt[0] == "/light" )
+					{
+						currentZone.lights.push_back( currentLight );
+						loadingLight = false;
+					}
+					else
+					{
+						cout << "Unrecognised command while loading Light: " << lineIt[0] << endl;
+					}
                 }
                 else
                 {
@@ -356,23 +324,22 @@ int main( int argc, char *argv[] )
         for ( auto zoneIt : zones )
         {
             cout << zoneIt.zoneNum << endl;
-            for ( auto texTriangleGroupIt : zoneIt.texTriangleGroups )
-            {
-
-                cout << texTriangleGroupIt.texName << endl;
-                for ( auto texTriangleIt : texTriangleGroupIt.texTriangles )
-                {
-                    cout << texTriangleIt.vert0.GetX() << " " << texTriangleIt.vert0.GetY() << " " << texTriangleIt.vert0.GetZ() << endl;
-                    cout << texTriangleIt.vert0Tex.GetX() << " " << texTriangleIt.vert0Tex.GetY() << endl;
-                    cout << texTriangleIt.vert1.GetX() << " " << texTriangleIt.vert1.GetY() << " " << texTriangleIt.vert1.GetZ() << endl;
-                    cout << texTriangleIt.vert1Tex.GetX() << " " << texTriangleIt.vert1Tex.GetY() << endl;
-                    cout << texTriangleIt.vert2.GetX() << " " << texTriangleIt.vert2.GetY() << " " << texTriangleIt.vert2.GetZ() << endl;
-                    cout << texTriangleIt.vert2Tex.GetX() << " " << texTriangleIt.vert2Tex.GetY() << endl;
-                    cout << texTriangleIt.normal.GetX() << " " << texTriangleIt.normal.GetY() << " " << texTriangleIt.normal.GetZ() << endl;
-                }
-            }
-        }
+//            for ( auto texTriangleGroupIt : zoneIt.texTriangleGroups )
+//            {
 //
+//                cout << texTriangleGroupIt.texName << endl;
+//                for ( auto texTriangleIt : texTriangleGroupIt.texTriangles )
+//                {
+//                    cout << texTriangleIt.vert0.GetX() << " " << texTriangleIt.vert0.GetY() << " " << texTriangleIt.vert0.GetZ() << endl;
+//                    cout << texTriangleIt.vert0Tex.GetX() << " " << texTriangleIt.vert0Tex.GetY() << endl;
+//                    cout << texTriangleIt.vert1.GetX() << " " << texTriangleIt.vert1.GetY() << " " << texTriangleIt.vert1.GetZ() << endl;
+//                    cout << texTriangleIt.vert1Tex.GetX() << " " << texTriangleIt.vert1Tex.GetY() << endl;
+//                    cout << texTriangleIt.vert2.GetX() << " " << texTriangleIt.vert2.GetY() << " " << texTriangleIt.vert2.GetZ() << endl;
+//                    cout << texTriangleIt.vert2Tex.GetX() << " " << texTriangleIt.vert2Tex.GetY() << endl;
+//                    cout << texTriangleIt.normal.GetX() << " " << texTriangleIt.normal.GetY() << " " << texTriangleIt.normal.GetZ() << endl;
+//                }
+//            }
+
 //            for ( auto portalIt : zoneIt.portals )
 //            {
 //                cout << portalIt.targetZoneNum << endl;
@@ -383,20 +350,14 @@ int main( int argc, char *argv[] )
 //                    cout << triangleIt.vert2.GetX() << " " << triangleIt.vert2.GetY() << " " << triangleIt.vert2.GetZ() << endl;
 //                }
 //            }
-//
-//            for ( auto lightIt : zoneIt.lights )
-//            {
-//                cout << lightIt.position.GetX() << " " << lightIt.position.GetY() << " " << lightIt.position.GetZ() << endl;
-//                cout << lightIt.color.GetX() << " " << lightIt.color.GetY() << " " << lightIt.color.GetZ() << endl;
-//                cout << lightIt.radius << endl;
-//                for ( auto triangleIt : lightIt.triangles )
-//                {
-//                    cout << triangleIt.vert0.GetX() << " " << triangleIt.vert0.GetY() << " " << triangleIt.vert0.GetZ() << endl;
-//                    cout << triangleIt.vert1.GetX() << " " << triangleIt.vert1.GetY() << " " << triangleIt.vert1.GetZ() << endl;
-//                    cout << triangleIt.vert2.GetX() << " " << triangleIt.vert2.GetY() << " " << triangleIt.vert2.GetZ() << endl;
-//                }
-//            }
-//        }
+
+            for ( auto lightIt : zoneIt.lights )
+            {
+                cout << lightIt.position.GetX() << " " << lightIt.position.GetY() << " " << lightIt.position.GetZ() << endl;
+                cout << lightIt.color.GetX() << " " << lightIt.color.GetY() << " " << lightIt.color.GetZ() << endl;
+                cout << lightIt.radius << endl;
+            }
+        }
 
         //write the byte file
         string inFilename = argv[1];
@@ -472,14 +433,6 @@ int main( int argc, char *argv[] )
                 outFile << Encoder<float>::Encode( lightIt.position.GetX() ) << Encoder<float>::Encode( lightIt.position.GetY() ) << Encoder<float>::Encode( lightIt.position.GetZ() );
                 outFile << Encoder<float>::Encode( lightIt.color.GetX() ) << Encoder<float>::Encode( lightIt.color.GetY() ) << Encoder<float>::Encode( lightIt.color.GetZ() );
                 outFile << Encoder<float>::Encode( lightIt.radius );
-                outFile << Encoder<int32_t>::Encode( (int32_t) lightIt.triangles.size() );
-
-                for ( auto triangleIt : lightIt.triangles )
-                {
-                    outFile << Encoder<float>::Encode( triangleIt.vert0.GetX() ) << Encoder<float>::Encode( triangleIt.vert0.GetY() ) << Encoder<float>::Encode( triangleIt.vert0.GetZ() );
-                    outFile << Encoder<float>::Encode( triangleIt.vert1.GetX() ) << Encoder<float>::Encode( triangleIt.vert1.GetY() ) << Encoder<float>::Encode( triangleIt.vert1.GetZ() );
-                    outFile << Encoder<float>::Encode( triangleIt.vert2.GetX() ) << Encoder<float>::Encode( triangleIt.vert2.GetY() ) << Encoder<float>::Encode( triangleIt.vert2.GetZ() );
-                }
             }
         }
         outFile.close();

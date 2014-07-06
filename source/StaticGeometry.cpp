@@ -257,29 +257,11 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
                 frmr::Vec3f position( frmr::Encoder<float>::Decode( zoneString.substr( i, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+4, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+8, 4 ) ) );
                 frmr::Vec3f color( frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ) );
                 float radius = frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) );
-                int32_t numOfTriangles = frmr::Encoder<int32_t>::Decode( zoneString.substr( i+28, 4 ) );
-                i += 32;
-
-                GLuint lightDisplayList = glGenLists( 1 );
-                glNewList( lightDisplayList, GL_COMPILE );
-                glBegin( GL_TRIANGLES );
-
-                for ( int triangleIndex = 0; triangleIndex < numOfTriangles; triangleIndex++ )
-                {
-                    glVertex3f( frmr::Encoder<float>::Decode( zoneString.substr( i, 4 ) ), 		frmr::Encoder<float>::Decode( zoneString.substr( i+4, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+8, 4 ) ) );
-                    glVertex3f( frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ) );
-                    glVertex3f( frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+28, 4 ) ), 	frmr::Encoder<float>::Decode( zoneString.substr( i+32, 4 ) ) );
-                    i += 36;
-                }
-
-                glEnd();
-                glEndList();
-
-                lights.push_back( Light( position, color, radius, lightDisplayList ) );
+                i += 28;
+                lights.push_back( Light( position, color, radius ) );
             }
-            cout << texTriangleGroups[0].GetDisplayList() << endl;
             zones.push_back( StaticGeometry::Zone( zoneNum, texTriangleGroups, collTriangles, portals, lights ) );
-            cout << "StaticGeometry::LoadZoneFile() - Successfully loaded zone file: " << zoneDataFilename << endl;
+            cout << "StaticGeometry::LoadZoneFile() - Successfully loaded zone " << zoneIndex << " in " << zoneDataFilename << endl;
         }
     }
     else

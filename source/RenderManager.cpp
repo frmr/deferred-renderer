@@ -141,20 +141,6 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
             glCallList( icosphere );
         glPopMatrix();
 
-        //shadows
-        glEnable( GL_DEPTH_TEST ); //using the depth buffer from the FBO
-        glEnable( GL_CULL_FACE );
-        glCullFace( GL_FRONT );
-        //increment on depth fail
-        glStencilFunc( GL_EQUAL, 1, 0xFF );
-        glStencilOp( GL_KEEP, GL_INCR, GL_KEEP );
-        lightIt.RenderShadowVolume();
-        glCullFace( GL_BACK );
-        //decrement on depth fail
-        glStencilFunc( GL_EQUAL, 2, 0xFF );
-        glStencilOp( GL_KEEP, GL_DECR, GL_KEEP );
-        lightIt.RenderShadowVolume();
-
         glDisable( GL_DEPTH_TEST );
 
         //light only where the stencil buffer is equal to 1
