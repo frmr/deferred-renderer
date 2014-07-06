@@ -34,7 +34,7 @@ void RenderManager::ResetViewport( const EngineConfig &engineCfg ) const
     glViewport( 0, 0, engineCfg.GetActiveWidth(), engineCfg.GetActiveHeight() );
 }
 
-void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
+void RenderManager::BindDeferredFbo() const
 {
     glBindFramebuffer( GL_FRAMEBUFFER, deferredFbo );
 	glPushAttrib( GL_VIEWPORT_BIT );
@@ -46,25 +46,38 @@ void RenderManager::StartRenderToFBO( const EngineConfig &engineCfg ) const
 
 	// Specify what to render and start acquiring
 	GLenum buffers[] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1 };
-	glDrawBuffers(2, buffers);
+	glDrawBuffers( 2, buffers );
 }
 
-void RenderManager::StopRenderToFBO() const
+void RenderManager::UnbindDeferredFbo() const
 {
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glBindFramebuffer( GL_FRAMEBUFFER, 0 );
 	glPopAttrib();
+}
+
+void RenderManager::BindShadowFbo( const GLenum cubeFace ) const
+{
+	glBindFramebuffer( GL_DRAW_FRAMEBUFFER, shadowFbo );
+	glFramebufferTexture2D( GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, cubeFace, shadowMap, 0);
+	glDrawBuffer( GL_COLOR_ATTACHMENT0 );
+}
+
+void RenderManager::UnbindShadowFbo() const
+{
+	glBindFramebuffer( GL_FRAMEBUFFER, 0 );
 }
 
 void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const
 {
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); //clear the screen buffer
 
-    glUseProgram( deferredShadingShader.GetProgramHandler() );
+	//render scene to fbo with active camera
+    glUseProgram( geometryPassShader.GetProgramHandler() );
 
 		glDepthMask( GL_TRUE ); //enable writing to the depth buffer
 		glEnable( GL_DEPTH_TEST );
 
-		StartRenderToFBO( engineCfg );
+		BindDeferredFbo();
 
 			glEnable( GL_CULL_FACE );
 			glCullFace( GL_BACK );
@@ -80,7 +93,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 			cameraProjection.CopyViewportMatrix( viewportMatrix );
 			cameraProjection.CopyPerspectiveMatrix( perspectiveMatrix );
 
-		StopRenderToFBO();
+		UnbindDeferredFbo();
 
 	glUseProgram( 0 );
 
@@ -99,8 +112,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     glDepthMask( GL_FALSE ); //disable writing to the depth buffer
     glDisable( GL_DEPTH_TEST );
 
-    //send all the textures, the viewport parameters and the perspective matrix to the deferred rendering shader so we don't have to do it for every light
-    glUseProgram( deferredRenderingShader.GetProgramHandler() );
+    //send all the textures, the viewport parameters and the perspective matrix to the deferred rendering shader
+    glUseProgram( lightPassShader.GetProgramHandler() );
 		glUniform1i( normalsId, 0 );
 		glUniform1i( diffuseId, 1 );
 		glUniform1i( depthId, 2 );
@@ -130,11 +143,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
         gameSim.GetActiveCamera().ApplyTransformation();
 
+		//render icosphere
         glPushMatrix();
-            //render light radius at correct location and scale
             glTranslatef( lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
             glScalef( lightIt.GetRadius(), lightIt.GetRadius(), lightIt.GetRadius() );
-
             glDisable( GL_CULL_FACE );
             glDisable( GL_DEPTH_TEST ); //TODO: use the stencil buffer with depth fail and cull front face
             glBindTexture( GL_TEXTURE_2D, 0 );
@@ -151,7 +163,7 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
 		orthoCamera.ApplyTransformation();
 
-        glUseProgram( deferredRenderingShader.GetProgramHandler() );
+        glUseProgram( lightPassShader.GetProgramHandler() );
 
 			//pass the light's attributes to the shader
 			glUniform3f( lightPositionId, lightIt.GetPosition().GetX(), lightIt.GetPosition().GetY(), lightIt.GetPosition().GetZ() );
@@ -291,9 +303,9 @@ void RenderManager::CreateDeferredFbo( const EngineConfig &engineCfg )
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	// Get the handles from the shader
-	normalsId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "normalsTexture" );
-	diffuseId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "diffuseTexture" );
-	depthId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "depthTexture" );
+	normalsId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "normalsTexture" );
+	diffuseId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "diffuseTexture" );
+	depthId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "depthTexture" );
 }
 
 void RenderManager::CreateShadowCubemap()
@@ -346,23 +358,23 @@ void RenderManager::CreateShadowCubemap()
 RenderManager::RenderManager( const EngineConfig &engineCfg )
 {
     SetupOpenGL( engineCfg );
-    deferredShadingShader.Load( "../data/shaders/deferredShading.vert", "../data/shaders/deferredShading.frag" );
-    deferredRenderingShader.Load( "../data/shaders/deferredRendering.vert", "../data/shaders/deferredRendering.frag" );
+    geometryPassShader.Load( "../data/shaders/geometryPass.vert", "../data/shaders/geometryPass.frag" );
+    lightPassShader.Load( "../data/shaders/lightPass.vert", "../data/shaders/lightPass.frag" );
     depthTransferShader.Load( "../data/shaders/depthTransfer.vert", "../data/shaders/depthTransfer.frag" );
 
     CreateDeferredFbo( engineCfg );
 	CreateShadowCubemap();
 
     //get the memory location of the surface texture in the shader
-	surfaceTextureId = glGetUniformLocation( deferredShadingShader.GetProgramHandler(), "surfaceTexture" );
+	surfaceTextureId = glGetUniformLocation( geometryPassShader.GetProgramHandler(), "surfaceTexture" );
 
-	viewportParamsId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "viewportParams" );
-	perspectiveMatrixId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "perspectiveMatrix" );
+	viewportParamsId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "viewportParams" );
+	perspectiveMatrixId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "perspectiveMatrix" );
 
-	lightPositionId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightPosition" );
-	lightColorId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightColor" );
-	lightLinearAttenuationId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightLinearAttenuation" );
-    lightQuadraticAttenuationId = glGetUniformLocation( deferredRenderingShader.GetProgramHandler(), "lightQuadraticAttenuation" );
+	lightPositionId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "lightPosition" );
+	lightColorId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "lightColor" );
+	lightLinearAttenuationId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "lightLinearAttenuation" );
+    lightQuadraticAttenuationId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "lightQuadraticAttenuation" );
 
 
     fullscreenQuad = CreateFullscreenQuad( engineCfg );

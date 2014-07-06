@@ -2084,7 +2084,7 @@
 1376050337 x:\produce\wizmatch\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1404660018 x:\produce\wizmatch\source\rendermanager.h
+1404682086 x:\produce\wizmatch\source\rendermanager.h
 	"GLEW/glew.h"
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
@@ -2476,7 +2476,7 @@
 	<AGL/agl.h>
 	<GL/glxew.h>
 
-1404664744 source:x:\produce\wizmatch\source\staticgeometry.cpp
+1404674451 source:x:\produce\wizmatch\source\staticgeometry.cpp
 	<iostream>
 	<fstream>
 	"StaticGeometry.h"
@@ -2528,13 +2528,15 @@
 	<SFML/OpenGL.hpp>
 	"frmr/frmrMath.h"
 
-1404662235 source:x:\produce\wizmatch\source\light.cpp
+1404677836 source:x:\produce\wizmatch\source\light.cpp
 	"Light.h"
+	"frmr/Vec2f.h"
 
-1404662199 x:\produce\wizmatch\source\light.h
+1404674394 x:\produce\wizmatch\source\light.h
 	<SFML/OpenGL.hpp>
 	<stdint.h>
 	<vector>
+	"PerspectiveCamera.h"
 	"frmr/Vec3f.h"
 
 1378828769 source:x:\produce\wizmatch\source\icospheregenerator.cpp
@@ -2746,7 +2748,7 @@
 	"Entity.h"
 	"InputState.h"
 
-1399742674 source:x:\produce\wizmatch\source\spectator.cpp
+1404674075 source:x:\produce\wizmatch\source\spectator.cpp
 	"Spectator.h"
 	<iostream>
 	"frmr/frmrMath.h"

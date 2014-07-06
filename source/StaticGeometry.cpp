@@ -258,7 +258,7 @@ bool StaticGeometry::LoadZoneFile( const string &zoneDataFilename, const AssetMa
                 frmr::Vec3f color( frmr::Encoder<float>::Decode( zoneString.substr( i+12, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+16, 4 ) ), frmr::Encoder<float>::Decode( zoneString.substr( i+20, 4 ) ) );
                 float radius = frmr::Encoder<float>::Decode( zoneString.substr( i+24, 4 ) );
                 i += 28;
-                lights.push_back( Light( position, color, radius ) );
+                lights.push_back( Light( position, color, radius, zoneIndex, true ) );
             }
             zones.push_back( StaticGeometry::Zone( zoneNum, texTriangleGroups, collTriangles, portals, lights ) );
             cout << "StaticGeometry::LoadZoneFile() - Successfully loaded zone " << zoneIndex << " in " << zoneDataFilename << endl;

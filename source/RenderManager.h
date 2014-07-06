@@ -14,9 +14,10 @@
 class RenderManager
 {
 private:
-    frmr::Vec3f     ambientLightColor;
-    frmr::Shader    deferredShadingShader;
-    frmr::Shader    deferredRenderingShader;
+    //frmr::Vec3f     ambientLightColor;
+
+    frmr::Shader    geometryPassShader;
+    frmr::Shader    lightPassShader;
     frmr::Shader    depthTransferShader;
 
     GLuint			deferredFbo; // The FBO Id
@@ -43,7 +44,7 @@ private:
 	GLuint          lightQuadraticAttenuationId;
 
 	GLuint			shadowFbo;
-	GLuint			shadowDepth;
+	GLuint			shadowDepth;	//texture?
 	GLuint			shadowMap;
 
 	GLuint          icosphere;
@@ -54,9 +55,10 @@ private:
 	void	CreateShadowCubemap();
     GLuint  CreateFullscreenQuad( const EngineConfig &engineCfg ) const;
     void    ResetViewport( const EngineConfig &engineCfg ) const;
-    void    StartRenderToFBO( const EngineConfig &engineCfg ) const;
-    void    StopRenderToFBO() const;
-
+    void    BindDeferredFbo() const;
+    void    UnbindDeferredFbo() const;
+	void	BindShadowFbo( const GLenum cubeFace ) const;
+	void	UnbindShadowFbo() const;
 public:
     void Render( const Simulation &gameSim, const EngineConfig &engineCfg ) const;
     void SetupOpenGL( const EngineConfig &engineCfg ) const;

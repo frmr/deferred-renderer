@@ -6,3 +6,4 @@ Need to make sure the exact amount of damage is done i.e. if the effect timer ov
 Should provide secret key to new Clients, which they use to identify themselves when they attempt to modify a Player's position/name/etc?
 Use std pointers instead of the C pointer
 Multithreading should be used for: collision detection, light culling
+Enemies further away should update less often
