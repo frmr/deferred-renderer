@@ -19,7 +19,7 @@ private:
     frmr::Shader    deferredRenderingShader;
     frmr::Shader    depthTransferShader;
 
-    GLuint			fbo; // The FBO Id
+    GLuint			deferredFbo; // The FBO Id
 
     GLuint          surfaceTextureId;
 
@@ -42,12 +42,18 @@ private:
 	GLuint          lightLinearAttenuationId;
 	GLuint          lightQuadraticAttenuationId;
 
+	GLuint			shadowFbo;
+	GLuint			shadowDepth;
+	GLuint			shadowMap;
+
 	GLuint          icosphere;
 	GLuint          fullscreenQuad;
 
 private:
+	void	CreateDeferredFbo( const EngineConfig &engineCfg );
+	void	CreateShadowCubemap();
     GLuint  CreateFullscreenQuad( const EngineConfig &engineCfg ) const;
-    void    ResetViewport( const EngineConfig &engienCfg ) const;
+    void    ResetViewport( const EngineConfig &engineCfg ) const;
     void    StartRenderToFBO( const EngineConfig &engineCfg ) const;
     void    StopRenderToFBO() const;
 
