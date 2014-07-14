@@ -12,6 +12,8 @@ uniform vec3 lightColor;
 uniform float lightLinearAttenuation;
 uniform float lightQuadraticAttenuation;
 
+uniform samplerCubeShadow shadow;
+
 vec3 unproject( in float winX, in float winY, in float winZ )
 {	
 	//Transformation of normalized coordinates between -1 and 1
@@ -43,8 +45,8 @@ void main( void )
 		
 		vec3 fragPosition = unproject( gl_FragCoord.x, gl_FragCoord.y, fragDepth );
 
-		//float lightDot = dot( normalize( fragPosition - lightPosition ), fragNormal.xyz );
-		float lightDot = dot( normalize( lightPosition - fragPosition ), fragNormal.xyz );
+		vec3 lightFragVector = normalize( lightPosition - fragPosition );
+		float lightDot = dot( lightFragVector, fragNormal.xyz );
 		
 		if ( lightDot <= 0.0 )
 		{
@@ -54,6 +56,7 @@ void main( void )
 		{
 			float dist = distance( fragPosition.xyz, lightPosition );
 			gl_FragColor = vec4( fragDiffuse.rgb * lightDot * lightColor / ( dist * lightLinearAttenuation + dist * dist * lightQuadraticAttenuation ), 0.0f );
+			//gl_FragColor = texture( shadow, vec4( lightFragVector, 0.0 ) );
 			//gl_FragColor = vec4( fragDiffuse.rgb * lightColor / ( dist * lightLinearAttenuation + dist * dist * lightQuadraticAttenuation ), 0.0f );
 			//gl_FragColor = vec4( lightDot, 0.0, 0.0, 0.0 );
 			//gl_FragColor = vec4( fragNormal.xyz, 0.0 );
