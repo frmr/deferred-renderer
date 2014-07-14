@@ -58,6 +58,9 @@ void RenderManager::UnbindDeferredFbo() const
 void RenderManager::BindShadowFbo( const GLenum cubeFace ) const
 {
 	glBindFramebuffer( GL_DRAW_FRAMEBUFFER, shadowFbo );
+
+	//glViewport(0, 0, SHADOW_SIZE, SHADOW_SIZE);
+
 	glFramebufferTexture2D( GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, cubeFace, shadowMap, 0);
 	glDrawBuffer( GL_COLOR_ATTACHMENT0 );
 }
@@ -88,6 +91,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
 			//render the simulation
 			ProjectionState cameraProjection = gameSim.RenderLit();
+			//ProjectionState cameraProjection = gameSim.RenderShadowCasters( gameSim.GetStaticLights()[2].GetCameras()[5] ); //for testing light cameras
+
 			int viewportMatrix[4];
 			float perspectiveMatrix[16];
 			cameraProjection.CopyViewportMatrix( viewportMatrix );
@@ -129,10 +134,38 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
     //const vector<Light> staticLights;// = gameSim.GetStaticLights();
     vector<Light> staticLights = gameSim.GetStaticLights();
 
+	PerspectiveCamera activeCamera = gameSim.GetActiveCamera();
+
     glDisable( GL_BLEND );
 
     for ( auto lightIt : staticLights )
     {
+    	//if light casts shadows
+    	//for each face
+    	//render face to fbo
+
+    	if ( lightIt.CastsShadows() )
+		{
+			glBindFramebuffer( GL_FRAMEBUFFER, shadowFbo );
+			glViewport( 0, 0, 1024, 1024 );
+			glCullFace( GL_FRONT );
+
+			glUseProgram( shadowPassShader.GetProgramHandler() );
+
+				int cameraIndex = 0;
+				for ( auto camIt : lightIt.GetCameras() )
+				{
+					//if camera frustum intersects activeCamera frustum
+					glFramebufferTexture2D( GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_CUBE_MAP_POSITIVE_X + cameraIndex++, shadowMap, 0 );
+					glClear( GL_DEPTH_BUFFER_BIT );
+
+					gameSim.RenderShadowCasters( camIt );
+				}
+
+			glUseProgram( 0 );
+			glBindFramebuffer( GL_FRAMEBUFFER, 0 );
+		}
+
         glColorMask( GL_FALSE, GL_FALSE, GL_FALSE, GL_FALSE ); //disable writing to the color buffer
         glStencilMask( 0xFF ); //enable writing to the stencil buffer
 
@@ -141,7 +174,8 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
         glStencilFunc( GL_NEVER, 1, 0xFF ); // never pass stencil test
         glStencilOp( GL_REPLACE, GL_KEEP, GL_KEEP );  // replace stencil buffer values to ref=1
 
-        gameSim.GetActiveCamera().ApplyTransformation();
+        activeCamera.ApplyTransformation();
+		ResetViewport( engineCfg );
 
 		//render icosphere
         glPushMatrix();
@@ -163,6 +197,9 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 
 		orthoCamera.ApplyTransformation();
 
+
+		glDisable( GL_STENCIL_TEST );
+
         glUseProgram( lightPassShader.GetProgramHandler() );
 
 			//pass the light's attributes to the shader
@@ -170,6 +207,10 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 			glUniform3f( lightColorId, lightIt.GetColor().GetX(), lightIt.GetColor().GetY(), lightIt.GetColor().GetZ() );
 			glUniform1f( lightLinearAttenuationId, lightIt.GetLinearAttenuation() );
 			glUniform1f( lightQuadraticAttenuationId, lightIt.GetQuadraticAttenuation() );
+
+			glUniform1i( shadowId, shadowMap );
+			glEnable( GL_TEXTURE_CUBE_MAP );
+			glBindTexture( GL_TEXTURE_CUBE_MAP, shadowMap );
 
 			glDisable( GL_CULL_FACE );
 
@@ -180,15 +221,14 @@ void RenderManager::Render( const Simulation &gameSim, const EngineConfig &engin
 			//bind the diffuse, normal and depth maps before rendering fullscreen quad
 			glActiveTexture( GL_TEXTURE0 );
 			glBindTexture( GL_TEXTURE_2D, normalsTexture );
-
 			glActiveTexture( GL_TEXTURE1 );
 			glBindTexture( GL_TEXTURE_2D, diffuseTexture );
-
 			glActiveTexture( GL_TEXTURE2 );
 			glBindTexture( GL_TEXTURE_2D, depthTexture );
 
 			glCallList( fullscreenQuad );
 
+			glDisable( GL_TEXTURE_CUBE_MAP );
 			glDisable( GL_BLEND );
 
 		glUseProgram( 0 );
@@ -306,21 +346,23 @@ void RenderManager::CreateDeferredFbo( const EngineConfig &engineCfg )
 	normalsId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "normalsTexture" );
 	diffuseId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "diffuseTexture" );
 	depthId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "depthTexture" );
+
+	shadowId = glGetUniformLocation( lightPassShader.GetProgramHandler(), "shadow" );
 }
 
 void RenderManager::CreateShadowCubemap()
 {
 	glGenFramebuffers( 1, &shadowFbo );
 
-	// Create the depth buffer
-	glGenTextures( 1, &shadowDepth );
-    glBindTexture( GL_TEXTURE_2D, shadowDepth );
-    glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT32, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL );
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glBindTexture(GL_TEXTURE_2D, 0);
+//	// Create the depth buffer
+//	glGenTextures( 1, &shadowDepth );
+//    glBindTexture( GL_TEXTURE_2D, shadowDepth );
+//    glTexImage2D( GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT32, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL );
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+//    glBindTexture(GL_TEXTURE_2D, 0);
 
     // Create the cube map
    	glGenTextures( 1, &shadowMap );
@@ -333,17 +375,16 @@ void RenderManager::CreateShadowCubemap()
 
 	for ( unsigned int face = 0 ; face < 6 ; face++ )
 	{
-        glTexImage2D( GL_TEXTURE_CUBE_MAP_POSITIVE_X + face, 0, GL_R32F, 1024, 1024, 0, GL_RED, GL_FLOAT, NULL );
+        glTexImage2D( GL_TEXTURE_CUBE_MAP_POSITIVE_X + face, 0, GL_DEPTH_COMPONENT, 1024, 1024, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL );
     }
 
+	glBindTexture( GL_TEXTURE_CUBE_MAP, 0 );
+
 	glBindFramebuffer( GL_FRAMEBUFFER, shadowFbo );
-    glFramebufferTexture2D( GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, shadowDepth, 0 );
 
-     // Disable writes to the color buffer
-    glDrawBuffer( GL_NONE );
-
-    // Disable reads from the color buffer
-    glReadBuffer( GL_NONE );
+     // Disable reads and writes to the color buffer
+    //glDrawBuffer( GL_NONE );
+    //glReadBuffer( GL_NONE );
 
     GLenum status = glCheckFramebufferStatus( GL_FRAMEBUFFER );
 
@@ -352,7 +393,7 @@ void RenderManager::CreateShadowCubemap()
         cout << "RenderManager::CreateShadowCubemap - FBO is not complete." << endl;
     }
 
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glBindFramebuffer( GL_FRAMEBUFFER, 0 );
 }
 
 RenderManager::RenderManager( const EngineConfig &engineCfg )
@@ -361,6 +402,7 @@ RenderManager::RenderManager( const EngineConfig &engineCfg )
     geometryPassShader.Load( "../data/shaders/geometryPass.vert", "../data/shaders/geometryPass.frag" );
     lightPassShader.Load( "../data/shaders/lightPass.vert", "../data/shaders/lightPass.frag" );
     depthTransferShader.Load( "../data/shaders/depthTransfer.vert", "../data/shaders/depthTransfer.frag" );
+    shadowPassShader.Load( "../data/shaders/shadowPass.vert", "../data/shaders/shadowPass.frag" );
 
     CreateDeferredFbo( engineCfg );
 	CreateShadowCubemap();

@@ -27,7 +27,7 @@ private:
 	StaticGeometry		staticGeometry;
 	vector<Player>		players; //TODO: make sure this list is sorted by actorNumEncoded when constructed, then use encoded num sent through network to find actor without decoding. Further players can just be added to the end
 
-	map<string, map<string, vector<AnimatedBillboard::Frame>>>  animations;
+	map<string, map<string, vector<AnimatedBillboard::Frame>>>  animations; //this is silly, make an Animation class?
 
 private:
     void LoadBillboardAnimation( const string filename );
@@ -39,7 +39,7 @@ public:
     PerspectiveCamera	GetActiveCamera() const;
     vector<Light>		GetStaticLights() const;
 	ProjectionState		RenderLit() const;
-	void				RenderShadowCasters( const PerspectiveCamera &lightView ) const;
+	ProjectionState		RenderShadowCasters( const PerspectiveCamera &lightView ) const;
 	void				Update( const int32_t elapsedTime, const float deltaTime, const InputState &inputs, const float mouseSensitivity );
 
 public:

@@ -29,12 +29,13 @@ private:
     float CalculateRadius() const;
 
 public:
-	bool		CastsShadows() const;
-    frmr::Vec3f GetColor() const;
-    float       GetLinearAttenuation() const;
-    frmr::Vec3f GetPosition() const;
-    float       GetRadius() const;
-    float       GetQuadraticAttenuation() const;
+	bool						CastsShadows() const;
+	vector<PerspectiveCamera>	GetCameras() const;
+    frmr::Vec3f 				GetColor() const;
+    float       				GetLinearAttenuation() const;
+    frmr::Vec3f 				GetPosition() const;
+    float       				GetRadius() const;
+    float       				GetQuadraticAttenuation() const;
 
 public:
     Light( const frmr::Vec3f &position, const frmr::Vec3f &color, const float radius, const int16_t zoneNum, const bool castShadows );

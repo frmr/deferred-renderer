@@ -297,9 +297,9 @@ void StaticGeometry::Render( const int16_t cameraZoneNum, const ProjectionState 
 
     for ( auto renderedZoneIt : renderedZones )
     {
-        cout << renderedZoneIt << " ";
+        //cout << renderedZoneIt << " ";
     }
-    cout << std::endl;
+    //cout << std::endl;
 
     vector<int> visibleEntityZones = renderedZones; //TODO: Return this when we're done so that Simulation knows which Entities to render
 }

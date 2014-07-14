@@ -98,8 +98,8 @@ void Spectator::Update( const InputState &inputs, const float mouseSensitivity, 
 
     ApplyVelocity( deltaTime );
     //cout << position.GetX() << " " << position.GetY() << " " << position.GetZ() << endl;
-    cout << viewVector.GetX() << " " << viewVector.GetY() << " " << viewVector.GetZ() << endl;
-    cout << rotation.GetX() << " " << rotation.GetY() << endl;
+    //cout << viewVector.GetX() << " " << viewVector.GetY() << " " << viewVector.GetZ() << endl;
+    //cout << rotation.GetX() << " " << rotation.GetY() << endl;
 }
 
 Spectator::Spectator( const string &name, const frmr::Vec3f &position, const frmr::Vec2f &rotation, const int16_t zoneNum )

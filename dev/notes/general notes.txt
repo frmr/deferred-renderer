@@ -7,3 +7,4 @@ Should provide secret key to new Clients, which they use to identify themselves 
 Use std pointers instead of the C pointer
 Multithreading should be used for: collision detection, light culling
 Enemies further away should update less often
+Keep shaders in the source code rather than loading from files

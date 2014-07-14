@@ -19,6 +19,7 @@ private:
     frmr::Shader    geometryPassShader;
     frmr::Shader    lightPassShader;
     frmr::Shader    depthTransferShader;
+	frmr::Shader	shadowPassShader;
 
     GLuint			deferredFbo; // The FBO Id
 
@@ -44,8 +45,9 @@ private:
 	GLuint          lightQuadraticAttenuationId;
 
 	GLuint			shadowFbo;
-	GLuint			shadowDepth;	//texture?
+	//GLuint			shadowDepth;	//texture?
 	GLuint			shadowMap;
+	GLuint			shadowId;
 
 	GLuint          icosphere;
 	GLuint          fullscreenQuad;

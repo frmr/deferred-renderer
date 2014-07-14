@@ -16,6 +16,11 @@ bool Light::CastsShadows() const
 	return castShadows;
 }
 
+vector<PerspectiveCamera> Light::GetCameras() const
+{
+	return cameras;
+}
+
 frmr::Vec3f Light::GetColor() const
 {
     return color;

@@ -16,21 +16,21 @@ int frmr::Round( const double value )
     return (int) floor( value + 0.5 );
 }
 
-float frmr::VectorDot( const frmr::Vec2f &vect1, const frmr::Vec2f &vect2 )
+float frmr::VectorDot( const frmr::Vec2f &vecA, const frmr::Vec2f &vecB )
 {
-    return vect1.GetX() * vect2.GetX() + vect1.GetY() * vect2.GetY();
+    return vecA.GetX() * vecB.GetX() + vecA.GetY() * vecB.GetY();
 }
 
-float frmr::VectorDot( const frmr::Vec3f &vect1, const frmr::Vec3f &vect2 )
+float frmr::VectorDot( const frmr::Vec3f &vecA, const frmr::Vec3f &vecB )
 {
-    return vect1.GetX() * vect2.GetX() + vect1.GetY() * vect2.GetY() + vect1.GetZ() * vect2.GetZ();
+    return vecA.GetX() * vecB.GetX() + vecA.GetY() * vecB.GetY() + vecA.GetZ() * vecB.GetZ();
 }
 
-frmr::Vec3f frmr::VectorCross( const frmr::Vec3f &vect1, const frmr::Vec3f &vect2 )
+frmr::Vec3f frmr::VectorCross( const frmr::Vec3f &vecA, const frmr::Vec3f &vecB )
 {
-    return frmr::Vec3f( vect1.GetY() * vect2.GetZ() - vect1.GetZ() * vect2.GetY(),
-                        vect1.GetZ() * vect2.GetX() - vect1.GetX() * vect2.GetZ(),
-                        vect1.GetX() * vect2.GetY() - vect1.GetY() * vect2.GetX() );
+    return frmr::Vec3f( vecA.GetY() * vecB.GetZ() - vecA.GetZ() * vecB.GetY(),
+                        vecA.GetZ() * vecB.GetX() - vecA.GetX() * vecB.GetZ(),
+                        vecA.GetX() * vecB.GetY() - vecA.GetY() * vecB.GetX() );
 }
 
 //TODO make this function return degrees instead of radians
@@ -99,17 +99,17 @@ bool frmr::LinePlaneIntersection( const frmr::Vec3f &planeNormal, const frmr::Ve
     }
 }
 
-frmr::Vec3f frmr::LinePointIntersection( const frmr::Vec3f &p1, const frmr::Vec3f &p2, const frmr::Vec3f &px, const bool limitToBounds )
+frmr::Vec3f frmr::LinePointIntersection( const frmr::Vec3f &pA, const frmr::Vec3f &pB, const frmr::Vec3f &px, const bool limitToBounds )
 {
-    Vec3f lineVector = p2 - p1;
+    Vec3f lineVector = pB - pA;
 
-    float u = ( px.GetX() - p1.GetX() ) * lineVector.GetX() + ( px.GetY() - p1.GetY() ) * lineVector.GetY() + ( px.GetZ() - p1.GetZ() ) * lineVector.GetZ();
+    float u = ( px.GetX() - pA.GetX() ) * lineVector.GetX() + ( px.GetY() - pA.GetY() ) * lineVector.GetY() + ( px.GetZ() - pA.GetZ() ) * lineVector.GetZ();
     float dist = lineVector.Length();
     u /= ( dist * dist );
 
     if ( !limitToBounds )
     {
-        return p1 + lineVector * u;
+        return pA + lineVector * u;
     }
     else
     {
@@ -117,35 +117,35 @@ frmr::Vec3f frmr::LinePointIntersection( const frmr::Vec3f &p1, const frmr::Vec3
         if ( u < 0.0f || u > 1.0f )
         {
             //check which vertex is closest
-            float p1Dist = ( p1 - px ).Length();
-            float p2Dist = ( p2 - px ).Length();
+            float pADist = ( pA - px ).Length();
+            float pBDist = ( pB - px ).Length();
 
-            return ( p1Dist < p2Dist ) ? p1 : p2;
+            return ( pADist < pBDist ) ? pA : pB;
         }
         else
         {
-            return p1 + lineVector * u;
+            return pA + lineVector * u;
         }
     }
 }
 
-frmr::Vec3f frmr::LineLineIntersection( const frmr::Vec3f &start1, const frmr::Vec3f &vec1, const frmr::Vec3f &start2, const frmr::Vec3f &vec2, const bool limitToBounds )
+frmr::Vec3f frmr::LineLineIntersection( const frmr::Vec3f &startA, const frmr::Vec3f &vecA, const frmr::Vec3f &startB, const frmr::Vec3f &vecB, const bool limitToBounds )
 {
-    float parallelCheck = vec1.GetY() * vec2.GetX() - vec1.GetX() * vec2.GetY();
+    float parallelCheck = vecA.GetY() * vecB.GetX() - vecA.GetX() * vecB.GetY();
     if ( parallelCheck == 0.0f )
     {
         return frmr::Vec3f();
     }
     else
     {
-        float multiplier = ( vec1.GetY() * start1.GetX() - vec1.GetY() * start2.GetX() + vec1.GetX() * start2.GetY() - vec1.GetX() * start1.GetY() ) / parallelCheck;
+        float multiplier = ( vecA.GetY() * startA.GetX() - vecA.GetY() * startB.GetX() + vecA.GetX() * startB.GetY() - vecA.GetX() * startA.GetY() ) / parallelCheck;
         if ( limitToBounds && ( multiplier > 1.0f || multiplier < 0.0f ) )
         {
             return frmr::Vec3f();
         }
         else
         {
-            return start2 + vec2 * multiplier;
+            return startB + vecB * multiplier;
         }
     }
 }

@@ -169,7 +169,7 @@ zone
 
 	light
 		position		30	0	10
-		color			0	0	0
+		color			10	0	0
 		radius			100
 	/light
 
@@ -270,7 +270,7 @@ zone
 
 	light
 		position		15	0	10
-		color			0	0	0
+		color			0	10	0
 		radius			100
 	/light
 
