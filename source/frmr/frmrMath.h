@@ -6,7 +6,7 @@
 
 namespace frmr
 {
-    int         Round( const float value );
+    int         Round( const float value ); //TODO: USE CMATH ROUND
     int         Round( const double value );
 
     float       VectorDot( const frmr::Vec2f &vecA, const frmr::Vec2f &vecB );

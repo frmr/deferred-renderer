@@ -1,9 +1,0 @@
-u			update
-	a			actor (id, position, rotation, velocity)
-	p			player (id)
-		n			name
-		h			health
-		c			color
-		t			team
-		
-k			kick

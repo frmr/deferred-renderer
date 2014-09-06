@@ -1,7 +1,0 @@
-SFML
-	Input 	(allows five-button mouse)
-	Audio	
-	Window
-	
-Collision detection
-	OZCollide/Bullet/ODE

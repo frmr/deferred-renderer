@@ -1,5 +1,0 @@
-.wzm for maps (Wizmatch Map)
-.wzd for compiled data (Wizmatch Data)
-.wzs for scripts (WizScript)
-.ogg for sound
-.png for texture
